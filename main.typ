@@ -939,7 +939,7 @@ ce("B") &fwdArrow(k_2) ce("C").
 $
 Here, we are considering each reaction as a discrete event involving individual molecules.
 We define the propensity, $a_j$, of each reaction in an analogous way as we define the reaction rate:
-$ a_1 = k_1 X_ce("A"), quad a_2 = k_2 x_"B ", $
+$ a_1 = k_1 x_ce("A"), quad a_2 = k_2 x_"B ", $
 where each $x_j$ is the discrete number of $j$ molecules in the reactor (rather than the continuous value of concentration).
 We will also consider the time $t$ to be discretized, such that we are simulating reaction snapshots (or lack thereof) at each time step.
 
