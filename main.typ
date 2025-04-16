@@ -1038,7 +1038,7 @@ Consider the following reaction:
 $ ce("2NO + O2 -> 2NO2") $<eq:no2_rxn>
 One might propose based on the stoichiometry an elementary rate law of the form
 $ r =^? k conc("NO")^2 conc("O2"). $<eq:no2_rate_law>
-It is known from experiments that the reaction does appear to be second order in #conc("NO") and first order in #ce("O2").
+It is known from experiments that the reaction does appear to be second order in #conc("NO") and first order in #conc("O2").
 However, termolecular reactions are extremely rare, so one might conclude that it would be unlikely for the reaction to proceed as written despite the observed rate law. 
 Unusually, $r$ has also been observed to _decrease_ with increasing temperature.
 These details allow us to definitively conclude that #ref(<eq:no2_rxn>) cannot actually be an elementary reaction. 
