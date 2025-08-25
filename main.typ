@@ -4,10 +4,11 @@
 // 3. Do reactor archetypes after the midterm.
 // 4. Sprinkle in more examples in-class.
 // 5. Add a brief discussion on lumped rate constants.
+// New topics: Reactor modeling and transport limitations
 #import "@preview/xarrow:0.3.1": xarrow
-#import "@preview/gentle-clues:1.0.0": tip, clue
-#import "@preview/whalogen:0.2.0": ce
-#import "@preview/ilm:1.3.1": ilm
+#import "@preview/gentle-clues:1.2.0": tip, clue
+#import "@preview/whalogen:0.3.0": ce
+#import "@preview/ilm:1.4.1": ilm
 
 #let caution(title: "Caution", icon: emoji.warning, ..args) = clue(
   accent-color: orange,
@@ -33,8 +34,8 @@
   icon: icon,
   ..args
 )
-#let self(title: "Note to Self", icon: emoji.mirror, ..args) = clue(
-  accent-color: gray,
+#let reading(title: "Interesting Reads", icon: emoji.book, ..args) = clue(
+  accent-color: green,
   title: title,
   icon: icon,
   ..args
@@ -58,7 +59,7 @@
   author: "Andrew S. Rosen",
   abstract: [Lectures notes for a graduate-level course.\ Compiled on #datetime.today().display().],
   paper-size: "us-letter",
-  preface: [#align(center + horizon)[Copyright #sym.copyright 2024 Andrew S. Rosen.
+  preface: [#align(center + horizon)[Copyright #sym.copyright 2025 Andrew S. Rosen.
 
 Licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License (the "License"). You may not use this file except in compliance with the License. You may obtain a copy of the License at https://creativecommons.org/licenses/by-nc-sa/4.0.
 
@@ -830,7 +831,7 @@ $<eq:delplot_toy_rxn>
 in the case where $k_3 != k_1+k_2$.
 
 The approach we will take here is as follows.
-For each product P, we will make a plot of $Y_ce("P")\/X_ce("A")$ vs. $X_ce("A")$ and extrapolate to $X_ce("A")->0$ (i.e. $t->0$ or $tau->0$ depending on the reactor type), where $Y_ce("P")$ is the yield of product P and $X_ce("A")$ is the conversion of A.
+For each product P, we will make a plot of $Y_ce("P")\/X_ce("A")$ vs. $X_ce("A")$ and extrapolate to $X_ce("A")->0$ (i.e. $t->0$), where $Y_ce("P")$ is the yield of product P and $X_ce("A")$ is the conversion of A.
 We will show that this approach can distinguish whether the product is primary or not based on whether the $y$-axis intercept has a finite value or not.
 Written mathematically, we seek to carry out the following analysis
 $ lim_(X_ce("A")->0)(Y_ce("P") / X_ce("A")) = lim_(X_ce("A")->0)((conc("P") \/ conc("A")_0) / (1 - conc("A") \/ conc("A")_0)) = lim_(X_ce("A")->0)(conc("P") / (conc("A")_0 - conc("A"))), $<eq:delplot_first>
