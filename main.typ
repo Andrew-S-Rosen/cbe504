@@ -5,43 +5,43 @@
 // 4. Sprinkle in more examples in-class.
 // 5. Add a brief discussion on lumped rate constants.
 // New topics: Reactor modeling and transport limitations
-#import "@preview/xarrow:0.3.1": xarrow
-#import "@preview/gentle-clues:1.2.0": tip, clue
-#import "@preview/whalogen:0.3.0": ce
-#import "@preview/ilm:1.4.1": ilm
+#import"@preview/xarrow:0.3.1": xarrow
+#import"@preview/gentle-clues:1.2.0": tip, clue
+#import"@preview/whalogen:0.3.0": ce
+#import"@preview/ilm:1.4.1": ilm
 
-#let caution(title: "Caution", icon: emoji.warning, ..args) = clue(
+#let caution(title:"Caution", icon: emoji.warning, ..args) = clue(
   accent-color: orange,
   title: title,
   icon: icon,
   ..args
 )
-#let alternate(title: "Alternate Approach", icon: emoji.face.explode, ..args) = clue(
+#let alternate(title:"Alternate Approach", icon: emoji.face.explode, ..args) = clue(
   accent-color: blue,
   title: title,
   icon: icon,
   ..args
 )
-#let plot(title: "Interactive Plot", icon: emoji.chart, ..args) = clue(
+#let plot(title:"Interactive Plot", icon: emoji.chart, ..args) = clue(
   accent-color: purple,
   title: title,
   icon: icon,
   ..args
 )
-#let tip(title: "Helpful Tip", icon: emoji.brain, ..args) = clue(
+#let tip(title:"Helpful Tip", icon: emoji.brain, ..args) = clue(
   accent-color: yellow,
   title: title,
   icon: icon,
   ..args
 )
-#let reading(title: "Interesting Reads", icon: emoji.book, ..args) = clue(
+#let reading(title:"Interesting Reads", icon: emoji.book, ..args) = clue(
   accent-color: green,
   title: title,
   icon: icon,
   ..args
 )
 #let std = sym.circle.small
-#let conc(val) = $[ce(val )]$
+#let conc(val) = $[ce(val)]$
 #let rad = sym.circle.filled.small
 #let eqArrow = xarrow.with(
   sym: sym.harpoons.rtlb,
@@ -56,12 +56,12 @@
 
 #show: ilm.with(
   title: [Chemical Kinetics and Reaction Engineering],
-  author: "Andrew S. Rosen",
+  author:"Andrew S. Rosen",
   abstract: [Lectures notes for a graduate-level course.\ Compiled on #datetime.today().display().],
-  paper-size: "us-letter",
+  paper-size:"us-letter",
   preface: [#align(center + horizon)[Copyright #sym.copyright 2025 Andrew S. Rosen.
 
-Licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License (the "License"). You may not use this file except in compliance with the License. You may obtain a copy of the License at https://creativecommons.org/licenses/by-nc-sa/4.0.
+Licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License (the"License"). You may not use this file except in compliance with the License. You may obtain a copy of the License at https://creativecommons.org/licenses/by-nc-sa/4.0.
 
 A.S.R acknowledges Prof. Aditya Bhan, Prof. Linda Broadbelt, Prof. Justin Notestein, and Prof. Neil Razdan for inspiration on various topics covered within this course.
 Most importantly, A.S.R. is grateful for the thoughtful questions, comments, and corrections provided by his students who have helped shaped this text during their journey.
@@ -93,7 +93,7 @@ One of the most notable examples of this is the inclusion of activity coefficien
 The lack of attention dedicated to the proper accounting of standard state properties further complicates matters as well.
 
 This course seeks to present reaction kinetics with as theoretically sound of a basis as possible, emphasizing rigor and precision at each step of the journey.
-Additionally, nearly every derivation is carried out in full with no steps left as "an exercise for the reader," as this is often where errors are most likely to arise.
+Additionally, nearly every derivation is carried out in full with no steps left as"an exercise for the reader," as this is often where errors are most likely to arise.
 Interactive plots are presented throughout the text to allow the reader to engage more directly with the underlying equations when doing so would yield unique insights.
 
 Of course, given the nature of limited time, there must always be tradeoffs.
@@ -125,7 +125,7 @@ As chemical engineers, we can draw significant inspiration from nature's chemica
 Methane itself is a greenhouse gas that, while in lower concentrations than carbon dioxide in the atmosphere, has an 80#sym.times higher global warming potential within the first 20 years of its release.
 Chemical engineers have been inspired by methanotrophs to research ways to directly convert methane --- the primary component of natural gas --- into cleaner and more valuable chemical feedstocks.
 Heterogeneous catalysts, for example, that mimic the structure of the active sites in methane monooxygenase enzymes found within methanotrophs have been shown to directly and selectively convert of methane into methanol.
-While carrying out this process efficiently and cost-effectively at industrial scales remains a "holy grail", it is worth keeping in mind that the core principles of reaction engineering spans many disciplines that can each benefit from the insights of one another.
+While carrying out this process efficiently and cost-effectively at industrial scales remains a"holy grail", it is worth keeping in mind that the core principles of reaction engineering spans many disciplines that can each benefit from the insights of one another.
 
 === Ammonia Synthesis <ammonia-synthesis>
 
@@ -135,9 +135,9 @@ Powered by the Haber--Bosch process devised by Fritz Haber and Carl Bosch, the m
 The Haber--Bosch process itself constitutes the following net reaction: 
 $ ce("N2 + 3 H2 <=> 2 NH3"). $
 
-Colloquially referred to as "converting air into bread", this process produces the ammonia that is central to nitrogen fertilizers, a process so important to society that it is believed to have been a critical factor in the global population boom during the 20#super[th] century.
+Colloquially referred to as"converting air into bread", this process produces the ammonia that is central to nitrogen fertilizers, a process so important to society that it is believed to have been a critical factor in the global population boom during the 20#super[th] century.
 #footnote[
-  For additional historical context about the Haber--Bosch process and the complicated history of Fritz Haber himself, watch "The Man Who Killed Millions and Saved Billions" by Veritasium: https://www.youtube.com/watch?v=QQkmJI63ykI.
+  For additional historical context about the Haber--Bosch process and the complicated history of Fritz Haber himself, watch"The Man Who Killed Millions and Saved Billions" by Veritasium: https://www.youtube.com/watch?v=QQkmJI63ykI.
 ]
 In fact, it is estimated that up to half of the nitrogen atoms in the human body may have gone through the Haber--Bosch process.
 We will revisit the ammonia reactor and the Haber--Bosch process several times throughout this course, as it is an excellent example that ties together many of the fundamental concepts of chemical reaction engineering.
@@ -147,7 +147,7 @@ We will revisit the ammonia reactor and the Haber--Bosch process several times t
 Fast forwarding to the 1930s, the rise of the automobile and increased reliance on fossil fuels led to several advances in reactor technologies.
 One representative discovery was the catalytic cracker: a reactor that uses an aluminosilicate material known as Zeolite Y to catalyze the conversion of high-molecular weight, linear alkanes found in petroleum into smaller, more valuable hydrocarbons.
 #footnote[If you ever find yourself driving back to Princeton from New York City, take a look in the westward direction near the entrance of Interstate 95. You will likely be able to see the Phillips 66 Bayway Refinery, which has a fluid catalytic cracking unit (among other chemical reactors). Roughly one out of every 20 ships in New York Harbor are bound for this refinery, where crude oil is distilled, cracked, and purified.]
-Another relevant process pioneered during this time period is the Fischer--Tropsch process, which converts carbon monoxide and hydrogen (known as synthesis gas or "syngas") into liquid hydrocarbons.
+Another relevant process pioneered during this time period is the Fischer--Tropsch process, which converts carbon monoxide and hydrogen (known as synthesis gas or"syngas") into liquid hydrocarbons.
 #footnote[
   For a molecular-scale view of how the Fischer--Tropsch reaction works, watch the following animation from the Eindhoven University of Technology: https://www.youtube.com/watch?v=44OU4JxEK4k.
 ]
@@ -158,7 +158,7 @@ The synthesis gas in this case is produced via coal gasification, wherein coal i
 
 While much of the history of chemical engineering is intricately tied to the fossil fuel industry, its future is far more diverse in scope.
 Recently, there has been a significant push towards leveraging chemical reaction engineering principles to address the many clean energy and sustainability challenges facing our planet.
-Some areas of interest include the design of fuel cells that convert hydrogen and oxygen into electricity, porous materials that can capture and convert carbon dioxide, and cutting-edge technologies to "upcycle" plastic waste into valuable commodity chemicals.
+Some areas of interest include the design of fuel cells that convert hydrogen and oxygen into electricity, porous materials that can capture and convert carbon dioxide, and cutting-edge technologies to"upcycle" plastic waste into valuable commodity chemicals.
 Even further into the future, one can think about circling back to the original reactor described in this section: the Sun.
 While likely many decades away from commercialization, nuclear fusion reactors are being designed with the hope that they can one day serve as a clean and abundant source of energy for humanity.
 #footnote[In fact, one of the earliest fusion reactor designs --- the stellarator --- was pioneered at the Princeton Plasma Physics Laboratory (PPPL) and set the stage for improved fusion reactor design both at PPPL and around the world.]
@@ -170,7 +170,7 @@ While likely many decades away from commercialization, nuclear fusion reactors a
 === Stoichiometry for Individual Reactions
 
 We start by considering a generic chemical reaction given by the following expression:
-$ alpha ce("A ") + beta ce("B ") --> gamma ce("C ") + delta ce("D "), $<eq:general_rxn>
+$ alpha ce("A") + beta ce("B") --> gamma ce("C") + delta ce("D"), $<eq:general_rxn>
 where A and B are reactants, C and D are products, and $alpha$, $beta$, $gamma$, and $delta$ are the corresponding stoichiometric numbers to ensure that mass is conserved.
 For now, we will assume that this reaction is an _elementary_ reaction, meaning that it is a single, well-defined reaction step.
 
@@ -190,7 +190,7 @@ $ -alpha A_1 -beta A_2 + gamma A_3 + delta A_4 = 0 $
 or more generally as
 $ sum_j nu_j A_j = 0, $ <eq:summation_stoichs>
 the latter of which is true for any balanced chemical reaction.
-#footnote[This can be written in matrix form as $bold(nu) dot.op bold(A)^"T " = 0$, where the superscript "T" indicates that the row vector is transposed to form a column vector.]
+#footnote[This can be written in matrix form as $bold(nu) dot.op bold(A)^"T" = 0$, where the superscript"T" indicates that the row vector is transposed to form a column vector.]
 
 === Stoichiometry for Multiple Reactions <stoich-multiple-rxns>
 
@@ -202,7 +202,7 @@ gamma ce("C") -> delta ce("D").
 $<eq:multiple_rxns>
 
 Here, we will use $i$ to denote individual reactions in contrast with $j$ for distinguishing species.
-In this case, we will define a two-dimensional stoichiometric matrix $nu_(i,j)$, which simply means "the stoichiometric number for the $j$-th species in the $i$-th reaction."
+In this case, we will define a two-dimensional stoichiometric matrix $nu_(i,j)$, which simply means"the stoichiometric number for the $j$-th species in the $i$-th reaction."
 For our example, we have
 $ 
 bold(A) = mat(A_1, A_2, A_3, A_4)\
@@ -216,7 +216,7 @@ $
 In analogy with #ref(<eq:summation_stoichs>), we can write a general expression for a balanced set of chemical equations in nearly the same way:
 $ sum_j nu_(i,j) A_j = 0, $
 where the above expression is written for each reaction $i$.
-#footnote[This can be written more compactly in matrix form as $bold(nu) dot.op bold(A)^"T " = bold(0)$.]
+#footnote[This can be written more compactly in matrix form as $bold(nu) dot.op bold(A)^"T" = bold(0)$.]
 
 Throughout this course, we will mostly write out the systems of equations, avoiding the need for a linear algebra-based perspective.
 However, the matrix representations were nonetheless included in our prior discussion to emphasize a different way of thinking about expressing chemical reactions.
@@ -231,7 +231,7 @@ The matrix forms are also convenient from a computational perspective, as they a
 With the generic reactions introduced in #ref(<generic-reactions>), we can ask the fundamental question: what is the rate of change of the $j$-th species in a given reaction, denoted $r_j$?
 Intuitively, one might say that $r_(j)$ is simply the number of moles of $A_j$ being generated per unit time.
 Most commonly, however, we will define $r_j$ in an intensive manner such that it has the following units:
-$ r_j = ["moles of " A_j] / (["time"] dot ["reaction space"]). $<eq:rate_units>
+$ r_j = ["moles of" A_j] / (["time"] dot ["reaction space"]). $<eq:rate_units>
 Here, the reaction space is typically a representative volume used to normalize the rate so that it is an intensive property.
 When the chemical reactor and its contents are spatially uniform, the reaction space can be the reactor volume itself; otherwise, it is limited to a differential, volumetric element in the reactor under consideration.
 
@@ -257,10 +257,10 @@ $ alpha ce("A") + beta ce("B") -> gamma ce("C")\
 gamma ce("C") -> delta ce("D"), $
 we can define the individual rates of change for each species as
 $
-r_ce("A") &= r_(1,"A ")\
-r_"B " &= r_(1,"B ")\
-r_"C " &= r_(1,"C ") + r_(2,"C ")\
-r_"D " &= r_(2,"D ").
+r_ce("A") &= r_(1,"A")\
+r_"B" &= r_(1,"B")\
+r_"C" &= r_(1,"C") + r_(2,"C")\
+r_"D" &= r_(2,"D").
 $<eq:r_c_species>
 
 More generally, the species rates of change can be expressed as
@@ -279,8 +279,8 @@ $ alpha ce("A") + beta ce("B") -> gamma ce("C")\
 gamma ce("C") -> delta ce("D"), $
 can be written out as
 $
-r_1 &= -r_(1,"A ")/alpha = -r_(1,"B ")/beta  = r_(1,"C ")/gamma \ 
-r_2 &= -r_(2,"C ")/gamma  = r_(2,"D ")/delta .
+r_1 &= -r_(1,"A")/alpha = -r_(1,"B")/beta  = r_(1,"C")/gamma \ 
+r_2 &= -r_(2,"C")/gamma  = r_(2,"D")/delta .
 $
 In mathematical terms, we can state more generally that for the $i$-th reaction and $j$-th species that
 $ r_i equiv r_(i,j)/nu_(i,j). $<eq:stoichs>
@@ -291,9 +291,9 @@ With this formalism, we can rewrite the net rate of change for a given species a
 For our example set of reactions, we would have
 $
 r_ce("A") &= -alpha r_1\
-r_"B " &= -beta r_1\
-r_"C " &= gamma r_1 - gamma r_2\
-r_"D " &= delta r_2.
+r_"B" &= -beta r_1\
+r_"C" &= gamma r_1 - gamma r_2\
+r_"D" &= delta r_2.
 $<eq:r_change_example>
 Take a moment to contrast the above expressions with #ref(<eq:r_c_species>), which was written in terms of the rate of change for each species rather than the rates of reaction.
 
@@ -303,7 +303,7 @@ $ r_j = sum_(i) nu_(i,j) r_i, $<eq:sum_stoichs_rate>
 where the summation is taken over each reaction $i$ in the reaction scheme.
 #footnote[
   We can rewrite #ref(<eq:sum_stoichs_rate>) more generally in matrix form as
-$bold(r)_"species"^" T" = bold(nu)^"T " dot.op bold(r),$
+$bold(r)_"species"^" T" = bold(nu)^"T" dot.op bold(r),$
 where $bold(r)_"species"$ and $bold(r)$ are the _net_ production rates of each species and the _individual_ reaction rates, respectively.
 ]
 
@@ -312,7 +312,7 @@ where $bold(r)_"species"$ and $bold(r)$ are the _net_ production rates of each s
 Thus far, we have defined the rate of a reaction as being some property that is defined by the rates of change of each species, normalized in an internally consistent manner that is not dependent on the choice of species.
 However, we can provide a slightly more proper definition if we introduce a new term: the extent of reaction.
 The extent of a reaction, $xi$, is a measure of the reaction progress (typically in units of moles) based on the number of chemical transformations,
-#footnote[For a reaction #ce("2A -> B + C") with an initial value of $N_ce("A")= 2 "mol"$ and final value of $N_ce("A") = 0.5 "mol"$, we would have $xi = -(0.5 "mol" - 2 "mol")\/2 = 0.75 "mol"$. This value of $xi$ could then be used to find the relative change in #ce("B") and #ce("C") based on their stoichiometric coefficients.]
+#footnote[For a reaction #ce("2A -> B + C") with an initial value of $N_ce("A")= 2"mol"$ and final value of $N_ce("A") = 0.5"mol"$, we would have $xi = -(0.5"mol" - 2"mol")\/2 = 0.75"mol"$. This value of $xi$ could then be used to find the relative change in #ce("B") and #ce("C") based on their stoichiometric coefficients.]
 typically defined as
 $ dif xi equiv (dif n_j)/nu_j. $
 With this, we can define the rate of the $i$-th reaction as
@@ -326,14 +326,14 @@ which is identical to #ref(<eq:stoichs>).
 At this point, it may feel like this is all just a dozen different ways to say very similar things.
 This would not be a false statement!
 It is important to be extremely precise when discussing reaction kinetics.
-A "rate" can mean many different things depending on the context.
+A"rate" can mean many different things depending on the context.
 
 === The Rate Function <mass-action-kinetics>
 
 In general, we write the rate of reaction as being the product of temperature- and concentration-dependent terms,
 $ r = f("temperature") dot f("concentration"). $
 For elementary reactions, we can generally describe this relationship via a power-law expression.
-By way of example, for the elementary reaction given by #ref(<eq:general_rxn>), $alpha ce("A ") + beta ce("B ") --> gamma ce("C ") + delta ce("D ")$, we can state
+By way of example, for the elementary reaction given by #ref(<eq:general_rxn>), $alpha ce("A") + beta ce("B") --> gamma ce("C") + delta ce("D")$, we can state
 $ r prop conc("A")^alpha conc("B")^beta. $<eq:rate_propto>
 Here, [A] and [B] refer to the molar concentrations of species A and B, respectively.
 Each exponent is referred to as a partial order, and the overall reaction order is the sum of the exponents.
@@ -341,7 +341,7 @@ For $alpha = beta = 1$, the reaction would be said to be first-order in both #co
 
 As a matter of convention, we will define a temperature-dependent proportionality factor, $k$, such that we can rewrite #ref(<eq:rate_propto>) as
 $ r = k conc("A")^alpha conc("B")^beta. $<eq:rate_equation>
-To ensure that the rate has the units given by #ref(<eq:rate_units>), the units of $k$ in #ref(<eq:rate_equation>) must be $"s "^(-1) dot ("mol"\/"m "^3)^(1 - (alpha + beta))$
+To ensure that the rate has the units given by #ref(<eq:rate_units>), the units of $k$ in #ref(<eq:rate_equation>) must be $"s"^(-1) dot ("mol"\/"m"^3)^(1 - (alpha + beta))$
 when the rate is normalized on a per-unit volume basis.
 Typically, $k$ is referred to as the rate constant or rate coefficient.
 #footnote[While some in the community have pushed to refer to $k$ as a rate coefficient rather than a rate constant, it begs the question --- what about an equilibrium constant?]
@@ -349,9 +349,9 @@ Regardless of the name, it is important to emphasize that the value of $k$ is no
 The key assumption here is that the effects of temperature and effects of composition are fully decoupled.
 
 When the reactants are gases, it is common to report the quantity of these species in terms of partial pressures, such that #ref(<eq:rate_equation>) is instead given by
-$ r = k p_("A ")^alpha p_("B ")^beta, $<eq:rate_pressure>
+$ r = k p_("A")^alpha p_("B")^beta, $<eq:rate_pressure>
 where $p_j$ is the partial pressure of the $j$-th species (i.e. the pressure of the $j$-th species if it were to occupy the entire volume alone).
-In the case of #ref(<eq:rate_pressure>), the units of $k$ instead must be given by $"s "^(-1) dot ("mol"\/"m "^3) dot "bar"^(-(alpha + beta))$.
+In the case of #ref(<eq:rate_pressure>), the units of $k$ instead must be given by $"s"^(-1) dot ("mol"\/"m"^3) dot"bar"^(-(alpha + beta))$.
 
 For a set of several plausible reactions, we can fully generalize this approach by defining the rate of the $i$-th reaction as
 $ r_i = k product_(j, nu_(i,j) < 0) [A_j]^(|nu_(i,j)|), $<eq:general_math_irreversible_rxn>
@@ -367,7 +367,7 @@ There are also many instances, as we will show throughout this course, where a p
 === Reversible Reactions <reversible-reactions>
 
 Now, we will consider a slight variation on #ref(<eq:general_rxn>) wherein the reaction is reversible:
-$ alpha"A " + beta"B " eqArrow(k^(+),opposite:k^(-)) gamma"C " + delta"D ". $<eq:general_reversible_rxn>
+$ alpha"A" + beta"B" eqArrow(k^(+),opposite:k^(-)) gamma"C" + delta"D". $<eq:general_reversible_rxn>
 In principle, all reactions are reversible, although if one direction is orders of magnitude slower than the other, invoking irreversibility is often a logical assumption.
 We can write the rate expression for #ref(<eq:general_reversible_rxn>) in essentially the same was as for #ref(<eq:general_rxn>).
 To do so, we simply write the rate expression given by #ref(<eq:rate_equation>) for each reaction --- forward and reverse:
@@ -411,7 +411,7 @@ $ k_2 / k_1 = exp(-E_ce("a")/R (1/T_2 - 1/T_1)). $<eq:arrhenius_ratio>
 In general, if one has a plot of $ln(k)$ vs. $1\/T$ though, it is better to rely on regression and/or interpolation rather than using #ref(<eq:arrhenius_ratio>) since the former will more naturally account for statistical uncertainty in the underlying data.
 
 Since one is rarely studying a single, isolated, elementary reaction, there is no inherent guarantee that the Arrhenius plot will be linear when plotted as $ln(k)$ vs. $1\/T$.
-#footnote[Refer to W. Wang and C.J. Roberts, "Non-Arrhenius Protein Aggregation", _AAPS J._, 15, 840--851 (2013) for several examples in the biochemistry literature.]
+#footnote[Refer to W. Wang and C.J. Roberts,"Non-Arrhenius Protein Aggregation", _AAPS J._, 15, 840--851 (2013) for several examples in the biochemistry literature.]
 A common example in heterogeneous catalysis is shown in #ref(<fig:arrhenius_multiple>), where the increasing temperature can cause different kinetic processes to dominate, such as diffusion limitations, mass transfer limitations, or even the reaction proceeding homogeneously (e.g. in the gas phase).
 Different linear regimes in an Arrhenius plot can also indicate a change in the underlying mechanism with temperature.
 
@@ -422,7 +422,7 @@ image("figures/arrhenius_multiple.png", width: 40%),
 
 The astute observer might question what thermodynamic property $E_ce("a") $ refers to in #ref(<eq:arrhenius>).
 For now, we will simply state that the Arrhenius equation is an empirical relationship and so $E_ce("a")$ is best thought of as simply a parameter describing the sensitivity of the rate, and thereby rate constant, to changes in temperature.
-#footnote[Speaking of empirical, the start date and temperature dependence of the Japanese cherry blossom blooming season is often modeled with the Arrhenius equation. This has been used to better understand the effects of climate change, as in P. Shi, et al., "Timing of Cherry Tree Blooming: Contrasting Effects of Rising Winter Low Temperatures and Early Spring Temperatures", _Agric. For. Meteorol._, 240, 78–89 (2017). For other unusual examples, refer to K.J. Laidler, "Unconventional Applications of the Arrhenius Law", _J. Chem. Educ._, 49, 343--344 (1972).]
+#footnote[Speaking of empirical, the start date and temperature dependence of the Japanese cherry blossom blooming season is often modeled with the Arrhenius equation. This has been used to better understand the effects of climate change, as in P. Shi, et al.,"Timing of Cherry Tree Blooming: Contrasting Effects of Rising Winter Low Temperatures and Early Spring Temperatures", _Agric. For. Meteorol._, 240, 78–89 (2017). For other unusual examples, refer to K.J. Laidler,"Unconventional Applications of the Arrhenius Law", _J. Chem. Educ._, 49, 343--344 (1972).]
 We will revisit the Arrhenius equation from a more rigorous, thermodynamic perspective when we cover transition state theory.
 
 === Modifications to the Arrhenius Equation
@@ -453,14 +453,14 @@ k^(+) / k^(-) =
 /
 (conc("A")_("eq")^alpha conc("B")_("eq")^beta).
 $<eq:reversible_eq_rearrange>
-The expression given by the right-hand side of #ref(<eq:reversible_eq_rearrange>) leads to the definition of the concentration-based equilibrium constant, $K_"c "$, which can be expressed compactly as
-$ K_"C " equiv product_(j) [A_j]^(nu_j) $<eq:kc>
+The expression given by the right-hand side of #ref(<eq:reversible_eq_rearrange>) leads to the definition of the concentration-based equilibrium constant, $K_"c"$, which can be expressed compactly as
+$ K_"C" equiv product_(j) [A_j]^(nu_j) $<eq:kc>
 and describes the ratio of the forward to reverse rate constants of a reversible, elementary reaction at equilibrium.
-#footnote[From here on out, we will omit the "eq" subscript since it is implicit when dealing with an equilibrium constant.]
-If one were to use partial pressures, $p_j$, instead of concentrations, one can define a pressure-based equilibrium constant, $K_"p "$, as
-#footnote[For an ideal gas, one can conveniently state $K_"p " = K_"C " (R T)^delta$ where $delta$ is the change in stoichiometric numbers.
+#footnote[From here on out, we will omit the"eq" subscript since it is implicit when dealing with an equilibrium constant.]
+If one were to use partial pressures, $p_j$, instead of concentrations, one can define a pressure-based equilibrium constant, $K_"p"$, as
+#footnote[For an ideal gas, one can conveniently state $K_"p" = K_"C" (R T)^delta$ where $delta$ is the change in stoichiometric numbers.
 ]
-$ K_"p " equiv product_(j) p_(j)^(nu_j), $<eq:kp>
+$ K_"p" equiv product_(j) p_(j)^(nu_j), $<eq:kp>
 where --- for ideal gases --- we have $p_j = y_j p$ with $y_j$ the mole fraction of species $j$ and $p$ the total pressure.
 
 === Thermodynamic Non-Idealities
@@ -495,7 +495,7 @@ As such, state thermodynamic properties taken from a database may need to be adj
 
 === Equilibrium Constants Based on Activity
 
-#ref(<eq:activity1>) and #ref(<eq:activity2>) allow us to rationalize the unit conundrum of #ref(<eq:kc>) and #ref(<eq:kp>): there is a "missing" standard state reference that will ensure the equilibrium constant is unitless, even in the case of an ideal mixture.
+#ref(<eq:activity1>) and #ref(<eq:activity2>) allow us to rationalize the unit conundrum of #ref(<eq:kc>) and #ref(<eq:kp>): there is a"missing" standard state reference that will ensure the equilibrium constant is unitless, even in the case of an ideal mixture.
 To tie it all together, we can state
 $ K_ce("a") = product_(j) a_(j)^(nu_j). $
 As such, we have
@@ -504,16 +504,16 @@ where the equilibrium constant must formally be based on activities.
 Note that $K_ce("a")$ is specifically for the temperature that corresponds to $Delta G^std$, which may differ from the temperature of the reaction under investigation.
 We will address the temperature-dependence of $K_ce("a")$ when we introduce the van~'t Hoff equation shortly.
 
-For the sake of convenience later on, we can also now interrelate $K_"C "$ and $K_ce("a")$ as follows:
-$ K_ce("a") =  product_j (gamma_j [A_j]/C^std)^(nu_j) = K_"C "/(C^std)^delta product_j gamma_(j)^(nu_j), $<eq:k_a_k_c_relationship>
+For the sake of convenience later on, we can also now interrelate $K_"C"$ and $K_ce("a")$ as follows:
+$ K_ce("a") =  product_j (gamma_j [A_j]/C^std)^(nu_j) = K_"C"/(C^std)^delta product_j gamma_(j)^(nu_j), $<eq:k_a_k_c_relationship>
 where $delta$ is the change in stoichiometric numbers given simply as $delta equiv sum_(j) nu_j$.
-If ideal conditions can be assumed, then $gamma_j=1$ and $K_ce("a") = K_"C "\/(C^std)^delta$.
+If ideal conditions can be assumed, then $gamma_j=1$ and $K_ce("a") = K_"C"\/(C^std)^delta$.
 In this form, we can see that units are appropriately addressed even though concentrations are used directly. 
 
 In most practical cases, the deviations from non-ideality can be assumed to be small, and we will oftentimes use concentrations or partial pressures in place of activities.
 However, for concentrated solutions and gases at low temperature or high pressures, the differences can become noticeable and should be considered.
 #footnote[ 
-To learn more about potential pitfalls when neglecting activity in equilibrium expressions, refer to C.G. McCarty, E. Vitz, "pH Paradoxes: Demonstrating That It Is Not True That pH ≡ -log[H+]", _J. Chem. Educ._, 83, 752--757 (2006).]
+To learn more about potential pitfalls when neglecting activity in equilibrium expressions, refer to C.G. McCarty, E. Vitz,"pH Paradoxes: Demonstrating That It Is Not True That pH ≡ -log[H+]", _J. Chem. Educ._, 83, 752--757 (2006).]
 
 
 
@@ -617,7 +617,7 @@ $
 (dif ln(k^(-))) / (dif T) = E_"a,r" / (R T^2)
 $
 which is equivalent to #ref(<eq:arrhenius>) following integration.
-Clearly, this "derivation" lacks rigor, and we will later show that $Delta H^std$ is not generally synonymous with the difference in activation energy.
+Clearly, this"derivation" lacks rigor, and we will later show that $Delta H^std$ is not generally synonymous with the difference in activation energy.
 For now, we will accept the applicability of the Arrhenius equation largely based on empirical evidence until we cover transition state theory.
 
 == Differential Kinetic Analysis
@@ -631,8 +631,8 @@ although there is no guarantee that $alpha$ and $beta$ are the stoichiometric nu
 Additionally, there is no guarantee that the rate law model parameters will be a sufficient fit to the experimental data over a range of operating conditions.
 ]
 
-This is where the concept of "apparent" kinetics comes in.
-Strictly speaking, $k$, $alpha$, and $beta$ that are determined from experiments will be "apparent" rate parameters, meaning that they are based on empirical observations that may or may not reflect the underlying (i.e. intrinsic) reactions.
+This is where the concept of"apparent" kinetics comes in.
+Strictly speaking, $k$, $alpha$, and $beta$ that are determined from experiments will be"apparent" rate parameters, meaning that they are based on empirical observations that may or may not reflect the underlying (i.e. intrinsic) reactions.
 
 === Apparent Activation Energy
 
@@ -643,7 +643,7 @@ $ (diff ln(k_"app"))/(diff T) &= -E_"app"/R (diff (1/T))/(diff T) $<eq:apparent_
 $ (diff ln(k_"app"))/(diff T) &=  E_"app"/(R T^2) $
 $ E_"app" &equiv R T^2 (diff ln(k_"app"))/(diff T). $<eq:apparent_e_a>
 
-Here, the "app" subscript is referring to an apparent (i.e. observed) rate constant determined from experiments, meaning that it may describe a net, non-elementary reaction consisting of several elementary steps.
+Here, the"app" subscript is referring to an apparent (i.e. observed) rate constant determined from experiments, meaning that it may describe a net, non-elementary reaction consisting of several elementary steps.
 
 While #ref(<eq:apparent_e_a>) is the formal definition of the apparent activation energy,
 #footnote[Some references define the apparent activation energy as $E_"app" equiv R T^2 (diff ln(r))/(diff T)$. However, this is only strictly true if one is not varying the reactant concentrations. Similarly, one should exercise caution when interpreting rate law parameters from a plot of $ln(r)$ vs. $1\/T$ if the reactant concentrations may vary.]
@@ -667,7 +667,7 @@ Given enough rate and concentration data, one can also carry out a multiple line
 
 It is worth noting, as we will demonstrate throughout this course, that apparent reaction orders of non-elementary reactions may be non-integer or even negative.
 Reaction orders will appear as zero if the concentration of a particular species does not notably influence the observed rate, as is commonly the case if that species is in great excess.
-#footnote[For additional discussion about apparent 0#super[th] order kinetics, refer to F.J. Arnáiz, "Mice in the Box for Zero-Order Kinetics", _J. Chem. Educ._, 76, 10, 1458 (1999).]
+#footnote[For additional discussion about apparent 0#super[th] order kinetics, refer to F.J. Arnáiz,"Mice in the Box for Zero-Order Kinetics", _J. Chem. Educ._, 76, 10, 1458 (1999).]
 
 === Practical Measurements
 
@@ -683,7 +683,7 @@ This allows you to measure changes in $r$ with respect to isolated changes in ei
 A very similar concept exists for surface-catalyzed reaction, in which the reaction is typically run in a differential reactor.
 A differential reactor has an extremely small amount of catalyst, such that the _conversion_ of the starting reagents is extremely small.
 The conversion of a species, $X_j$, is defined as
-$ X_j equiv ("moles of " A_j "reacted")/("moles of " A_j "fed"). $
+$ X_j equiv ("moles of" A_j"reacted")/("moles of" A_j"fed"). $
 For a reaction taking place in a constant-volume reactor like a flask, 
 $ X_j = ([A_j]_0 - [A_j])/[A_j]_0. $
 For a differential reactor where reagents are flowed through a bed of catalyst, it is oftentime more natural to use molar flow rates in place of concentrations.
@@ -702,7 +702,7 @@ This implies that we have kinetic data from a reaction taking place with a const
 For simplicity, we will start by considering an irreversible, first-order, elementary reaction given by the expression
 $ ce("A") fwdArrow(k) ce("B"). $
 The rate law for this reaction can be given by
-$ r_ce("A ") = (dif conc("A")) / (dif t) = -k conc("A"). $
+$ r_ce("A") = (dif conc("A")) / (dif t) = -k conc("A"). $
 Separating the variables and integrating this expression yields
 #footnote[The \' marks are included simply to indicate a variable of integration that differs from the integral bounds.]
 $ integral_(conc("A")_0)^(conc("A")) 1 / conc("A")' dif conc("A")' = -k integral_(0)^(t) dif t' $
@@ -719,7 +719,7 @@ For simplicity, we will start by considering an irreversible, elementary reactio
 $ n ce("A") fwdArrow(k) m ce("B") $
 where $n$ is an arbitrary stoichiometric number.
 The rate of change in $conc("A")$ can be given by
-$ r_ce("A ") = (dif conc("A")) / (dif t) = -n k conc("A")^n. $<eq:nth_order>
+$ r_ce("A") = (dif conc("A")) / (dif t) = -n k conc("A")^n. $<eq:nth_order>
 #caution[Most sources write #ref(<eq:nth_order>) as $r_ce("A") = -k conc("A")^n$ and continue the derivation as such. However, if we are specifically considering an elementary reaction where we have the convention that $r=r_j\/nu_j$, then including the stoichiometric coefficient as a multiplicative factor is important for internal consistency. To convince yourself of this, you already know that the rate law is $r = k conc("A")^n$ for this elementary reaction. Therefore, $r_ce("A")$ must be $-n k conc("A")^n$ in order for $r = -r_ce("A")\/n$.]
 
 Separating the variables and integrating this expression yields
@@ -756,15 +756,15 @@ $
 As usual, we will write out the rates of change for each species:
 $
 r_ce("A") &= (dif conc("A")) / (dif t) = -k_1 conc("A")\
-r_"B " &= (dif conc("B")) / (dif t) = k_1 conc("A") - k_2 conc("B")\
-r_"C " &= (dif conc("C")) / (dif t) = k_2 conc("B").
+r_"B" &= (dif conc("B")) / (dif t) = k_1 conc("A") - k_2 conc("B")\
+r_"C" &= (dif conc("C")) / (dif t) = k_2 conc("B").
 $
 
 To understand the behavior of this coupled reaction, our next step is to integrate with respect to time.
 We will consider the reaction starting at $t=0$ with only the reagent (A) and no intermediates (B) or products (C).
 As before, we know that
 $ conc("A") = conc("A")_0 e^(-k_1 t). $<eq:sequentiial_A>
-Now we can substitute #ref(<eq:sequentiial_A>) into the expression for $r_"B "$ to arrive at
+Now we can substitute #ref(<eq:sequentiial_A>) into the expression for $r_"B"$ to arrive at
 $ (dif conc("B")) / (dif t) = k_1 conc("A")_0 e^(-k_1 t) - k_2 conc("B"). $
 The integration here is a bit messy, but one can show with some effort that
 $ conc("B") = conc("A")_0 (k_1) / (k_2 - k_1) (e^(-k_1 t) - e^(-k_2 t)). $<eq:sequential_B>
@@ -782,7 +782,7 @@ Here, we will introduce the concept of a delplot, which can be used to discern q
 
 === The Rank of a Species
 
-We must introduce a new concept: the "rank" of a species, which is the numerical order in which a species is formed.
+We must introduce a new concept: the"rank" of a species, which is the numerical order in which a species is formed.
 If a given species is produced first, it will have rank 1 and is called primary; if produced second, it will have rank 2 and is called secondary, and so on.
 Written out, for the reaction #ce("A->B->C->D"), B is primary, C is secondary, and D is tertiary.
 This is distinct from the order of that species, which we will reserve for the exponential dependence of the rate on concentration.
@@ -899,9 +899,9 @@ Note that in practice, plots of $S_ce("P")\/X_ce("A")^(m-1)$ (where $S_ce("P")$ 
       [$"Species rank"=1$],
       [$"Species rank">1$]
     ),
-    [$n=1$], [#delplot(1) = finite], [$delplot(m) = "finite"$ if $"species rank"=m$\ $delplot(m) = 0$ if $"species rank">m$\ $delplot(m) = "diverges"$ if $"species rank"<m$],
+    [$n=1$], [#delplot(1) = finite], [$delplot(m) ="finite"$ if $"species rank"=m$\ $delplot(m) = 0$ if $"species rank">m$\ $delplot(m) ="diverges"$ if $"species rank"<m$],
     [$n>1$], [#delplot(1) = finite], [$delplot(m) = 0$ if $"species rank" >= m$],
-    [$n<1$], [#delplot(1) = finite], [$delplot(m) = "diverges"$ if $"species rank"=m$\ $delplot(m) = 0$ if $"species rank">m$],
+    [$n<1$], [#delplot(1) = finite], [$delplot(m) ="diverges"$ if $"species rank"=m$\ $delplot(m) = 0$ if $"species rank">m$],
   ),
   caption:[Summary of delplot intercepts for a product P based on the conversion of A. $m$ is the rank of the delplot, and the reaction order refers to the reaction producing product P. For $n>1$ and $n<1$, this analysis is only strictly valid if the last step is the only one with $n!=1$.]
 )  <table:delplot>
@@ -926,7 +926,7 @@ Since the reaction producing C is greater than first order, C happens to have a 
 
 == Stochastic Reactions <stochastic-reactions>
 
-_This is an "advanced topic" not discussed in class and provided solely for the interested reader._
+_This is an"advanced topic" not discussed in class and provided solely for the interested reader._
 
 In the previous subsection, we took a deterministic approach to modeling the behavior of reaction events.
 In the limit of small numbers of molecules, however, this approach begins to break down.
@@ -940,12 +940,12 @@ ce("B") &fwdArrow(k_2) ce("C").
 $
 Here, we are considering each reaction as a discrete event involving individual molecules.
 We define the propensity, $a_j$, of each reaction in an analogous way as we define the reaction rate:
-$ a_1 = k_1 x_ce("A"), quad a_2 = k_2 x_"B ", $
+$ a_1 = k_1 x_ce("A"), quad a_2 = k_2 x_"B", $
 where each $x_j$ is the discrete number of $j$ molecules in the reactor (rather than the continuous value of concentration).
 We will also consider the time $t$ to be discretized, such that we are simulating reaction snapshots (or lack thereof) at each time step.
 
 To carry out this stochastic simulation, we follow the algorithm of Gillepsie.
-#footnote[For further details, refer to D.T. Gillepsie, "Stochastic Simulation of Chemical Kinetics", _Annu. Rev. Phys. Chem._, 58 (2007).]
+#footnote[For further details, refer to D.T. Gillepsie,"Stochastic Simulation of Chemical Kinetics", _Annu. Rev. Phys. Chem._, 58 (2007).]
 We will describe this algorithm by way of example, assuming here that $k_1=2$ and $k_2= 1$.
 With this, the procedure looks like the following:
 
@@ -1024,10 +1024,10 @@ Also note that #conc("B") is not a constant, and --- while certainly small --- i
 
 If we take the time derivatives of each expression, we can observe some other interesting behavior:
 $ r_ce("A") = (dif conc("A"))/(dif t) = - conc("A")_0 k_1 e^(-k_1 t) $
-$ r_"B " = (dif conc("B"))/(dif t) = - conc("A")_0 (k_1^2) / (k_2) e^(-k_1 t) (approx 0) $
-$ r_"C " = (dif conc("C"))/(dif t) = conc("A")_0 k_1 e^(-k_1 t). $
+$ r_"B" = (dif conc("B"))/(dif t) = - conc("A")_0 (k_1^2) / (k_2) e^(-k_1 t) (approx 0) $
+$ r_"C" = (dif conc("C"))/(dif t) = conc("A")_0 k_1 e^(-k_1 t). $
 
-We can see from the above expressions that $r_ce("A") = - r_"C "$, which is another feature of PSSH when dealing with series reactions and is to be expected since $r_"B "$ is negligible in comparison (i.e. A can be thought of as almost instantaneously being transformed into C given the short lifetime of B).
+We can see from the above expressions that $r_ce("A") = - r_"C"$, which is another feature of PSSH when dealing with series reactions and is to be expected since $r_"B"$ is negligible in comparison (i.e. A can be thought of as almost instantaneously being transformed into C given the short lifetime of B).
 Of course, this is merely an _approximation_, but it is a quite useful one.
 
 #plot[#align(center)[https://marimo.app/l/bxr9r8]]
@@ -1043,7 +1043,7 @@ It is known from experiments that the reaction does appear to be second order in
 However, termolecular reactions are extremely rare, so one might conclude that it would be unlikely for the reaction to proceed as written despite the observed rate law. 
 Unusually, $r$ has also been observed to _decrease_ with increasing temperature.
 These details allow us to definitively conclude that #ref(<eq:no2_rxn>) cannot actually be an elementary reaction. 
-We will rationalize this so-called "anti-Arrhenius" behavior below.
+We will rationalize this so-called"anti-Arrhenius" behavior below.
 
 First, we must propose a mechanism.
 Since it is not expected that you know the intricacies of atmospheric chemistry, we will simply take the following as provided to us:
@@ -1177,7 +1177,7 @@ The room-temperature bond dissociation enthalpies, $Delta H^std_"rxn"$, for seve
     [#ce("HBr")], [366],
     [#ce("Br2")], [194]
   ),
-  caption: "Bond dissociation enthalpies at 298 K."
+  caption:"Bond dissociation enthalpies at 298 K."
 )  <table:bdes>
 
 As is evident from looking at a potential energy diagram (#ref(<fig:pe_diagram>)), the definition of the transition state implies that it must be _at least_ as large as the bond-dissociation energy, so bond-dissociation energies can be thought of as a lower-bound on the possible value for $E_ce("a")$.
@@ -1197,7 +1197,7 @@ $ E_ce("a")  = E_0 + alpha Delta H^std, $
 where this relationship can be thought of as being largely empirical, and $0<= alpha <=1$.
 Nonetheless, it implies that --- for a given reaction family --- the more endothermic the reaction enthalpy is, the higher the activation barrier tends to be for that process.
 The $Delta H^std$ values can be obtained from experiments or tabulated thermochemical data,
-#footnote[Recall from thermodynamics that $Delta H^std$, which is the enthalpy change associated with the reaction, can be calculated from the tabulated standard state enthalpy of formation, $Delta_"f " H_(j)^std$, for each species via $Delta H^std = sum_j nu_j Delta_"f " H_(j)^std$.]
+#footnote[Recall from thermodynamics that $Delta H^std$, which is the enthalpy change associated with the reaction, can be calculated from the tabulated standard state enthalpy of formation, $Delta_"f" H_(j)^std$, for each species via $Delta H^std = sum_j nu_j Delta_"f" H_(j)^std$.]
 such as the CRC Handbook of Chemistry and Physics.
 
 === Quasi-Equilibrium Approximation
@@ -1210,7 +1210,7 @@ For the sake of clarity, the PSSH and quasi-equilibrium approximations generally
 For example,
 $ eqArrow("slow",opposite:"fast") ce("X") fwdArrow("fast") quad ("PSSH"), quad quad quad eqArrow("fast",opposite:"fast") ce("X") fwdArrow("slow") quad ("quasi-equilibrium"), $
 where, for the model reaction schemes, we have $k_(1)<<k_(-1),k_2$ and $k_(1),k_(-1)>>k_2$ for PSSH and quasi-equilibrium, respectively.
-#footnote[For additional details, refers to J.F. Perez-Benito, "Some Considerations on the Fundamentals of Chemical Kinetics: Steady State, Quasi-Equilibrium, and Transition State Theory", _J. Chem. Educ._, 94, 1238--1246 (2017).]
+#footnote[For additional details, refers to J.F. Perez-Benito,"Some Considerations on the Fundamentals of Chemical Kinetics: Steady State, Quasi-Equilibrium, and Transition State Theory", _J. Chem. Educ._, 94, 1238--1246 (2017).]
 PSSH would imply that $r_ce("X") approx 0$, and the quasi-equilibrium approxmation would imply that $r_1 = r_(1)^+ - r_(1)^- approx 0$, where $r_1$ is the net rate of the fast equilibrium step.
 The way to rationalize the quasi-equilibrium approximation is that perturbing the system slightly (e.g. removing #ce("X")) would cause a near-immediate return to its original state (e.g. by producing more #ce("X")).
 In other words, the reaction is rapidly equilibrated.
@@ -1225,7 +1225,7 @@ $
 where we are stating $k_(1), k_(-1) >> k_2$, and we have an intermediate #ce("NOBr2") that does not appear in the net reaction equation.
 
 We can write out our rate of product production, $r_ce("P")$, as
-$ r_"P " = 2 k_2 conc("NOBr2") conc("NO"). $<eq:rate_pre_eq>
+$ r_"P" = 2 k_2 conc("NOBr2") conc("NO"). $<eq:rate_pre_eq>
 Since we would not like to deal with a concentration of an intermediate in our rate expression, we will need to get rid of #conc("NOBr2").
 If were to proceed as usual, we would write out $r_ce("NOBr2")$ and continue from there.
 However, by acknowledging the fact that the first step (both forward and reverse) is much faster than the second step, we can assume that it is in quasi-equilibrium.
@@ -1235,9 +1235,9 @@ or
 $ conc("NOBr2") approx K_1 conc("NO") conc("Br2"), $
 as expected from the definition of the equilibrium constant: $K_1 equiv k_1 \/k_(-1)$.
 Substituting in #conc("NOBr2") into #ref(<eq:rate_pre_eq>) yields
-$ r_"P " = 2 k_2  K_1 conc("NO")^2 conc("Br2"). $
+$ r_"P" = 2 k_2  K_1 conc("NO")^2 conc("Br2"). $
 Naturally, we can combine constants together via $k_"app" equiv k_2 K_1$ if desired and arrive at
-$ r_"P " = 2 k_"app" conc("NO")^2 conc("Br2"). $
+$ r_"P" = 2 k_"app" conc("NO")^2 conc("Br2"). $
 The rate law for the reaction, $r$, would simply be $r = r_ce("P")\/2$ due to the fact that $r = r_j\/nu_j$.
 The rate law derived here is consistent with the experimentally observed rate law, which is reassuring.
 Before continuing, it must be re-emphasized that the result would be quite different if we instead invoked PSSH where we would instead be saying that $r_ce("NOBr2")=0$.
@@ -1274,7 +1274,7 @@ This is because quasi-equilibrium can generally be invoked when the forward and 
 While it is tempting to invoke a rate-determining step since it greatly simplifies the algebra, one should be cautious about doing so without being extremely precise about what is being invoked.
 Let's revisit a similar set of reactions:
 $
-ce("A") &eqArrow(k_1, opposite:k_(-1)) ce("B") quad (k_1 "extremely small")\
+ce("A") &eqArrow(k_1, opposite:k_(-1)) ce("B") quad (k_1"extremely small")\
 ce("B") &fwdArrow(k_2) ce("C"),
 $
 where $k_1<<k_(-1),k_2$.
@@ -1291,7 +1291,7 @@ $ r = (k_1 k_2) / k_(-1) conc("A"), $
 which does not equal the rate-determining step solution.
 Furthermore, it would be difficult to justify calling $ce("A") --> ce("B")$ the rate-determining step if $k_1$ has precisely the same weight as $k_(-1)$ and $k_2$.
 This exercise is simply to demonstrate that a rate-determining step cannot necessarily be invoked from information about $k$ for a particular step, particularly when reversible reactions are considered.
-#footnote[For additional details, refer to S. Kozuch, J.M.L. Martin, "The Rate-Determining Step is Dead. Long Live the Rate-Determining State!", _ChemPhysChem_, 12, 1413--1418 (2011).]
+#footnote[For additional details, refer to S. Kozuch, J.M.L. Martin,"The Rate-Determining Step is Dead. Long Live the Rate-Determining State!", _ChemPhysChem_, 12, 1413--1418 (2011).]
 ]
 
 
@@ -1307,25 +1307,25 @@ Herein, we will explain this anomaly by invoking the Lindemann mechanism.
 
 The Lindemann mechanism states that a unimolecular reaction #ce("A -> B") can be described by the following steps:
 $ ce("A + M") eqArrow(k_1,opposite:k_(-1)) ce("A^* + M") $<eq:lindemann_rxn>
-$ ce("A^*") fwdArrow(k_2) ce("B "), $
-where #ce("A ") is the reactant, #ce("A^*") is the "activated" form of #ce("A "), and #ce("M ") is a gas molecule that imparts sufficient energy into #ce("A ") to initiate the reaction.
+$ ce("A^*") fwdArrow(k_2) ce("B"), $
+where #ce("A") is the reactant, #ce("A^*") is the"activated" form of #ce("A"), and #ce("M") is a gas molecule that imparts sufficient energy into #ce("A") to initiate the reaction.
 
 The rate of production of B based on the above mechanism can be given by
-$ r_ce("B ") = k_2 conc("A^*"). $
+$ r_ce("B") = k_2 conc("A^*"). $
 Since #ce("A^*") is a high-energy species that can spontaneously decompose, we can safely invoke the PSSH like we have previously done for radical species.
 This allows us to state
 $ r_ce("A^*") approx 0 = k_1 conc("A") conc("M") - k_(-1) conc("A^*") conc("M") - k_2 conc("A^*"). $
 Solving for #conc("A^*") yields
 $ conc("A^*") = (k_1 conc("A") conc("M") ) / (k_(-1) conc("M") + k_2). $<eq:lindemann_a_rad>
 Combining #ref(<eq:lindemann_rxn>) and #ref(<eq:lindemann_a_rad>) results in the following rate expression without any transient intermediates in it:
-$ r_ce("B ") = (k_1 k_2 conc("M") conc("A")) / (k_(-1) conc("M") + k_2). $
+$ r_ce("B") = (k_1 k_2 conc("M") conc("A")) / (k_(-1) conc("M") + k_2). $
 
 Let's now consider the behavior in different pressure regimes.
-In the low pressure limit, $conc("M")$ is small since there are few other particles for #ce("A ") to collide with.
+In the low pressure limit, $conc("M")$ is small since there are few other particles for #ce("A") to collide with.
 In such scenarios, it is reasonable to propose that we have $k_(-1) conc("M") << k_2$, such that
-$ r_("B ") approx k_1 conc("A") conc("M") quad ("low" P). $
+$ r_("B") approx k_1 conc("A") conc("M") quad ("low" P). $
 In the high pressure limit, $conc("M") >> 0$ since there are many opportunities for collisions, resulting in $k_(-1) conc("M") >> k_2$, such that
-$ r_("B ") approx (k_1 k_2) / (k_(-1)) conc("A") quad ("high" P). $
+$ r_("B") approx (k_1 k_2) / (k_(-1)) conc("A") quad ("high" P). $
 From this analysis, we can conclude that at low pressures, the rate expression would appear as second-order overall, whereas at high pressures, the rate expression would appear first-order overall.
 
 
@@ -1343,8 +1343,8 @@ ce("ES") &fwdArrow(k_2) ce("E + P").
 $
 
 The goal is to find an expression for the rate of production of P. From the elementary reaction steps, we can state that
-#footnote[In the literature, you may see $v$ used in place of $r_"P "$. The $v$ is meant to symbolize reaction velocity.]
-$ r_"P " = k_2 conc("ES"). $<eq:rate_michaelis_menten_p>
+#footnote[In the literature, you may see $v$ used in place of $r_"P"$. The $v$ is meant to symbolize reaction velocity.]
+$ r_"P" = k_2 conc("ES"). $<eq:rate_michaelis_menten_p>
 However, the concentration of ES is not a quantity than can be easily measured. As such, our next step is to find a way to rewrite the concentration of ES in terms of observables and constants.
 
 Writing out the rate expression for ES, we get
@@ -1364,39 +1364,39 @@ $ conc("ES") + (k_1 conc("ES") conc("S")) / (k_(-1) + k_2) = (k_1 conc("E")_0 co
 $ conc("ES")  = ((k_1 conc("E")_0 conc("S")) / (k_(-1) + k_2))/(1 + (k_1 conc("S")) / (k_(-1) + k_2)) $
 $ conc("ES") = (conc("E")_0 conc("S")) / ((k_(-1) + k_2) / k_1 + conc("S")). $<eq:michaelis_menten_es2>
 Substituting #ref(<eq:michaelis_menten_es2>) into #ref(<eq:rate_michaelis_menten_p>) yields
-$ r_"P " = (k_2 conc("E")_0 conc("S")) / ( (k_(-1) + k_2) / k_1 + conc("S")). $<eq:michaelis_menten_p2>
+$ r_"P" = (k_2 conc("E")_0 conc("S")) / ( (k_(-1) + k_2) / k_1 + conc("S")). $<eq:michaelis_menten_p2>
 We have now arrived at a closed-form, analytical solution for the rate of generation of the product that is solely dependent on experimental observables and constants.
 In practice, #ref(<eq:michaelis_menten_p2>) is typically rewritten as
-$ r_"P " = (V_"max" conc("S")) / (K_"M " + conc("S")), $<eq:michaelis_menten>
+$ r_"P" = (V_"max" conc("S")) / (K_"M" + conc("S")), $<eq:michaelis_menten>
 where
 $ V_"max" equiv k_2 conc("E")_0 $
 and
-$ K_"M " equiv (k_(-1) + k_2) / k_1. $
+$ K_"M" equiv (k_(-1) + k_2) / k_1. $
 The expression given in #ref(<eq:michaelis_menten>) is known as the Michaelis--Menten equation and is a simple model of enzyme reaction kinetics.
 
-In the limit of $conc("S")>>K_"M "$, the rate is pseudo zeroth-order in #conc("S"), approaching a value of $V_"max"$, thereby giving it its name of the maximum rate.
-In the limit of $conc("S")<<K_"M "$, the rate is pseudo first-order in #conc("S").
-$K_"M "$ is known as the Michaelis constant and describes the concentration of S at which the reaction rate is half of $V_"max"$.
+In the limit of $conc("S")>>K_"M"$, the rate is pseudo zeroth-order in #conc("S"), approaching a value of $V_"max"$, thereby giving it its name of the maximum rate.
+In the limit of $conc("S")<<K_"M"$, the rate is pseudo first-order in #conc("S").
+$K_"M"$ is known as the Michaelis constant and describes the concentration of S at which the reaction rate is half of $V_"max"$.
 
 It is worth noting that S is the free substrate, whereas one often measures the total substrate in experiments.
 In practice, one can typically assume that the concentration of substrate is much greater than the total enzyme concentration, such that the total substrate can be used.
 This is known as the free ligand approximation.
-We have also assumed in this derivation that the production of P is irreversible. One can re-derive $r_"P "$ with reversible product binding in precisely the same way; the math simply gets slightly messier.
+We have also assumed in this derivation that the production of P is irreversible. One can re-derive $r_"P"$ with reversible product binding in precisely the same way; the math simply gets slightly messier.
 
 === Linearizing the Michelis--Menten Equation <linearizing-the-michaelis-menten-equation>
 
 When analyzing experimental data, it is oftentimes useful to fit to a linear equation.
 This can be achieved quite readily be rearranging the Michaelis--Menten equation to
-$ 1/r_"P " = K_"M "/V_"max" 1/conc("S") + 1/V_"max". $
+$ 1/r_"P" = K_"M"/V_"max" 1/conc("S") + 1/V_"max". $
 
-Here, the inverse of the reaction rate is plotted against the inverse concentration of the substrate, which in turn can be used to obtain $K_"M "$ and  $V_"max"$ from the slope and $y$-intercept.
+Here, the inverse of the reaction rate is plotted against the inverse concentration of the substrate, which in turn can be used to obtain $K_"M"$ and  $V_"max"$ from the slope and $y$-intercept.
 Such a plot is known as a Linweaver--Burk plot.
 
 #plot[#align(center)[https://marimo.app/l/pbceww]]
 
 There is, however, a very important limitation in using Lineweaver--Burk plots.
 By relying on inverse rate on the $y$-axis and inverse concentration on the $x$-axis, the experimental data will not be distributed evenly across the range of values.
-This may result in poorly determined fit parameters $V_"max"$ and $K_"M "$.
+This may result in poorly determined fit parameters $V_"max"$ and $K_"M"$.
 There are many other ways to linearize the Michaelis--Menten equation, which have their own limitations.
 In modern times, it is generally recommended to do nonlinear regression on the Michaelis--Menten equation directly to avoid such complications.
 
@@ -1431,7 +1431,7 @@ There is typically a notable activation barrier for the dissociative adsorption 
 The adsorption process can happen on a variety of different types of surfaces.
 For instance, one might consider the adsorption of a molecule to a metal surface like Pd or Rh.
 Alternatively, one might consider the adsorption of a molecule along the internal surface of a highly porous material like an aluminosilicate zeolite.
-Porous materials are particularly unique choices for adsorbents, as they can have incredibly high surface areas; for instance, nanoporous solids known as metal--organic frameworks can have surface areas up to 7000 $"m "^2$/g, such that one gram of material can have the surface area of a football field.
+Porous materials are particularly unique choices for adsorbents, as they can have incredibly high surface areas; for instance, nanoporous solids known as metal--organic frameworks can have surface areas up to 7000 $"m"^2$/g, such that one gram of material can have the surface area of a football field.
 
 === Molecular Adsorption <molecular-adsorption>
 
@@ -1513,8 +1513,8 @@ We can only use #ref(<eq:langmuir>) for the definition of $theta_ce("A")$, howev
 It is natural to think about how one might modify the Langmuir equation for a scenario where there are two or more energetically distinct adsorption sites on the catalyst surface.
 The procedure is no different than before if we make a leap of faith and assume that the adsorption at each binding site is independent from one another, such that we can treat the adsorption as a sum of individual Langmuir models.
 In other words, we can write
-$ theta_ce("A") = sum_s M_s (K_("ads",s) p_("A ")) / (1 + K_("ads",s) p_("A ")), $
-where $K_("ads",s)$ is now an "equilibrium constant" for the adsorption of species A at site $s$, and $M_s$ is the maximum capacity of site $s$.
+$ theta_ce("A") = sum_s M_s (K_("ads",s) p_("A")) / (1 + K_("ads",s) p_("A")), $
+where $K_("ads",s)$ is now an"equilibrium constant" for the adsorption of species A at site $s$, and $M_s$ is the maximum capacity of site $s$.
 Here, $M_s$ and $K_("ads",s)$ are both fitting parameters determined from an experimentally measured adsorption isotherm. 
 Generally, it is impossible to enumerate all possible surface sites, and even if one could, the number of fitting parameters would be huge.
 Instead, this model is typically used when it is clear there are (for instance) two major yet distinct adsorption sites that adsorbates can bind to.
@@ -1532,43 +1532,43 @@ $
 For the sake of simplicity, we will invoke the same assumptions for the Langmuir adsorption isotherm as in #ref(<molecular-adsorption>) with the additional caveat that each site must only hold one molecule of A or B but not both simultaneously.
 
 Under equilibrium conditions, we can state
-$ K_"ads,A " = conc("A^*") / (p_("A ") conc("*")) $<eq:competitive_ads_Ka>
-$ K_"ads,B" = conc("B^*") / (p_("B ") conc("*")). $<eq:competitive_ads_Kb>
+$ K_"ads,A" = conc("A^*") / (p_("A") conc("*")) $<eq:competitive_ads_Ka>
+$ K_"ads,B" = conc("B^*") / (p_("B") conc("*")). $<eq:competitive_ads_Kb>
 The site balance can be rewritten as
 $ conc("*")_0 = conc("*") + conc("A^*") + conc("B^*"). $<eq:competitive_ads_site_balance>
 Once again, we seek to get rid of #conc("*"). To do so, we start by solving for #conc("*") in #ref(<eq:competitive_ads_Ka>) and plugging this into #ref(<eq:competitive_ads_site_balance>):
-$ conc("*")_0 = conc("A^*") / (K_"ads,A" p_("A ")) + conc("A^*") + conc("B^*"). $<eq:competitive_ads_site_balance2>
+$ conc("*")_0 = conc("A^*") / (K_"ads,A" p_("A")) + conc("A^*") + conc("B^*"). $<eq:competitive_ads_site_balance2>
 Since we will ultimately want an expression for $theta_ce("A")$ that is independent of #conc("B^*"), we will solve for #conc("B^*") in #ref(<eq:competitive_ads_Kb>) and plug this into #ref(<eq:competitive_ads_site_balance2>):
-$ conc("*")_0 = conc("A^*") / (K_"ads,A" p_("A ")) + conc("A^*") + K_"ads,B" p_("B ") conc("*"). $
+$ conc("*")_0 = conc("A^*") / (K_"ads,A" p_("A")) + conc("A^*") + K_"ads,B" p_("B") conc("*"). $
 It looks like we have #conc("*") in our expression again, so we substitute in #conc("*") from #ref(<eq:competitive_ads_Ka>) to get
 $
 conc("*")_0& =
-conc("A^*") / (K_"ads,A" p_("A "))
+conc("A^*") / (K_"ads,A" p_("A"))
 + conc("A^*")
-+ (conc("A^*") K_"ads,B" p_("B ")) / (K_"ads,A" p_("A "))
++ (conc("A^*") K_"ads,B" p_("B")) / (K_"ads,A" p_("A"))
  \
 conc("*")_0 &=
-conc("A^*") (1/(K_"ads,A" p_("A "))
-+ 1 + (K_"ads,B" p_("B "))/(K_"ads,A" p_("A "))).
+conc("A^*") (1/(K_"ads,A" p_("A"))
++ 1 + (K_"ads,B" p_("B"))/(K_"ads,A" p_("A"))).
 $
 Therefore,
 $
 theta_ce("A") equiv conc("A^*")/conc("*")_0 =
 1 /
 (
-  1 / (K_"ads,A" p_("A "))
+  1 / (K_"ads,A" p_("A"))
   + 1
-  + (K_"ads,B" p_("B ")) / (K_"ads,A" p_("A "))
+  + (K_"ads,B" p_("B")) / (K_"ads,A" p_("A"))
 )
 =
-(K_"ads,A" p_("A ")) / (1 + K_"ads,A" p_("A ") + K_"ads,B" p_("B ")).
+(K_"ads,A" p_("A")) / (1 + K_"ads,A" p_("A") + K_"ads,B" p_("B")).
 $
 
 By analogy for species B, the following result can be found:
-$ theta_"B " = (K_"ads,B" p_("B ")) / (1 + K_"ads,A" p_("A ") + K_"ads,B" p_("B ")). $
+$ theta_"B" = (K_"ads,B" p_("B")) / (1 + K_"ads,A" p_("A") + K_"ads,B" p_("B")). $
 
 As you might be able to already tell, we can generalize the adsorption isotherm for arbitrary numbers of adsorbates as
-$ theta_ce("A") = (K_("ads,A ") p_("A "))/(1+sum_j K_("ads",j) p_j). $<eq:general_multi_langmuir>
+$ theta_ce("A") = (K_("ads,A") p_("A"))/(1+sum_j K_("ads",j) p_j). $<eq:general_multi_langmuir>
 
 Finally, we can revisit our rates of adsorption and desorption to write them in terms of fractional coverages:
 $
@@ -1623,7 +1623,7 @@ In other words, there is an additional factor of $z\/2 conc("*")_0$ that needs t
 Setting both expressions equal to one another to invoke equilibrium conditions yields
 $ K_"ads" = conc("A^*")^2 / (p_ce("A2") conc("*")^2). $<eq:dissociative_K_a>
 Reassuringly, our expression for $K_"ads"$ is the same expression we would expect based on the thermodynamic definition of the equilibrium constant.
-#footnote[For dissociative adsorption of the form #ce("AB + 2* <--> A^* + B^*"), it may appear that the kinetic-based definition of $K$ given by $r^+ = r^-$ would not be equal to the thermodynamic definition of $K = conc("A^*") conc("B^*")\/ p_ce("AB") conc("*")^2$ because the elementary reaction in the forward direction involves two seemingly indistinguishable surface sites ($z\/2$), whereas the reverse has two distinguishable adsorbates ($z$), resulting in a stray factor of 2 in the numerator. While beyond the scope of this course, the forward rate expression should actually have a factor of $z$ instead of $z\/2$ for reasons outlined in the Supporting Information of N.K. Razdan, A. Bhan, "Kinetic description of site ensembles on catalytic surfaces", _Proc. Natl. Acad. Sci. U.S.A._, 118, e2019055118 (2021).]
+#footnote[For dissociative adsorption of the form #ce("AB + 2* <--> A^* + B^*"), it may appear that the kinetic-based definition of $K$ given by $r^+ = r^-$ would not be equal to the thermodynamic definition of $K = conc("A^*") conc("B^*")\/ p_ce("AB") conc("*")^2$ because the elementary reaction in the forward direction involves two seemingly indistinguishable surface sites ($z\/2$), whereas the reverse has two distinguishable adsorbates ($z$), resulting in a stray factor of 2 in the numerator. While beyond the scope of this course, the forward rate expression should actually have a factor of $z$ instead of $z\/2$ for reasons outlined in the Supporting Information of N.K. Razdan, A. Bhan,"Kinetic description of site ensembles on catalytic surfaces", _Proc. Natl. Acad. Sci. U.S.A._, 118, e2019055118 (2021).]
 From here onward, we will simply invoke the thermodynamic definition of the equilibrium constant when the quasi-equilibrium approximation is invoked.
 
 #caution[If we had not accounted for the statistical siting, we would instead have $r_"ads"=k_"ads" p_ce("A2") conc("*")^2$ and $r_"des"=k_"des" conc("A^*")^2$, which will overestimate the rates of adsorption and desorption and change the units on our rate constant. That said, there would be no change in our expression for $K_"ads"$ regardless of whether we accounted for site-pair statistics or not.]
@@ -1640,7 +1640,7 @@ $
 theta_ce("A") &= 1 / (1 / sqrt(K_"ads" p_ce("A2")) + 1)
 $
 $
-theta_ce("A") &= sqrt(K_"ads" p_("A ")) / (1 + sqrt(K_"ads" p_("A "))).
+theta_ce("A") &= sqrt(K_"ads" p_("A")) / (1 + sqrt(K_"ads" p_("A"))).
 $<eq:competitive_theta>
 We can see that when $sqrt(K_"ads" p_ce("A")) <<1$ (i.e. in the limit of low partial pressures of #ce("A2")), $theta_ce("A")->sqrt(K_"ads" p_ce("A"))$, which is significantly different than the linear behavior observed for the non-dissociative Langmuir adsorption isotherm.
 
@@ -1658,8 +1658,8 @@ If the adsorption and desorption processes are equilibrated, we can use #ref(<eq
 
 The simplest adsorption model is given by Henry's isotherm.
 Henry's isotherm states, in analogy with Henry's law, that
-$ theta_ce("A") = K_"H " p_ce("A") $
-where $K_"H "$ is Henry's adsorption constant and is generally a fitting parameter.
+$ theta_ce("A") = K_"H" p_ce("A") $
+where $K_"H"$ is Henry's adsorption constant and is generally a fitting parameter.
 Henry's isotherm states that there is a direct, linear relationship between coverage and partial pressure.
 This is clearly false for many adsorption processes but is valid when the partial pressure of the adsorbate is low, such that there are negligible interactions between adsorbed molecules and the adsorption sites are plentiful.
 We can see that Henry's isotherm is related to the Langmuir isotherm in the limit of small $p_ce("A")$:
@@ -1673,7 +1673,7 @@ We can also consider models that capture behavior the Langmuir model does not.
 As previously discussed, the Langmuir model of adsorption made some critical approximations.
 Perhaps the most notable is the assumption that the adsorption enthalpy of each site is constant (i.e. independent of coverage).
 There are many models that attempt to directly or indirectly capture this behavior, some of which are outlined below:
-#footnote[For some cautionary comments about the Temkin isotherm, refer to K. Chu, "Revisiting the Temkin Isotherm: Dimensional Inconsistency and Approximate Forms", _Ind. Eng. Chem. Res._, 60, 13140--13147 (2021).]
+#footnote[For some cautionary comments about the Temkin isotherm, refer to K. Chu,"Revisiting the Temkin Isotherm: Dimensional Inconsistency and Approximate Forms", _Ind. Eng. Chem. Res._, 60, 13140--13147 (2021).]
 $
 theta_ce("A") &= alpha p_ce("A")^(1\/beta) quad ("Freundlich isotherm")
 $
@@ -1693,7 +1693,7 @@ The Temkin isotherm was proposed as a way to indirectly deal with adsorbate--ads
 
 // ==== BET Theory for Multilayer Adsorption
 
-// _This is an "advanced topic" not discussed in class and provided solely for the interested reader._
+// _This is an"advanced topic" not discussed in class and provided solely for the interested reader._
 
 // The models we have discussed so far assume that there is only a monolayer of adsorbates along the surface.
 // However, multiple layers of adsorbates that are stabilized by van der Waals interactions are oftentimes possible, particularly at low temperatures and high gas pressures.
@@ -1716,7 +1716,7 @@ The Temkin isotherm was proposed as a way to indirectly deal with adsorbate--ads
 
 // We will refrain from providing a detailed derivation of the BET isotherm here, as it is mainly useful for determining the surface area of a material rather than kinetic data.
 // Simply providing the big reveal, the BET isotherm for multi-layer physisorption can be shown to be
-// $ theta = (c x)/((1-x) (1+ x(c-1))),quad "where" c equiv K_1/K_ell "and" x equiv P/P_0, $<eq:bet>
+// $ theta = (c x)/((1-x) (1+ x(c-1))),quad"where" c equiv K_1/K_ell"and" x equiv P/P_0, $<eq:bet>
 // where $K_ell$ is the equilibrium constant for adsorption and desorption off of a liquid surface of the molecular species, $P$ is the pressure of the adsorbate, and $P_0$ is its vapor pressure.
 // Generally, $c$ is simply referred to as the BET $c$ constant.
 // The BET isotherm is most accurate when $P\/P_0$ is between roughly 0.05 and 0.3.
@@ -1733,17 +1733,17 @@ The Temkin isotherm was proposed as a way to indirectly deal with adsorbate--ads
 
 // As previously alluded to, the BET isotherm is typically used for surface area measurements.
 // This is done by noting that
-// $ theta = v/v_"m ", $
-// where $v$ is the volume of the gas adsorbed to the surface and $v_"m "$ is the volume of gas that would be adsorbed if there were precisely a full monolayer of coverage.
+// $ theta = v/v_"m", $
+// where $v$ is the volume of the gas adsorbed to the surface and $v_"m"$ is the volume of gas that would be adsorbed if there were precisely a full monolayer of coverage.
 // This allows us to rewrite #ref(<eq:bet>) slightly as
-// $ v = (v_"m " c x)/((1-x) (1+ x(c-1))). $
+// $ v = (v_"m" c x)/((1-x) (1+ x(c-1))). $
 // Generally, one will pick a sample to study and carry out an isotherm measurement with a given adsorbate molecule, which is most typically #ce("N2").
 // The value for $x$ is the independent variable controlled by the experimentalist by changing the pressure of gas introduced to the system.
-// In modifying $x$, the volume of adsorbed gas $v$ is measured, from which both $v_"m "$ and $c$ can be obtained as fitting parameters for the particular temperature and adsorbate--adsorbent system.
+// In modifying $x$, the volume of adsorbed gas $v$ is measured, from which both $v_"m"$ and $c$ can be obtained as fitting parameters for the particular temperature and adsorbate--adsorbent system.
 
-// With the value for $v_"m "$ obtained from experiments, the specific surface area of the material (typically reported in $"m "^2\/"g "$), $S_"BET"$, can be computed as
-// $ S_"BET" = (v_"m " N_ce("A") alpha)/V  dot 1/m_"adsorbent" , $
-// where $N_ce("A")$ is Avogadro's number, $alpha$ is the adsorption cross section of the adsorbate (i.e. the area that a single adsorbate would cover when adsorbed), $V$ is the molar volume of gas at the same conditions as $v_"m "$ was obtained, and $m_"adsorbent"$ is the mass of the adsorbent.
+// With the value for $v_"m"$ obtained from experiments, the specific surface area of the material (typically reported in $"m"^2\/"g"$), $S_"BET"$, can be computed as
+// $ S_"BET" = (v_"m" N_ce("A") alpha)/V  dot 1/m_"adsorbent" , $
+// where $N_ce("A")$ is Avogadro's number, $alpha$ is the adsorption cross section of the adsorbate (i.e. the area that a single adsorbate would cover when adsorbed), $V$ is the molar volume of gas at the same conditions as $v_"m"$ was obtained, and $m_"adsorbent"$ is the mass of the adsorbent.
 // Typically, $alpha$ and $V$ are tabulated quantities, and $m_"adsorbent"$ is readily measurable.
 
 == Surface Reaction Rate Laws <heterogeneous-catalysis-reaction-mechanisms>
@@ -1767,9 +1767,9 @@ $ r'_"SR" equiv r_"SR"/conc("*")_0 = k_2 theta_ce("A") - k_(-2) theta_ce("B"). $
 Notice how the two rate expressions are analogous, with concentrations replaced by fractional coverages.
 Here, the rate has been normalized by the concentration of active sites and, therefore, has units of 1/time.
 When dealing with the rate of a net reaction, this site-normalized form of the rate is referred to as a turnover frequency (TOF).
-The TOF represents the number of reacting molecules per active site and unit time (assuming that all adsorption sites defined by $conc("*")_0$ are all the possible active sites) since it represents the number of times the catalytic active sites have "turned over" a reaction. 
+The TOF represents the number of reacting molecules per active site and unit time (assuming that all adsorption sites defined by $conc("*")_0$ are all the possible active sites) since it represents the number of times the catalytic active sites have"turned over" a reaction. 
 Since TOFs are normalized by the concentration of active sites and most real catalysts have heterogeneity in the active species, the TOF is best thought of as an averaged property.
-#footnote[For additional considerations when reporting and interpreting TOFs, refer to F. Schüth, M.D. Ward, J.M. Buriak, "Common Pitfalls of Catalysis Manuscripts Submitted to Chemistry of Materials", _Chem. Mater._, 30, 3599--3600 (2018). More detailed discussion on this topic can be found in S. Kozuch, J.M.L. Martin, "Turning Over Definitions in Catalytic Cycles", _ACS Catal._, 2, 2787--2794 (2012) and the corresponding response G. Lente, "Comment on 'Turning Over Definitions in Catalytic Cycles'", _ACS Catal._, 3, 381--382 (2013).]
+#footnote[For additional considerations when reporting and interpreting TOFs, refer to F. Schüth, M.D. Ward, J.M. Buriak,"Common Pitfalls of Catalysis Manuscripts Submitted to Chemistry of Materials", _Chem. Mater._, 30, 3599--3600 (2018). More detailed discussion on this topic can be found in S. Kozuch, J.M.L. Martin,"Turning Over Definitions in Catalytic Cycles", _ACS Catal._, 2, 2787--2794 (2012) and the corresponding response G. Lente,"Comment on 'Turning Over Definitions in Catalytic Cycles'", _ACS Catal._, 3, 381--382 (2013).]
 
 
 === Dual-Site Mechanisms <reactions-between-two-surface-species>
@@ -1782,7 +1782,7 @@ $
 r_"SR" =^? k_2 conc("A^*") conc("B^*") - k_(-2) conc("C^*") conc("D^*").
 $<eq:fake_dual_sr>
 However, this is not the case.
-Species $"A "^*$ cannot react with species $"B "^*$ unless they are nearest neighbors.
+Species $"A"^*$ cannot react with species $"B"^*$ unless they are nearest neighbors.
 Therefore, we need to account for this in our rate expression, similar how we needed to account for the probability of adjacent sites in our dissociative adsorption example from #ref(<dissociative-adsorption>).
 
 With this knowledge and in analogy with the statistical corrections introduced in #ref(<dissociative-adsorption>),
@@ -1814,7 +1814,7 @@ $ ce("A^* + B") eqArrow(k_2,opposite:k_(-2)) ce("C^*"). $
 The net rate for the surface reaction is as follows:
 
 $
-r_"SR" &= k_2 conc("A^*") p_("B ") - k_(-2) conc("C^*").
+r_"SR" &= k_2 conc("A^*") p_("B") - k_(-2) conc("C^*").
 $
 This is largely analogous to the typical single and dual-site surface reactions, except that here we are considering the partial pressure of species #ce("B") rather than the concentration of #ce("B^*").
 We also do not need to account for lattice statistics since there are no surface site pairs involved.
@@ -1834,9 +1834,9 @@ ce("A^*") &fwdArrow(k_2) ce("P + *").
 $
 for the net reaction $ce("A->P")$.
 #footnote[It is typically the case that the reaction and desorption steps are separate elementary processes. However, we are considering them as one elementary process here for the sake of demonstration.]
-The net reaction rate is given by $r = r_"P "$, and so we will focus on the rate of product production from here.
+The net reaction rate is given by $r = r_"P"$, and so we will focus on the rate of product production from here.
 The rate of product production is given by
-$ r_"P " = k_2 conc("A^*"). $<eq:lhhw_sample_rate>
+$ r_"P" = k_2 conc("A^*"). $<eq:lhhw_sample_rate>
 
 We ultimately want to write our rate without transient intermediates.
 If we assume that the adsorption of A is quasi-equilibrated, then we have
@@ -1851,7 +1851,7 @@ $ conc("A^*") = K_"ads" p_ce("A") (conc("*")_0-conc("A^*")) $
 $ conc("A^*") +  K_"ads" p_ce("A") conc("A^*") = K_"ads" p_ce("A") conc("*")_0 $
 $ conc("A^*") =  (K_"ads" p_ce("A") conc("*")_0)/(1+K_"ads" p_ce("A")). $
 Plugging this into our original rate expression from #ref(<eq:lhhw_sample_rate>) results in
-$ r_"P " = (k_2 K_"ads" p_ce("A") conc("*")_0)/(1+K_"ads" p_ce("A")). $<eq:co_quasi>
+$ r_"P" = (k_2 K_"ads" p_ce("A") conc("*")_0)/(1+K_"ads" p_ce("A")). $<eq:co_quasi>
 Note that if we chose to write the above expression in terms of a turnover frequency, there would be no $conc("*")_0$ term remaining, which is a common feature of LHHW rate expressions.
 
 #plot[#align(center+horizon)[https://marimo.app/l/25oabe]]
@@ -1880,9 +1880,9 @@ This is expected to be the case for the quasi-equilibrium approach since $k_"des
 ===== Strong Adsorption <strong-adsorption>
 
 Here, we will explore some limiting cases for $r_ce("P")$ using the quasi-equilibrium form from #ref(<eq:co_quasi>):
-$ r_"P " = (k_2 K_"ads" p_ce("A") conc("*")_0)/(1+K_"ads" p_ce("A")). $
+$ r_"P" = (k_2 K_"ads" p_ce("A") conc("*")_0)/(1+K_"ads" p_ce("A")). $
 If A adsorbs strongly to the surface (and/or we are in the high pressure limit of $p_ce("A")$), then we arrive at
-$ r_"P " approx k_2 conc("*")_0 quad (K_"ads" p_ce("A")>>1). $
+$ r_"P" approx k_2 conc("*")_0 quad (K_"ads" p_ce("A")>>1). $
 In this scenario, the apparent reaction order of A is 0 because virtually all the sites are covered in A, such that slight variations in A do not have an appreciable influence on the overall rate.
 We know the apparent reaction order is 0 in A from the fact that there is no $p_ce("A")$ term in the simplified rate law.
 We can also see this from the formal definition given in #ref(<eq:apparent_order>):
@@ -1899,7 +1899,7 @@ $ E_"app" = R T^2 (diff ln(A_2 e^(- E_("a,2")/(R T))))/(diff T) = R T^2 (diff (A
 ===== Weak Adsorption
 
 In the opposite extreme, if A adsorbs very weakly to the surface (and/or we are in the low $p_ce("A")$ limit), then we arrive at
-$ r_"P " approx k_2 K_"ads" p_ce("A") conc("*")_0 quad (K_"ads" p_ce("A")<<1). $
+$ r_"P" approx k_2 K_"ads" p_ce("A") conc("*")_0 quad (K_"ads" p_ce("A")<<1). $
 Here, the apparent reaction order of A is 1.
 Additionally, the apparent rate constant would now be
 $ k_"app" = k_2 K_"ads". $
@@ -2000,7 +2000,7 @@ $<eq:co_final>
 Finally, substituting #ref(<eq:co_final>) into #ref(<eq:co_rate>) results in the desired rate expression based on experimental observables:
 $ r_ce("CO2") = (k'_3 K_1 p_("CO") conc("*")_0 sqrt(K_2 p_ce("O2"))) / (1+K_1 p_("CO") + sqrt(K_2 p_ce("O2")))^2. $
 Note that if we did not include the $z\/conc("*")_0$ correction in #ref(<eq:co_rate>), the resulting rate expression at the end of the derivation would have a $conc("*")_(0)^2$ term instead of $conc("*")_0$ in the numerator. In general, the presence of higher-order $conc("*")_0$ terms is a sign that lattice statistics have been neglected.
-// #footnote[For an alternate opinion about the $conc("*")_0$ term in catalytic rate expressions, refer to D. Kiani, I.E. Wachs, "The Conundrum of Pair Sites in Langmuir–Hinshelwood Reaction Kinetics in Heterogeneous Catalysis", _ACS Catal._, 14, 10260--10270 (2024).]
+// #footnote[For an alternate opinion about the $conc("*")_0$ term in catalytic rate expressions, refer to D. Kiani, I.E. Wachs,"The Conundrum of Pair Sites in Langmuir–Hinshelwood Reaction Kinetics in Heterogeneous Catalysis", _ACS Catal._, 14, 10260--10270 (2024).]
 
 ==== Limiting Cases
 
@@ -2099,7 +2099,7 @@ When invoking the MARI, we were able to write the rate expression using an equil
 Consider the proposed mechanism
 $
 ce("H2") + ce("2 *") &eqArrow(k_1,opposite:k_(-1)) ce("2 H^*")\
-ce("2 H^*") + ce("C2H2") &fwdArrow(k_"H ") ce("C2H4") + ce("2 *")
+ce("2 H^*") + ce("C2H2") &fwdArrow(k_"H") ce("C2H4") + ce("2 *")
 $
 with the net reaction #ce("C2H2 + H2 -> C2H4").
 #footnote[The second step is an example of a termolecular reaction that is actually quite likely to occur. Since the adsorbates are anchored onto the surface, it is natural for #ce("C2H2") to be hydrogenated in this way if it is well-aligned with the two hydrogen adsorbates.]
@@ -2108,21 +2108,21 @@ We will assume that the hydrogenation reaction is rate-limiting, such that the #
 Here, we have a reaction between an adsorbed species and gas-phase species (i.e. an Eley--Rideal mechanism), which is very slightly different than the typical LHHW kinetics since the reaction is not taking place solely on the surface.
 #footnote[For a critical discussion on the viability of Eley--Rideal mechanisms, refer to D. Kiani, I.E. Wachs, _ACS Catal._, 14, 16770--16784 (2024).]
 The rate of product formation, which is identical to the rate of reaction, is given by
-$ r = (k'_"H " conc("H^*")^2 p_ce("C2H2"))/(conc("*")_0), $
+$ r = (k'_"H" conc("H^*")^2 p_ce("C2H2"))/(conc("*")_0), $
 To get rid of the intermediate in our rate expression, we can invoke the quasi-equilibrium assumption on the first step to arrive at
 $
 K_1 = conc("H^*")^2/(p_ce("H2") conc("*")^2)\
 conc("H^*") = conc("*") sqrt(K_1 p_ce("H2")).
 $
 Plugging this into our expression for $r$ yields
-$ r = (k'_"H " K_1 conc("*")^2 p_ce("H2")  p_ce("C2H2"))/conc("*")_0.  $
+$ r = (k'_"H" K_1 conc("*")^2 p_ce("H2")  p_ce("C2H2"))/conc("*")_0.  $
 Now we can write our site balance:
 $ conc("*")_0 &= conc("*") + conc("H^*") = conc("*") +  conc("*") sqrt(K_1 p_ce("H2"))  = conc("*") (1 + sqrt(K_1 p_ce("H2"))), $
 such that
 $ conc("*") &= conc("*")_0/(1 + sqrt(K_1 p_ce("H2"))). $
 Substituting this into $r$ yields
 $
-r = (k'_"H " K_1 conc("*")_0 p_ce("H2") p_ce("C2H2"))/(1 + sqrt(K_1 p_ce("H2")))^2.
+r = (k'_"H" K_1 conc("*")_0 p_ce("H2") p_ce("C2H2"))/(1 + sqrt(K_1 p_ce("H2")))^2.
 $
 This is essentially a simplified form of the analogous LHHW model.
 
@@ -2132,7 +2132,7 @@ In some cases, the catalytic adsorption sites can be part of the catalytic cycle
 This is known as a Mars--van Krevlen cycle.
 There are several authoritative references that can be read to learn more about the derivation of the rate in a Mars--van Krevlen mechanism.
 We refrain from doing so here simply as a matter of brevity and, in part, because it has been shown that the original derivation has numerous logical inconsistencies that are difficult to justify.
-#footnote[M.A. Vannice, "An analysis of the Mars–van Krevelen rate expression", _Catal. Today_, 123, 18--22 (2007).]
+#footnote[M.A. Vannice,"An analysis of the Mars–van Krevelen rate expression", _Catal. Today_, 123, 18--22 (2007).]
 
 ==== Limitations of LHHW
 
@@ -2141,12 +2141,12 @@ LHHW kinetic models inherit all the assumptions associated with the Langmuir mod
 If this approximation breaks down, additional complexity must be introduced.
 Additionally, through the Hinshelwood assumption, the adsorbates are assumed to be randomly distributed on the surface.
 
-A clear demonstration of a failure mode with the LHHW model is related to a phenomenon described as "jamming."
+A clear demonstration of a failure mode with the LHHW model is related to a phenomenon described as"jamming."
 Consider the dissociative chemisorption reaction
 $ ce("H2 + 2 *") fwdArrow(k) ce("2 H^*"). $
 We know that the turnover frequency for this process can be given by
 $ r' = k' p_ce("H2") theta_ce("*")^2. $<eq:jam_rate>
-If we treat adsorption as occurring on a 2D lattice, it is possible to have a "jammed lattice" at sufficiently high values of $theta_"H "$ like that shown in #ref(<fig:jammed>).
+If we treat adsorption as occurring on a 2D lattice, it is possible to have a"jammed lattice" at sufficiently high values of $theta_"H"$ like that shown in #ref(<fig:jammed>).
 Here, there are still vacant sites available (i.e. $theta_*>0$).
 However, none of these vacant sites can lead to a further reaction because there is no space for two H atoms to adsorb at adjacent sites.
 In other words, $r'$ should be zero in the jammed state, but this is inconsistent with #ref(<eq:jam_rate>) for $theta_* > 0$.
@@ -2160,7 +2160,7 @@ Clearly, the Langmuir--Hinshelwood formalism cannot reproduce the jammed state w
 Of course, this does not necessarily mean a LHHW model cannot yield a sufficiently good fit to experimentally obtained kinetic data.
 Rather, it means that the interpretability may be limited.
 We refer the interested reader to external sources for further discussions about potential improvements to the LHHW formalism, particularly as it relates to dealing with site ensembles.
-#footnote[N.K. Razdan, A. Bhan, "Kinetic description of site ensembles on catalytic surfaces", _Proc. Natl. Acad. Sci. U.S.A._, 118, e2019055118 (2021). Also refer to N.K. Razdan, A. Bhan, "Catalytic site ensembles: A context to reexamine the Langmuir--Hinshelwood kinetic description", _J. Catal._, 404, 726--744 (2021). ]
+#footnote[N.K. Razdan, A. Bhan,"Kinetic description of site ensembles on catalytic surfaces", _Proc. Natl. Acad. Sci. U.S.A._, 118, e2019055118 (2021). Also refer to N.K. Razdan, A. Bhan,"Catalytic site ensembles: A context to reexamine the Langmuir--Hinshelwood kinetic description", _J. Catal._, 404, 726--744 (2021). ]
 
 = Chemical Reactor Archetypes
 
@@ -2183,7 +2183,7 @@ This is depicted in #ref(<fig:reactor_volume>).
 
 
 Written out, this can be described as follows:
-$ ("rate of accumulation of " A_j) = ("rate of flow of " A_j "in") - ("rate of flow of " A_j "out")\ + ("rate of generation of " A_j) $
+$ ("rate of accumulation of" A_j) = ("rate of flow of" A_j"in") - ("rate of flow of" A_j"out")\ + ("rate of generation of" A_j) $
 or mathematically as
 $ (dif n_j) / (dif t) = dot(n)_(j,0) - dot(n)_(j,1) + G_j, $
 where $dif n_j \/ dif t$ is the rate of change of species $A_j$ in the control volume (i.e. its rate of accumulation), $dot(n)_(j,0)$ is the molar flow rate of species $A_j$ into the volume, $dot(n)_(j,1)$ is the molar flow rate of species $A_j$ out of the volume at time $t$, and $G_j$ is the rate of generation of species $A_j$ from chemical reactions.
@@ -2262,8 +2262,8 @@ Taking the limit as $delta V->0$ (i.e. invoking the definition of the derivative
 $ r_j = (dif dot(n)_j) / (dif V). $<eq:pfr>
 
 Under the assumption of a constant volumetric flow rate, we can define a property known as the residence time, $tau$, as
-$ tau equiv V/dot(v) = (A_"c "z)/dot(v) = z/u, $<eq:residence_time>
-where $dot(v)$ is the volumetric flow rate (i.e. $"m "^3$/s), $A_"c "$ is the cross-sectional area of the reactor tube (i.e. $"m"^2$), $z$ is the length of the reactor (i.e. m), and $u$ is the linear velocity of the fluid (i.e. m/s).
+$ tau equiv V/dot(v) = (A_"c"z)/dot(v) = z/u, $<eq:residence_time>
+where $dot(v)$ is the volumetric flow rate (i.e. $"m"^3$/s), $A_"c"$ is the cross-sectional area of the reactor tube (i.e. $"m"^2$), $z$ is the length of the reactor (i.e. m), and $u$ is the linear velocity of the fluid (i.e. m/s).
 The value of $tau$ has units of time and reflects the time a given packet of fluid spends inside the reactor.
 The residence time is the natural analogue to the clock time $t$ used in the batch reactor derivation.
 We can plug the definition of $tau$ into #ref(<eq:pfr>) to arrive at
@@ -2400,29 +2400,29 @@ The subscripts 0 and 1 indicate the inlet and outlet streams, if applicable.
 === Work Terms
 
 The work term is defined as
-$ accent(W,dot) = accent(W,dot)_"f " + accent(W,dot)_"s " + accent(W,dot)_"b ", $
+$ accent(W,dot) = accent(W,dot)_"f" + accent(W,dot)_"s" + accent(W,dot)_"b", $
 where the individual terms are for work done by flow streams moving through the reactor, shaft work being done by stirrers, compressors, and other equipment, and work done when moving the system boundary (if moved), respectively.
 
-We define $accent(W,dot)_"f "$ as 
-$ accent(W,dot)_"f " = dot(v)_0 P_0 -dot(v)_1 P_1, $
+We define $accent(W,dot)_"f"$ as 
+$ accent(W,dot)_"f" = dot(v)_0 P_0 -dot(v)_1 P_1, $
 where $dot(v)$ is the volumetric flow rate and $P$ is the pressure of the stream.
-We can define $accent(W,dot)_"b "$ in differential form as
-$ accent(W,dot)_"b " = -P (dif V)/(dif t), $
+We can define $accent(W,dot)_"b"$ in differential form as
+$ accent(W,dot)_"b" = -P (dif V)/(dif t), $
 where $P$ here is the pressure within the reactor.
 
 With this, we will rewrite $accent(W,dot)$ as 
-$ accent(W,dot) = dot(v)_0 P_0 -dot(v)_1 P_1 + accent(W,dot)_"s " -P (dif V)/(dif t), $
+$ accent(W,dot) = dot(v)_0 P_0 -dot(v)_1 P_1 + accent(W,dot)_"s" -P (dif V)/(dif t), $
 where we will also leave the shaft work as an abstract variable for now since it depends on what equipment is being used.
 #footnote[Note that $dot(v) = dot(m)\/rho$, where $rho$ is the fluid density and $dot(m)$ is the mass-flow rate. As such, you may see $dot(m)\/rho$ used in place of $dot(v)$ in the energy balance depending on the properties that are easiest to measure.]
 With a slightly more illustrative expression for $dot(W)$, we can rewrite #ref(<eq:starting_energy_balance>) as 
-$ (dif E)/(dif t) = accent(m,dot)_0 accent(E,hat)_0 - accent(m,dot)_1 accent(E,hat)_1 + accent(Q,dot) +  dot(v)_0 P_0 -dot(v)_1 P_1 + accent(W,dot)_"s " - P (dif V)/(dif t). $
+$ (dif E)/(dif t) = accent(m,dot)_0 accent(E,hat)_0 - accent(m,dot)_1 accent(E,hat)_1 + accent(Q,dot) +  dot(v)_0 P_0 -dot(v)_1 P_1 + accent(W,dot)_"s" - P (dif V)/(dif t). $
 
 === Energy Terms
 
 The total energy of the system is the sum of all internal, potential, and kinetic energies:
-$ E = U + "KE" + "PE". $
+$ E = U +"KE" +"PE". $
 We can rewrite our energy balance derivative as
-$ (dif (U + "KE" + "PE"))/(dif t) = accent(m,dot)_0 (accent(U,hat)_0 + accent("KE",hat)_0 + accent("PE",hat)_0) - accent(m,dot)_1 (accent(U,hat)_1 + accent("KE",hat)_1 + accent("PE",hat)_1) \ + accent(Q,dot) + dot(v)_0 P_0 -dot(v)_1 P_1 + accent(W,dot)_"s " - P (dif V)/(dif t). $
+$ (dif (U +"KE" +"PE"))/(dif t) = accent(m,dot)_0 (accent(U,hat)_0 + accent("KE",hat)_0 + accent("PE",hat)_0) - accent(m,dot)_1 (accent(U,hat)_1 + accent("KE",hat)_1 + accent("PE",hat)_1) \ + accent(Q,dot) + dot(v)_0 P_0 -dot(v)_1 P_1 + accent(W,dot)_"s" - P (dif V)/(dif t). $
 
 We will now take advantage of the definition of enthalpy, $H equiv U + P V$, to say that
 $
@@ -2430,13 +2430,13 @@ accent(H,hat) =  accent(U,hat) + (P dot(V))/dot(m).
 $
 Now we can state
 $
-(dif (U + "KE" + "PE"))/(dif t) = accent(m,dot)_0 (accent(H,hat)_0 - (P_0 dot(v)_0)/(dot(m)_0) + accent("KE",hat)_0 + accent("PE",hat)_0) - accent(m,dot)_1 (accent(H,hat)_1 - (P_1 dot(v)_1)/dot(m)_1 + accent("KE",hat)_1 + accent("PE",hat)_1) \ + accent(Q,dot)  + dot(v)_0 P_0 -dot(v)_1 P_1 + accent(W,dot)_"s " - P (dif V)/(dif t)
+(dif (U +"KE" +"PE"))/(dif t) = accent(m,dot)_0 (accent(H,hat)_0 - (P_0 dot(v)_0)/(dot(m)_0) + accent("KE",hat)_0 + accent("PE",hat)_0) - accent(m,dot)_1 (accent(H,hat)_1 - (P_1 dot(v)_1)/dot(m)_1 + accent("KE",hat)_1 + accent("PE",hat)_1) \ + accent(Q,dot)  + dot(v)_0 P_0 -dot(v)_1 P_1 + accent(W,dot)_"s" - P (dif V)/(dif t)
 $
 We can now simplify our expression to be
-$ (dif (U + "KE" + "PE"))/(dif t) = [accent(m,dot)_0 (accent(H,hat)_0 + accent("KE",hat)_0 + accent("PE",hat)_0)- dot(v)_0 P_0]  - [accent(m,dot)_1 (accent(H,hat)_1 + accent("KE",hat)_1 + accent("PE",hat)_1) - dot(v)_1 P_1] \ + accent(Q,dot)  + dot(v)_0 P_0 -dot(v)_1 P_1 + accent(W,dot)_"s " - P (dif V)/(dif t), $
+$ (dif (U +"KE" +"PE"))/(dif t) = [accent(m,dot)_0 (accent(H,hat)_0 + accent("KE",hat)_0 + accent("PE",hat)_0)- dot(v)_0 P_0]  - [accent(m,dot)_1 (accent(H,hat)_1 + accent("KE",hat)_1 + accent("PE",hat)_1) - dot(v)_1 P_1] \ + accent(Q,dot)  + dot(v)_0 P_0 -dot(v)_1 P_1 + accent(W,dot)_"s" - P (dif V)/(dif t), $
 such that it simplifies to the following:
 $
-(dif (U + "KE" + "PE"))/(dif t) = accent(m,dot)_0 (accent(H,hat)_0 + accent("KE",hat)_0 + accent("PE",hat)_0) - accent(m,dot)_1 (accent(H,hat)_1 + accent("KE",hat)_1 + accent("PE",hat)_1) \ + accent(Q,dot)  + accent(W,dot)_"s " - P (dif V)/(dif t).
+(dif (U +"KE" +"PE"))/(dif t) = accent(m,dot)_0 (accent(H,hat)_0 + accent("KE",hat)_0 + accent("PE",hat)_0) - accent(m,dot)_1 (accent(H,hat)_1 + accent("KE",hat)_1 + accent("PE",hat)_1) \ + accent(Q,dot)  + accent(W,dot)_"s" - P (dif V)/(dif t).
 $<eq:general_energy_balance>
 We will leave our general expression at this for now.
 
@@ -2446,10 +2446,10 @@ We will leave our general expression at this for now.
 === General Approach <batch-general>
 
 The batch reactor has no flow streams, so our energy balance collapses down to
-$ (dif (U + "KE" + "PE"))/(dif t) = accent(Q,dot) + accent(W,dot)_"s " - P (dif V)/(dif t). $
+$ (dif (U +"KE" +"PE"))/(dif t) = accent(Q,dot) + accent(W,dot)_"s" - P (dif V)/(dif t). $
 
 From here, we will make some assumptions.
-The first assumption is that the shaft work is negligible (i.e. $accent(W,dot)_"s "=0$), which is generally true so long as the stirrers and other equipment are not drawing significant power.
+The first assumption is that the shaft work is negligible (i.e. $accent(W,dot)_"s"=0$), which is generally true so long as the stirrers and other equipment are not drawing significant power.
 The second approximation we will make is that the kinetic energy of the fluid does not appreciably change (i.e. $dif"KE"\/dif t=0$), which is particularly reasonable for a batch reactor but even for flow reactors since the flows themselves are usually not drastically changing speeds.
 The final approximation we will make is that the change in potential energy is negligible (i.e. $dif"PE"\/dif t=0$), which is reasonable for a batch reactor but may not be reasonable for reactors in the presence of external fields (e.g. an electrochemical system).
 
@@ -2470,7 +2470,7 @@ $<eq:dH_batch>
 For single-phase systems, we can write the total differential of the enthalpy as 
 $ dif H = ((diff H)/(diff T))_(P,n_j) dif T + ((diff H)/(diff P))_(T,n_j) dif P + sum_j ((diff H)/(diff n_j))_(T,p,n_(k!=j)) dif n_j. $
 The left-most derivative is the definition of the constant-pressure heat capacity:
-$ C_"P " equiv ((diff H)/(diff T))_(P,n_j). $
+$ C_"P" equiv ((diff H)/(diff T))_(P,n_j). $
 
 Now for the second term.
 We will take advantage of a few thermodynamic relationships here without re-deriving them from scratch.
@@ -2486,15 +2486,15 @@ $accent(H,macron)_j$, where
 $ accent(H,macron)_j equiv ((diff H)/(diff n_j))_(T,p,n_(k!=j)). $
 
 Now to put it all together:
-$ dif H =  m hat(C)_"P " dif T +  V (1-alpha T) dif P+ sum_j accent(H,macron)_j dif n_j. $<eq:dif_h>
-Here, we have chosen to use the specific heat capacity, $accent(C,hat)_"P "$, in place of an extensive heat capacity since the former is a more natural property to measure.
+$ dif H =  m hat(C)_"P" dif T +  V (1-alpha T) dif P+ sum_j accent(H,macron)_j dif n_j. $<eq:dif_h>
+Here, we have chosen to use the specific heat capacity, $accent(C,hat)_"P"$, in place of an extensive heat capacity since the former is a more natural property to measure.
 The mass can be determined quite easily from $m = rho V$ as well, which is typically easier to measure.
 
 Plugging the above expression into #ref(<eq:dH_batch>) results in
 $
-(m hat(C)_"P " dif T +  V (1-alpha T) dif P+ sum_j accent(H,macron)_j dif n_j)/(dif t) - V (dif P)/(dif t) &= accent(Q,dot)\
-m hat(C)_"P " (dif T)/(dif t) + V (1-alpha T) (dif P)/(dif t) + sum_j accent(H,macron)_j (dif n_j)/(dif t) - V (dif P)/(dif t) &= accent(Q,dot).\
-m hat(C)_"P " (dif T)/(dif t) - alpha T V (dif P)/(dif t) &= - sum_j accent(H,macron)_j (dif n_j)/(dif t) + accent(Q,dot).
+(m hat(C)_"P" dif T +  V (1-alpha T) dif P+ sum_j accent(H,macron)_j dif n_j)/(dif t) - V (dif P)/(dif t) &= accent(Q,dot)\
+m hat(C)_"P" (dif T)/(dif t) + V (1-alpha T) (dif P)/(dif t) + sum_j accent(H,macron)_j (dif n_j)/(dif t) - V (dif P)/(dif t) &= accent(Q,dot).\
+m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) &= - sum_j accent(H,macron)_j (dif n_j)/(dif t) + accent(Q,dot).
 $
 It may seem like this is still a mess (and to some degree, it is), but we have made a lot of progress.
 Every algebraic term in this expression is something that can be experimentally measured or computed, although the trickiest term here is probably the summation term.
@@ -2506,16 +2506,16 @@ For reasons that will become clearer shortly, we can use #ref(<eq:sum_stoichs_ra
 $ (dif n_j)/(dif t) = V sum_i nu_(i,j) r_i, $ <eq:dn_j_batch>
 where as usual $i$ indicates the index of a reaction and $j$ indicates the index of a species.
 Plugging this expression into our energy balance yields
-$ m hat(C)_"P " (dif T)/(dif t) - alpha T V (dif P)/(dif t) &= - V sum_j accent(H,macron)_j sum_i nu_(i,j) r_i + accent(Q,dot). $
+$ m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) &= - V sum_j accent(H,macron)_j sum_i nu_(i,j) r_i + accent(Q,dot). $
 We can re-group this a bit to help us out in visualizing a substitution that is about to come:
-$ m hat(C)_"P " (dif T)/(dif t) - alpha T V (dif P)/(dif t) &= - V sum_i ( sum_j nu_(i,j) accent(H,macron)_j) r_i + accent(Q,dot). $
+$ m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) &= - V sum_i ( sum_j nu_(i,j) accent(H,macron)_j) r_i + accent(Q,dot). $
 
 If we assume that the partial molar enthalpies are the same as pure component enthalpies, then we can take advantage of the following relationship that exists for a given reaction $i$ and species $j$:
 $ sum_j nu_(i,j) accent(H,macron)_j=Delta H_("rxn",i), $<eq:partial_molar_enthalpy>
 such that
-$ m hat(C)_"P " (dif T)/(dif t) - alpha T V (dif P)/(dif t) &= - V sum_i Delta H_("rxn",i) r_i + accent(Q,dot). $<eq:energy_balance_batch_general>
+$ m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) &= - V sum_i Delta H_("rxn",i) r_i + accent(Q,dot). $<eq:energy_balance_batch_general>
 Should we wish to consider a net reaction rather than individual elementary reactions, the above expression can also be rewritten without the summation as
-$ m hat(C)_"P " (dif T)/(dif t) - alpha T V (dif P)/(dif t) &= - Delta H_("rxn") r V + accent(Q,dot). $<eq:batch_nonisothermal>
+$ m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) &= - Delta H_("rxn") r V + accent(Q,dot). $<eq:batch_nonisothermal>
 
 There we have it --- a compact expression for the energy balance in a single-phase batch reactor, which can be coupled with the mass balance to better understand reaction progress.
 
@@ -2526,10 +2526,10 @@ There we have it --- a compact expression for the energy balance in a single-pha
 
 From here, there are many simplifications that can be made depending on the system under investigation:
 
-$ m hat(C)_"P " (dif T)/(dif t) = - V sum_i Delta H_("rxn",i) r_i + accent(Q,dot) quad ("constant" P "or incompressible")
+$ m hat(C)_"P" (dif T)/(dif t) = - V sum_i Delta H_("rxn",i) r_i + accent(Q,dot) quad ("constant" P"or incompressible")
 $<eq:batch_energy_incompressible>
-$ m hat(C)_"V " (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) + alpha/kappa T  Delta V_("rxn",i))  r_i   + accent(Q,dot) quad ("constant" V) $
-$ m hat(C)_"V " (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) + R T sum_j nu_(i,j))  r_i   + accent(Q,dot) quad ("constant " V, "ideal gas") $<eq:batch_energy_balance_ideal>
+$ m hat(C)_"V" (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) + alpha/kappa T  Delta V_("rxn",i))  r_i   + accent(Q,dot) quad ("constant" V) $
+$ m hat(C)_"V" (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) + R T sum_j nu_(i,j))  r_i   + accent(Q,dot) quad ("constant" V,"ideal gas") $<eq:batch_energy_balance_ideal>
 
 We will not discuss these derivations at length in class for the sake of time and because the mathematical gymnastics is essentially the same, but the full details are reproduced below for clarity.
 
@@ -2538,7 +2538,7 @@ We will not discuss these derivations at length in class for the sake of time an
 If the reactor operates under constant pressure, then we can say $dif P\/ dif t=0$.
 If the reactor fluid is incompressible, then $alpha=0$.
 In both cases, we have
-$ m hat(C)_"P " (dif T)/(dif t) = - V sum_i Delta H_("rxn",i) r_i + accent(Q,dot).
+$ m hat(C)_"P" (dif T)/(dif t) = - V sum_i Delta H_("rxn",i) r_i + accent(Q,dot).
 $
 This is a typical energy balance when dealing with liquid-phase reactions in a batch reactor.
 
@@ -2549,20 +2549,20 @@ _This derivation is not covered in class but is included here for the interested
 The constant pressure assumption is likely reasonable for most liquids but is going to be questionable for most gas-phase reactions.
 Here, we will derive an expression for a constant volume reactor that may be a bit more suitable for gases.
 To start, we will return to our energy balance in #ref(<eq:energy_balance_batch_general>) from before we made any assumptions about constant pressure:
-$ m hat(C)_"P " (dif T)/(dif t) - alpha T V (dif P)/(dif t) = - V sum_i Delta H_("rxn",i) r_i + accent(Q,dot). $
+$ m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) = - V sum_i Delta H_("rxn",i) r_i + accent(Q,dot). $
 Then we will write out the total derivative for pressure in terms of $T$, $V$, and $n_j$ as
 $ dif P = ((diff P)/(diff T))_(V,n_j) dif T + ((diff P)/(diff V))_(T,n_j) dif V + sum_j ((diff P)/(diff n_j))_(T,V,n_(k!=j)) dif n_j. $
 For constant pressure, we have $dif V =0$, such that
 $ dif P = ((diff P)/(diff T))_(V,n_j) dif T + sum_j ((diff P)/(diff n_j))_(T,V,n_(k!=j)) dif n_j. $
 Plugging this into our energy balance yields
 $
-m hat(C)_"P " (dif T)/(dif t) - alpha T V (((diff P)/(diff T))_(V,n_j) dif T + sum_j ((diff P)/(diff n_j))_(T,V,n_(k!=j)) dif n_j)/(dif t) &= -  V sum_i Delta H_("rxn",i) r_i + accent(Q,dot)\
-(dif T)/(dif t) (m hat(C)_"P "  - alpha T V ((diff P)/(diff T))_(V,n_j) ) - alpha T V sum_j  ((diff P)/(diff n_j))_(T,V,n_(k!=j)) (dif n_j)/(dif t)   &= -  V sum_i Delta H_("rxn",i) r_i + accent(Q,dot).
+m hat(C)_"P" (dif T)/(dif t) - alpha T V (((diff P)/(diff T))_(V,n_j) dif T + sum_j ((diff P)/(diff n_j))_(T,V,n_(k!=j)) dif n_j)/(dif t) &= -  V sum_i Delta H_("rxn",i) r_i + accent(Q,dot)\
+(dif T)/(dif t) (m hat(C)_"P"  - alpha T V ((diff P)/(diff T))_(V,n_j) ) - alpha T V sum_j  ((diff P)/(diff n_j))_(T,V,n_(k!=j)) (dif n_j)/(dif t)   &= -  V sum_i Delta H_("rxn",i) r_i + accent(Q,dot).
 $
 From here, we will take advantage of a known thermodynamic relationship:
-$ m hat(C)_"P " = m hat(C)_"V " + alpha T V ((diff P)/(diff T))_(V,n_j). $
+$ m hat(C)_"P" = m hat(C)_"V" + alpha T V ((diff P)/(diff T))_(V,n_j). $
 Plugging this into our expression, we have
-$ m hat(C)_"V " (dif T)/(dif t) - alpha T V sum_j  ((diff P)/(diff n_j))_(T,V,n_(k!=j)) (dif n_j)/(dif t)   &= - V sum_i Delta H_("rxn",i) Delta r_i + accent(Q,dot). $
+$ m hat(C)_"V" (dif T)/(dif t) - alpha T V sum_j  ((diff P)/(diff n_j))_(T,V,n_(k!=j)) (dif n_j)/(dif t)   &= - V sum_i Delta H_("rxn",i) Delta r_i + accent(Q,dot). $
 
 This is much simpler, but there is still more to be done here.
 We will take advantage of another thermodynamic relationship
@@ -2570,20 +2570,20 @@ $ ((diff P)/(diff n_j))_(T,V,n_(k != j)) = accent(V,macron)_j / (V kappa), $
 where $accent(V,macron)_j$ is the partial molar volume of species $j$ and $kappa$ is the isothermal compressibility defined as
 $ kappa equiv -1/V ((diff V)/(diff P))_(T,n_j). $
 Plugging this in, we get
-$ m hat(C)_"V " (dif T)/(dif t) - alpha/kappa T  sum_j accent(V,macron)_j  (dif n_j)/(dif t)   &= - V sum_i Delta H_("rxn",i) Delta r_i + accent(Q,dot). $
+$ m hat(C)_"V" (dif T)/(dif t) - alpha/kappa T  sum_j accent(V,macron)_j  (dif n_j)/(dif t)   &= - V sum_i Delta H_("rxn",i) Delta r_i + accent(Q,dot). $
 
 Plugging in our expression for $dif n_j\/dif t$ from the mass balance in #ref(<eq:batch_r_j>) further simplifies things to
-$ m hat(C)_"V " (dif T)/(dif t) - alpha/kappa T V sum_j accent(V,macron)_j sum_i nu_(i,j) r_i  = -  V sum_i Delta H_("rxn",i) Delta r_i + accent(Q,dot), $
+$ m hat(C)_"V" (dif T)/(dif t) - alpha/kappa T V sum_j accent(V,macron)_j sum_i nu_(i,j) r_i  = -  V sum_i Delta H_("rxn",i) Delta r_i + accent(Q,dot), $
 which we again re-group as
-$ m hat(C)_"V " (dif T)/(dif t) - alpha/kappa T V sum_i (sum_j accent(V,macron)_j  nu_(i,j)) r_i  = -  V sum_i Delta H_("rxn",i) Delta r_i + accent(Q,dot). $
+$ m hat(C)_"V" (dif T)/(dif t) - alpha/kappa T V sum_i (sum_j accent(V,macron)_j  nu_(i,j)) r_i  = -  V sum_i Delta H_("rxn",i) Delta r_i + accent(Q,dot). $
 
 Like we did for the partial molar enthalpy in #ref(<eq:partial_molar_enthalpy>), we will state
 $ sum_j nu_(i,j) accent(V,macron)_j  = Delta V_("rxn",i), $<eq:partial_volume_balance>
 where $Delta V_("rxn",i)$ is the change in volume over the course of reaction $i$.
 Therefore,
-$ m hat(C)_"V " (dif T)/(dif t) - alpha/kappa T V sum_i Delta V_("rxn",i) r_i  = -  V sum_i Delta H_("rxn",i) r_i + accent(Q,dot). $
+$ m hat(C)_"V" (dif T)/(dif t) - alpha/kappa T V sum_i Delta V_("rxn",i) r_i  = -  V sum_i Delta H_("rxn",i) r_i + accent(Q,dot). $
 Combining the sums gets us our general but slightly more manageable expression for the energy balance of a constant-volume batch reactor,
-$ m hat(C)_"V " (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) + alpha/kappa T  Delta V_("rxn",i))  r_i   + accent(Q,dot). $<eq:constant_volume_energy>
+$ m hat(C)_"V" (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) + alpha/kappa T  Delta V_("rxn",i))  r_i   + accent(Q,dot). $<eq:constant_volume_energy>
 
 ==== Ideal Gas at Constant Volume
 
@@ -2593,11 +2593,11 @@ If our reacting mixture is an ideal gas mixture, we can make some further simpli
 $ kappa equiv - 1/V ((diff V)/(diff P))_(T,n_j) = -1/V (diff((n R T)/P)/(diff P))_(T,n_j) = 1/V (n R T)/P^2 = 1/V (P V)/P^2 =1/P  $
 $ alpha equiv (1/V) ((diff V)/(diff T))_(P,n_j) = 1/V (diff((n R T)/P)/(diff T))_(P,n_j) = 1/V (n R)/P = 1/V (P V)/(P T) = 1/T. $
 Plugging these expressions into #ref(<eq:constant_volume_energy>) yields
-$ m hat(C)_"V " (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) +  P  Delta V_("rxn",i))  r_i   + accent(Q,dot). $
+$ m hat(C)_"V" (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) +  P  Delta V_("rxn",i))  r_i   + accent(Q,dot). $
 Finally, we can note that 
 $ Delta V_("rxn",i) = (Delta n_("rxn",i) R T)/P, $
 such that
-$ m hat(C)_"V " (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) + R T sum_j nu_(i,j))  r_i   + accent(Q,dot), $
+$ m hat(C)_"V" (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) + R T sum_j nu_(i,j))  r_i   + accent(Q,dot), $
 where we took advantage of the fact that $Delta n_("rxn",i) = sum_j nu_(i,j)$.
 
 === Example Application of the Energy Balance <example-batch-energy>
@@ -2622,18 +2622,18 @@ Thus far, this is essentially the same procedure we have done many times before,
 However, we cannot proceed with the integration yet since $k(T)$ and $T(t)$ for non-isothermal operation.
 
 We now move onto the simplified energy balance for an ideal gas at constant volume from #ref(<eq:batch_energy_balance_ideal>) to state
-$ m hat(C)_"V " (dif T)/(dif t)  &= (-Delta H_("rxn") + R T) r V, $
+$ m hat(C)_"V" (dif T)/(dif t)  &= (-Delta H_("rxn") + R T) r V, $
 where we note that $sum_j nu_j = 1$ for the given reaction and $dot(Q)=0$ for an adiabatic process.
 We know that $ r = - r_ce("A") = k conc("A"), $
 such that
-$ m hat(C)_"V " (dif T)/(dif t)  &= (-Delta H_("rxn") + R T) k conc("A") V. $
+$ m hat(C)_"V" (dif T)/(dif t)  &= (-Delta H_("rxn") + R T) k conc("A") V. $
 This leaves us with a system of differential equations that must be solved simultaneously:
 $ 
-(dif conc("A"))/(dif t) = -k conc("A"), quad (dif T)/(dif t)  = ((-Delta H_("rxn") + R T) k conc("A") V)/(m hat(C)_"V ").
+(dif conc("A"))/(dif t) = -k conc("A"), quad (dif T)/(dif t)  = ((-Delta H_("rxn") + R T) k conc("A") V)/(m hat(C)_"V").
 $<eq:batch_simultaneous>
 To make matters even clearer, we can substitute in the Arrhenius equation for $k$ to state
 $ 
-(dif conc("A"))/(dif t) = -A' exp(-E_ce("a")/(R T)) conc("A"), quad (dif T)/(dif t)  = ((-Delta H_("rxn") + R T) A' exp(-E_ce("a")/(R T)) conc("A") V)/(m hat(C)_"V "),
+(dif conc("A"))/(dif t) = -A' exp(-E_ce("a")/(R T)) conc("A"), quad (dif T)/(dif t)  = ((-Delta H_("rxn") + R T) A' exp(-E_ce("a")/(R T)) conc("A") V)/(m hat(C)_"V"),
 $
 where $A'$ is the pre-exponential factor (to distinguish it from species A).
 
@@ -2657,7 +2657,7 @@ A cooling coil maintains the reactor temperature at a given value of $T$.
 
 Here, we will ask the following question: how much heat needs to be removed by the cooling coil to maintain isothermal operation?
 To address this question, we start by assuming that the incompressible-fluid energy balance from #ref(<eq:batch_energy_incompressible>) is suitable:
-$ m hat(C)_"P " (dif T)/(dif t) = -  Delta H_("rxn") r V + accent(Q,dot).
+$ m hat(C)_"P" (dif T)/(dif t) = -  Delta H_("rxn") r V + accent(Q,dot).
 $
 Since we are operating isothermally, $dif T\/dif t =0$, such that
 $ Delta H_("rxn") r V = accent(Q,dot).
@@ -2679,19 +2679,19 @@ Additionally, the more exothermic the reaction is and the more A that gets conve
 
 Now we will relax the assumption of isothermal operation and ask: if operated adiabatically, how would the temperature change over the course of the reaction?
 We return to the energy balance:
-$ m hat(C)_"P " (dif T)/(dif t) = -  Delta H_("rxn") r V + accent(Q,dot).
+$ m hat(C)_"P" (dif T)/(dif t) = -  Delta H_("rxn") r V + accent(Q,dot).
 $
 Now, we set $dot(Q)=0$, such that
-$ m hat(C)_"P " (dif T)/(dif t) = -  Delta H_("rxn") r V.
+$ m hat(C)_"P" (dif T)/(dif t) = -  Delta H_("rxn") r V.
 $
 We know that $r = - dif conc("A")\/dif t$, such that
-$ m hat(C)_"P " (dif T)/(dif t) = Delta H_("rxn") (dif conc("A"))/(dif t) V.
+$ m hat(C)_"P" (dif T)/(dif t) = Delta H_("rxn") (dif conc("A"))/(dif t) V.
 $
 Now we can integrate to find an expression for the temperature change
-$ integral_(T_1)^(T_2)  dif T = integral_(conc("A")_0)^(conc("A")) (Delta H_("rxn")V)/(m hat(C)_"P ") dif conc("A")',
+$ integral_(T_1)^(T_2)  dif T = integral_(conc("A")_0)^(conc("A")) (Delta H_("rxn")V)/(m hat(C)_"P") dif conc("A")',
 $
 which simplifies to
-$ Delta T = (Delta H_("rxn")V (conc("A")-conc("A")_0))/(m hat(C)_"P ").
+$ Delta T = (Delta H_("rxn")V (conc("A")-conc("A")_0))/(m hat(C)_"P").
 $
 This expression also makes intuitive sense.
 Since $conc("A")< conc("A")_0$, if $Delta H_"rxn"$ is exothermic, then $Delta T>0$.
@@ -2701,17 +2701,17 @@ Additionally, the more exothermic the reaction is and the more A that gets consu
 
 // For the sake of simplicity, it is sometimes assumed that the temperature dependence of $Delta H_"rxn"$ is weak over the relatively limited range of operating temperatures.
 // To relax this somewhat questionable assumption, one can typically use an empirical relationship known as the Shomate equation, which takes the following form:
-// $ C_"P " = A + B T + C T^2 + D T^3 + E/T^2, $
+// $ C_"P" = A + B T + C T^2 + D T^3 + E/T^2, $
 // where each parameter is determined based on statistical regression to experimental data.
 // If the different components in a fluid behave ideally, the fluid's heat capacity is simply the sum of its individual component heat capacities.
 // This is useful to know, as pure component heat capacities are tabulated in many places, such as the _NIST Chemistry WebBook_. 
 
 // From this, we can express the temperature-dependence for enthalpy as
-// $ H(T_2) - H(T_1) = integral_(T_1)^(T_2) C_"P " dif T $
+// $ H(T_2) - H(T_1) = integral_(T_1)^(T_2) C_"P" dif T $
 // $ H(T_2) - H(T_1) = A Delta T + (B (Delta T)^2)/2 + (C (Delta T)^3)/3 + (D (Delta T)^4)/4 - E/(Delta T), $
-// which comes from the definition of the constant-pressure heat capacity, $C_"P "$.
+// which comes from the definition of the constant-pressure heat capacity, $C_"P"$.
 // Since $Delta H_"rxn"$ is a state function, we can equivalently use $Delta H_"rxn"$ in the above expression in place of $H$.
-// The value for $C_"V "$ in the energy balance can also depend on temperature, albeit much less so than $Delta H_"rxn"$.
+// The value for $C_"V"$ in the energy balance can also depend on temperature, albeit much less so than $Delta H_"rxn"$.
 
 == Plug Flow Reactors
 
@@ -2720,15 +2720,15 @@ Additionally, the more exothermic the reaction is and the more A that gets consu
 For the sake of brevity, we will forego a detailed derivation of the PFR energy, especially since it is very similar to that of the batch reactor (as was observed for the mass balance).
 #footnote[For a thorough derivation of reactor energy balances, refer to Chapter 6 of _Chemical Reactor Analysis and Design Fundamentals_ by J.B. Rawlings and J.G. Ekerdt.]
 Instead, in analogy with the single-phase batch reactor energy balance given by #ref(<eq:batch_nonisothermal>), we will simply state that single-phase PFR energy balance is
-$ rho hat(C)_"P " (dif T)/(dif tau) + (1-alpha T) (dif P)/(dif tau) = - sum_i Delta H_("rxn",i) r_i + dot(Q)/V. $
-Assuming the cross-sectional area, $A_"c "$, of the PFR is constant, then we can equivalently write the derivatives in terms of $z$ instead of $tau$ via a simple change of variables (i.e. using the relationship of $tau = z \/u $ from #ref(<eq:residence_time>)):
-$ rho u hat(C)_"P " (dif T)/(dif z) +  u (1-alpha T) (dif P)/(dif z) = - sum_i Delta H_("rxn",i) r_i + dot(Q)/V, $
+$ rho hat(C)_"P" (dif T)/(dif tau) + (1-alpha T) (dif P)/(dif tau) = - sum_i Delta H_("rxn",i) r_i + dot(Q)/V. $
+Assuming the cross-sectional area, $A_"c"$, of the PFR is constant, then we can equivalently write the derivatives in terms of $z$ instead of $tau$ via a simple change of variables (i.e. using the relationship of $tau = z \/u $ from #ref(<eq:residence_time>)):
+$ rho u hat(C)_"P" (dif T)/(dif z) +  u (1-alpha T) (dif P)/(dif z) = - sum_i Delta H_("rxn",i) r_i + dot(Q)/V, $
 where $u$ is the linear velocity of the fluid.
 
 If the pressure drop along the reactor is negligible or the fluid is an ideal gas mixture (i.e. $alpha T =1$), then $dif P\/dif tau = dif P\/dif z = 0$, simplifying the energy balance further:
-$ rho u hat(C)_"P " (dif T)/(dif z) = - sum_i Delta H_("rxn",i) r_i + dot(Q)/V quad ("negligible pressure drop or ideal gas"). $<eq:pfr_nonisothermal_ideal>
+$ rho u hat(C)_"P" (dif T)/(dif z) = - sum_i Delta H_("rxn",i) r_i + dot(Q)/V quad ("negligible pressure drop or ideal gas"). $<eq:pfr_nonisothermal_ideal>
 Alternatively, if the fluid is incompressible (i.e. $alpha=0$) as is commonly assumed for liquid-phase reactions, then
-$ rho u hat(C)_"P " (dif T)/(dif z) + u (dif P)/(dif z) = - sum_i Delta H_("rxn",i) r_i + dot(Q)/V quad ("incompressible"). $
+$ rho u hat(C)_"P" (dif T)/(dif z) + u (dif P)/(dif z) = - sum_i Delta H_("rxn",i) r_i + dot(Q)/V quad ("incompressible"). $
 
 === Hot Spots and Thermal Runaway
 
@@ -2742,7 +2742,7 @@ As was shown in the batch reactor example, the temperature will continually rise
 As a reminder, the goal will be to write a coupled set of mass and energy balances for the PFR.
 
 Qualitatively similar to the batch reactor example, from the PFR mass balance given by #ref(<eq:pfr_mass_balance>) and the simplified ideal gas energy balance given by #ref(<eq:pfr_nonisothermal_ideal>), we can state
-$ (dif conc("A"))/(dif tau) = -k conc("A"), quad rho hat(C)_"P " (dif T)/(dif tau) = -Delta H_"rxn" k conc("A") + dot(Q)/V. $
+$ (dif conc("A"))/(dif tau) = -k conc("A"), quad rho hat(C)_"P" (dif T)/(dif tau) = -Delta H_"rxn" k conc("A") + dot(Q)/V. $
 The $dot(Q)$ term is what can prevent a continual increase in temperature over the reactor length for an exothermic reaction, provided $dot(Q)<0$.
 The highest temperature position along the reactor length is termed the hot spot.
 
@@ -2760,7 +2760,7 @@ This not a niche point --- such considerations are just as relevant for even the
 
 To derive the expression for the CSTR energy balance, we start again from the general energy balance given by #ref(<eq:general_energy_balance>), neglecting the kinetic and potential energy terms as well as the shaft work:
 $ (dif U)/(dif t) = accent(m,dot)_0 accent(H,hat)_0 - accent(m,dot) accent(H,hat) + accent(Q,dot) - P (dif V)/(dif t). $
-Here, we are omitting the "1" subscript because, for a well-mixed reactor, the outlet stream properties are assumed to be the same as the reactor contents.
+Here, we are omitting the"1" subscript because, for a well-mixed reactor, the outlet stream properties are assumed to be the same as the reactor contents.
 Using the definition of enthalpy from #ref(<eq:enthalpy_definition>), we can restate the above expression as
 $ (dif H)/(dif t) - V (dif P)/(dif t) - P (dif V)/(dif t) = accent(m,dot)_0 accent(H,hat)_0 - accent(m,dot) accent(H,hat) + accent(Q,dot) - P (dif V)/(dif t), $
 which simplifies to
@@ -2771,9 +2771,9 @@ $ (dif H)/(dif t) - V (dif P)/(dif t) = accent(m,dot)_0 accent(H,hat)_0 - accent
 ==== Summary
 
 Once again, many simplifications can be made.
-The energy balance under steady-state conditoins, constant $hat(C)_"P "$, constant $P$, and $dot(v)_0=dot(v)_1$ is shown below:
+The energy balance under steady-state conditoins, constant $hat(C)_"P"$, constant $P$, and $dot(v)_0=dot(v)_1$ is shown below:
 
-$ 0 = - sum_i Delta H_("rxn",i) r_i + (rho hat(C)_("P ") (T_0 - T))/tau + accent(Q,dot)/V quad ("steady-state") $<eq:cstr_steady_energy>
+$ 0 = - sum_i Delta H_("rxn",i) r_i + (rho hat(C)_("P") (T_0 - T))/tau + accent(Q,dot)/V quad ("steady-state") $<eq:cstr_steady_energy>
 
 We will not discuss the derivation in class for the sake of time, but the details have been reproduced below for clarity.
 
@@ -2783,33 +2783,33 @@ _This derivation is not covered in class but is included here for the interested
 
 Like the batch reactor example, we can consider a single-phase system where the enthalpy changes due to temperature, pressure, and the moles of species $j$.
 Plugging in the definition of $dif H$ from #ref(<eq:dif_h>) into the above expression yields
-$ (m hat(C)_"P " dif T + V(1- alpha T) dif P + sum_j accent(H,macron)_j dif n_j)/(dif t)  - V (dif P)/(dif t) = accent(m,dot)_0 accent(H,hat)_0 - accent(m,dot) accent(H,hat) + accent(Q,dot), $
+$ (m hat(C)_"P" dif T + V(1- alpha T) dif P + sum_j accent(H,macron)_j dif n_j)/(dif t)  - V (dif P)/(dif t) = accent(m,dot)_0 accent(H,hat)_0 - accent(m,dot) accent(H,hat) + accent(Q,dot), $
 which simplifies to
-$ m hat(C)_"P " (dif T)/(dif t) - alpha T V (dif P)/(dif t) + sum_j accent(H,macron)_j (dif n_j)/(dif t) = accent(m,dot)_0 accent(H,hat)_0 - accent(m,dot) accent(H,hat) + accent(Q,dot). $ <eq:cstr_energy_unsteady>
+$ m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) + sum_j accent(H,macron)_j (dif n_j)/(dif t) = accent(m,dot)_0 accent(H,hat)_0 - accent(m,dot) accent(H,hat) + accent(Q,dot). $ <eq:cstr_energy_unsteady>
 
 We know from the mass balance on the CSTR (#ref(<eq:cstr_unsteady>)) that 
 $ (dif n_j)/(dif t) = dot(n)_(j,0) - dot(n)_(j) + r_j V, $
 or equivalently by invoking #ref(<eq:sum_stoichs_rate>):
 $ (dif n_j)/(dif t) = dot(n)_(j,0) - dot(n)_(j) + V sum_i nu_(i,j) r_i. $
 Plugging the CSTR mass balance into #ref(<eq:cstr_energy_unsteady>) and following the same approach taken in the batch reactor derivation from #ref(<batch-general>) results in 
-$ m hat(C)_"P " (dif T)/(dif t) - alpha T V (dif P)/(dif t) = - V sum_i Delta H_("rxn",i) r_i + sum_j dot(n)_(j,0) (accent(H,macron)_(j,0) - accent(H,macron)_(j)) + accent(Q,dot). $
+$ m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) = - V sum_i Delta H_("rxn",i) r_i + sum_j dot(n)_(j,0) (accent(H,macron)_(j,0) - accent(H,macron)_(j)) + accent(Q,dot). $
 
 From here, we can start applying our typical approximations.
 For instance, we can invoke steady-state conditions to arrive at
 $ 0 = - V sum_i Delta H_("rxn",i) r_i + sum_j dot(n)_(j,0) (accent(H,macron)_(j,0) - accent(H,macron)_(j)) + accent(Q,dot). $
 To make matters a bit simpler, we can represent the partial molar enthalpies in terms of partial molar heat capacities via
 #footnote[Naturally, this requires that the heat capacity does not change between the inlet and outlet.]
-$ macron(H)_(j) - macron(H)_(j,0) = macron(C)_("P ",j) (T-T_0), $
+$ macron(H)_(j) - macron(H)_(j,0) = macron(C)_("P",j) (T-T_0), $
 such that
-$ 0 = - V sum_i Delta H_("rxn",i) r_i + sum_j dot(n)_(j,0) macron(C)_("P ",j) (T_0 - T) + accent(Q,dot). $
+$ 0 = - V sum_i Delta H_("rxn",i) r_i + sum_j dot(n)_(j,0) macron(C)_("P",j) (T_0 - T) + accent(Q,dot). $
 Leveraging the definition of a partial molar property, we can state
-$ sum_j dot(n)_(j,0) macron(C)_("P ",j) = dot(n)_0 c_("P ") = dot(m)_0 hat(C)_"P ", $
+$ sum_j dot(n)_(j,0) macron(C)_("P",j) = dot(n)_0 c_("P") = dot(m)_0 hat(C)_"P", $
 such that we can rewrite the energy balance as
-$ 0 = - V sum_i Delta H_("rxn",i) r_i + dot(m)_(0) hat(C)_("P ") (T_0 - T) + accent(Q,dot). $
+$ 0 = - V sum_i Delta H_("rxn",i) r_i + dot(m)_(0) hat(C)_("P") (T_0 - T) + accent(Q,dot). $
 If we wish to express the above energy balance in terms of $tau$, we can divide through by $V$ to arrive at
-$ 0 = -  sum_i Delta H_("rxn",i) r_i + dot(m)_(0)/V hat(C)_("P ") (T_0 - T) + accent(Q,dot)/V, $
+$ 0 = -  sum_i Delta H_("rxn",i) r_i + dot(m)_(0)/V hat(C)_("P") (T_0 - T) + accent(Q,dot)/V, $
 which becomes
-$ 0 = - sum_i Delta H_("rxn",i) r_i + (rho hat(C)_("P ") (T_0 - T))/tau + accent(Q,dot)/V $
+$ 0 = - sum_i Delta H_("rxn",i) r_i + (rho hat(C)_("P") (T_0 - T))/tau + accent(Q,dot)/V $
 after invoking $dot(m)_0= dot(v)_0 rho_0$, $tau equiv V\/dot(v)$, and a constant volumetric flow rate.
 
 === Multiple Steady States
@@ -2821,12 +2821,12 @@ Consider a CSTR operated adiabatically and at steady-state conditions with the f
 $ ce("A") fwdArrow(k) ce("B"). $
 
 The energy balance can be concisely written using #ref(<eq:cstr_steady_energy>) to state
-$  0 = - Delta H_("rxn") r  + (rho hat(C)_("P ") (T_0 - T))/tau. $
+$  0 = - Delta H_("rxn") r  + (rho hat(C)_("P") (T_0 - T))/tau. $
 Similarly, we know from #ref(<eq:cstr_mass_balance>) that the mass balance for the CSTR can be written as
 $ r_ce("A") = (conc("A") - conc("A")_0)/tau $
 for a constant volumetric flow rate.
 Substituting in our elementary rate law of $r = - r_ce("A") =  k conc("A")$, we arrive at the following system of equations:
-$ 0 = - Delta H_("rxn") k conc("A")  + (rho  hat(C)_("P ") (T_0 - T))/tau, quad 0 = (1+ k tau) conc("A") - conc("A")_0. $
+$ 0 = - Delta H_("rxn") k conc("A")  + (rho  hat(C)_("P") (T_0 - T))/tau, quad 0 = (1+ k tau) conc("A") - conc("A")_0. $
 
 This system of non-linear equations is a bit deceptive.
 Depending on the initial guess one uses and the reaction conditions themselves, different solutions can potentially be found, each of which may be physically valid.
@@ -2860,9 +2860,9 @@ Namely, the attractive region is completely ignored.
 )<fig:hard_sphere>
 
 
-Assuming that #ce("A") and #ce("B") follow a Maxwell--Boltzmann distribution of speeds at a given temperature $T$, the frequency of collisions that occur at a given temperature can be shown to be#footnote[For additional details refer to "Chapter 2: The Mechanisms of Chemical Reactions in Homogeneous Phases" in J.B. Butt, _Reaction Kinetics and Reactor Design_ (2#super[nd] ed.).]
-$ macron(Z) = N_ce("A") n_ce("B") sigma_ce("AB")^2 ((8 pi k_"B " T)/(mu_ce("AB")))^(1/2), $<eq:z_collision>
-where $N_ce("A")$ and $n_ce("B")$ are the number density of A and B (i.e. units of $"particle/m "^(3)$), and $mu_ce("AB")$ is the so-called reduced mass of the #ce("AB") system given as
+Assuming that #ce("A") and #ce("B") follow a Maxwell--Boltzmann distribution of speeds at a given temperature $T$, the frequency of collisions that occur at a given temperature can be shown to be#footnote[For additional details refer to"Chapter 2: The Mechanisms of Chemical Reactions in Homogeneous Phases" in J.B. Butt, _Reaction Kinetics and Reactor Design_ (2#super[nd] ed.).]
+$ macron(Z) = N_ce("A") n_ce("B") sigma_ce("AB")^2 ((8 pi k_"B" T)/(mu_ce("AB")))^(1/2), $<eq:z_collision>
+where $N_ce("A")$ and $n_ce("B")$ are the number density of A and B (i.e. units of $"particle/m"^(3)$), and $mu_ce("AB")$ is the so-called reduced mass of the #ce("AB") system given as
 $ mu_ce("AB") equiv (m_ce("A") m_ce("B"))/(m_ce("A") + m_ce("B")), $
 where $m_ce("A")$ and $m_ce("B")$ represent the mass of species A and B, respectively.
 
@@ -2872,12 +2872,12 @@ In doing so, one might say that
 $ macron(Z) = r = k N_ce("A") n_ce("B") $
 for an elementary, bimolecular reaction of A and B.
 By inspection of #ref(<eq:z_collision>), this would imply that
-$ k = sigma_ce("AB")^2 ((8 pi k_"B " T)/(mu_ce("AB")))^(1/2). $
+$ k = sigma_ce("AB")^2 ((8 pi k_"B" T)/(mu_ce("AB")))^(1/2). $
 While this is reasonably suitable in describing the direct collision of two species, it is not reflective of the kinetics of reactions because there is no exponential dependency on temperature that we know must exist from the Arrhenius equation.
 
 The missing link is that molecules only react if they collide with sufficient energy. We, therefore, must define a threshold energy $eta^"*"$, above which reactions can proceed.
 This allows us to refine our expression for $k$ to instead be given as
-$ k = sigma_ce("AB")^2 ((8 pi k_"B " T)/(mu_ce("AB")))^(1/2) exp(-eta^"*"/(k_"B " T)). $<eq:collision_refined>
+$ k = sigma_ce("AB")^2 ((8 pi k_"B" T)/(mu_ce("AB")))^(1/2) exp(-eta^"*"/(k_"B" T)). $<eq:collision_refined>
 Typically, a multiplicative factor of $p$ is also included, which is known as the steric factor and is essentially a catch-all term for all additional factors that influence the collision--reaction probability beyond those associated with the energy.
 In general, $p<=1$.
 
@@ -2898,50 +2898,50 @@ In transition state theory, we assume that there is some transient complex (the 
 This means we can rewrite our reaction as
 #footnote[Here, we are tacitly assuming that there is no recrossing, such that we are considering a single isolated event such that P cannot convert back to the reagents. Naturally, it is possible in practice for a product to return to the transition state if enough energy is supplied, but we consider this as a separate event altogether. In practice, recrossing events will decrease $k$ from transition state theory, and this is corrected in a _post hoc_ manner via the transmission coefficient $kappa$ discussed shortly.]
 $
-ce("A + B") eqArrow(K_"C "^ddagger) ce("AB")^ddagger --> ce("P").
+ce("A + B") eqArrow(K_"C"^ddagger) ce("AB")^ddagger --> ce("P").
 $<eq:tst_rxn>
 The net rate of reaction can be represented as
 $ r = nu^ddagger conc("AB")^ddagger, $<eq:nu_dagger>
-where $nu^ddagger$ is the frequency (in units of $"time "^(-1)$) associated with the vibrational mode along the reaction coordinate that connects the transition state to the product and $conc("AB")^ddagger$ is the concentration of the transition state species.
+where $nu^ddagger$ is the frequency (in units of $"time"^(-1)$) associated with the vibrational mode along the reaction coordinate that connects the transition state to the product and $conc("AB")^ddagger$ is the concentration of the transition state species.
 
 The concentration of the transition state species, however, is not an observable quantity since the transition state itself is fleeting.
 To take care of this challenge, we assume that the transition state is in quasi-equilibrium with the reactants, such that we can return to the definition of the equilibrium constant: 
-$ K_"C "^ddagger = conc("AB")^ddagger / (conc("A") conc("B")). $<eq:tst_kc>
+$ K_"C"^ddagger = conc("AB")^ddagger / (conc("A") conc("B")). $<eq:tst_kc>
 Solving for $conc("AB")^ddagger$, we can arrive at
-$ r = nu^ddagger K_"C "^ddagger conc("A") conc("B"). $<eq:tst_rate_kc>
+$ r = nu^ddagger K_"C"^ddagger conc("A") conc("B"). $<eq:tst_rate_kc>
 This should look like strikingly familiar in an abstract kind of way.
 If we compare this to our typical rate expression for a elementary reaction, $r = k conc("A") conc("B")$, it becomes self-evident that
-$ k = nu^ddagger K_"C "^ddagger. $<eq:k_nu>
+$ k = nu^ddagger K_"C"^ddagger. $<eq:k_nu>
 The question now is where to go from here.
-We will later show that $nu^ddagger  approx k_"B " T\/h$.
-Before then, however, we need to figure out what to do with $K_"C "^ddagger$.
+We will later show that $nu^ddagger  approx k_"B" T\/h$.
+Before then, however, we need to figure out what to do with $K_"C"^ddagger$.
 
 === Rate in Terms of Molecular Partition Functions
 
-The most pressing situation to address in our definition of $k$ is $K_"C "^ddagger$.
+The most pressing situation to address in our definition of $k$ is $K_"C"^ddagger$.
 Thankfully, with a healthy dose of statistical thermodynamics, this becomes relatively manageable.
 Although it will not be derived here, from statistical mechanics it is known that the equilibrium constant can be expressed in terms of molecular partition functions as follows:
-$ K_("a ")^ddagger equiv (a^ddagger)/(a_ce("A") a_ce("B")) = (Z^ddagger) / (Z_ce("A") Z_ce("B")) quad ("unnormalized"), $
-where $Z_j$ is the (unitless) molecular partition function#footnote[The molecular partition function is the sum over all energetic states in the system. In the canonical ensemble, it is given as $Z(N,V,T) equiv sum_i exp(-E_i\/k_"B " T)$ for all possible states $i$.] for the $j$-th species.
+$ K_("a")^ddagger equiv (a^ddagger)/(a_ce("A") a_ce("B")) = (Z^ddagger) / (Z_ce("A") Z_ce("B")) quad ("unnormalized"), $
+where $Z_j$ is the (unitless) molecular partition function#footnote[The molecular partition function is the sum over all energetic states in the system. In the canonical ensemble, it is given as $Z(N,V,T) equiv sum_i exp(-E_i\/k_"B" T)$ for all possible states $i$.] for the $j$-th species.
 We will forego a formal derivation linking $Z_j$ to the equilibrium constant. That said, we can think of it as being intuitively reasonable because the ratio of molecular partition functions describes the distribution of energetic states between the products and reactants, which dictates the direction for the equilibrium in a manner analogous to the change in Gibbs free energy.
 
 In practice, the molecular partition functions are generally defined with respect to the lowest energy state for that molecule.
 If we adopt this convention, then $K_ce("a")^ddagger$ becomes
 $
-K_("a ")^ddagger equiv (a^ddagger)/(a_ce("A") a_ce("B")) = (Z^ddagger) / (Z_ce("A") Z_ce("B")) exp(- (Delta E_0^ddagger)/(R T)),
+K_("a")^ddagger equiv (a^ddagger)/(a_ce("A") a_ce("B")) = (Z^ddagger) / (Z_ce("A") Z_ce("B")) exp(- (Delta E_0^ddagger)/(R T)),
 $<eq:k_a_partition_functions>
 as we will justify shortly.
 Here, $E_0^ddagger$ is the energy difference between the transition state and reactants at 0 K (i.e. the sum of electronic energy and zero-point energy contributions).
 We will adopt this convention for the partition functions going forward.
 
-Before proceeding, recall that we have been dealing with concentrations and $K_"C "^ddagger$.
+Before proceeding, recall that we have been dealing with concentrations and $K_"C"^ddagger$.
 As such, we will instead use
-$ K_"C "^ddagger = 1/(N_ce("A")^(1-m)) (Z'^ddagger) / (Z'_ce("A") Z'_ce("B")) exp(- (Delta E_0^ddagger)/(R T)), $<eq:k_c_partition_functions>
+$ K_"C"^ddagger = 1/(N_ce("A")^(1-m)) (Z'^ddagger) / (Z'_ce("A") Z'_ce("B")) exp(- (Delta E_0^ddagger)/(R T)), $<eq:k_c_partition_functions>
 where $Z'_j$ is the molecular partition function per unit volume for the $j$-th species.
-The need for $Z'_j$ being in units of $"volume"^(-1)$ is so that we arrive at the appropriate units for $K_"C "^ddagger$.
+The need for $Z'_j$ being in units of $"volume"^(-1)$ is so that we arrive at the appropriate units for $K_"C"^ddagger$.
 The factor of $1\/N_ce("A")^(1-m)$, where $m$ is the molecularity (i.e. $m = 2$ for this example),
 #footnote[We could have equally used $delta^ddagger$ in place of $1-m$, where where $delta^dagger$ is the change in stoichiometric numbers between the transition state and reactants. Since we are only focusing on a single transition state-producing event, we use for $1-m$ simplicity.]
-is included simply as a means of ensuring that $K_"C "^ddagger$ is in molar units since the partition functions are defined on a per-molecule basis.
+is included simply as a means of ensuring that $K_"C"^ddagger$ is in molar units since the partition functions are defined on a per-molecule basis.
 
 It may seem that we have not made much progress here because we do not yet know how to calculate $Z'_j$. Not to worry though, as that will be addressed below.
 
@@ -2958,11 +2958,11 @@ These individual contributions can also be used to define the translational, rot
 
 We now must define each of the partition functions.
 The translational partition function derived from the particle-in-a-box model in quantum chemistry is typically approximated as
-$ z_"trans" = V ((2 pi m k_"B " T)/h^2)^(3/2) = V / Lambda^3, quad Lambda equiv h / sqrt(2 pi m k_"B " T) $<eq:trans_function>
+$ z_"trans" = V ((2 pi m k_"B" T)/h^2)^(3/2) = V / Lambda^3, quad Lambda equiv h / sqrt(2 pi m k_"B" T) $<eq:trans_function>
 where $V$ is a reference volume containing the molecule,
 #footnote[
-  The presence of $V$ is what ultimately dictates the need for choosing a "standard-state" for the sake of internal consistency.
-  If one is considering a gas, it is typically more natural to replace $V$ with pressure $P$, such as by invoking the ideal gas law of the form $V = k_"B " T\/P$ and taking the pressure to be a standard-state value of 1 bar.
+  The presence of $V$ is what ultimately dictates the need for choosing a"standard-state" for the sake of internal consistency.
+  If one is considering a gas, it is typically more natural to replace $V$ with pressure $P$, such as by invoking the ideal gas law of the form $V = k_"B" T\/P$ and taking the pressure to be a standard-state value of 1 bar.
 ]
 $m$ is the mass of the molecule, $h$ is Planck's constant (units of J-s), and $Lambda$ is the thermal de Broglie wavelength.
 As with all partition functions, $z_"trans"$ is unitless.
@@ -2980,8 +2980,8 @@ The rotational partition function is derived based on the rigid--rotor quantum-m
 Generally, it can be approximated as follows:
 $
 z_"rot" &= 1 quad ("monatomic")\
-z_"rot" &= (8 pi^2 I k_"B " T) / (sigma h^2) = T/(sigma Theta_"rot"), quad Theta_"rot" equiv h^2/(8 pi^2 I k_"B ") quad ("linear")\
-z_"rot" &= (8 pi^2 (8 pi^3 I_1 I_2 I_3)^(1/2) (k_"B "T)^(3/2)) / (sigma h^3) = 1/sigma ((pi T^3)/(Theta_(1,"rot") Theta_(2,"rot") Theta_(3,"rot")))^(1/2) quad ("nonlinear"),
+z_"rot" &= (8 pi^2 I k_"B" T) / (sigma h^2) = T/(sigma Theta_"rot"), quad Theta_"rot" equiv h^2/(8 pi^2 I k_"B") quad ("linear")\
+z_"rot" &= (8 pi^2 (8 pi^3 I_1 I_2 I_3)^(1/2) (k_"B"T)^(3/2)) / (sigma h^3) = 1/sigma ((pi T^3)/(Theta_(1,"rot") Theta_(2,"rot") Theta_(3,"rot")))^(1/2) quad ("nonlinear"),
 $
 where $Theta_("rot")$ is the characteristic rotational temperature.
 In these equations, $sigma$ represents the rotational symmetry number and is determined by the number of spatial orientations of the subject molecule that are identical.
@@ -3003,7 +3003,7 @@ where $mu$ is called the reduced mass and $d$ is the distance between the two at
 === Vibrational Partition Function
 
 The vibrational partition function is derived based on the harmonic-oscillator quantum-mechanical model and is given by
-$ z_"vib" = exp(-E_"ZPVE" / (k_"B " T)) product_(i=1)^N 1/(1 - exp(- (h nu_i)/(k_"B " T))) quad ("unnormalized"), $
+$ z_"vib" = exp(-E_"ZPVE" / (k_"B" T)) product_(i=1)^N 1/(1 - exp(- (h nu_i)/(k_"B" T))) quad ("unnormalized"), $
 where
 $ E_"ZPVE" equiv 1/2 sum_i h nu_i. $
 Here, $N$ is the number of vibrational modes, $nu_i$ is the $i$-th vibrational frequency, and $E_"ZPVE"$ is known as the zero-point vibrational energy.
@@ -3011,7 +3011,7 @@ Here, $N$ is the number of vibrational modes, $nu_i$ is the $i$-th vibrational f
 However, as mentioned earlier, the convention is such that the molecular partition functions will be defined based on their lowest-energy states as the point of reference.
 As such, we will factor out the $E_"ZPVE"$ term.
 The corresponding vibrational partition function is now
-$ z_"vib" = product_(i=1)^N 1/(1 - exp(- (h nu_i)/(k_"B " T))) = product_(i=1)^N 1/(1 - exp(- (Theta_(i,"vib"))/T)), quad Theta_(i,"vib") equiv (h nu_i)/k_"B " $<eq:vib_part>
+$ z_"vib" = product_(i=1)^N 1/(1 - exp(- (h nu_i)/(k_"B" T))) = product_(i=1)^N 1/(1 - exp(- (Theta_(i,"vib"))/T)), quad Theta_(i,"vib") equiv (h nu_i)/k_"B" $<eq:vib_part>
 where $Theta_(i,"vib")$ is known as the characteristic vibrational temperature.
 The vibrational frequencies of common molecules can be found on the NIST Chemsitry WebBook as well NIST's Computational Chemistry Comparison and Benchmark DataBase, among other resources.
 
@@ -3030,18 +3030,18 @@ Finally, it should be noted that vibrational spectra are normally reported in un
 To convert a wavenumber to a frequency, the following relationship can be used: $nu_i = c accent(nu,tilde)_i$, where $c$ is the speed of light.
 
 #tip[
-  The $exp(-E_"ZPVE"\/R T)$ term that we have factored out from $z_"vib"$ does not disappear entirely. Instead, it ends up being included as part of the $exp(- Delta E_0^ddagger\/R T)$ term in our expression for $K_"C "^ddagger$ given by #ref(<eq:k_c_partition_functions>). Since $E_0 equiv E_"el" + E_"ZPVE"$, the latter term comes from the modified vibrational partition function.
+  The $exp(-E_"ZPVE"\/R T)$ term that we have factored out from $z_"vib"$ does not disappear entirely. Instead, it ends up being included as part of the $exp(- Delta E_0^ddagger\/R T)$ term in our expression for $K_"C"^ddagger$ given by #ref(<eq:k_c_partition_functions>). Since $E_0 equiv E_"el" + E_"ZPVE"$, the latter term comes from the modified vibrational partition function.
 ]
 
 === Electronic Partition Function
 
 Finally, the electronic partition function is given by
-$ z_"el" = sum_i g_i exp(- epsilon_i / (k_"B " T) ) $
+$ z_"el" = sum_i g_i exp(- epsilon_i / (k_"B" T) ) $
 where $g_i$ is the degeneracy of electronic state $i$ and $epsilon_i$ is the electronic energy for electronic state $i$.
 As with the vibrational partition function, we will adopt the ground-state (i.e. $i=0$) as the zero-energy reference point, such that all values of $epsilon_i$ are taken with respect to $epsilon_0$.
 For the sake of simplicity, excited states (i.e. $i>=1$) are often assumed to have a negligible contribution to $z_"el"$ due to their high energies with respect to the ground state.
 
-By ignoring the contribution from excited states and setting $epsilon_0=0 "eV"$ by convention, we can simply state
+By ignoring the contribution from excited states and setting $epsilon_0=0"eV"$ by convention, we can simply state
 $ z_"el" = g_0. $
 
 The ground-state degeneracy, $g_0$, is analogous to the spin multiplicity, defined as the number of unpaired electrons plus one.
@@ -3051,7 +3051,7 @@ However, this is not universally true.
 For instance, the ground-state magnetic configuration of #ce("O2") has two unpaired electrons, such that $g_0=3$ (i.e. the ground-state is a triplet).
 
 #tip[
-  The $exp(-epsilon_0\/R T)$ term that we have factored out from $z_"el"$ does not disappear entirely. Instead, it ends up being included as part of the $exp(- Delta E_0^ddagger\/R T)$ term in our expression for $K_"C "^ddagger$ given by #ref(<eq:k_c_partition_functions>). Since $E_0 equiv E_"el" + E_"ZPVE"$, the former term comes from the modified electronic partition function (where $E_"el" = epsilon_0$).
+  The $exp(-epsilon_0\/R T)$ term that we have factored out from $z_"el"$ does not disappear entirely. Instead, it ends up being included as part of the $exp(- Delta E_0^ddagger\/R T)$ term in our expression for $K_"C"^ddagger$ given by #ref(<eq:k_c_partition_functions>). Since $E_0 equiv E_"el" + E_"ZPVE"$, the former term comes from the modified electronic partition function (where $E_"el" = epsilon_0$).
 ]
 
 == Rates of Reaction from Partition Functions <rates-of-reaction>
@@ -3059,13 +3059,13 @@ For instance, the ground-state magnetic configuration of #ce("O2") has two unpai
 === The Idealized Case
 
 With the partition function business out of the way, let's revisit our expression for the concentration-based rate constant:
-$ K_"C "^ddagger = 1/(N_ce("A")^(1-m)) (Z'^ddagger) / (Z'_"A" Z'_ce("B")) exp(-(Delta E_0^ddagger )/ (R T)). $
+$ K_"C"^ddagger = 1/(N_ce("A")^(1-m)) (Z'^ddagger) / (Z'_"A" Z'_ce("B")) exp(-(Delta E_0^ddagger )/ (R T)). $
 We now know how to compute the partition functions, which is a relief.
 The main ingredients we need to either compute or measure are the geometries and vibrational modes of the system (and the spin multiplicity or excited states, if relevant).
 
 Revisiting our rate expression from #ref(<eq:tst_rate_kc>), we have
 $
-r &= nu^ddagger K_"C "^ddagger conc("A") conc("B")\
+r &= nu^ddagger K_"C"^ddagger conc("A") conc("B")\
 r &= nu^ddagger 1/(N_ce("A")^(1-m)) (Z'^ddagger) / (Z'_ce("A") Z'_ce("B")) exp(- (Delta E_0^ddagger) / (R T)) conc("A") conc("B").
 $<eq:rate_tst_intermediate>
 
@@ -3073,28 +3073,28 @@ We are still left to figure out what do we do about $nu^ddagger$.
 The motion along the minimum energy pathway through the transition state is along a vibrational mode representing the bond-breaking or bond-making event.
 As alluded to previously, $nu^ddagger$ can be thought of as a vibrational frequency describing this event.
 We know from the definition of the vibrational partition function (#ref(<eq:vib_part>)) that a single vibrational mode can be expressed as
-$ z_"vib, TS mode" = (1 - exp(- (h nu^ddagger) / (k_"B " T)))^(-1) approx (k_"B "T) / (h nu^ddagger). $
-where the latter approximation is made because $h nu^ddagger << k_"B " T$ in most cases since $nu^ddagger$ is usually not particularly large.
+$ z_"vib, TS mode" = (1 - exp(- (h nu^ddagger) / (k_"B" T)))^(-1) approx (k_"B"T) / (h nu^ddagger). $
+where the latter approximation is made because $h nu^ddagger << k_"B" T$ in most cases since $nu^ddagger$ is usually not particularly large.
 #footnote[We have implicitly taken advantage of the Taylor expansion $exp(x) = 1 + x + x^2\/2! + x^3\/3! + ...$ and dropped the second-order and higher terms.]
 With some rearrangement, we have
-$ nu^ddagger = (k_"B " T) / h 1/ z_"vib, TS mode" $
-This expression implies that we can state $nu^ddagger = k_"B " T \/ h$, provided that we remove this one vibrational mode associated with the transition state in the expression for $z_"vib"^ddagger$.
+$ nu^ddagger = (k_"B" T) / h 1/ z_"vib, TS mode" $
+This expression implies that we can state $nu^ddagger = k_"B" T \/ h$, provided that we remove this one vibrational mode associated with the transition state in the expression for $z_"vib"^ddagger$.
 As for which mode to remove, it is the one and only imaginary mode associated with the transition state.
 
 By plugging our result into #ref(<eq:rate_tst_intermediate>), we arrive at
 $
-r &= (k_"B " T)/h K_"C "^ddagger conc("A") conc("B")\
-r &= (k_"B "T)/h 1/(N_ce("A")^(1-m)) (Z'^ddagger) / (Z'_ce("A") Z'_ce("B")) exp(- (Delta E_0^ddagger) / (R T)) conc("A") conc("B").
+r &= (k_"B" T)/h K_"C"^ddagger conc("A") conc("B")\
+r &= (k_"B"T)/h 1/(N_ce("A")^(1-m)) (Z'^ddagger) / (Z'_ce("A") Z'_ce("B")) exp(- (Delta E_0^ddagger) / (R T)) conc("A") conc("B").
 $<eq:tst_final>
 
 From the above expression, we can write $r= k conc("A") conc("B")$ where
 $
-k = (k_"B " T)/h K_"C "^ddagger
+k = (k_"B" T)/h K_"C"^ddagger
 $
 or, equivalently, in terms of the partition functions,
 #footnote[Note that $Delta E_0^ddagger$ is not the same as $E_ce("a")$, although it is analogous. The $Delta E_0^ddagger$ term is at 0 K, whereas $E_ce("a")$ includes thermal corrections.]
 $
-k equiv A exp(-(Delta E_0^ddagger)/(R T))\, quad A equiv (k_"B " T)/h 1/(N_ce("A")^(1-m)) (Z'^ddagger) / (Z'_ce("A") Z'_ce("B")).
+k equiv A exp(-(Delta E_0^ddagger)/(R T))\, quad A equiv (k_"B" T)/h 1/(N_ce("A")^(1-m)) (Z'^ddagger) / (Z'_ce("A") Z'_ce("B")).
 $<eq:tst_a>
 Thinking back to the modified Arrhenius expressions with temperature-dependence terms on the prefactor as in #ref(<eq:arrhenius_mod>), we can see the $T^n$ dependence of the prefactor has $n=0$ for the empirical Arrhenius expression and $n=1$ from transition state theory.
 In practice, however, the temperature effects of this $T$ factor are often negligible when comparing $k$ values at different temperatures, as the exponential term is the main dominating factor.
@@ -3109,7 +3109,7 @@ We wish to find the rate constant at 300 K by invoking transition state theory.
 Well, now what?
 
 We start by invoking our transition state theory definition of $k$:
-$ k = (k_"B " T)/h 1/(N_ce("A")^(1-m)) Z'^ddagger/(Z'_ce("F^∙") Z'_ce("H2")) exp(-(Delta E_0^ddagger)/(R T)). $
+$ k = (k_"B" T)/h 1/(N_ce("A")^(1-m)) Z'^ddagger/(Z'_ce("F^∙") Z'_ce("H2")) exp(-(Delta E_0^ddagger)/(R T)). $
 We know that the molecularity of this reaction is two, so $m=2$ here.
 We also know the temperature of interest, which is $T$ = 300 K.
 
@@ -3119,10 +3119,10 @@ $ Z'^ddagger/(Z'_ce("F^∙") Z'_ce("H2")) = (z'_"trans" z_"rot" z_"vib" z_"el")^
 ==== Translational Partition Function
 
 We recall that the translational partition function (per unit volume) is given by
-$ z'_"trans" = ((2 pi m k_"B " T)/h^2)^(3/2). $
+$ z'_"trans" = ((2 pi m k_"B" T)/h^2)^(3/2). $
 We have everything we need to compute the translational partition functions, so we will do just that:
-$ (z'_"trans")^ddagger/((z'_"trans")_ce("F^∙") (z'_"trans")_ce("H2")) = ((2 pi m_ce("TS") k_"B " T)/h^2)^(3/2)/(((2 pi m_ce("F") k_"B " T)/h^2)^(3/2) ((2 pi m_ce("H2") k_"B " T)/h^2)^(3/2)) \
-= (9.407 times 10^28 1/"L ")/((8.086 times 10^28 1/"L ")(2.795 times 10^27 1/"L ")) = 4.162 times 10^(-28) "L ", $
+$ (z'_"trans")^ddagger/((z'_"trans")_ce("F^∙") (z'_"trans")_ce("H2")) = ((2 pi m_ce("TS") k_"B" T)/h^2)^(3/2)/(((2 pi m_ce("F") k_"B" T)/h^2)^(3/2) ((2 pi m_ce("H2") k_"B" T)/h^2)^(3/2)) \
+= (9.407 times 10^28 1/"L")/((8.086 times 10^28 1/"L")(2.795 times 10^27 1/"L")) = 4.162 times 10^(-28)"L", $
 where $m_ce("TS") = m_ce("F") + m_ce("H2")$, which can be readily obtained from the periodic table.
 Note that the magnitudes of the translational partition functions are quite large.
 This is expected.
@@ -3137,13 +3137,13 @@ To summarize, the only non-tabulated information needed when calculating the tra
 Now we shall move onto the rotational partition function.
 We recall that
 $ z_"rot" &= 1 quad ("monatomic")\
-z_"rot" &= (8 pi^2 I k_"B " T) / (sigma h^2) quad ("linear"). $
+z_"rot" &= (8 pi^2 I k_"B" T) / (sigma h^2) quad ("linear"). $
 
 F is monatomic, so $(z_"rot")_ce("F^∙")=1$. That is easy enough.
 
 By definition, #ce("H2") like any diatomic species is linear.
 The moment of inertia can then be given as 
-$ I_ce("H2") = (M_ce("H") M_ce("H"))/(M_ce("H")+ M_ce("H")) d_ce("H--H")^2 = 4.583 times 10^(-48) " kg m"^2, $
+$ I_ce("H2") = (M_ce("H") M_ce("H"))/(M_ce("H")+ M_ce("H")) d_ce("H--H")^2 = 4.583 times 10^(-48)" kg m"^2, $
 where $M_ce("H")$ is the mass of the hydrogen atom, and $d_ce("H--H")$ is the H---H bond distance in #ce("H2"), which is known to be 0.74 Å.
 We also know or can readily look up that $ sigma_ce("H2") = 2. $
 The reason for this value is that #ce("H2") has two indistinguishable orientations through symmetrical rotations: rotation by 0#sym.degree (i.e. no rotation), and rotation by 180#sym.degree.
@@ -3154,10 +3154,10 @@ In practice, the easiest way to determine this is through a quantum-mechanical c
 Here, we will assume that theory suggests the transition state is linear.
 The geometry of the transition state from theory will also dictate $sigma$, but in this case it is apparent without doing so that $ sigma_ce("TS")=1 $ given the asymmetric nature of an F---H---H transition state.
 The moment of inertia also depends on the transition state geometry but is a bit trickier to determine in this case since the center of mass is not in the midpoint of the structure.
-In any case, we will assume that quantum-chemical modeling suggests that the moment of inertia is $ I_ce("TS") = 1.234 times 10^(-46) " kg m"^2. $
+In any case, we will assume that quantum-chemical modeling suggests that the moment of inertia is $ I_ce("TS") = 1.234 times 10^(-46)" kg m"^2. $
 
 With this, we can write
-$ (z_"rot")^ddagger/((z_"rot")_ce("F^∙") (z_"rot")_ce("H2")) = (8 pi^2 I_ce("TS") k_"B " T) / (sigma_ce("TS") h^2)/((1)( (8 pi^2 I_ce("H2") k_"B " T) / (sigma_ce("H2") h^2))) = (91.917)/((1)(1.707)) = 53.851 $
+$ (z_"rot")^ddagger/((z_"rot")_ce("F^∙") (z_"rot")_ce("H2")) = (8 pi^2 I_ce("TS") k_"B" T) / (sigma_ce("TS") h^2)/((1)( (8 pi^2 I_ce("H2") k_"B" T) / (sigma_ce("H2") h^2))) = (91.917)/((1)(1.707)) = 53.851 $
 
 To summarize, the non-tabulated information needed when calculating the rotational partition function is:
 
@@ -3173,7 +3173,7 @@ Since it is impossible to experimentally isolate a transition state, one must ei
 
 Now we will tackle the vibrational partition function.
 We recall the functional form is as follows:
-$ z_"vib" =  product_(i=1)^N (1)/(1 - exp(- (h nu_i)/(k_"B " T))), $
+$ z_"vib" =  product_(i=1)^N (1)/(1 - exp(- (h nu_i)/(k_"B" T))), $
 where the number of vibrational modes will vary depending on the geometry of the molecule.
 
 F is monatomic, so there are no vibrational modes and $ (z_"vib")_ce("F^∙")=1. $
@@ -3225,16 +3225,16 @@ To summarize, the (non-tabulated) information needed is:
 
 Now we will put all the pieces together:
 
-$ k_"TST" = (k_"B " T)/h N_ce("A") (4.162 times 10^(-28) "L ") (53.851) (1.378) (1) exp(-(Delta E_0^ddagger)/(R T)). $
+$ k_"TST" = (k_"B" T)/h N_ce("A") (4.162 times 10^(-28)"L") (53.851) (1.378) (1) exp(-(Delta E_0^ddagger)/(R T)). $
 This simplifies to
-$ k_"TST" = (1.163 times 10^11 "L/mol-s") exp(-(Delta E_0^ddagger)/(R T)). $
+$ k_"TST" = (1.163 times 10^11"L/mol-s") exp(-(Delta E_0^ddagger)/(R T)). $
 We have the pre-exponential factor.
 Now we need the $Delta E_0^ddagger$ term.
 Strictly speaking, $Delta E_0^ddagger$ can only be computed from quantum-mechanical calculations.
 Here, we will assume it is $Delta E_0^ddagger$ = 6 kJ/mol.
 This gets us
-$ k_"TST" = 1.05 times 10^(10) "L/mol-s". $
-For comparison, the NIST Kinetics Database indicates that $k = 1.4 times 10^(10) "L/mol-s"$ for this reaction (at 298 K, which is close enough to our 300 K scenario).
+$ k_"TST" = 1.05 times 10^(10)"L/mol-s". $
+For comparison, the NIST Kinetics Database indicates that $k = 1.4 times 10^(10)"L/mol-s"$ for this reaction (at 298 K, which is close enough to our 300 K scenario).
 Usually, transition state theory will over-estimate the actual value of $k$, although in this case it does not.
 The reason for $k_"TST"$ being less than $k$ here is likely just due to underlying errors in the quantum-chemical calculations.
 
@@ -3261,9 +3261,9 @@ The reason for $k_"TST"$ being less than $k$ here is likely just due to underlyi
 // Note, however, that one can always simply use the transition state theory expression for $k$ in its full form, calculating each partition function without further simplifications (provided the underlying data is accessible).
 
 // As a point of reference, the following order of magnitude arguments are fairly reasonable in the temperature range of 300---500 K or so for common molecules:
-// $ z'_"trans" &approx O(10^8-10^9) "per DOF" \
-//  z_"rot" &approx O(10^1-10^2) "per DOF" \
-//  z_"vib" &approx O(10^0-10^1) "per DOF"\
+// $ z'_"trans" &approx O(10^8-10^9)"per DOF" \
+//  z_"rot" &approx O(10^1-10^2)"per DOF" \
+//  z_"vib" &approx O(10^0-10^1)"per DOF"\
 //  z_"el" &approx O(10^0),
 // $
 // where DOF stands for degree of freedom. The units of $z'_"trans"$ are such that it has 1/$"cm"^3$ when there are three degrees of freedom.
@@ -3284,10 +3284,10 @@ The reason for $k_"TST"$ being less than $k$ here is likely just due to underlyi
 
 // If the adsorbate is somewhat weakly bound, then the remaining degrees of freedom are likely to be somewhere between that used for a free gas and that of a chemisorbed species.
 // More complicated expressions are available to model these intermediate behaviors, such as the hindered translator--hindered rotor model.
-// #footnote[L.H. Sprowl, C.T. Campbell, L. Árnadóttir, "Hindered Translator and Hindered Rotor Models for Adsorbates: Partition Functions and Entropies," _J. Phys. Chem. C_, 120, 9719--9731 (2016).]
+// #footnote[L.H. Sprowl, C.T. Campbell, L. Árnadóttir,"Hindered Translator and Hindered Rotor Models for Adsorbates: Partition Functions and Entropies," _J. Phys. Chem. C_, 120, 9719--9731 (2016).]
 // Additional consideration can be found in the literature related to molecules that adsorb within porous materials, where spatial confinement may restrict some degrees of freedom.
 // #footnote[
-//   P.J. Dauenhauer, O.A. Abdelrahman, "A Universal Descriptor for the Entropy of Adsorbed Molecules in Confined Spaces", _ACS Catal._, 4, 1235--1243 (2018).
+//   P.J. Dauenhauer, O.A. Abdelrahman,"A Universal Descriptor for the Entropy of Adsorbed Molecules in Confined Spaces", _ACS Catal._, 4, 1235--1243 (2018).
 // ]
 
 // ==== Hertz--Knudsen Equation
@@ -3297,30 +3297,30 @@ The reason for $k_"TST"$ being less than $k$ here is likely just due to underlyi
 // In other words, the transition state is a semi-mobile species on or near the surface.
 
 // Starting from the transition state theory definition of the rate constant (#ref(<eq:tst_a>)), we have
-// $ k = (k_"B " T)/h 1/(N_ce("A")^(1-m)) (Z'^ddagger) / (Z') exp(-(Delta E_0^ddagger)/(R T)), $
+// $ k = (k_"B" T)/h 1/(N_ce("A")^(1-m)) (Z'^ddagger) / (Z') exp(-(Delta E_0^ddagger)/(R T)), $
 // where $Z'$ represents the volume-normalized partition function for the molecule before adsorption, and $Z'^ddagger$ is the volume-normalized partition function for the transition state associated with the adsorption process.
 // Here, we have tacitly assumed that the partition functions for the surface remain unchanged before and after the adsorption process, such that we are only focusing on the adsorbate molecule itself.
 // Here, we can make some simplifying assumptions by noting that $Delta E_0^ddagger=0$ for non-activated adsorption processes,
 // #footnote[Admittedly, it is perhaps of questionable logic to invoke transition state theory when there is, formally, no activation barrier for such a process. It is perhaps better to think about this as $E_ce("a")->0$.]
 // and we can remove the $1\/N_ce("A")^(1-m)$ term because $m=1$ for this process.
 // Furthermore, if we assume the gas-phase molecule only loses one translational degree of freedom at the transition state, we can write
-// $ k_"ads" = (k_"B " T)/h  (z_"trans"^(ddagger (2))/V z_"rot"^(ddagger (m)) z_"vib"^(ddagger (N-1)) z_"el"^(ddagger))/(z_"trans"^((3))/V z_"rot"^((m)) z_"vib"^((N)) z_"el"), $<eq:adsorbed_k>
+// $ k_"ads" = (k_"B" T)/h  (z_"trans"^(ddagger (2))/V z_"rot"^(ddagger (m)) z_"vib"^(ddagger (N-1)) z_"el"^(ddagger))/(z_"trans"^((3))/V z_"rot"^((m)) z_"vib"^((N)) z_"el"), $<eq:adsorbed_k>
 // where the numerator refers to the transition state partition functions, and the denominator refers to the partition functions of the gas-phase species before adsorption.
 
 
 // If we make several assumptions, namely that the rotational, vibrational, and electronic partition functions do not exhibit an appreciable change between the gas-phase and the transition state (at least compared to the changes due to translational degrees of freedom), then we arrive at
-// $ k_"ads" = (k_"B " T)/h z^(ddagger (2))_"trans"/z^((3))_"trans". $
+// $ k_"ads" = (k_"B" T)/h z^(ddagger (2))_"trans"/z^((3))_"trans". $
 // Certainly, this is a lot cleaner looking.
 
 // From #ref(<eq:trans_d>), recall that the definition of the translational partition function is
-// $ z_"trans" equiv (L/Lambda)^d, quad Lambda equiv h / sqrt(2 pi m k_"B " T) $
+// $ z_"trans" equiv (L/Lambda)^d, quad Lambda equiv h / sqrt(2 pi m k_"B" T) $
 // for $d$ translational degrees of freedom.
 // Substituting in for the definition of the translational partition functions yields
-// $ k_"ads" = (k_"B " T)/h (L\/Lambda)^2/(L\/Lambda)^3 = (k_"B "T)/h Lambda/L = (k_"B " T)/(L sqrt(2 pi m k_"B " T)). $
+// $ k_"ads" = (k_"B" T)/h (L\/Lambda)^2/(L\/Lambda)^3 = (k_"B"T)/h Lambda/L = (k_"B" T)/(L sqrt(2 pi m k_"B" T)). $
 // Assuming we have an ideal gas, we can invoke the ideal gas law in the form of
-// $ P V = k_"B " T. $
+// $ P V = k_"B" T. $
 // With this, we obtain what is known as the Hertz--Knudsen equation:
-// $ k_"ads" = (P A)/(sqrt(2 pi m k_"B " T)), $
+// $ k_"ads" = (P A)/(sqrt(2 pi m k_"B" T)), $
 // where $A$ is a reference area obtained from $V\/L$.
 // Here, $P$ is the (partial) pressure of the gaseous species being adsorbed, and $A$ is generally taken as the surface area of the adsorption site.
 // Sometimes, an empirical sticking coefficient $s$ will also be included in the numerator to account for the probability that the adsorbate will stick to the surface.
@@ -3334,9 +3334,9 @@ The reason for $k_"TST"$ being less than $k$ here is likely just due to underlyi
 
 // We now shift our focus to desorption, which is simply the reverse process of adsorption.
 // We can revisit our expression for $k$ from #ref(<eq:adsorbed_k>) to state an analogous equation for the desorption process:
-// $ k_"des" = (k_"B " T)/h  (z_"trans"^(ddagger (2))/V z_"rot"^(ddagger (m)) z_"vib"^(ddagger (N-1)) z_"el"^(ddagger))/(z_"trans"^((0))/V z_"rot"^((0)) z_"vib"^((N)) z_"el") exp(- (Delta E_"des")/(R T)), $
+// $ k_"des" = (k_"B" T)/h  (z_"trans"^(ddagger (2))/V z_"rot"^(ddagger (m)) z_"vib"^(ddagger (N-1)) z_"el"^(ddagger))/(z_"trans"^((0))/V z_"rot"^((0)) z_"vib"^((N)) z_"el") exp(- (Delta E_"des")/(R T)), $
 // which simplifies to
-// $ k_"des" = (k_"B " T)/h  (z_"trans"^(ddagger (2)) z_"rot"^(ddagger (m)) z_"vib"^(ddagger (N-1))z^ddagger_"el")/(z_"vib"^((N))z_"el") exp(- (Delta E_"des")/(R T)). $
+// $ k_"des" = (k_"B" T)/h  (z_"trans"^(ddagger (2)) z_"rot"^(ddagger (m)) z_"vib"^(ddagger (N-1))z^ddagger_"el")/(z_"vib"^((N))z_"el") exp(- (Delta E_"des")/(R T)). $
 
 // Note that the $N$ vibrational degrees of freedom for the adsorbed molecule (i.e. in the denominator) are, in fact, $3N_0$ total modes.
 // The numerator is the same as for the adsorption case, but the denominator is associated with the molecule in the adsorbed state.
@@ -3344,16 +3344,16 @@ The reason for $k_"TST"$ being less than $k$ here is likely just due to underlyi
 
 // From here, we will assume that the change in the vibrational partition function is negligible compared to the change in the translational partition functions and that the change in electronic partition function is also negligible (both of which are almost always going to be true).
 // With this, we can state
-// $ k_"des" = (k_"B " T)/h z_("trans")^(ddagger (2)) z_("rot")^(ddagger (m)) exp(- (Delta E_"des")/(R T)). $
+// $ k_"des" = (k_"B" T)/h z_("trans")^(ddagger (2)) z_("rot")^(ddagger (m)) exp(- (Delta E_"des")/(R T)). $
 // Now we plug in our definitions of the partition functions.
 // We will start with the translational partition function:
-// $ k_"des" = (k_"B " T)/h (L/Lambda)^2 z_("rot")^(ddagger (m)) exp(- (Delta E_"des")/(R T)) $
-// $ k_"des" = (k_"B " T)/h (A (2 pi m k_"B " T))/h^2  z_("rot")^(ddagger (m)) exp(- (Delta E_"des")/(R T)). $
+// $ k_"des" = (k_"B" T)/h (L/Lambda)^2 z_("rot")^(ddagger (m)) exp(- (Delta E_"des")/(R T)) $
+// $ k_"des" = (k_"B" T)/h (A (2 pi m k_"B" T))/h^2  z_("rot")^(ddagger (m)) exp(- (Delta E_"des")/(R T)). $
 // At this point, we need to have some information about the geometry of the transition state (i.e. unimolecular, linear, or non-linear) in order to define the rotational partition function.
 // For the sake of simplicity, let's continue our derivation assuming a linear transition state, such that
-// $ k_"des" = (k_"B " T)/h (A (2 pi m k_"B " T))/h^2 T/(sigma Theta_"rot")  exp(- (Delta E_"des")/(R T)), $
+// $ k_"des" = (k_"B" T)/h (A (2 pi m k_"B" T))/h^2 T/(sigma Theta_"rot")  exp(- (Delta E_"des")/(R T)), $
 // which simplifies to
-// $ k_"des" = (k_"B " T^3)/h^3 (A (2 pi m k_"B "))/(sigma Theta_"rot")  exp(- (Delta E_"des")/(R T)). $
+// $ k_"des" = (k_"B" T^3)/h^3 (A (2 pi m k_"B"))/(sigma Theta_"rot")  exp(- (Delta E_"des")/(R T)). $
 
 // Repeating this process for a transition state of a different geometry is simply a matter of plugging in a different expression for $z_("rot")^ddagger$.
 
@@ -3361,9 +3361,9 @@ The reason for $k_"TST"$ being less than $k$ here is likely just due to underlyi
 
 // For surface reactions, the adsorbed reactant(s) and transition states typically have negligible translational and rotational degrees of freedom.
 // Therefore,
-// $ k_"SR" = (k_"B " T)/h  (z_"trans"^(ddagger (0))/V z_"rot"^(ddagger (0)) z_"vib"^(ddagger (N-1)) z_"el"^(ddagger))/(z_"trans"^((0))/V z_"rot"^((0)) z_"vib"^((N)) z_"el") exp(- (Delta E_0^ddagger)/(R T)), $
+// $ k_"SR" = (k_"B" T)/h  (z_"trans"^(ddagger (0))/V z_"rot"^(ddagger (0)) z_"vib"^(ddagger (N-1)) z_"el"^(ddagger))/(z_"trans"^((0))/V z_"rot"^((0)) z_"vib"^((N)) z_"el") exp(- (Delta E_0^ddagger)/(R T)), $
 // which simplifies to
-// $ k_"SR" = (k_"B " T)/h  (z_"vib"^(ddagger (N-1)) z_"el"^(ddagger))/(z_"vib"^((N)) z_"el") exp(- (Delta E_0^ddagger)/(R T)). $
+// $ k_"SR" = (k_"B" T)/h  (z_"vib"^(ddagger (N-1)) z_"el"^(ddagger))/(z_"vib"^((N)) z_"el") exp(- (Delta E_0^ddagger)/(R T)). $
 // Again, the $N$ here constitutes $3N_0$ vibrational modes. Personally, this is about as far as I am willing to simplify things in most cases without further information.
 
 
@@ -3374,28 +3374,28 @@ The reason for $k_"TST"$ being less than $k$ here is likely just due to underlyi
 In the derivations of the transition state theory rate constant thus far, we have implicitly neglected any thermodynamic non-idealities.
 Now it is time for us to revisit our expressions with a fresh mindset.
 Recall that we started off our transition state theory derivation with 
-$ r = (k_"B " T)/h conc("AB")^ddagger, $
+$ r = (k_"B" T)/h conc("AB")^ddagger, $
 as originally shown in #ref(<eq:nu_dagger>).
-Instead of substituting in for $K_"c "^ddagger$ to get rid of the $conc("AB")^ddagger$ intermediate, we will instead take advantage of the definition of $K_ce("a")^ddagger$ given by #ref(<eq:k_a_k_c_relationship>):
-$ K_ce("a")^ddagger = (1/C^std)^(1-m) (gamma^ddagger conc("AB")^ddagger)/(gamma_ce("A") conc("A") gamma_"B " conc("B")). $
+Instead of substituting in for $K_"c"^ddagger$ to get rid of the $conc("AB")^ddagger$ intermediate, we will instead take advantage of the definition of $K_ce("a")^ddagger$ given by #ref(<eq:k_a_k_c_relationship>):
+$ K_ce("a")^ddagger = (1/C^std)^(1-m) (gamma^ddagger conc("AB")^ddagger)/(gamma_ce("A") conc("A") gamma_"B" conc("B")). $
 Solving for $conc("AB")^ddagger$ yields
-$ conc("AB")^ddagger = (C^std)^(1-m) K_ce("a")^ddagger (gamma_ce("A") gamma_"B ")/gamma^ddagger conc("A") conc("B"). $
+$ conc("AB")^ddagger = (C^std)^(1-m) K_ce("a")^ddagger (gamma_ce("A") gamma_"B")/gamma^ddagger conc("A") conc("B"). $
 Plugging this into our rate expression now yields
 $
-r &= (k_"B " T)/h (C^std)^(1-m) K_ce("a")^ddagger (gamma_ce("A") gamma_"B ")/gamma^ddagger conc("A") conc("B")\
-r &= (k_"B " T)/h (C^std)^(1-m) Z^ddagger/(Z_ce("a") Z_"B ") exp(- (Delta E_0^ddagger)/(R T)) (gamma_ce("A") gamma_"B ")/gamma^ddagger conc("A") conc("B").
+r &= (k_"B" T)/h (C^std)^(1-m) K_ce("a")^ddagger (gamma_ce("A") gamma_"B")/gamma^ddagger conc("A") conc("B")\
+r &= (k_"B" T)/h (C^std)^(1-m) Z^ddagger/(Z_ce("a") Z_"B") exp(- (Delta E_0^ddagger)/(R T)) (gamma_ce("A") gamma_"B")/gamma^ddagger conc("A") conc("B").
 $<eq:tst_activities>
 
 Here, the definition of $K_ce("a")^ddagger$ was substituted in from #ref(<eq:k_a_partition_functions>).
-Note that the partition functions (i.e. $Z$) are their unitless values, not normalized by the reference volume (i.e. $Z'$) since that was needed to reproduce the constants of $K_"C "^ddagger$, whereas we are dealing with $K_ce("a")^ddagger$.
+Note that the partition functions (i.e. $Z$) are their unitless values, not normalized by the reference volume (i.e. $Z'$) since that was needed to reproduce the constants of $K_"C"^ddagger$, whereas we are dealing with $K_ce("a")^ddagger$.
 #ref(<eq:tst_activities>) is the non-ideal analogy to #ref(<eq:tst_final>).
 
 From the above expression, we can write $r= k_"nonideal" conc("A") conc("B"),$ where
-$ k_"nonideal" = (k_"B " T)/h (C^std)^(1-m) K_ce("a")^ddagger (gamma_ce("A") gamma_"B ")/gamma^ddagger  $<eq:k_nonideal>
+$ k_"nonideal" = (k_"B" T)/h (C^std)^(1-m) K_ce("a")^ddagger (gamma_ce("A") gamma_"B")/gamma^ddagger  $<eq:k_nonideal>
 or, equivalently, in terms of the partition functions,
 $ 
 k_"nonideal" equiv A_("nonideal") exp(-(Delta E_0^ddagger)/(R T))\
-A_("nonideal") equiv  (k_"B " T)/h (C^std)^(1-m) Z^ddagger/(Z_ce("A") Z_ce("B"))  (gamma_ce("A") gamma_"B ")/gamma^ddagger .
+A_("nonideal") equiv  (k_"B" T)/h (C^std)^(1-m) Z^ddagger/(Z_ce("A") Z_ce("B"))  (gamma_ce("A") gamma_"B")/gamma^ddagger .
 $<eq:tst_nonideal>
 
 Comparing the non-ideal rate constant in #ref(<eq:tst_nonideal>) with the idealized case in #ref(<eq:tst_a>),
@@ -3425,7 +3425,7 @@ $ r_"nonideal" =  k_"ideal" (gamma_ce("A") gamma_ce("B"))/gamma^ddagger conc("A"
 By recognizing that $a_j equiv gamma_j [A_j]\/C^std$, we can rewrite the above expression as
 $ r_"nonideal" =  k_"ideal" (C^std)^(m) (1)/gamma^ddagger a_ce("A") a_ce("B"). $
 Therefore, while it is perfectly reasonable to use activities in a rate expression, 
-#footnote[This is in contrast with statements made in G. Lente, "Facts and Alternative Facts in Chemical Kinetics: Remarks About the Kinetic Use of Activities, Termolecular Processes, and Linearization Techniques", _Curr. Opin. Chem. Eng._, 21, 76--83 (2018).] 
+#footnote[This is in contrast with statements made in G. Lente,"Facts and Alternative Facts in Chemical Kinetics: Remarks About the Kinetic Use of Activities, Termolecular Processes, and Linearization Techniques", _Curr. Opin. Chem. Eng._, 21, 76--83 (2018).] 
 one must take care in doing so.
 Namely, the additional component that needs to be accounted for is the factor of $1\/gamma^ddagger$ (in addition to ensuring the units work out via the appropriate factors of $C^std$).
 
@@ -3441,38 +3441,38 @@ We will show in this subsection that an analogous expression can be derived from
 Here, we will derive the Eyring equation, which takes an analogous functional form as the transition state theory formalism for the rate constant but does not rely on statistical mechanics.
 
 We start by recalling that 
-$ Delta G^std^ddagger &= - R T ln(K_("a ")^ddagger), $
+$ Delta G^std^ddagger &= - R T ln(K_("a")^ddagger), $
 such that
 $ K_ce("a")^ddagger = exp(-(Delta G^std^ddagger)/ (R T)). $
 Plugging $K_ce("a")^ddagger$ into our expression for $k_"nonideal"$ in #ref(<eq:k_nonideal>) (which we will simply refer to as $k$ here) yields
-$ k = (k_"B " T)/h (C^std)^(1-m) exp(-(Delta G^std^ddagger)/ (R T)) (gamma_ce("A") gamma_"B ")/gamma^ddagger. $<eq:k_dg>
-In the thermodynamically ideal case (i.e. $gamma_ce("A")=gamma_"B "=gamma^ddagger = 1$), this expression is known as the Eyring equation.
-#footnote[There is sometimes a linear correlation between $Delta H^std^ddagger$ and $Delta S^std^ddagger$ but not necessarily for the reasons one might anticipate. Refer to G.C. McBane, "Chemistry from Telephone Numbers: The False Isokinetic Relationship", _J. Chem. Educ._, 75, 919--922 (1998).]
+$ k = (k_"B" T)/h (C^std)^(1-m) exp(-(Delta G^std^ddagger)/ (R T)) (gamma_ce("A") gamma_"B")/gamma^ddagger. $<eq:k_dg>
+In the thermodynamically ideal case (i.e. $gamma_ce("A")=gamma_"B"=gamma^ddagger = 1$), this expression is known as the Eyring equation.
+#footnote[There is sometimes a linear correlation between $Delta H^std^ddagger$ and $Delta S^std^ddagger$ but not necessarily for the reasons one might anticipate. Refer to G.C. McBane,"Chemistry from Telephone Numbers: The False Isokinetic Relationship", _J. Chem. Educ._, 75, 919--922 (1998).]
 By convention, $C^std$ is typically taken as $P\/R T$ at 1 bar for gases or as 1 M for liquids. 
 
 Naturally, when taking advantage of the thermodynamic relationship
 $ Delta G^std = Delta H^std - T Delta S^std $
 we can rewrite the above expression as
-$ k = (k_"B "T )/h C^std^(1-m) exp(( Delta S^std^ddagger) / R) exp(-(Delta H^std^ddagger) / (R T)) (gamma_ce("A") gamma_"B ")/gamma^ddagger. $ <eq:eyring-final>
+$ k = (k_"B"T )/h C^std^(1-m) exp(( Delta S^std^ddagger) / R) exp(-(Delta H^std^ddagger) / (R T)) (gamma_ce("A") gamma_"B")/gamma^ddagger. $ <eq:eyring-final>
 or in Arrhenius form as
 $
 k equiv A exp(- (Delta H^std^ddagger) / (R T)),quad
-A equiv (k_"B " T)/h C^std^(1-m) exp((Delta S^std^ddagger)/R) (gamma_ce("A") gamma_"B ")/gamma^ddagger.
+A equiv (k_"B" T)/h C^std^(1-m) exp((Delta S^std^ddagger)/R) (gamma_ce("A") gamma_"B")/gamma^ddagger.
 $
 With this, we can write our usual rate equation of the form $r = k conc("A") conc("B")$ in terms of enthalpies and entropies of activation.
 
 An Arrhenius-type plot can also be made of $ln(k/T)$ vs. $1\/T$ to back out $Delta H^std^ddagger$ from the slope and $Delta S^std^ddagger$ from the $y$-intercept, at least in the ideal case where the activity coefficients can be neglected:
-$ ln(k/T) = -(Delta H^std^ddagger)/R dot.op 1/T + [ln(k_"B "/h C^std^(1-m)) + (Delta S^std^ddagger)/R]. $
+$ ln(k/T) = -(Delta H^std^ddagger)/R dot.op 1/T + [ln(k_"B"/h C^std^(1-m)) + (Delta S^std^ddagger)/R]. $
 The linearized expression is only useful if one can assume that $Delta H^std^ddagger$ and $Delta S^std^ddagger$ are reasonably independent of temperature.
 
 === The Transmission Coefficient
 
 In practice, a multiplicative correction factor $kappa$, known as the transmission coefficient, is often included in the expression for $k$.
 For instance, it can be used to correct the Eyring equation representation of the rate constant via
-$ k = kappa (k_"B " T)/h C^std^(1-m) exp(- (Delta G^std^ddagger) / (R T)) $
+$ k = kappa (k_"B" T)/h C^std^(1-m) exp(- (Delta G^std^ddagger) / (R T)) $
 in the thermodynamically ideal case.
 The value for $kappa$ is between 0 and 1, in which case it represents the probability that the vibrational motion given by $nu^ddagger$ pushes the transition state forward towards the products as opposed to backwards towards the reactants.
-#footnote[In contrast with J.F. Perez-Benito, "Some Considerations on the Fundamentals of Chemical Kinetics: Steady State, Quasi-Equilibrium, and Transition State Theory", _J. Chem. Educ._, 94, 1238--1246 (2017), $k$ cannot be proportional to $kappa(1-kappa)$ otherwise $r->0$ as $kappa->1$ and there becomes an unphysical maximum in the rate at $kappa=1\/2$.]
+#footnote[In contrast with J.F. Perez-Benito,"Some Considerations on the Fundamentals of Chemical Kinetics: Steady State, Quasi-Equilibrium, and Transition State Theory", _J. Chem. Educ._, 94, 1238--1246 (2017), $k$ cannot be proportional to $kappa(1-kappa)$ otherwise $r->0$ as $kappa->1$ and there becomes an unphysical maximum in the rate at $kappa=1\/2$.]
 In other words, the rate constant (and rate) from transition state theory is generally an upper-estimate, even if all variables in the uncorrected rate expression were computed with perfect accuracy.
 Unless otherwise stated, we will assume that $kappa = 1$.
 
@@ -3485,9 +3485,9 @@ E_ce("a") = R T^2 (diff ln(k))/(diff T).
 $
 Plugging in $k$ from the Eyring equation into the above expression yields
 $
-E_ce("a") &= R T^2 (diff ln((k_"B "T )/h C^std^(1-m) exp(( Delta S^std^ddagger) / R) exp(-(Delta H^std^ddagger) / (R T)))) / (diff T)
+E_ce("a") &= R T^2 (diff ln((k_"B"T )/h C^std^(1-m) exp(( Delta S^std^ddagger) / R) exp(-(Delta H^std^ddagger) / (R T)))) / (diff T)
 $
-$ E_ce("a") &= R T^2 ((diff ln((k_"B ")/h))/(diff T) + (diff ln(T))/(diff T) + (diff ln(C^std^(1-m)))/(diff T) + (diff ((Delta S^std^ddagger)/R))/(diff T) - (diff ((Delta H^std^ddagger)/(R T)))/(diff T)) $
+$ E_ce("a") &= R T^2 ((diff ln((k_"B")/h))/(diff T) + (diff ln(T))/(diff T) + (diff ln(C^std^(1-m)))/(diff T) + (diff ((Delta S^std^ddagger)/R))/(diff T) - (diff ((Delta H^std^ddagger)/(R T)))/(diff T)) $
 $
 E_ce("a") &= R T^2 (0 + 1/T + (diff ln(C^std^(1-m)))/(diff T) + 0 + (Delta H^std^ddagger) / (R T^2)) $
 $
@@ -3511,9 +3511,9 @@ E_ce("a") &= Delta H^std^ddagger + m R T quad ("ideal gas").
 $<eq:e_app_tst>
 
 In both cases, the derivation has implicitly assumed that $Delta H^std^ddagger$ and $Delta S^std^ddagger$ are independent of temperature, which is only true if we are considering relatively small temperature differences.
-Clearly, #ref(<eq:e_app_tst>) indicates there are several possible meanings for a "kinetic barrier."
+Clearly, #ref(<eq:e_app_tst>) indicates there are several possible meanings for a"kinetic barrier."
 Therefore, one should take care in clarifying which property is being reported.
-#footnote[For a discussion on the relationship between the apparent activation energy and enthalpy in multi-step reactions with multiple transition states, refer to Z. Mao, C.T. Campbell, "Apparent Activation Energies in Complex Reaction Mechanisms: A Simple Relationship via Degrees of Rate Control", _ACS Catal._, 9, 9465--9473 (2019).]
+#footnote[For a discussion on the relationship between the apparent activation energy and enthalpy in multi-step reactions with multiple transition states, refer to Z. Mao, C.T. Campbell,"Apparent Activation Energies in Complex Reaction Mechanisms: A Simple Relationship via Degrees of Rate Control", _ACS Catal._, 9, 9465--9473 (2019).]
 
 == de Donder Relations
 
@@ -3521,7 +3521,7 @@ Therefore, one should take care in clarifying which property is being reported.
 
 In the formulation of transition state theory, we derived the forward directional rate from reactant(s) to product(s) via the intermediate formation of an activated complex.
 It is worth thinking about how we can now leverage this information to describe reversible reactions.
-#footnote[For a thorough review on this topic, refer to N.K. Razdan, T.C. Lin, A. Bhan, "Concepts Relevant for the Kinetic Analysis of Reversible Reaction Systems", _Chem. Rev._, 123, 2950--3006 (2023).]
+#footnote[For a thorough review on this topic, refer to N.K. Razdan, T.C. Lin, A. Bhan,"Concepts Relevant for the Kinetic Analysis of Reversible Reaction Systems", _Chem. Rev._, 123, 2950--3006 (2023).]
 One of the most fundamental properties of a reversible elementary reaction is its reversibility, first introduced in #ref(<eq:reversibility>)
 and repeated here as
 $z_i equiv r_(i)^- \/ r_(i)^+.$
@@ -3536,12 +3536,12 @@ which will lead to a new concept known as the reaction affinity.
 We will start by finding an expression for the rate constants, after which we will revisit the concentration terms.
 
 From the (non-idealized) Eyring equation, we know that
-$ k_(i)^+ &= (k_"B " T)/h (C^std)^(-1) exp(-(G^std^ddagger - G_ce("a")^std - G_"B "^std)/ (R T)) (gamma_ce("A") gamma_"B ")/gamma^ddagger\
-k_(i)^- &= (k_"B " T)/h exp(-(G^std^ddagger - G_"P "^std)/ (R T)) (gamma_"P ")/gamma^ddagger. $
+$ k_(i)^+ &= (k_"B" T)/h (C^std)^(-1) exp(-(G^std^ddagger - G_ce("a")^std - G_"B"^std)/ (R T)) (gamma_ce("A") gamma_"B")/gamma^ddagger\
+k_(i)^- &= (k_"B" T)/h exp(-(G^std^ddagger - G_"P"^std)/ (R T)) (gamma_"P")/gamma^ddagger. $
 
 Therefore,
-$ k_(i)^- / (k_(i)^+) &= C^std exp((G_"P "^std - G_ce("a")^std - G_"B "^std) / (R T)) gamma_"P "/(gamma_ce("A") gamma_"B ")\
-k_(i)^- / (k_(i)^+) &= C^std exp((Delta G_i^std) / (R T)) gamma_"P "/(gamma_ce("A") gamma_"B ").
+$ k_(i)^- / (k_(i)^+) &= C^std exp((G_"P"^std - G_ce("a")^std - G_"B"^std) / (R T)) gamma_"P"/(gamma_ce("A") gamma_"B")\
+k_(i)^- / (k_(i)^+) &= C^std exp((Delta G_i^std) / (R T)) gamma_"P"/(gamma_ce("A") gamma_"B").
 $<eq:de_donder_deriv1>
 
 That takes care of part of our expression for the reversibility given by #ref(<eq:z_relationship>).
@@ -3563,8 +3563,8 @@ Note that at equilibrium (and at standard state conditions), $Q_ce("a") = K_ce("
 
 We can convert between activities and concentrations to arrive at the following expression for our toy reaction:
 $
-Delta G_i = Delta G_i^std + R T ln((gamma_"P " conc("P")/C^std)/(gamma_ce("A") conc("A")/C^std gamma_"B " conc("B")/C^std) )\
-conc("P")/(conc("A") conc("B")) = 1/C^std (gamma_ce("A") gamma_"B ")/gamma_"P " exp((Delta G_i-Delta G_i^std)/(R T)).
+Delta G_i = Delta G_i^std + R T ln((gamma_"P" conc("P")/C^std)/(gamma_ce("A") conc("A")/C^std gamma_"B" conc("B")/C^std) )\
+conc("P")/(conc("A") conc("B")) = 1/C^std (gamma_ce("A") gamma_"B")/gamma_"P" exp((Delta G_i-Delta G_i^std)/(R T)).
 $<eq:de_donder_deriv2>
 
 Now we can plug both #ref(<eq:de_donder_deriv1>) and #ref(<eq:de_donder_deriv2>) into #ref(<eq:z_relationship>), which thankfully simplifies very cleanly to
@@ -3598,7 +3598,7 @@ When written in this manner, it is clear that the net rate of reaction can be ex
 === Ruling Out Reaction Mechanisms
 
 We can use the de Donder relations as a way to immediately rule out physically impossible reaction mechanisms.
-// #footnote[For additional details, refer to W.L. Holstein and M. Boudart, "Application of the De Donder Relation to the Mechanism of Catalytic Reactions", _J. Phys. Chem. B_, 101, 9991--9994 (1997).]
+// #footnote[For additional details, refer to W.L. Holstein and M. Boudart,"Application of the De Donder Relation to the Mechanism of Catalytic Reactions", _J. Phys. Chem. B_, 101, 9991--9994 (1997).]
 For instance, consider the cyclic reaction scheme in #ref(<fig:cycle>).
 #figure(
   image("figures/rxn_cycle.svg", width: 15%),
@@ -3620,8 +3620,8 @@ Put another way, via de Donder's inequality, we know that one of the reaction st
 We can also leverage de Donder relations in non-cyclic reactions.
 Consider the following proposed reaction sequence:
 $ 
-ce("H2 &<--> 2H^∙") quad cal(A)^std_(1) = -331 "kJ/mol"\
-ce("2H2 + O2 &<--> 2 H2O") quad cal(A)^std_(2) = 385 "kJ/mol"
+ce("H2 &<--> 2H^∙") quad cal(A)^std_(1) = -331"kJ/mol"\
+ce("2H2 + O2 &<--> 2 H2O") quad cal(A)^std_(2) = 385"kJ/mol"
 $
 for the following overall reaction:
 $ ce("3H2 + O2 <--> 2H2O + 2H^∙"). $
@@ -3630,7 +3630,7 @@ For now, we will consider the reaction taking place at standard state conditions
 The overall reaction affinity for any reaction can be given by
 $ cal(A) equiv sum_i sigma_i cal(A)_i, $
 such that for the reaction of interest here we have $cal(A)= 54$ kJ/mol.
-The natural question to ask here is as follows: can "thermodynamic coupling," wherein we combine thermodynamically unfavorable and unfavorable steps, result in a viable mechanism provided that the overall affinity is positive?
+The natural question to ask here is as follows: can"thermodynamic coupling," wherein we combine thermodynamically unfavorable and unfavorable steps, result in a viable mechanism provided that the overall affinity is positive?
 
 As it turns out, having $cal(A)>0$ is a necessary but not sufficient condition.
 When looking at the individual steps, we see that the first step has $cal(A)_i<0$, and de Donder's inequality must hold for every individual step in the proposed mechanism.
