@@ -135,9 +135,9 @@ Powered by the Haber--Bosch process devised by Fritz Haber and Carl Bosch, the m
 The Haber--Bosch process itself constitutes the following net reaction: 
 $ ce("N2 + 3 H2 <=> 2 NH3"). $
 
-Colloquially referred to as"converting air into bread", this process produces the ammonia that is central to nitrogen fertilizers, a process so important to society that it is believed to have been a critical factor in the global population boom during the 20#super[th] century.
+Colloquially referred to as "converting air into bread", this process produces the ammonia that is central to nitrogen fertilizers, a process so important to society that it is believed to have been a critical factor in the global population boom during the 20#super[th] century.
 #footnote[
-  For additional historical context about the Haber--Bosch process and the complicated history of Fritz Haber himself, watch"The Man Who Killed Millions and Saved Billions" by Veritasium: https://www.youtube.com/watch?v=QQkmJI63ykI.
+  For additional historical context about the Haber--Bosch process and the complicated history of Fritz Haber himself, watch "The Man Who Killed Millions and Saved Billions" by Veritasium: https://www.youtube.com/watch?v=QQkmJI63ykI.
 ]
 In fact, it is estimated that up to half of the nitrogen atoms in the human body may have gone through the Haber--Bosch process.
 We will revisit the ammonia reactor and the Haber--Bosch process several times throughout this course, as it is an excellent example that ties together many of the fundamental concepts of chemical reaction engineering.
@@ -147,7 +147,7 @@ We will revisit the ammonia reactor and the Haber--Bosch process several times t
 Fast forwarding to the 1930s, the rise of the automobile and increased reliance on fossil fuels led to several advances in reactor technologies.
 One representative discovery was the catalytic cracker: a reactor that uses an aluminosilicate material known as Zeolite Y to catalyze the conversion of high-molecular weight, linear alkanes found in petroleum into smaller, more valuable hydrocarbons.
 #footnote[If you ever find yourself driving back to Princeton from New York City, take a look in the westward direction near the entrance of Interstate 95. You will likely be able to see the Phillips 66 Bayway Refinery, which has a fluid catalytic cracking unit (among other chemical reactors). Roughly one out of every 20 ships in New York Harbor are bound for this refinery, where crude oil is distilled, cracked, and purified.]
-Another relevant process pioneered during this time period is the Fischer--Tropsch process, which converts carbon monoxide and hydrogen (known as synthesis gas or"syngas") into liquid hydrocarbons.
+Another relevant process pioneered during this time period is the Fischer--Tropsch process, which converts carbon monoxide and hydrogen (known as synthesis gas or "syngas") into liquid hydrocarbons.
 #footnote[
   For a molecular-scale view of how the Fischer--Tropsch reaction works, watch the following animation from the Eindhoven University of Technology: https://www.youtube.com/watch?v=44OU4JxEK4k.
 ]
@@ -158,7 +158,7 @@ The synthesis gas in this case is produced via coal gasification, wherein coal i
 
 While much of the history of chemical engineering is intricately tied to the fossil fuel industry, its future is far more diverse in scope.
 Recently, there has been a significant push towards leveraging chemical reaction engineering principles to address the many clean energy and sustainability challenges facing our planet.
-Some areas of interest include the design of fuel cells that convert hydrogen and oxygen into electricity, porous materials that can capture and convert carbon dioxide, and cutting-edge technologies to"upcycle" plastic waste into valuable commodity chemicals.
+Some areas of interest include the design of fuel cells that convert hydrogen and oxygen into electricity, porous materials that can capture and convert carbon dioxide, and cutting-edge technologies to "upcycle" plastic waste into valuable commodity chemicals.
 Even further into the future, one can think about circling back to the original reactor described in this section: the Sun.
 While likely many decades away from commercialization, nuclear fusion reactors are being designed with the hope that they can one day serve as a clean and abundant source of energy for humanity.
 #footnote[In fact, one of the earliest fusion reactor designs --- the stellarator --- was pioneered at the Princeton Plasma Physics Laboratory (PPPL) and set the stage for improved fusion reactor design both at PPPL and around the world.]
@@ -422,7 +422,7 @@ image("figures/arrhenius_multiple.png", width: 40%),
 
 The astute observer might question what thermodynamic property $E_ce("a") $ refers to in #ref(<eq:arrhenius>).
 For now, we will simply state that the Arrhenius equation is an empirical relationship and so $E_ce("a")$ is best thought of as simply a parameter describing the sensitivity of the rate, and thereby rate constant, to changes in temperature.
-#footnote[Speaking of empirical, the start date and temperature dependence of the Japanese cherry blossom blooming season is often modeled with the Arrhenius equation. This has been used to better understand the effects of climate change, as in P. Shi, et al.,"Timing of Cherry Tree Blooming: Contrasting Effects of Rising Winter Low Temperatures and Early Spring Temperatures", _Agric. For. Meteorol._, 240, 78–89 (2017). For other unusual examples, refer to K.J. Laidler,"Unconventional Applications of the Arrhenius Law", _J. Chem. Educ._, 49, 343--344 (1972).]
+#footnote[Speaking of empirical, the start date and temperature dependence of the Japanese cherry blossom blooming season is often modeled with the Arrhenius equation. This has been used to better understand the effects of climate change, as in P. Shi, et al., "Timing of Cherry Tree Blooming: Contrasting Effects of Rising Winter Low Temperatures and Early Spring Temperatures", _Agric. For. Meteorol._, 240, 78–89 (2017). For other unusual examples, refer to K.J. Laidler, "Unconventional Applications of the Arrhenius Law", _J. Chem. Educ._, 49, 343--344 (1972).]
 We will revisit the Arrhenius equation from a more rigorous, thermodynamic perspective when we cover transition state theory.
 
 === Modifications to the Arrhenius Equation
@@ -513,7 +513,7 @@ In this form, we can see that units are appropriately addressed even though conc
 In most practical cases, the deviations from non-ideality can be assumed to be small, and we will oftentimes use concentrations or partial pressures in place of activities.
 However, for concentrated solutions and gases at low temperature or high pressures, the differences can become noticeable and should be considered.
 #footnote[ 
-To learn more about potential pitfalls when neglecting activity in equilibrium expressions, refer to C.G. McCarty, E. Vitz,"pH Paradoxes: Demonstrating That It Is Not True That pH ≡ -log[H+]", _J. Chem. Educ._, 83, 752--757 (2006).]
+To learn more about potential pitfalls when neglecting activity in equilibrium expressions, refer to C.G. McCarty, E. Vitz, "pH Paradoxes: Demonstrating That It Is Not True That pH ≡ -log[H+]", _J. Chem. Educ._, 83, 752--757 (2006).]
 
 
 
@@ -667,7 +667,7 @@ Given enough rate and concentration data, one can also carry out a multiple line
 
 It is worth noting, as we will demonstrate throughout this course, that apparent reaction orders of non-elementary reactions may be non-integer or even negative.
 Reaction orders will appear as zero if the concentration of a particular species does not notably influence the observed rate, as is commonly the case if that species is in great excess.
-#footnote[For additional discussion about apparent 0#super[th] order kinetics, refer to F.J. Arnáiz,"Mice in the Box for Zero-Order Kinetics", _J. Chem. Educ._, 76, 10, 1458 (1999).]
+#footnote[For additional discussion about apparent 0#super[th] order kinetics, refer to F.J. Arnáiz, "Mice in the Box for Zero-Order Kinetics", _J. Chem. Educ._, 76, 10, 1458 (1999).]
 
 === Practical Measurements
 
@@ -945,7 +945,7 @@ where each $x_j$ is the discrete number of $j$ molecules in the reactor (rather 
 We will also consider the time $t$ to be discretized, such that we are simulating reaction snapshots (or lack thereof) at each time step.
 
 To carry out this stochastic simulation, we follow the algorithm of Gillepsie.
-#footnote[For further details, refer to D.T. Gillepsie,"Stochastic Simulation of Chemical Kinetics", _Annu. Rev. Phys. Chem._, 58 (2007).]
+#footnote[For further details, refer to D.T. Gillepsie, "Stochastic Simulation of Chemical Kinetics", _Annu. Rev. Phys. Chem._, 58 (2007).]
 We will describe this algorithm by way of example, assuming here that $k_1=2$ and $k_2= 1$.
 With this, the procedure looks like the following:
 
@@ -1210,7 +1210,7 @@ For the sake of clarity, the PSSH and quasi-equilibrium approximations generally
 For example,
 $ eqArrow("slow",opposite:"fast") ce("X") fwdArrow("fast") quad ("PSSH"), quad quad quad eqArrow("fast",opposite:"fast") ce("X") fwdArrow("slow") quad ("quasi-equilibrium"), $
 where, for the model reaction schemes, we have $k_(1)<<k_(-1),k_2$ and $k_(1),k_(-1)>>k_2$ for PSSH and quasi-equilibrium, respectively.
-#footnote[For additional details, refers to J.F. Perez-Benito,"Some Considerations on the Fundamentals of Chemical Kinetics: Steady State, Quasi-Equilibrium, and Transition State Theory", _J. Chem. Educ._, 94, 1238--1246 (2017).]
+#footnote[For additional details, refers to J.F. Perez-Benito, "Some Considerations on the Fundamentals of Chemical Kinetics: Steady State, Quasi-Equilibrium, and Transition State Theory", _J. Chem. Educ._, 94, 1238--1246 (2017).]
 PSSH would imply that $r_ce("X") approx 0$, and the quasi-equilibrium approxmation would imply that $r_1 = r_(1)^+ - r_(1)^- approx 0$, where $r_1$ is the net rate of the fast equilibrium step.
 The way to rationalize the quasi-equilibrium approximation is that perturbing the system slightly (e.g. removing #ce("X")) would cause a near-immediate return to its original state (e.g. by producing more #ce("X")).
 In other words, the reaction is rapidly equilibrated.
@@ -1291,7 +1291,7 @@ $ r = (k_1 k_2) / k_(-1) conc("A"), $
 which does not equal the rate-determining step solution.
 Furthermore, it would be difficult to justify calling $ce("A") --> ce("B")$ the rate-determining step if $k_1$ has precisely the same weight as $k_(-1)$ and $k_2$.
 This exercise is simply to demonstrate that a rate-determining step cannot necessarily be invoked from information about $k$ for a particular step, particularly when reversible reactions are considered.
-#footnote[For additional details, refer to S. Kozuch, J.M.L. Martin,"The Rate-Determining Step is Dead. Long Live the Rate-Determining State!", _ChemPhysChem_, 12, 1413--1418 (2011).]
+#footnote[For additional details, refer to S. Kozuch, J.M.L. Martin, "The Rate-Determining Step is Dead. Long Live the Rate-Determining State!", _ChemPhysChem_, 12, 1413--1418 (2011).]
 ]
 
 
@@ -1623,7 +1623,7 @@ In other words, there is an additional factor of $z\/2 conc("*")_0$ that needs t
 Setting both expressions equal to one another to invoke equilibrium conditions yields
 $ K_"ads" = conc("A^*")^2 / (p_ce("A2") conc("*")^2). $<eq:dissociative_K_a>
 Reassuringly, our expression for $K_"ads"$ is the same expression we would expect based on the thermodynamic definition of the equilibrium constant.
-#footnote[For dissociative adsorption of the form #ce("AB + 2* <--> A^* + B^*"), it may appear that the kinetic-based definition of $K$ given by $r^+ = r^-$ would not be equal to the thermodynamic definition of $K = conc("A^*") conc("B^*")\/ p_ce("AB") conc("*")^2$ because the elementary reaction in the forward direction involves two seemingly indistinguishable surface sites ($z\/2$), whereas the reverse has two distinguishable adsorbates ($z$), resulting in a stray factor of 2 in the numerator. While beyond the scope of this course, the forward rate expression should actually have a factor of $z$ instead of $z\/2$ for reasons outlined in the Supporting Information of N.K. Razdan, A. Bhan,"Kinetic description of site ensembles on catalytic surfaces", _Proc. Natl. Acad. Sci. U.S.A._, 118, e2019055118 (2021).]
+#footnote[For dissociative adsorption of the form #ce("AB + 2* <--> A^* + B^*"), it may appear that the kinetic-based definition of $K$ given by $r^+ = r^-$ would not be equal to the thermodynamic definition of $K = conc("A^*") conc("B^*")\/ p_ce("AB") conc("*")^2$ because the elementary reaction in the forward direction involves two seemingly indistinguishable surface sites ($z\/2$), whereas the reverse has two distinguishable adsorbates ($z$), resulting in a stray factor of 2 in the numerator. While beyond the scope of this course, the forward rate expression should actually have a factor of $z$ instead of $z\/2$ for reasons outlined in the Supporting Information of N.K. Razdan, A. Bhan, "Kinetic description of site ensembles on catalytic surfaces", _Proc. Natl. Acad. Sci. U.S.A._, 118, e2019055118 (2021).]
 From here onward, we will simply invoke the thermodynamic definition of the equilibrium constant when the quasi-equilibrium approximation is invoked.
 
 #caution[If we had not accounted for the statistical siting, we would instead have $r_"ads"=k_"ads" p_ce("A2") conc("*")^2$ and $r_"des"=k_"des" conc("A^*")^2$, which will overestimate the rates of adsorption and desorption and change the units on our rate constant. That said, there would be no change in our expression for $K_"ads"$ regardless of whether we accounted for site-pair statistics or not.]
@@ -1673,7 +1673,7 @@ We can also consider models that capture behavior the Langmuir model does not.
 As previously discussed, the Langmuir model of adsorption made some critical approximations.
 Perhaps the most notable is the assumption that the adsorption enthalpy of each site is constant (i.e. independent of coverage).
 There are many models that attempt to directly or indirectly capture this behavior, some of which are outlined below:
-#footnote[For some cautionary comments about the Temkin isotherm, refer to K. Chu,"Revisiting the Temkin Isotherm: Dimensional Inconsistency and Approximate Forms", _Ind. Eng. Chem. Res._, 60, 13140--13147 (2021).]
+#footnote[For some cautionary comments about the Temkin isotherm, refer to K. Chu, "Revisiting the Temkin Isotherm: Dimensional Inconsistency and Approximate Forms", _Ind. Eng. Chem. Res._, 60, 13140--13147 (2021).]
 $
 theta_ce("A") &= alpha p_ce("A")^(1\/beta) quad ("Freundlich isotherm")
 $
@@ -1769,7 +1769,7 @@ Here, the rate has been normalized by the concentration of active sites and, the
 When dealing with the rate of a net reaction, this site-normalized form of the rate is referred to as a turnover frequency (TOF).
 The TOF represents the number of reacting molecules per active site and unit time (assuming that all adsorption sites defined by $conc("*")_0$ are all the possible active sites) since it represents the number of times the catalytic active sites have"turned over" a reaction. 
 Since TOFs are normalized by the concentration of active sites and most real catalysts have heterogeneity in the active species, the TOF is best thought of as an averaged property.
-#footnote[For additional considerations when reporting and interpreting TOFs, refer to F. Schüth, M.D. Ward, J.M. Buriak,"Common Pitfalls of Catalysis Manuscripts Submitted to Chemistry of Materials", _Chem. Mater._, 30, 3599--3600 (2018). More detailed discussion on this topic can be found in S. Kozuch, J.M.L. Martin,"Turning Over Definitions in Catalytic Cycles", _ACS Catal._, 2, 2787--2794 (2012) and the corresponding response G. Lente,"Comment on 'Turning Over Definitions in Catalytic Cycles'", _ACS Catal._, 3, 381--382 (2013).]
+#footnote[For additional considerations when reporting and interpreting TOFs, refer to F. Schüth, M.D. Ward, J.M. Buriak, "Common Pitfalls of Catalysis Manuscripts Submitted to Chemistry of Materials", _Chem. Mater._, 30, 3599--3600 (2018). More detailed discussion on this topic can be found in S. Kozuch, J.M.L. Martin, "Turning Over Definitions in Catalytic Cycles", _ACS Catal._, 2, 2787--2794 (2012) and the corresponding response G. Lente, "Comment on 'Turning Over Definitions in Catalytic Cycles'", _ACS Catal._, 3, 381--382 (2013).]
 
 
 === Dual-Site Mechanisms <reactions-between-two-surface-species>
@@ -2000,7 +2000,7 @@ $<eq:co_final>
 Finally, substituting #ref(<eq:co_final>) into #ref(<eq:co_rate>) results in the desired rate expression based on experimental observables:
 $ r_ce("CO2") = (k'_3 K_1 p_("CO") conc("*")_0 sqrt(K_2 p_ce("O2"))) / (1+K_1 p_("CO") + sqrt(K_2 p_ce("O2")))^2. $
 Note that if we did not include the $z\/conc("*")_0$ correction in #ref(<eq:co_rate>), the resulting rate expression at the end of the derivation would have a $conc("*")_(0)^2$ term instead of $conc("*")_0$ in the numerator. In general, the presence of higher-order $conc("*")_0$ terms is a sign that lattice statistics have been neglected.
-// #footnote[For an alternate opinion about the $conc("*")_0$ term in catalytic rate expressions, refer to D. Kiani, I.E. Wachs,"The Conundrum of Pair Sites in Langmuir–Hinshelwood Reaction Kinetics in Heterogeneous Catalysis", _ACS Catal._, 14, 10260--10270 (2024).]
+// #footnote[For an alternate opinion about the $conc("*")_0$ term in catalytic rate expressions, refer to D. Kiani, I.E. Wachs, "The Conundrum of Pair Sites in Langmuir–Hinshelwood Reaction Kinetics in Heterogeneous Catalysis", _ACS Catal._, 14, 10260--10270 (2024).]
 
 ==== Limiting Cases
 
@@ -2132,7 +2132,7 @@ In some cases, the catalytic adsorption sites can be part of the catalytic cycle
 This is known as a Mars--van Krevlen cycle.
 There are several authoritative references that can be read to learn more about the derivation of the rate in a Mars--van Krevlen mechanism.
 We refrain from doing so here simply as a matter of brevity and, in part, because it has been shown that the original derivation has numerous logical inconsistencies that are difficult to justify.
-#footnote[M.A. Vannice,"An analysis of the Mars–van Krevelen rate expression", _Catal. Today_, 123, 18--22 (2007).]
+#footnote[M.A. Vannice, "An analysis of the Mars–van Krevelen rate expression", _Catal. Today_, 123, 18--22 (2007).]
 
 ==== Limitations of LHHW
 
@@ -2160,7 +2160,7 @@ Clearly, the Langmuir--Hinshelwood formalism cannot reproduce the jammed state w
 Of course, this does not necessarily mean a LHHW model cannot yield a sufficiently good fit to experimentally obtained kinetic data.
 Rather, it means that the interpretability may be limited.
 We refer the interested reader to external sources for further discussions about potential improvements to the LHHW formalism, particularly as it relates to dealing with site ensembles.
-#footnote[N.K. Razdan, A. Bhan,"Kinetic description of site ensembles on catalytic surfaces", _Proc. Natl. Acad. Sci. U.S.A._, 118, e2019055118 (2021). Also refer to N.K. Razdan, A. Bhan,"Catalytic site ensembles: A context to reexamine the Langmuir--Hinshelwood kinetic description", _J. Catal._, 404, 726--744 (2021). ]
+#footnote[N.K. Razdan, A. Bhan, "Kinetic description of site ensembles on catalytic surfaces", _Proc. Natl. Acad. Sci. U.S.A._, 118, e2019055118 (2021). Also refer to N.K. Razdan, A. Bhan, "Catalytic site ensembles: A context to reexamine the Langmuir--Hinshelwood kinetic description", _J. Catal._, 404, 726--744 (2021). ]
 
 = Chemical Reactor Archetypes
 
@@ -3284,10 +3284,10 @@ The reason for $k_"TST"$ being less than $k$ here is likely just due to underlyi
 
 // If the adsorbate is somewhat weakly bound, then the remaining degrees of freedom are likely to be somewhere between that used for a free gas and that of a chemisorbed species.
 // More complicated expressions are available to model these intermediate behaviors, such as the hindered translator--hindered rotor model.
-// #footnote[L.H. Sprowl, C.T. Campbell, L. Árnadóttir,"Hindered Translator and Hindered Rotor Models for Adsorbates: Partition Functions and Entropies," _J. Phys. Chem. C_, 120, 9719--9731 (2016).]
+// #footnote[L.H. Sprowl, C.T. Campbell, L. Árnadóttir, "Hindered Translator and Hindered Rotor Models for Adsorbates: Partition Functions and Entropies," _J. Phys. Chem. C_, 120, 9719--9731 (2016).]
 // Additional consideration can be found in the literature related to molecules that adsorb within porous materials, where spatial confinement may restrict some degrees of freedom.
 // #footnote[
-//   P.J. Dauenhauer, O.A. Abdelrahman,"A Universal Descriptor for the Entropy of Adsorbed Molecules in Confined Spaces", _ACS Catal._, 4, 1235--1243 (2018).
+//   P.J. Dauenhauer, O.A. Abdelrahman, "A Universal Descriptor for the Entropy of Adsorbed Molecules in Confined Spaces", _ACS Catal._, 4, 1235--1243 (2018).
 // ]
 
 // ==== Hertz--Knudsen Equation
@@ -3425,7 +3425,7 @@ $ r_"nonideal" =  k_"ideal" (gamma_ce("A") gamma_ce("B"))/gamma^ddagger conc("A"
 By recognizing that $a_j equiv gamma_j [A_j]\/C^std$, we can rewrite the above expression as
 $ r_"nonideal" =  k_"ideal" (C^std)^(m) (1)/gamma^ddagger a_ce("A") a_ce("B"). $
 Therefore, while it is perfectly reasonable to use activities in a rate expression, 
-#footnote[This is in contrast with statements made in G. Lente,"Facts and Alternative Facts in Chemical Kinetics: Remarks About the Kinetic Use of Activities, Termolecular Processes, and Linearization Techniques", _Curr. Opin. Chem. Eng._, 21, 76--83 (2018).] 
+#footnote[This is in contrast with statements made in G. Lente, "Facts and Alternative Facts in Chemical Kinetics: Remarks About the Kinetic Use of Activities, Termolecular Processes, and Linearization Techniques", _Curr. Opin. Chem. Eng._, 21, 76--83 (2018).] 
 one must take care in doing so.
 Namely, the additional component that needs to be accounted for is the factor of $1\/gamma^ddagger$ (in addition to ensuring the units work out via the appropriate factors of $C^std$).
 
@@ -3447,7 +3447,7 @@ $ K_ce("a")^ddagger = exp(-(Delta G^std^ddagger)/ (R T)). $
 Plugging $K_ce("a")^ddagger$ into our expression for $k_"nonideal"$ in #ref(<eq:k_nonideal>) (which we will simply refer to as $k$ here) yields
 $ k = (k_"B" T)/h (C^std)^(1-m) exp(-(Delta G^std^ddagger)/ (R T)) (gamma_ce("A") gamma_"B")/gamma^ddagger. $<eq:k_dg>
 In the thermodynamically ideal case (i.e. $gamma_ce("A")=gamma_"B"=gamma^ddagger = 1$), this expression is known as the Eyring equation.
-#footnote[There is sometimes a linear correlation between $Delta H^std^ddagger$ and $Delta S^std^ddagger$ but not necessarily for the reasons one might anticipate. Refer to G.C. McBane,"Chemistry from Telephone Numbers: The False Isokinetic Relationship", _J. Chem. Educ._, 75, 919--922 (1998).]
+#footnote[There is sometimes a linear correlation between $Delta H^std^ddagger$ and $Delta S^std^ddagger$ but not necessarily for the reasons one might anticipate. Refer to G.C. McBane, "Chemistry from Telephone Numbers: The False Isokinetic Relationship", _J. Chem. Educ._, 75, 919--922 (1998).]
 By convention, $C^std$ is typically taken as $P\/R T$ at 1 bar for gases or as 1 M for liquids. 
 
 Naturally, when taking advantage of the thermodynamic relationship
@@ -3472,7 +3472,7 @@ For instance, it can be used to correct the Eyring equation representation of th
 $ k = kappa (k_"B" T)/h C^std^(1-m) exp(- (Delta G^std^ddagger) / (R T)) $
 in the thermodynamically ideal case.
 The value for $kappa$ is between 0 and 1, in which case it represents the probability that the vibrational motion given by $nu^ddagger$ pushes the transition state forward towards the products as opposed to backwards towards the reactants.
-#footnote[In contrast with J.F. Perez-Benito,"Some Considerations on the Fundamentals of Chemical Kinetics: Steady State, Quasi-Equilibrium, and Transition State Theory", _J. Chem. Educ._, 94, 1238--1246 (2017), $k$ cannot be proportional to $kappa(1-kappa)$ otherwise $r->0$ as $kappa->1$ and there becomes an unphysical maximum in the rate at $kappa=1\/2$.]
+#footnote[In contrast with J.F. Perez-Benito, "Some Considerations on the Fundamentals of Chemical Kinetics: Steady State, Quasi-Equilibrium, and Transition State Theory", _J. Chem. Educ._, 94, 1238--1246 (2017), $k$ cannot be proportional to $kappa(1-kappa)$ otherwise $r->0$ as $kappa->1$ and there becomes an unphysical maximum in the rate at $kappa=1\/2$.]
 In other words, the rate constant (and rate) from transition state theory is generally an upper-estimate, even if all variables in the uncorrected rate expression were computed with perfect accuracy.
 Unless otherwise stated, we will assume that $kappa = 1$.
 
@@ -3513,7 +3513,7 @@ $<eq:e_app_tst>
 In both cases, the derivation has implicitly assumed that $Delta H^std^ddagger$ and $Delta S^std^ddagger$ are independent of temperature, which is only true if we are considering relatively small temperature differences.
 Clearly, #ref(<eq:e_app_tst>) indicates there are several possible meanings for a"kinetic barrier."
 Therefore, one should take care in clarifying which property is being reported.
-#footnote[For a discussion on the relationship between the apparent activation energy and enthalpy in multi-step reactions with multiple transition states, refer to Z. Mao, C.T. Campbell,"Apparent Activation Energies in Complex Reaction Mechanisms: A Simple Relationship via Degrees of Rate Control", _ACS Catal._, 9, 9465--9473 (2019).]
+#footnote[For a discussion on the relationship between the apparent activation energy and enthalpy in multi-step reactions with multiple transition states, refer to Z. Mao, C.T. Campbell, "Apparent Activation Energies in Complex Reaction Mechanisms: A Simple Relationship via Degrees of Rate Control", _ACS Catal._, 9, 9465--9473 (2019).]
 
 == de Donder Relations
 
@@ -3521,7 +3521,7 @@ Therefore, one should take care in clarifying which property is being reported.
 
 In the formulation of transition state theory, we derived the forward directional rate from reactant(s) to product(s) via the intermediate formation of an activated complex.
 It is worth thinking about how we can now leverage this information to describe reversible reactions.
-#footnote[For a thorough review on this topic, refer to N.K. Razdan, T.C. Lin, A. Bhan,"Concepts Relevant for the Kinetic Analysis of Reversible Reaction Systems", _Chem. Rev._, 123, 2950--3006 (2023).]
+#footnote[For a thorough review on this topic, refer to N.K. Razdan, T.C. Lin, A. Bhan, "Concepts Relevant for the Kinetic Analysis of Reversible Reaction Systems", _Chem. Rev._, 123, 2950--3006 (2023).]
 One of the most fundamental properties of a reversible elementary reaction is its reversibility, first introduced in #ref(<eq:reversibility>)
 and repeated here as
 $z_i equiv r_(i)^- \/ r_(i)^+.$
@@ -3598,7 +3598,7 @@ When written in this manner, it is clear that the net rate of reaction can be ex
 === Ruling Out Reaction Mechanisms
 
 We can use the de Donder relations as a way to immediately rule out physically impossible reaction mechanisms.
-// #footnote[For additional details, refer to W.L. Holstein and M. Boudart,"Application of the De Donder Relation to the Mechanism of Catalytic Reactions", _J. Phys. Chem. B_, 101, 9991--9994 (1997).]
+// #footnote[For additional details, refer to W.L. Holstein and M. Boudart, "Application of the De Donder Relation to the Mechanism of Catalytic Reactions", _J. Phys. Chem. B_, 101, 9991--9994 (1997).]
 For instance, consider the cyclic reaction scheme in #ref(<fig:cycle>).
 #figure(
   image("figures/rxn_cycle.svg", width: 15%),
@@ -3630,7 +3630,7 @@ For now, we will consider the reaction taking place at standard state conditions
 The overall reaction affinity for any reaction can be given by
 $ cal(A) equiv sum_i sigma_i cal(A)_i, $
 such that for the reaction of interest here we have $cal(A)= 54$ kJ/mol.
-The natural question to ask here is as follows: can"thermodynamic coupling," wherein we combine thermodynamically unfavorable and unfavorable steps, result in a viable mechanism provided that the overall affinity is positive?
+The natural question to ask here is as follows: can "thermodynamic coupling," wherein we combine thermodynamically unfavorable and unfavorable steps, result in a viable mechanism provided that the overall affinity is positive?
 
 As it turns out, having $cal(A)>0$ is a necessary but not sufficient condition.
 When looking at the individual steps, we see that the first step has $cal(A)_i<0$, and de Donder's inequality must hold for every individual step in the proposed mechanism.
