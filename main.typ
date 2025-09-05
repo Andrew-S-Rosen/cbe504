@@ -74,32 +74,32 @@ This document was typeset using Typst (https://typst.app).]
 
 == Course Perspective
 
-Before we set sail on our journey, it is probably wise to state upfront what this course does --- and does not --- entail.
+Before we set sail on our journey, it is probably wise to state upfront what this course does---and does not---entail.
 After all, it would be a bit difficult to appreciate the journey if you have no idea about the destination.
 
-This course is specifically designed to provide a foundational understanding of how chemical reactions proceed and how to engineer them in ways that are ultimately beneficial for the chemical engineer.
+This course is specifically designed to provide a foundational understanding of how chemical reactions proceed and how to engineer them.
 Given the extremely diverse and increasingly interdisciplinary areas of research that the modern chemical engineer can pursue, this course focuses on topics that are likely to be of widespread relevance to researchers.
 This, primarily, translates to a significant focus on reaction kinetics.
 
 As a field of study, reaction kinetics is fascinating from a metascience perspective.
-In my somewhat biased opinion, there is no field of study in the chemical engineering curriculum that is more prone to misconceptions and questionable assumptions.
+In my somewhat biased opinion, there is no field of study in the chemical sciences that is more prone to misconceptions and questionable assumptions.
 Part of the reason for this pedagogical challenge is that kinetics can be both a theoretically rigorous _and_ a purely empirical science depending on how one approaches the topic (naturally, we will lean more towards the former in this course).
 After all, if the rate coefficient $k$ should actually be $4 k$, this is of no major concern if one treats kinetics as merely an exercise in statistical regression, but it can influence the meaning of the underlying kinetic parameters if treated from a theoretical basis.
 
-Perhaps a more notable cause of pedagogical challenges in the reaction kinetics literature --- including both textbook and research articles --- is that the intersection of kinetics and thermodynamics can become fraught with logical inconsistencies.
+Perhaps a more notable cause of pedagogical challenges in the reaction kinetics literature---including both textbook and research articles---is that the intersection of kinetics and thermodynamics can become fraught with logical inconsistencies.
 Frequently, derivations in reaction kinetics are carried out under assumptions of thermodynamic ideality.
 When these assumptions break down, it is tempting to re-introduce correction factors in a _post hoc_ manner, but doing so often yields deceptively incorrect mathematical expressions.
-One of the most notable examples of this is the inclusion of activity coefficients in the transition state theory derivation.
-The lack of attention dedicated to the proper accounting of standard state properties further complicates matters as well.
+One of the most notable examples of this is the inclusion of activity coefficients in the derivation of transition state theory.
+The lack of attention dedicated to the proper accounting of standard-state properties further complicates matters as well.
 
 This course seeks to present reaction kinetics with as theoretically sound of a basis as possible, emphasizing rigor and precision at each step of the journey.
-Additionally, nearly every derivation is carried out in full with no steps left as"an exercise for the reader," as this is often where errors are most likely to arise.
+Additionally, nearly every derivation is carried out in full with no steps left as "an exercise for the reader," as this is often where errors are most likely to arise.
 Interactive plots are presented throughout the text to allow the reader to engage more directly with the underlying equations when doing so would yield unique insights.
 
 Of course, given the nature of limited time, there must always be tradeoffs.
-In the design of this course, several topics of relevance to the practicing reactor engineer have been intentionally omitted or alluded to only in passing.
-Nonetheless, the hopes is that this course will ultimately provide unique insights into the fundamentals of chemical reactions and their kinetics in a way that is broadly applicable to the modern chemical engineering graduate student regardless of their chosen area of study.
-Rest assured --- there is plenty to learn and much left to be discovered!
+In the design of this course, several topics of relevance to reactor engineering have been intentionally omitted or alluded to only in passing.
+Nonetheless, the hopes is that this course will ultimately provide unique insights into the fundamentals of chemical reactions and their kinetics in a way that is broadly applicable to the modern graduate student regardless of their chosen area of study.
+Rest assured---there is plenty to learn and much left to be discovered!
 
 == Why Reaction Engineering <chemical-reactors-in-society>
  
@@ -112,8 +112,8 @@ Before we discuss conventional chemical reactors designed by humans, it is worth
 To demonstrate this point, consider the Sun.
 In many ways, the Sun can be thought of as a massive chemical reactor: it is a confined volume in which a chain reaction is continually taking place, providing the energy that sustains life on Earth via the conversion of hydrogen into helium.
 While these reactions are nuclear rather than chemical, the same fundamental principles of reactor analysis apply.
-The Sun is a reminder that the principles of chemical reaction engineering are not just relevant to industrial processes but to the very fabric of the universe itself.
-Of course, one could go even further to argue that the Big Bang itself is the largest reaction of all with our universe as the largest reactor, but that is a discussion for another time.
+The Sun is a reminder that the principles of reaction kinetics are not just relevant to industrial processes but to the very fabric of the universe itself.
+Of course, one could go even further to argue that the Big Bang itself is the largest reaction of all with our universe as the largest reactor, but that is a discussion best left for another time.
 
 === Cells and Enzymes <cells-and-enzymes>
 
@@ -123,9 +123,9 @@ Surely, you may recall that the mitochondria is the powerhouse of the cell, and 
 
 As chemical engineers, we can draw significant inspiration from nature's chemical reactors. For instance, consider methanotrophs: a family of bacteria that primarily metabolize methane as their main source of chemical energy.
 Methane itself is a greenhouse gas that, while in lower concentrations than carbon dioxide in the atmosphere, has an 80#sym.times higher global warming potential within the first 20 years of its release.
-Chemical engineers have been inspired by methanotrophs to research ways to directly convert methane --- the primary component of natural gas --- into cleaner and more valuable chemical feedstocks.
+Chemical engineers have been inspired by methanotrophs to research ways to directly convert methane---the primary component of natural gas---into cleaner and more valuable chemical feedstocks.
 Heterogeneous catalysts, for example, that mimic the structure of the active sites in methane monooxygenase enzymes found within methanotrophs have been shown to directly and selectively convert of methane into methanol.
-While carrying out this process efficiently and cost-effectively at industrial scales remains a"holy grail", it is worth keeping in mind that the core principles of reaction engineering spans many disciplines that can each benefit from the insights of one another.
+While carrying out this process efficiently and cost-effectively at industrial scales remains a "holy grail", it is worth keeping in mind that the core principles of reaction engineering spans many disciplines that can each benefit from the insights of one another.
 
 === Ammonia Synthesis <ammonia-synthesis>
 
@@ -137,7 +137,7 @@ $ ce("N2 + 3 H2 <=> 2 NH3"). $
 
 Colloquially referred to as "converting air into bread", this process produces the ammonia that is central to nitrogen fertilizers, a process so important to society that it is believed to have been a critical factor in the global population boom during the 20#super[th] century.
 #footnote[
-  For additional historical context about the Haber--Bosch process and the complicated history of Fritz Haber himself, watch "The Man Who Killed Millions and Saved Billions" by Veritasium: https://www.youtube.com/watch?v=QQkmJI63ykI.
+  For additional historical context about the Haber--Bosch process and the complicated history of Fritz Haber himself, watch "The Man Who Killed Millions and Saved Billions" by Veritasium: https://www.youtube.com/watch?v=IV3dnLzthDA. The book titled _The Alchemy of Air: A Jewish Genius, a Doomed Tycoon, and the Scientific Discovery That Fed the World but Fueled the Rise of Hitler_ by T. Hager may also be of interest.
 ]
 In fact, it is estimated that up to half of the nitrogen atoms in the human body may have gone through the Haber--Bosch process.
 We will revisit the ammonia reactor and the Haber--Bosch process several times throughout this course, as it is an excellent example that ties together many of the fundamental concepts of chemical reaction engineering.
@@ -159,9 +159,7 @@ The synthesis gas in this case is produced via coal gasification, wherein coal i
 While much of the history of chemical engineering is intricately tied to the fossil fuel industry, its future is far more diverse in scope.
 Recently, there has been a significant push towards leveraging chemical reaction engineering principles to address the many clean energy and sustainability challenges facing our planet.
 Some areas of interest include the design of fuel cells that convert hydrogen and oxygen into electricity, porous materials that can capture and convert carbon dioxide, and cutting-edge technologies to "upcycle" plastic waste into valuable commodity chemicals.
-Even further into the future, one can think about circling back to the original reactor described in this section: the Sun.
-While likely many decades away from commercialization, nuclear fusion reactors are being designed with the hope that they can one day serve as a clean and abundant source of energy for humanity.
-#footnote[In fact, one of the earliest fusion reactor designs --- the stellarator --- was pioneered at the Princeton Plasma Physics Laboratory (PPPL) and set the stage for improved fusion reactor design both at PPPL and around the world.]
+Even historical chemical processes continue to receive substantial research interest. For instance, due to the demanding operating conditions of the Haber--Bosch process, it is estimated to contribute 1.4% of global carbon dioxide emissions. Identifying new catalysts and chemical processes for energy-intensive reactions of central importance to society remains a major way that engineers can leverage the principles of kinetics to foster a better future.
 
 = Reaction Rates and Rate Constants <reaction-rates-and-coefficients>
 
@@ -190,7 +188,7 @@ $ -alpha A_1 -beta A_2 + gamma A_3 + delta A_4 = 0 $
 or more generally as
 $ sum_j nu_j A_j = 0, $ <eq:summation_stoichs>
 the latter of which is true for any balanced chemical reaction.
-#footnote[This can be written in matrix form as $bold(nu) dot.op bold(A)^"T" = 0$, where the superscript"T" indicates that the row vector is transposed to form a column vector.]
+#footnote[This can be written in matrix form as $bold(nu) dot.op bold(A)^"T" = 0$, where the superscript "T" indicates that the row vector is transposed to form a column vector.]
 
 === Stoichiometry for Multiple Reactions <stoich-multiple-rxns>
 
@@ -202,7 +200,7 @@ gamma ce("C") -> delta ce("D").
 $<eq:multiple_rxns>
 
 Here, we will use $i$ to denote individual reactions in contrast with $j$ for distinguishing species.
-In this case, we will define a two-dimensional stoichiometric matrix $nu_(i,j)$, which simply means"the stoichiometric number for the $j$-th species in the $i$-th reaction."
+In this case, we will define a two-dimensional stoichiometric matrix $nu_(i,j)$, which simply means "the stoichiometric number for the $j$-th species in the $i$-th reaction."
 For our example, we have
 $ 
 bold(A) = mat(A_1, A_2, A_3, A_4)\
@@ -219,8 +217,8 @@ where the above expression is written for each reaction $i$.
 #footnote[This can be written more compactly in matrix form as $bold(nu) dot.op bold(A)^"T" = bold(0)$.]
 
 Throughout this course, we will mostly write out the systems of equations, avoiding the need for a linear algebra-based perspective.
-However, the matrix representations were nonetheless included in our prior discussion to emphasize a different way of thinking about expressing chemical reactions.
-The matrix forms are also convenient from a computational perspective, as they are a more compact and more efficient way to express the system of equations.
+However, the matrix representations were nonetheless included in our prior discussion to emphasize a more mathematically compact way of thinking about expressing chemical reactions and to clarify the meaning of the subscripts we will use frequently throughout the course.
+The matrix forms are also convenient from a computational perspective, as they are a more efficient way to express the system of equations.
 
 == The Rate of Reaction <the-rate-of-reaction>
 
@@ -242,11 +240,11 @@ In practice, other normalizations for $r_j$ can be used in place of volume.
 For instance, in catalytic reactions, it is oftentimes more convenient to normalize the rate on the basis of the surface area or weight of the catalyst that is driving the reaction.
 
 #caution[
-Note that the definition of $r_j$ is not the rate of change in species concentration, as that equality can only be made if there is a constant and uniform volume.
+Note that the definition of $r_j$ is not necessarily the rate of change in species concentration, as that equality can only be made if there is a constant and uniform volume.
 To demonstrate this point, let us define $[A_j]$ as the concentration of species $A_j$.
 We can rewrite $n_j = [A_j] V$ to arrive at
 $ r_j = 1/V (dif ([A_j] V))/(dif t) = 1/V (V (dif [A_j])/(dif t) + [A_j] (dif V)/(dif t)). $
-If and only if the reaction volume remains constant, we have
+If---and only if---the reaction volume remains constant, we have
 $ r_j = 1/V (V (dif [A_j])/(dif t)) = (dif [A_j])/(dif t). $
 ]
 
@@ -263,7 +261,7 @@ r_"C" &= r_(1,"C") + r_(2,"C")\
 r_"D" &= r_(2,"D").
 $<eq:r_c_species>
 
-More generally, the species rates of change can be expressed as
+More generally, the rate of change of the $j$-th species can be expressed as
 $ r_j = sum_i r_(i,j), $ <eq:sum_of_rxn_species>
 where the summation is taken over each reaction $i$ in the reaction scheme.
 
@@ -312,7 +310,7 @@ where $bold(r)_"species"$ and $bold(r)$ are the _net_ production rates of each s
 Thus far, we have defined the rate of a reaction as being some property that is defined by the rates of change of each species, normalized in an internally consistent manner that is not dependent on the choice of species.
 However, we can provide a slightly more proper definition if we introduce a new term: the extent of reaction.
 The extent of a reaction, $xi$, is a measure of the reaction progress (typically in units of moles) based on the number of chemical transformations,
-#footnote[For a reaction #ce("2A -> B + C") with an initial value of $N_ce("A")= 2"mol"$ and final value of $N_ce("A") = 0.5"mol"$, we would have $xi = -(0.5"mol" - 2"mol")\/2 = 0.75"mol"$. This value of $xi$ could then be used to find the relative change in #ce("B") and #ce("C") based on their stoichiometric coefficients.]
+#footnote[For a reaction #ce("2A -> B + C") with an initial value of $N_ce("A")= 2 "mol"$ and final value of $N_ce("A") = 0.5 "mol"$, we would have $xi = -(0.5 "mol" - 2 "mol")\/2 = 0.75 "mol"$. This value of $xi$ could then be used to find the relative change in #ce("B") and #ce("C") based on their stoichiometric coefficients.]
 typically defined as
 $ dif xi equiv (dif n_j)/nu_j. $
 With this, we can define the rate of the $i$-th reaction as
@@ -326,7 +324,7 @@ which is identical to #ref(<eq:stoichs>).
 At this point, it may feel like this is all just a dozen different ways to say very similar things.
 This would not be a false statement!
 It is important to be extremely precise when discussing reaction kinetics.
-A"rate" can mean many different things depending on the context.
+A "rate" can mean many different things depending on the context.
 
 === The Rate Function <mass-action-kinetics>
 
@@ -344,7 +342,7 @@ $ r = k conc("A")^alpha conc("B")^beta. $<eq:rate_equation>
 To ensure that the rate has the units given by #ref(<eq:rate_units>), the units of $k$ in #ref(<eq:rate_equation>) must be $"s"^(-1) dot ("mol"\/"m"^3)^(1 - (alpha + beta))$
 when the rate is normalized on a per-unit volume basis.
 Typically, $k$ is referred to as the rate constant or rate coefficient.
-#footnote[While some in the community have pushed to refer to $k$ as a rate coefficient rather than a rate constant, it begs the question --- what about an equilibrium constant?]
+#footnote[While some in the community have pushed to refer to $k$ as a rate coefficient rather than a rate constant, it begs the question---what about an equilibrium constant?]
 Regardless of the name, it is important to emphasize that the value of $k$ is not a constant and can depend on several factors, most notably temperature.
 The key assumption here is that the effects of temperature and effects of composition are fully decoupled.
 
@@ -370,7 +368,7 @@ Now, we will consider a slight variation on #ref(<eq:general_rxn>) wherein the r
 $ alpha"A" + beta"B" eqArrow(k^(+),opposite:k^(-)) gamma"C" + delta"D". $<eq:general_reversible_rxn>
 In principle, all reactions are reversible, although if one direction is orders of magnitude slower than the other, invoking irreversibility is often a logical assumption.
 We can write the rate expression for #ref(<eq:general_reversible_rxn>) in essentially the same was as for #ref(<eq:general_rxn>).
-To do so, we simply write the rate expression given by #ref(<eq:rate_equation>) for each reaction --- forward and reverse:
+To do so, we simply write the rate expression given by #ref(<eq:rate_equation>) for each reaction---both forward and reverse:
 $ r^(+) = k^(+) conc("A")^alpha conc("B")^beta $<eq:forward_reversible>
 $ r^(-) = k^(-) conc("C")^gamma conc("D")^delta. $<eq:reverse_reversible>
 The _net_ rate of reaction is given by the difference between #ref(<eq:forward_reversible>) and #ref(<eq:reverse_reversible>):
@@ -384,7 +382,7 @@ For reversible reactions, an additional property known as the reversibility, $z_
 The reversibility of reaction $i$ is nothing more than a ratio of the forward and reverse rates:
 $ z_i equiv r_(i)^(-)/r_(i)^+. $<eq:reversibility>
 The reason that the reverse reaction rate is in the numerator is that a lower value of $z_i$ would imply that the forward reaction rate is greater, which is internally consistent with the notion that it would also be less reversible.
-
+While we will not spend too much time focusing on reversibility just yet, it will return later on in the course when we cover de Donder relations.
 
 
 == Expressions for the Rate Constant <expressions-for-the-rate-coefficient>
@@ -396,7 +394,7 @@ $ k = A exp(-E_ce("a") / (R T)), $<eq:arrhenius>
 where $A$ is the pre-exponential factor, $E_ce("a") $ is the activation energy, $R$ is the ideal gas constant, and $T$ is the absolute temperature.
 #footnote[The units of $A$ depend on the molecularity of the reaction to ensure that $k$ itself has appropriate units.]
 By linearizing the equation, one finds that
-#footnote[Strictly speaking, one must divide by the corresponding units before taking the logarithm, but we will omit this for brevity. Nonetheless, the units that were divded out should always be mentioned on the axis labels.]
+#footnote[Strictly speaking, one must divide by the corresponding units before taking the logarithm, but we will omit this for brevity. Nonetheless, the units that were divided out should be mentioned on the axes of any real data.]
 $ ln(k) = -E_ce("a")/R (1/T) + ln(A), $
 such that plotting $ln(k)$ vs. $1\/T$ should yield a straight line of slope $-E_ce("a") \/R$ and $y$-intercept of $ln(A)$, as depicted in #ref(<fig:arrhenius>).
 
@@ -411,9 +409,10 @@ $ k_2 / k_1 = exp(-E_ce("a")/R (1/T_2 - 1/T_1)). $<eq:arrhenius_ratio>
 In general, if one has a plot of $ln(k)$ vs. $1\/T$ though, it is better to rely on regression and/or interpolation rather than using #ref(<eq:arrhenius_ratio>) since the former will more naturally account for statistical uncertainty in the underlying data.
 
 Since one is rarely studying a single, isolated, elementary reaction, there is no inherent guarantee that the Arrhenius plot will be linear when plotted as $ln(k)$ vs. $1\/T$.
-#footnote[Refer to W. Wang and C.J. Roberts,"Non-Arrhenius Protein Aggregation", _AAPS J._, 15, 840--851 (2013) for several examples in the biochemistry literature.]
+#footnote[Refer to W. Wang and C.J. Roberts, "Non-Arrhenius Protein Aggregation", _AAPS J._, 15, 840--851 (2013) for several examples in the biochemistry literature.]
 A common example in heterogeneous catalysis is shown in #ref(<fig:arrhenius_multiple>), where the increasing temperature can cause different kinetic processes to dominate, such as diffusion limitations, mass transfer limitations, or even the reaction proceeding homogeneously (e.g. in the gas phase).
 Different linear regimes in an Arrhenius plot can also indicate a change in the underlying mechanism with temperature.
+In fact, for a non-elementary reaction, there is no guarantee that the experimentally observed activation energy (i.e. the "apparent" activation energy) is positive.
 
 #figure(
 image("figures/arrhenius_multiple.png", width: 40%),
@@ -421,7 +420,7 @@ image("figures/arrhenius_multiple.png", width: 40%),
 )<fig:arrhenius_multiple>
 
 The astute observer might question what thermodynamic property $E_ce("a") $ refers to in #ref(<eq:arrhenius>).
-For now, we will simply state that the Arrhenius equation is an empirical relationship and so $E_ce("a")$ is best thought of as simply a parameter describing the sensitivity of the rate, and thereby rate constant, to changes in temperature.
+For now, we will simply state that the Arrhenius equation is an empirical relationship and so $E_ce("a")$ is best thought of as simply a parameter describing the sensitivity of the rate constant, and thereby the rate, to changes in temperature.
 #footnote[Speaking of empirical, the start date and temperature dependence of the Japanese cherry blossom blooming season is often modeled with the Arrhenius equation. This has been used to better understand the effects of climate change, as in P. Shi, et al., "Timing of Cherry Tree Blooming: Contrasting Effects of Rising Winter Low Temperatures and Early Spring Temperatures", _Agric. For. Meteorol._, 240, 78–89 (2017). For other unusual examples, refer to K.J. Laidler, "Unconventional Applications of the Arrhenius Law", _J. Chem. Educ._, 49, 343--344 (1972).]
 We will revisit the Arrhenius equation from a more rigorous, thermodynamic perspective when we cover transition state theory.
 
@@ -437,7 +436,7 @@ Regardless, the effect of $T^n$ is generally relatively small and is difficult t
 
 == Thermodynamic Equilibrium<thermo-eq>
 
-While this is a course on the kinetics of chemical reactions, we must also acknowledge the importance of thermodynamics, which dictates the equilibrium conditions of a reacting system.
+While this is a course on the kinetics of chemical reactions, we must also acknowledge the importance of thermodynamics, which dictates the equilibrium conditions of a reacting system. We will also see how the two concepts are intrinsically related.
 
 === Equilibrium Constants Based on Concentrations and Partial Pressures<equilibrium-constants>
 
@@ -453,15 +452,16 @@ k^(+) / k^(-) =
 /
 (conc("A")_("eq")^alpha conc("B")_("eq")^beta).
 $<eq:reversible_eq_rearrange>
+It is worth emphasizing that the #ref(<eq:reversible_eq_rearrange>) is only strictly true when the reversible reaction is elementary.
 The expression given by the right-hand side of #ref(<eq:reversible_eq_rearrange>) leads to the definition of the concentration-based equilibrium constant, $K_"c"$, which can be expressed compactly as
 $ K_"C" equiv product_(j) [A_j]^(nu_j) $<eq:kc>
-and describes the ratio of the forward to reverse rate constants of a reversible, elementary reaction at equilibrium.
-#footnote[From here on out, we will omit the"eq" subscript since it is implicit when dealing with an equilibrium constant.]
+and describes the ratio of the forward to reverse rate constants of a reversible reaction at equilibrium.
+#footnote[From here on out, we will omit the "eq" subscript since it is implicit when dealing with an equilibrium constant.]
 If one were to use partial pressures, $p_j$, instead of concentrations, one can define a pressure-based equilibrium constant, $K_"p"$, as
 #footnote[For an ideal gas, one can conveniently state $K_"p" = K_"C" (R T)^delta$ where $delta$ is the change in stoichiometric numbers.
 ]
 $ K_"p" equiv product_(j) p_(j)^(nu_j), $<eq:kp>
-where --- for ideal gases --- we have $p_j = y_j p$ with $y_j$ the mole fraction of species $j$ and $p$ the total pressure.
+where---for ideal gases---we have $p_j = y_j p$ with $y_j$ the mole fraction of species $j$ and $p$ the total pressure.
 
 === Thermodynamic Non-Idealities
 
@@ -495,20 +495,20 @@ As such, state thermodynamic properties taken from a database may need to be adj
 
 === Equilibrium Constants Based on Activity
 
-#ref(<eq:activity1>) and #ref(<eq:activity2>) allow us to rationalize the unit conundrum of #ref(<eq:kc>) and #ref(<eq:kp>): there is a"missing" standard state reference that will ensure the equilibrium constant is unitless, even in the case of an ideal mixture.
+#ref(<eq:activity1>) and #ref(<eq:activity2>) allow us to rationalize the unit conundrum of #ref(<eq:kc>) and #ref(<eq:kp>): there is a "missing" standard state reference that will ensure the equilibrium constant is unitless, even in the case of an ideal mixture.
 To tie it all together, we can state
-$ K_ce("a") = product_(j) a_(j)^(nu_j). $
+$ K_ce("a") equiv product_(j) a_(j)^(nu_j). $<eq:activity_eq>
 As such, we have
 $ Delta G^std = -R T ln(K_ce("a")), $
 where the equilibrium constant must formally be based on activities.
 Note that $K_ce("a")$ is specifically for the temperature that corresponds to $Delta G^std$, which may differ from the temperature of the reaction under investigation.
 We will address the temperature-dependence of $K_ce("a")$ when we introduce the van~'t Hoff equation shortly.
 
-For the sake of convenience later on, we can also now interrelate $K_"C"$ and $K_ce("a")$ as follows:
+For the sake of convenience later on, we can also now interrelate $K_"C"$ and $K_ce("a")$ by plugging in #ref(<eq:activity1>) into #ref(<eq:activity_eq>) and then invoking the definition of $K_"C"$:
 $ K_ce("a") =  product_j (gamma_j [A_j]/C^std)^(nu_j) = K_"C"/(C^std)^delta product_j gamma_(j)^(nu_j), $<eq:k_a_k_c_relationship>
 where $delta$ is the change in stoichiometric numbers given simply as $delta equiv sum_(j) nu_j$.
 If ideal conditions can be assumed, then $gamma_j=1$ and $K_ce("a") = K_"C"\/(C^std)^delta$.
-In this form, we can see that units are appropriately addressed even though concentrations are used directly. 
+In this form, we can see that the units are appropriately addressed even though concentrations are used directly. 
 
 In most practical cases, the deviations from non-ideality can be assumed to be small, and we will oftentimes use concentrations or partial pressures in place of activities.
 However, for concentrated solutions and gases at low temperature or high pressures, the differences can become noticeable and should be considered.
@@ -548,7 +548,7 @@ Industrially, iron-based catalysts are often used for this process, and the oper
 As for the pressures, they are kept relatively high at 100--200 bar to shift the equilibrium toward the production of ammonia.
 The discovery of a heterogeneous catalyst that can more efficiently synthesize ammonia at near-ambient temperatures and pressures is one of the holy grails of reaction engineering. 
 
-=== Demonstrating that $K$ is a State Function <k_state_function>
+=== Demonstrating that the Equilibrium Constant is a State Function <k_state_function>
 
 In the previous example, you may have noticed that $ce("N2 + 3 H2 <--> 2 NH3")$ is likely not an elementary reaction since it is virtually impossible for four species to react simultaneously. Here, we will demonstrate that the definition of $K_ce("a")$ holds true regardless of whether the reaction is elementary or non-elementary.
 
@@ -567,24 +567,24 @@ ce("C") &eqArrow(K_3) ce("D"), quad &Delta G^std_3.
 $
 
 We know that $Delta G^std = Delta G^std_1 + Delta G^std_2 + Delta G^std_3$.
-This can be expressed equivalent as
-$ Delta G^std = - R T ln(K_1) - R T ln(K_2) - R T ln(K_3) $
+This can be expressed equivalently as
+$ Delta G^std = - R T ln(K_"a,1") - R T ln(K_"a,2") - R T ln(K_"a,3") $
 or
-$ Delta G^std =  - R T ln(K_1 K_2 K_3). $
-Since $Delta G^std = - R T ln(K)$, this implies that $ K = K_1 K_2 K_3$.
-Put another way,
-$ K_1 K_2 K_3 = a_ce("B")/a_ce("A") a_ce("C")/a_ce("B") a_ce("D")/a_ce("C") = a_ce("D")/a_ce("A"), $
+$ Delta G^std =  - R T ln(K_"a,1" K_"a,2" K_"a,3"). $
+Since $Delta G^std = - R T ln(K_"a")$, this implies that $ K_"a" = K_"a,1" K_"a,2" K_"a,3"$.
+By invoking the definition of the activity-based equilibrium constant, we arrive at
+$ K_"a,1" K_"a,2" K_"a,3" = a_ce("B")/a_ce("A") a_ce("C")/a_ce("B") a_ce("D")/a_ce("C") = a_ce("D")/a_ce("A"), $
 such that 
-$ K = a_ce("D")/a_ce("A"). $
-as expected.
-Extrapolating from this analysis, it can be readily shown that the definition of $K = product_j a_(j)^(nu_j)$ holds true regardless of whether the equilibrium reaction is elementary.
+$ K_"a" = a_ce("D")/a_ce("A"), $
+just as we would expect.
+Extrapolating from this analysis, it can be readily shown that the definition of $K_"a" equiv product_j a_(j)^(nu_j)$ holds true regardless of whether the equilibrium reaction is elementary.
 
 
 === The van~'t Hoff Equation
 
-==== Temperature Dependence of $K$
+==== Temperature Dependence of the Equilibrium Constant
 
-Here, we seek to describe the temperature dependence of $K$.
+Here, we seek to describe the temperature dependence of the equilibrium constant.
 We start with the definition of Gibbs free energy given by
 $ Delta G^std = Delta H^std - T Delta S^std, $
 where $Delta G^std$, $Delta H^std$, and $Delta S^std$ are the standard-state Gibbs free energy, enthalpy, and entropy changes of reaction, respectively.
@@ -596,7 +596,7 @@ $ ln(K_ce("a")) = -(Delta H^std)/ (R T) + (Delta S^std)/R. $<eq:vant_hoff_single
 If we can assume that $Delta H^std$ and $Delta S^std$ are both independent of temperature (an approximation that is typically reasonable when considering relatively small differences in $T$), one can state 
 $ ln(K_("a,2")/K_("a,1")) = -(Delta H^std)/ (R) (1/T_2 - 1/T_1) $
 by subtracting #ref(<eq:vant_hoff_single>) at two distinct temperatures.
-The above relationship is particularly useful in a converting equilibrium constant obtained from tabulated thermochemical data (typically at 273 K or 298.15 K) and determining the corresponding equilibrium constant at the temperature of interest.
+The above relationship is particularly useful when taking an equilibrium constant from tabulated thermochemical data (typically at 273 K or 298.15 K) and determining the corresponding equilibrium constant at the temperature of interest.
 
 ==== Connecting van~'t Hoff and Arrhenius
 
@@ -605,7 +605,7 @@ If we differentiate #ref(<eq:vant_hoff_single>) with respect to $T$ and make the
 $ (dif ln(K_ce("a")))/(dif T) = (Delta H^std)/(R T^2), $<eq:vant_hoff>
 which is the formal definition of the van~'t Hoff equation.
 
-If we rewrite #ref(<eq:vant_hoff>) using $K_ce("a") = k^+\/k^-$,
+If we rewrite #ref(<eq:vant_hoff>) using $K_ce("a") = k^+\/k^-$ under the assumption of an elementary reaction,
 we can state
 $ (dif ln(k^(+) \/ k^(-))) / (dif T) = (Delta H^std) / (R T^2) $
 and thereby
@@ -617,7 +617,7 @@ $
 (dif ln(k^(-))) / (dif T) = E_"a,r" / (R T^2)
 $
 which is equivalent to #ref(<eq:arrhenius>) following integration.
-Clearly, this"derivation" lacks rigor, and we will later show that $Delta H^std$ is not generally synonymous with the difference in activation energy.
+Clearly, this "derivation" lacks rigor, and we will later show that $Delta H^std$ is not generally synonymous with the difference in activation energy.
 For now, we will accept the applicability of the Arrhenius equation largely based on empirical evidence until we cover transition state theory.
 
 == Differential Kinetic Analysis
@@ -631,8 +631,8 @@ although there is no guarantee that $alpha$ and $beta$ are the stoichiometric nu
 Additionally, there is no guarantee that the rate law model parameters will be a sufficient fit to the experimental data over a range of operating conditions.
 ]
 
-This is where the concept of"apparent" kinetics comes in.
-Strictly speaking, $k$, $alpha$, and $beta$ that are determined from experiments will be"apparent" rate parameters, meaning that they are based on empirical observations that may or may not reflect the underlying (i.e. intrinsic) reactions.
+This is where the concept of "apparent" kinetics comes in.
+Strictly speaking, $k$, $alpha$, and $beta$ that are determined from experiments will be "apparent" rate parameters, meaning that they are based on empirical observations that may or may not reflect the underlying (i.e. intrinsic) reactions.
 
 === Apparent Activation Energy
 
@@ -643,7 +643,7 @@ $ (diff ln(k_"app"))/(diff T) &= -E_"app"/R (diff (1/T))/(diff T) $<eq:apparent_
 $ (diff ln(k_"app"))/(diff T) &=  E_"app"/(R T^2) $
 $ E_"app" &equiv R T^2 (diff ln(k_"app"))/(diff T). $<eq:apparent_e_a>
 
-Here, the"app" subscript is referring to an apparent (i.e. observed) rate constant determined from experiments, meaning that it may describe a net, non-elementary reaction consisting of several elementary steps.
+Here, the "app" subscript is referring to an apparent (i.e. observed) rate constant determined from experiments, meaning that it may describe a net, non-elementary reaction consisting of several elementary steps.
 
 While #ref(<eq:apparent_e_a>) is the formal definition of the apparent activation energy,
 #footnote[Some references define the apparent activation energy as $E_"app" equiv R T^2 (diff ln(r))/(diff T)$. However, this is only strictly true if one is not varying the reactant concentrations. Similarly, one should exercise caution when interpreting rate law parameters from a plot of $ln(r)$ vs. $1\/T$ if the reactant concentrations may vary.]
@@ -712,6 +712,7 @@ $ conc("A") = conc("A")_0 e^(-k t). $<eq:first_order_irreversible2>
 From #ref(<eq:first_order_irreversible2>), a plot of $ln(conc("A"))$ vs. $t$ from the experimental data should be linear for a first-order, irreversible reaction.
 #footnote[If experimental data is collected and found to fit well to #ref(<eq:first_order_irreversible2>), it would be consistent with a first-order, irreversible reaction but that does not guarantee that it is truly first order nor does it imply that the reaction is necessarily elementary. For instance, a true rate law of $r = k conc("A") conc("B")$ might appear first order in #conc("A") if #conc("B") is in great excesss, such that only changes in $conc("A")$ appreciably alter the rate. This would be more precisely referred to as pseudo-first order in #conc("A").]
 As a sanity check, we can see that when $t->infinity$, $[A] -> 0$ as expected.
+
 
 === Irreversible Reactions of Arbitrary Order <irreversible-reactions-of-arbitrary-order>
 
@@ -884,11 +885,14 @@ The second-rank delplot for the aforementioned reaction scheme is shown in #ref(
 === Generalized Delplot Approach
 
 The delplot process is summarized in #ref(<table:delplot>).
+#footnote[
+  While convenient, the delplot method has some subtle challenges when used in practice. Michael T. Klein has several discussions of these limitations and ways to address them, such as in N.S. Abo-Ghander and M.T. Klein "Delplot-Compliant Data: Molecular Observables versus Reaction Intermediates", _Energy and Fuels_, 34, 15443--15447 (2020).
+]
 We will use the following notation when describing delplots:
 #delplot(1).
 Here, the top-left superscript is the rank $m$ of the delplot (not the rank of the species), P represents the product species we are investigating, and the subscript A represents the species for which the conversion is being tracked.
 A delplot of rank $m$ is simply a plot of $Y_ce("P")\/ X_ce("A")^m$ vs. $X_ce("A")$.
-#footnote[While a useful tool, delplots can be of limited use when $m$ is large due to propagation of error associated with raising low-conversion limit data to a large power.]
+#footnote[Delplots can be of limited use when $m$ is large due to propagation of error associated with raising low-conversion limit data to a large power.]
 Note that in practice, plots of $S_ce("P")\/X_ce("A")^(m-1)$ (where $S_ce("P")$ is the selectivity towards P) vs. $X_ce("A")$ are typically used since $S_ce("P")=Y_ce("P")\/X_ce("P").$
 
 #figure(
@@ -1019,7 +1023,7 @@ $ r_ce("B") = k_1 conc("A") - k_2 conc("B") $
 and, therefore, by setting $r_ce("B") approx 0$ we have
 $ conc("B") = k_1/k_2 conc("A"). $
 This is exactly the same expression as #ref(<eq:b_before_pssh>), justifying our use of the PSSH in this scenario.
-Also note that #conc("B") is not a constant, and --- while certainly small --- it changes linearly with #conc("A").
+Also note that #conc("B") is not a constant, and---while certainly small---it changes linearly with #conc("A").
 
 
 If we take the time derivatives of each expression, we can observe some other interesting behavior:
@@ -1083,7 +1087,7 @@ where $A_"app"$ and $E_"a,app"$ are an apparent pre-factor and activation barrie
 #footnote[Note that applying the definition of the apparent activation energy (#ref(<eq:apparent_e_a>)) to $k_"app" equiv k_1 k_2 \/ k_(-1)$ would yield the same expression for $E_"a,app"$.]
 then
 $ r_ce("NO2") = 2 A_"app" exp(-E_"a,app" / (R T)) conc("NO")^2 conc("O2"). $
-Depending on the relative magnitudes of the intrinsic activation energies, it is possible for $E_"a,app" < 0$, in which case the reaction would have anti-Arrhenius behavior where the rate actually _decreases_ with increasing temperature.
+Depending on the relative magnitudes of the intrinsic activation energies, it is possible for $E_"a,app" < 0$,
 Indeed, this reaction is known from experiments to have an empirically measured kinetic barrier of --3.3 kJ/mol (albeit via a slightly more complex mechanism than the elementary steps proposed here).
 
 === Radical Chain Reactions <radical-chain-propagation>
@@ -1092,7 +1096,7 @@ Consider the following gas-phase, photochemical reaction:
 $ ce("H2 + Br2 -> 2 HBr"). $<eq:hbr_eq>
 If the reaction were elementary, the rate law would be $r = k conc("H2") conc("Br2")$.
 However, this functional form is known to disagree with kinetic data, which points to a one-half order in #ce("Br2") at low conversions of the reagents.
-For this reason, one can immediately conclude that the reaction is not elementary and must, instead, be composed of several substituent elementary reactions with the formation of transient --- but kinetically important --- intermediates.
+For this reason, one can immediately conclude that the reaction is not elementary and must, instead, be composed of several substituent elementary reactions with the formation of transient---but kinetically important---intermediates.
 A more representative rate law for #ref(<eq:hbr_eq>) can be found by postulating elementary steps, applying approximations as needed, and solving for a closed-form solution, which we will do below.
 
 First, we must come up with plausible mechanistic steps.
@@ -1195,7 +1199,7 @@ Later in the course, we will describe a related rule-of-thumb known as the Bell-
 Namely, as we will later show,
 $ E_ce("a")  = E_0 + alpha Delta H^std, $
 where this relationship can be thought of as being largely empirical, and $0<= alpha <=1$.
-Nonetheless, it implies that --- for a given reaction family --- the more endothermic the reaction enthalpy is, the higher the activation barrier tends to be for that process.
+Nonetheless, it implies that---for a given reaction family---the more endothermic the reaction enthalpy is, the higher the activation barrier tends to be for that process.
 The $Delta H^std$ values can be obtained from experiments or tabulated thermochemical data,
 #footnote[Recall from thermodynamics that $Delta H^std$, which is the enthalpy change associated with the reaction, can be calculated from the tabulated standard state enthalpy of formation, $Delta_"f" H_(j)^std$, for each species via $Delta H^std = sum_j nu_j Delta_"f" H_(j)^std$.]
 such as the CRC Handbook of Chemistry and Physics.
@@ -1909,9 +1913,12 @@ $ k_"app" = A_2 exp(-E_("a,2")/(R T)) exp(-(Delta H_("ads")^std)/(R T)) exp((Del
 $ k_"app" = A_2 exp((Delta S_("ads")^std)/(R)) exp(-(E_("a,2")+ Delta H_("ads")^std)/(R T)). $
 As such, we arrive at a functional form of $ k_"app" = A_"app" exp(-E_("a,app")/(R T)), $
 where
-$ A_"app" = A_2 exp((Delta S_("ads")^std)/(R)), quad quad E_("a,app") = E_("a,2") + Delta H_("ads")^std. $
+$ A_"app" = A_2 exp((Delta S_("ads")^std)/(R)), quad quad E_("a,app") = E_("a,2") + Delta H_("ads")^std. $<eq:app_het>
 The same result can be found from the formal definition of the apparent activation energy like was done in #ref(<strong-adsorption>).
 These apparent kinetic parameters are particularly useful for interpreting kinetic data obtained from experiments, where the net reaction is the main observable phenomena.
+
+You may also notice something unusual with #ref(<eq:app_het>). Since $Delta H_("ads")^std$ is generally exothermic, depending on the value of $E_("a,2")$, it is possible for $E_("a,app")$ to be negative. This is not merely a theoretical novelty---it has practical implications and has been observed experimentally, such as in the adsorption and cracking of _n_-alkanes in zeolites.
+#footnote[Refer to J. Wei, "Adsorption and Cracking of _n_-Alkanes over ZSM-5: Negative Activation Energy of Reaction", _Chem. Eng. Sci._, 51, 2995--2999 (1996). Dr. James Wei, a chemical engineer, was the Dean of Engineering at Princeton University from 1991--2002.]
 
 === Reaction Stoichiometric Numbers
 
@@ -2000,7 +2007,7 @@ $<eq:co_final>
 Finally, substituting #ref(<eq:co_final>) into #ref(<eq:co_rate>) results in the desired rate expression based on experimental observables:
 $ r_ce("CO2") = (k'_3 K_1 p_("CO") conc("*")_0 sqrt(K_2 p_ce("O2"))) / (1+K_1 p_("CO") + sqrt(K_2 p_ce("O2")))^2. $
 Note that if we did not include the $z\/conc("*")_0$ correction in #ref(<eq:co_rate>), the resulting rate expression at the end of the derivation would have a $conc("*")_(0)^2$ term instead of $conc("*")_0$ in the numerator. In general, the presence of higher-order $conc("*")_0$ terms is a sign that lattice statistics have been neglected.
-// #footnote[For an alternate opinion about the $conc("*")_0$ term in catalytic rate expressions, refer to D. Kiani, I.E. Wachs, "The Conundrum of Pair Sites in Langmuir–Hinshelwood Reaction Kinetics in Heterogeneous Catalysis", _ACS Catal._, 14, 10260--10270 (2024).]
+#footnote[For an alternate opinion about the $conc("*")_0$ term in catalytic rate expressions, refer to D. Kiani, I.E. Wachs, "The Conundrum of Pair Sites in Langmuir–Hinshelwood Reaction Kinetics in Heterogeneous Catalysis", _ACS Catal._, 14, 10260--10270 (2024).]
 
 ==== Limiting Cases
 
@@ -2106,7 +2113,7 @@ with the net reaction #ce("C2H2 + H2 -> C2H4").
 We will assume that the hydrogenation reaction is rate-limiting, such that the #ce("H2") adsorption is quasi-equilibrated.
 
 Here, we have a reaction between an adsorbed species and gas-phase species (i.e. an Eley--Rideal mechanism), which is very slightly different than the typical LHHW kinetics since the reaction is not taking place solely on the surface.
-#footnote[For a critical discussion on the viability of Eley--Rideal mechanisms, refer to D. Kiani, I.E. Wachs, _ACS Catal._, 14, 16770--16784 (2024).]
+#footnote[For a critical discussion on the viability of Eley--Rideal mechanisms, refer to D. Kiani, I.E. Wachs, "Practical Considerations for Understanding Surface Reaction Mechanisms Involved in Heterogeneous Catalysis" _ACS Catal._, 14, 16770--16784 (2024).]
 The rate of product formation, which is identical to the rate of reaction, is given by
 $ r = (k'_"H" conc("H^*")^2 p_ce("C2H2"))/(conc("*")_0), $
 To get rid of the intermediate in our rate expression, we can invoke the quasi-equilibrium assumption on the first step to arrive at
@@ -2247,7 +2254,7 @@ The analytical solution of this form is typically known as a design equation sin
 
 A plug-flow reactor (PFR) is a tubular reactor that that has a continuous, flowing stream containing the reaction mixture, as shown in #ref(<fig:pfr>).
 The PFR is particularly common when measuring the kinetics of gas-phase reactions.
-Generally, solid-catalyzed vapor-phase reactions --- as are common in the field of heterogeneous catalysis --- are carried out with what is known as a packed-bed reactor (PBR), which in an idealized case can be modeled as a PFR.
+Generally, solid-catalyzed vapor-phase reactions---as are common in the field of heterogeneous catalysis---are carried out with what is known as a packed-bed reactor (PBR), which in an idealized case can be modeled as a PFR.
 
 #figure(
   image("figures/pfr.svg", width:30%),
@@ -2517,7 +2524,7 @@ $ m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) &= - V sum_i Delta H_
 Should we wish to consider a net reaction rather than individual elementary reactions, the above expression can also be rewritten without the summation as
 $ m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) &= - Delta H_("rxn") r V + accent(Q,dot). $<eq:batch_nonisothermal>
 
-There we have it --- a compact expression for the energy balance in a single-phase batch reactor, which can be coupled with the mass balance to better understand reaction progress.
+There we have it---a compact expression for the energy balance in a single-phase batch reactor, which can be coupled with the mass balance to better understand reaction progress.
 
 === Simplifying Cases
 
@@ -2750,7 +2757,7 @@ If $Delta H_"rxn"$ is highly exothermic, the hot spot can spike to extremely hig
 The exothermic reaction causes an increase in temperature, which itself increases the rate of reaction.
 If the rate of heat loss to the surroundings via $dot(Q)$ is not sufficiently large, then the reaction will go to completion extremely quickly, raising the temperature to dangerously high values.
 Clearly, robust temperature control is a necessity when dealing with non-isothermal reactors.
-This not a niche point --- such considerations are just as relevant for even the simplest of reactions in the lab!
+This not a niche point---such considerations are just as relevant for even the simplest of reactions in the lab!
 
 #plot[#align(center+horizon)[https://marimo.app/l/v1cm6a]]
 
@@ -3405,7 +3412,7 @@ we see that the difference in the rate when accounting for thermodynamic non-ide
 $ k_"nonideal" = k_"ideal" (gamma_ce("A") gamma_ce("B"))/(gamma^ddagger). $<eq:k_relationship>
 
 A natural question to ask at this point is what value this analysis can provide if it relies on $gamma^ddagger$, which cannot be readily determined from experiments.
-Naturally, one answer is that it is possible --- like with other aspects of the transition state theory representation of $k$ --- to determine $gamma^ddagger$ from theory.
+Naturally, one answer is that it is possible---like with other aspects of the transition state theory representation of $k$---to determine $gamma^ddagger$ from theory.
 Perhaps more importantly, however, is that #ref(<eq:k_relationship>) can be used in a qualitative way to rationalize the effects of non-idealities.
 
 For instance, in the liquid-phase, if a solvent selectively stabilizes a given species, the activity coefficient for that species will likely be greater than 1.
@@ -3438,7 +3445,7 @@ We will show in this subsection that an analogous expression can be derived from
 
 === The Eyring Equation <thermodynamic-perspective>
 
-Here, we will derive the Eyring equation, which takes an analogous functional form as the transition state theory formalism for the rate constant but does not rely on statistical mechanics.
+Here, we will derive the Eyring equation,#footnote[Fun fact: Henry Eyring was a faculty member at Princeton from 1931--1946.] which takes an analogous functional form as the transition state theory formalism for the rate constant but does not rely on statistical mechanics.
 
 We start by recalling that 
 $ Delta G^std^ddagger &= - R T ln(K_("a")^ddagger), $
@@ -3582,7 +3589,7 @@ Another way to frame this is by stating
 $ cal(A)_i r_i >=0 $
 for a reaction to proceed as-written, which is known as de Donder's inequality.
 Here, $r_i$ is the net reaction rate of step $i$.
-For full clarity, there is no direct relationship between $cal(A)_i^std$ and the viability of the net reaction proceeding in a given direction --- it only depends on $cal(A)_i$ at the reaction conditions.
+For full clarity, there is no direct relationship between $cal(A)_i^std$ and the viability of the net reaction proceeding in a given direction---it only depends on $cal(A)_i$ at the reaction conditions.
 
 #caution[
   There is a clear parallel between the de Donder relation and the equilibrium constant:
@@ -3598,7 +3605,7 @@ When written in this manner, it is clear that the net rate of reaction can be ex
 === Ruling Out Reaction Mechanisms
 
 We can use the de Donder relations as a way to immediately rule out physically impossible reaction mechanisms.
-// #footnote[For additional details, refer to W.L. Holstein and M. Boudart, "Application of the De Donder Relation to the Mechanism of Catalytic Reactions", _J. Phys. Chem. B_, 101, 9991--9994 (1997).]
+#footnote[For additional details, refer to W.L. Holstein and M. Boudart, "Application of the De Donder Relation to the Mechanism of Catalytic Reactions", _J. Phys. Chem. B_, 101, 9991--9994 (1997).]
 For instance, consider the cyclic reaction scheme in #ref(<fig:cycle>).
 #figure(
   image("figures/rxn_cycle.svg", width: 15%),
@@ -3658,7 +3665,7 @@ When the extent of reaction is non-negligible (e.g. at steady state), however, t
 
 Ultimately, this brings us to the idea of kinetic coupling wherein a thermodynamically unfavorable (i.e. $cal(A)^std_i<0$) step can be overcome by having the concentration of a reactant kept high or a product concentration kept low with respect to its standard state, equilibrium value via coupling with another step in the mechanism.
 
-For #ce("H2 <--> 2H^∙") to proceed in the forward direction at steady state, there would need to be a separate, favorable reaction that it could kinetically couple to --- namely one that would rapidly and continually consume #ce("H^∙").
+For #ce("H2 <--> 2H^∙") to proceed in the forward direction at steady state, there would need to be a separate, favorable reaction that it could kinetically couple to---namely one that would rapidly and continually consume #ce("H^∙").
 As an example, the following three-step mechanism is one that is known to be thermodynamically viable and support kinetic coupling:
 $
 ce("OH^∙ + H2 &<--> H2O + H^∙") quad &(sigma_1 = 2)\
