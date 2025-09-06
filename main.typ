@@ -1,10 +1,5 @@
 // Notes for next time
-// 1. Add more content on equilibrium. Emphasize reaction quotient vs equilibrium.
-// 2. Spend a little bit more time on BEPs and how to read handbook values. Highlight the relevance of temperature and standard state pressure in handbooks and how to adjust.
-// 3. Do reactor archetypes after the midterm.
-// 4. Sprinkle in more examples in-class.
-// 5. Add a brief discussion on lumped rate constants.
-// New topics: Reactor modeling and transport limitations
+// 2.4.6 could probably be moved around
 #import"@preview/xarrow:0.3.1": xarrow
 #import"@preview/gentle-clues:1.2.0": tip, clue
 #import"@preview/whalogen:0.3.0": ce
@@ -453,12 +448,12 @@ k^(+) / k^(-) =
 (conc("A")_("eq")^alpha conc("B")_("eq")^beta).
 $<eq:reversible_eq_rearrange>
 It is worth emphasizing that the #ref(<eq:reversible_eq_rearrange>) is only strictly true when the reversible reaction is elementary.
-The expression given by the right-hand side of #ref(<eq:reversible_eq_rearrange>) leads to the definition of the concentration-based equilibrium constant, $K_"c"$, which can be expressed compactly as
+The expression given by the right-hand side of #ref(<eq:reversible_eq_rearrange>)#footnote[It is only true that $K_"C"=k^+\/k^-$ for an elementary reaction and so we will not use that as a formal definition.] leads to the definition of the concentration-based equilibrium constant, $K_"c"$, which can be expressed compactly as
 $ K_"C" equiv product_(j) [A_j]^(nu_j) $<eq:kc>
 and describes the ratio of the forward to reverse rate constants of a reversible reaction at equilibrium.
-#footnote[From here on out, we will omit the "eq" subscript since it is implicit when dealing with an equilibrium constant.]
+#footnote[Going forward, we will omit the "eq" subscript since it is implicit when dealing with an equilibrium constant. However, be careful to only using equilibrium values in this expression and not, for instance, initial values.]
 If one were to use partial pressures, $p_j$, instead of concentrations, one can define a pressure-based equilibrium constant, $K_"p"$, as
-#footnote[For an ideal gas, one can conveniently state $K_"p" = K_"C" (R T)^delta$ where $delta$ is the change in stoichiometric numbers.
+#footnote[For an ideal gas, one can also conveniently state $K_"p" = K_"C" (R T)^delta$ where $delta=sum_j nu_j$.
 ]
 $ K_"p" equiv product_(j) p_(j)^(nu_j), $<eq:kp>
 where---for ideal gases---we have $p_j = y_j p$ with $y_j$ the mole fraction of species $j$ and $p$ the total pressure.
@@ -520,7 +515,7 @@ To learn more about potential pitfalls when neglecting activity in equilibrium e
 
 
 
-=== Thermodynamic Considerations
+=== Thermodynamic Considerations in the Haber--Bosch Process
 
 Most chemical reactions, especially in industrially relevant processes, are not carried out at thermodynamic equilibrium.
 However, understanding equilibrium behavior of a chemical reaction can be incredibly important for understanding the inherit limits of operation and what reaction conditions might (or might not) be most suitable.
@@ -529,15 +524,15 @@ For this example, we will consider the ammonia synthesis reaction given by
 $ ce("N2 + 3 H2 <--> 2 NH3"). $
 It is known from experiments that at 298 K, $Delta G^std = -32.8 $ kJ/mol and $Delta H^std = -91.8$ kJ/mol.
 The equilibrium constant for this reaction can be written as follows by invoking #ref(<eq:k_a_k_p_relationship>) for this reaction:
-$ K_ce("a") = (f_ce("NH3")/p^std)^2/((f_ce("N2")/p^std) (f_ce("H2")/p^std)^3) = f_ce("NH3")^2/((f_ce("N2")) (f_ce("H2"))^3) (1/p^std)^(-2). $
+$ K_ce("a") = (f_ce("NH3")/p^std)^2/((f_ce("N2")/p^std) (f_ce("H2")/p^std)^3) = f_ce("NH3")^2/((f_ce("N2")) (f_ce("H2"))^3) (p^std)^(2). $
 If we rewrite the expression in terms of mole fractions,
-$ K_ce("a") = (phi_ce("NH3") y_ce("NH3"))^2/((phi_ce("N2") y_ce("N2")) (phi_ce("H2") y_ce("H2"))^3) (p/p^std)^(-2), $
+$ K_ce("a") = (phi_ce("NH3") y_ce("NH3"))^2/((phi_ce("N2") y_ce("N2")) (phi_ce("H2") y_ce("H2"))^3) (p^std/p)^(2), $
 it becomes clear that increasing the total pressure will increase the equilibrium concentration of #ce("NH3") in order for $K_ce("a")$ to remain constant.
 
-We can also state that
+Given that $Delta G^std equiv Delta H^std - T Delta S^std$, we can state that
 $ K_ce("a") = exp(- (Delta G^std)/(R T)) = exp(- (Delta H^std)/ (R T)) exp((Delta S^std)/ R), $
 such that
-$ exp(- (Delta H^std)/ (R T)) exp((Delta S^std)/ R) = (phi_ce("NH3") y_ce("NH3"))^2/((phi_ce("N2") y_ce("N2")) (phi_ce("H2") y_ce("H2"))^3) (p/p^std)^(-2). $
+$ exp(- (Delta H^std)/ (R T)) exp((Delta S^std)/ R) = (phi_ce("NH3") y_ce("NH3"))^2/((phi_ce("N2") y_ce("N2")) (phi_ce("H2") y_ce("H2"))^3) (p^std/p)^(2). $
 From this expression, one can conclude that for an exothermic process (i.e. $Delta H^std <0$), the equilibrium mole fraction of #ce("NH3") will increase with decreasing temperature.
 
 The effects of both pressure and temperature can also be inferred from Le Chatelier's principle, which is simply a qualitative explanation of the above phenomenon. In the case of pressure, the reaction has a greater number of moles of reactants than products, so increasing pressure shifts the equilibrium to the right. In the case of temperature, the reaction is exothermic, so decreasing the temperature will shift the equilibrium to the right as well.
@@ -606,7 +601,7 @@ The above relationship is particularly useful when taking an equilibrium constan
 
 ==== Connecting van~'t Hoff and Arrhenius
 
-With our understanding of the role of thermodynamics, we can understand how Arrhenius came about his famous equation through making an analogy to prior work by van~'t Hoff.
+With our understanding of the role of thermodynamics, we can turn to how Arrhenius came about his famous equation through making an analogy to prior work by van~'t Hoff.
 If we differentiate #ref(<eq:vant_hoff_single>) with respect to $T$ and make the same assumption that $Delta H^std$ and $Delta S^std$ are again independent of temperature, we arrive at
 $ (dif ln(K_ce("a")))/(dif T) = (Delta H^std)/(R T^2), $<eq:vant_hoff>
 which is the formal definition of the van~'t Hoff equation.
@@ -3494,7 +3489,7 @@ The value for $kappa$ is between 0 and 1, in which case it represents the probab
 In other words, the rate constant (and rate) from transition state theory is generally an upper-estimate, even if all variables in the uncorrected rate expression were computed with perfect accuracy.
 Unless otherwise stated, we will assume that $kappa = 1$.
 
-=== Relationship with Activation Energy <relationship-with-activation-energy>
+=== Relationship Between Activation Enthalpy and Activation Energy <relationship-with-activation-energy>
 
 We can also ask how the apparent activation energy commonly reported in experiments from an Arrhenius plot is related to $Delta H^std^ddagger$.
 First, we recall the definition of the apparent activation energy from #ref(<eq:apparent_e_a>):
