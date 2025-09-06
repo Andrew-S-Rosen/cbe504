@@ -508,7 +508,10 @@ For the sake of convenience later on, we can also now interrelate $K_"C"$ and $K
 $ K_ce("a") =  product_j (gamma_j [A_j]/C^std)^(nu_j) = K_"C"/(C^std)^delta product_j gamma_(j)^(nu_j), $<eq:k_a_k_c_relationship>
 where $delta$ is the change in stoichiometric numbers given simply as $delta equiv sum_(j) nu_j$.
 If ideal conditions can be assumed, then $gamma_j=1$ and $K_ce("a") = K_"C"\/(C^std)^delta$.
-In this form, we can see that the units are appropriately addressed even though concentrations are used directly. 
+In this form, we can see that the units are appropriately addressed even though concentrations are used directly.
+The same procedure can, of course, be done for partial pressures as well:
+$ K_ce("a") =  product_j (f_j/p^std)^(nu_j) = product_j (phi_j y_j p/p^std)^(nu_j) = K_"p"/(p^std)^delta product_j (phi_j y_j )^(nu_j), $<eq:k_a_k_p_relationship>
+
 
 In most practical cases, the deviations from non-ideality can be assumed to be small, and we will oftentimes use concentrations or partial pressures in place of activities.
 However, for concentrated solutions and gases at low temperature or high pressures, the differences can become noticeable and should be considered.
@@ -525,7 +528,7 @@ However, understanding equilibrium behavior of a chemical reaction can be incred
 For this example, we will consider the ammonia synthesis reaction given by
 $ ce("N2 + 3 H2 <--> 2 NH3"). $
 It is known from experiments that at 298 K, $Delta G^std = -32.8 $ kJ/mol and $Delta H^std = -91.8$ kJ/mol.
-The equilibrium constant for this reaction is 
+The equilibrium constant for this reaction can be written as follows by invoking #ref(<eq:k_a_k_p_relationship>) for this reaction:
 $ K_ce("a") = (f_ce("NH3")/p^std)^2/((f_ce("N2")/p^std) (f_ce("H2")/p^std)^3) = f_ce("NH3")^2/((f_ce("N2")) (f_ce("H2"))^3) (1/p^std)^(-2). $
 If we rewrite the expression in terms of mole fractions,
 $ K_ce("a") = (phi_ce("NH3") y_ce("NH3"))^2/((phi_ce("N2") y_ce("N2")) (phi_ce("H2") y_ce("H2"))^3) (p/p^std)^(-2), $
@@ -536,6 +539,9 @@ $ K_ce("a") = exp(- (Delta G^std)/(R T)) = exp(- (Delta H^std)/ (R T)) exp((Delt
 such that
 $ exp(- (Delta H^std)/ (R T)) exp((Delta S^std)/ R) = (phi_ce("NH3") y_ce("NH3"))^2/((phi_ce("N2") y_ce("N2")) (phi_ce("H2") y_ce("H2"))^3) (p/p^std)^(-2). $
 From this expression, one can conclude that for an exothermic process (i.e. $Delta H^std <0$), the equilibrium mole fraction of #ce("NH3") will increase with decreasing temperature.
+
+The effects of both pressure and temperature can also be inferred from Le Chatelier's principle, which is simply a qualitative explanation of the above phenomenon. In the case of pressure, the reaction has a greater number of moles of reactants than products, so increasing pressure shifts the equilibrium to the right. In the case of temperature, the reaction is exothermic, so decreasing the temperature will shift the equilibrium to the right as well.
+The benefit of the approach we have outlined here is that you can define precisely how this equilibrium is shifted.
 
 To summarize, increasing the total pressure and decreasing temperature both increase the equilibrium mole fraction of #ce("NH3").
 However, this is clearly a problem when we think back to our kinetic perspective.
@@ -558,12 +564,12 @@ Put another way, $Delta G^std$ does not depend on whether a reaction is elementa
 Since $K_ce("a") = exp(-Delta G^std\/R T)$, the same holds true for $K_ce("a")$.
 
 Consider a net reaction given by 
-$ ce("A") eqArrow(K) ce("D"), quad &Delta G^std $
+$ ce("A") eqArrow(K_"a") ce("D"), quad &Delta G^std $
 which in reality is composed of several elementary steps:
 $
-ce("A") &eqArrow(K_1) ce("B"), quad &Delta G^std_1\
-ce("B") &eqArrow(K_2) ce("C"), quad &Delta G^std_2\
-ce("C") &eqArrow(K_3) ce("D"), quad &Delta G^std_3.
+ce("A") &eqArrow(K_"a,1") ce("B"), quad &Delta G^std_1\
+ce("B") &eqArrow(K_"a,2") ce("C"), quad &Delta G^std_2\
+ce("C") &eqArrow(K_"a,3") ce("D"), quad &Delta G^std_3.
 $
 
 We know that $Delta G^std = Delta G^std_1 + Delta G^std_2 + Delta G^std_3$.
@@ -683,11 +689,12 @@ This allows you to measure changes in $r$ with respect to isolated changes in ei
 A very similar concept exists for surface-catalyzed reaction, in which the reaction is typically run in a differential reactor.
 A differential reactor has an extremely small amount of catalyst, such that the _conversion_ of the starting reagents is extremely small.
 The conversion of a species, $X_j$, is defined as
-$ X_j equiv ("moles of" A_j"reacted")/("moles of" A_j"fed"). $
+$ X_j equiv ("moles of" A_j "reacted")/("moles of" A_j "fed"). $
 For a reaction taking place in a constant-volume reactor like a flask, 
-$ X_j = ([A_j]_0 - [A_j])/[A_j]_0. $
-For a differential reactor where reagents are flowed through a bed of catalyst, it is oftentime more natural to use molar flow rates in place of concentrations.
+$ X_j = ([A_j]_0 - [A_j])/[A_j]_0 = 1- [A_j]/[A_j]_0. $
+For a differential reactor where reagents are flowed through a bed of catalyst, it is oftentimes more natural to use molar flow rates in place of concentrations.
 The differential reactor is analogous to an initial rate experiment, as it  allows the practitioner to measure $r$ in a regime where the consumption of starting reagents is near-infinitesimal.
+
 
 == Integrated Rate Expressions <integrated-rate-expressions>
 
@@ -776,6 +783,59 @@ where we have assumed $conc("B")_0 = conc("C")_0 = 0$.
 
 #plot[#align(center)[https://marimo.app/l/2emhpu]]
 
+== Stochastic Reactions <stochastic-reactions>
+
+=== The Gillepsie Algorithm
+
+In the previous subsection, we took a deterministic approach to describing the behavior of reaction events.
+In the limit of small numbers of molecules, however, this approach begins to break down.
+In this subsection, we will briefly take a stochastic, atomistic approach to understanding chemical reactions.
+A stochastic approach is particularly common in biochemical simulations, such as reactions taking place within cellular environments.
+
+For the sake of example, consider the serial reactions $ce("A->B->C")$, which can be written as two discrete steps:
+$ 
+ce("A") &fwdArrow(k_1) ce("B")\
+ce("B") &fwdArrow(k_2) ce("C").
+$
+Here, we are considering each reaction as a discrete event involving individual molecules and that these reactions are uncorrelated with one another.
+We define the propensity, $a_j$, of each reaction in an analogous way as we define the reaction rate:
+$ a_1 = k_1 x_ce("A"), quad a_2 = k_2 x_"B", $
+where each $x_j$ is the discrete number of $j$ molecules in the reactor (rather than the continuous value of concentration).
+We will also consider the time $t$ to be discretized, such that we are simulating reaction snapshots (or lack thereof) at each time step.
+
+To carry out this stochastic simulation, we follow the algorithm of Gillepsie.
+#footnote[For further details, refer to D.T. Gillepsie, "Stochastic Simulation of Chemical Kinetics", _Annu. Rev. Phys. Chem._, 58 (2007).]
+We will describe this algorithm by way of example, assuming here that $k_1=2$ and $k_2= 1$.
+With this, the procedure looks like the following:
+
+1. Initialize the time to $t=t_0$ ($t_0=0$ is the natural choice) and the number of molecules (also known as the state vector) to $bold(x) = bold(x)_0$. 
+2. Calculate each propensity $a_i$.
+3. Calculate the sum of the propensities, $a_"tot" equiv sum_i a_i$.
+4. Calculate the time step, $tau$, given by $tau equiv -ln(R_1)\/a_"tot"$, where $R_1$ is a (pseudo) random number between 0 and 1.
+5. Update the time based on the value of $tau$.
+6. Determine which reaction is likely to occur at this new time point by finding the smallest value of $j$ that satisfies $sum_(i=1)^j a_i > R_2 dot a_"tot"$ where $R_2$ is another (pseudo) random number.
+7. We update the number of molecules to be $bold(x)_1 = bold(x)_0 + Delta bold(x)_j$.
+8. Finally, we repeat steps 2--8 until $t$ becomes sufficiently large that the reaction landscape has been fully characterized.
+
+Since the end result is a single stochastic simulation, one might rerun the entire simulation to identify if the behavior changes.
+In the limit of small numbers of molecules, it is very possible for the stochastic simulation to converge to results that differ from the deterministic solution.
+In this scenario, it is critical to use the stochastic approach.
+In the limit of large numbers of molecules, one gets the same solution as typical power-law kinetics, which is a nice way to justify its validity.
+
+=== An Example of the Gillepsie Algorithm
+
+#plot[#align(center)[https://marimo.app/l/blubdx]]
+
+Let us consider a specific example where we start with 100 molecules of A, 0 molecules of B, and 0 molecules of C and let them react via $ce("A->B->C")$. We would have the following steps in the Gillepsie algorithm:
+1. Our state vector is given by $bold(x) = [100, 0, 0]$, and we invoke $t_0=0$.
+2. We calculate the propensities as $a_1 = 2 dot 100 = 200$ and $a_2 = 1 dot 0 = 0$.
+3. We calculate the sum of the propensities as $a_"tot" = 200+0=200.$
+4. We pick a random number $R_1$ (let's say 0.73) and calculate the time step as $tau = -ln(0.73)\/100 approx 0.00157$.
+5. We update the time as $t_1=t_0 + tau = 0.00157$.
+6. We pick another random number $R_2$ (let's say 0.31) to determine which reaction is likely to occur by asking: is $a_1 > R_2 dot a_"tot"$? The answer is yes for our example because $200 > 0.31 dot 200$, so we take $j=1$ and state that reaction 1 will occur at our new time point $t_1$.#footnote[You might notice that it will always be the case that $j=1$ is selected by this algorithm in the first time step. This is to be expected because #ce("B->C") cannot occur unless #ce("A->B") happens first. When we update the simulation, this will no longer be the case, and the probability that reaction $j=2$ will occur will increase as the population of #ce("B") increases.] 
+7. We update the number of molecules to be $bold(x)_1 = [100, 0, 0] + [-1, 1, 0] = [99, 1, 0].$ 
+8. We repeat steps 2--8 until $t$ becomes sufficiently large that the reaction landscape has been fully characterized.
+
 == Delplots <delplots>
 
 Here, we will introduce the concept of a delplot, which can be used to discern qualitative, temporal behavior of reaction networks.
@@ -832,7 +892,7 @@ $<eq:delplot_toy_rxn>
 in the case where $k_3 != k_1+k_2$.
 
 The approach we will take here is as follows.
-For each product P, we will make a plot of $Y_ce("P")\/X_ce("A")$ vs. $X_ce("A")$ and extrapolate to $X_ce("A")->0$ (i.e. $t->0$), where $Y_ce("P")$ is the yield of product P and $X_ce("A")$ is the conversion of A.
+For each product P, we will make a plot of $Y_ce("P")\/X_ce("A")$ vs. $X_ce("A")$ and extrapolate to $X_ce("A")->0$ (i.e. $t->0$), where $Y_ce("P")$ is the yield of product P and $X_ce("A")$ is the conversion of A. the yield of a species $j$ with respect to a reactant A, denoted $Y_j$, is given by
 We will show that this approach can distinguish whether the product is primary or not based on whether the $y$-axis intercept has a finite value or not.
 Written mathematically, we seek to carry out the following analysis
 $ lim_(X_ce("A")->0)(Y_ce("P") / X_ce("A")) = lim_(X_ce("A")->0)((conc("P") \/ conc("A")_0) / (1 - conc("A") \/ conc("A")_0)) = lim_(X_ce("A")->0)(conc("P") / (conc("A")_0 - conc("A"))), $<eq:delplot_first>
@@ -886,7 +946,7 @@ The second-rank delplot for the aforementioned reaction scheme is shown in #ref(
 
 The delplot process is summarized in #ref(<table:delplot>).
 #footnote[
-  While convenient, the delplot method has some subtle challenges when used in practice. Michael T. Klein has several discussions of these limitations and ways to address them, such as in N.S. Abo-Ghander and M.T. Klein "Delplot-Compliant Data: Molecular Observables versus Reaction Intermediates", _Energy and Fuels_, 34, 15443--15447 (2020).
+  While convenient, the delplot method has some subtle challenges when used in practice. M.T. Klein has several discussions of these limitations and ways to address them, such as in N.S. Abo-Ghander and M.T. Klein "Delplot-Compliant Data: Molecular Observables versus Reaction Intermediates", _Energy and Fuels_, 34, 15443--15447 (2020).
 ]
 We will use the following notation when describing delplots:
 #delplot(1).
@@ -928,53 +988,6 @@ Since the reaction producing C is greater than first order, C happens to have a 
 
 #figure(image("figures/third_delplot_order.svg",width:33%),caption:[Third-rank delplot for the reaction scheme #ce("A->B->C"), #ce("A->D") with #ce("B->C") being second order and all other reactions being first order. Note that the finite $y$-intercept values points to a lower rank product for C since the reaction order is >1, whereas a diverging $y$-intercept value points to a lower rank product for B and D since the reaction order is 1.])<fig:third_delplot_order>
 
-== Stochastic Reactions <stochastic-reactions>
-
-_This is an"advanced topic" not discussed in class and provided solely for the interested reader._
-
-In the previous subsection, we took a deterministic approach to modeling the behavior of reaction events.
-In the limit of small numbers of molecules, however, this approach begins to break down.
-In this subsection, we will take a stochastic, atomistic approach to understanding chemical reactions.
-A stochastic approach is particularly common in biochemical simulations, such as reactions taking place within cellular environments.
-
-For the sake of example, consider the serial reactions $ce("A->B->C")$, which can be written as two discrete steps:
-$ 
-ce("A") &fwdArrow(k_1) ce("B")\
-ce("B") &fwdArrow(k_2) ce("C").
-$
-Here, we are considering each reaction as a discrete event involving individual molecules.
-We define the propensity, $a_j$, of each reaction in an analogous way as we define the reaction rate:
-$ a_1 = k_1 x_ce("A"), quad a_2 = k_2 x_"B", $
-where each $x_j$ is the discrete number of $j$ molecules in the reactor (rather than the continuous value of concentration).
-We will also consider the time $t$ to be discretized, such that we are simulating reaction snapshots (or lack thereof) at each time step.
-
-To carry out this stochastic simulation, we follow the algorithm of Gillepsie.
-#footnote[For further details, refer to D.T. Gillepsie, "Stochastic Simulation of Chemical Kinetics", _Annu. Rev. Phys. Chem._, 58 (2007).]
-We will describe this algorithm by way of example, assuming here that $k_1=2$ and $k_2= 1$.
-With this, the procedure looks like the following:
-
-1. Initialize the time to $t=t_0$ ($t_0=0$ is the natural choice) and the number of molecules (also known as the state vector) to $bold(x) = bold(x)_0$. 
-  - For instance, if we start with 100 molecules of A, 0 molecules of B, and 0 molecules of C, we would have $bold(x) = [100, 0, 0]$.
-2. Calculate each propensity $a_i$.
-  - With the above example, that would be $a_1 = 2 dot 100 = 200$ and $a_2 = 1 dot 0 = 0$.
-3. Calculate the sum of the propensities, $a_"tot" equiv sum_i a_i$.
-  - Here, that would be $a_"tot" = 200+0=200.$
-4. Calculate the time step, $tau$, given by $tau equiv -ln(R_1)\/a_"tot"$, where $R_1$ is a (pseudo) random number between 0 and 1.
-  - Let's say my random number is 0.73 (this is admittedly not very random). We would have $tau = -ln(0.73)\/100 approx 0.00157$.
-5. Update the time based on the value of $tau$.
-  - For this example, that would be $t_1=t_0 + tau = 0.00157$.
-6. Determine which reaction is likely to occur at this new time point by finding the smallest value of $j$ that satisfies $sum_(i=1)^j a_i > R_2 dot a_"tot"$ where $R_2$ is another (pseudo) random number.
-  - If we say that $R_2=0.31$, then we would ask: is $a_1 > R_2 dot a_"tot"$? The answer is yes for our example because $200 > 0.31 dot 200$, so we take $j=1$ and state that reaction 1 will occur at our new time point $t_1$. #footnote[You might notice that it will always be the case that $j=1$ is selected by this algorithm in the first time step. This is to be expected because #ce("B->C") cannot occur unless #ce("A->B") happens first. When we update the simulation, this will no longer be the case, and the probability that reaction $j=2$ will occur will increase as the population of #ce("B") increases.] 
-7. We update the number of molecules to be $bold(x)_1 = bold(x)_0 + Delta bold(x)_j$.
-  - For our example, that would be $bold(x)_1 = [100, 0, 0] + [-1, 1, 0] = [99, 1, 0].$ 
-8. Finally, we repeat steps 2--8 until $t$ becomes sufficiently large that the reaction landscape has been fully characterized.
-
-Since the end result is a single stochastic simulation, one might rerun the entire simulation to identify if the behavior changes.
-In the limit of small numbers of molecules, it is very possible for the stochastic simulation to converge to results that differ from the deterministic solution.
-In this scenario, it is critical to use the stochastic approach.
-In the limit of large numbers of molecules, one gets the same solution as typical power-law kinetics, which is a nice way to justify its validity.
-
-#plot[#align(center)[https://marimo.app/l/blubdx]]
 
 = Analytical Rate Expressions for Reaction Mechanisms <analytical-rate-expressions>
 
@@ -1695,60 +1708,58 @@ Nonetheless, these models can capture adsorption on surface complexities better 
 Both the Freundlich and Tóth isotherms were proposed as ways to deal with surface heterogeneity.
 The Temkin isotherm was proposed as a way to indirectly deal with adsorbate--adsorbate interactions.
 
-// ==== BET Theory for Multilayer Adsorption
+==== BET Theory for Multilayer Adsorption
 
-// _This is an"advanced topic" not discussed in class and provided solely for the interested reader._
+The models we have discussed so far assume that there is only a monolayer of adsorbates along the surface.
+However, multiple layers of adsorbates that are stabilized by van der Waals interactions are oftentimes possible, particularly at low temperatures and high gas pressures.
+To address this limitation, we will introduce Brunauer--Emmett--Teller (BET) theory.
+In BET theory, we make the following assumptions:
 
-// The models we have discussed so far assume that there is only a monolayer of adsorbates along the surface.
-// However, multiple layers of adsorbates that are stabilized by van der Waals interactions are oftentimes possible, particularly at low temperatures and high gas pressures.
-// To address this limitation, we will introduce Brunauer--Emmett--Teller (BET) theory.
-// In BET theory, we make the following assumptions:
+1. Adsorption occurs on well-defined sites with one molecule adsorbing per surface site.
+2. The molecule adsorbed at layer $i$ can itself act as an adsorption site for a gas molecule to form at layer $i+1$. There are no interactions between the gas molecules in a given layer.
+3. The uppermost layer of adsorbates is in equilibrium with the gas phase.
+4. The heat of adsorption for the first layer is the strongest and constant. The heat of adsorption for the remaining layers can be approximated as the heat of liquefaction.
+5. At the saturation pressure, the number of layers approaches infinity, such that it becomes analogous to the surface being surrounded by a fluid phase.
 
-// 1. Adsorption occurs on well-defined sites with one molecule adsorbing per surface site.
-// 2. The molecule adsorbed at layer $i$ can itself act as an adsorption site for a gas molecule to form at layer $i+1$. There are no interactions between the gas molecules in a given layer.
-// 3. The uppermost layer of adsorbates is in equilibrium with the gas phase.
-// 4. The heat of adsorption for the first layer is the strongest and constant. The heat of adsorption for the remaining layers can be approximated as the heat of liquefaction.
-// 5. At the saturation pressure, the number of layers approaches infinity, such that it becomes analogous to the surface being surrounded by a fluid phase.
+With these assumptions in place, we consider the adsorption of species A onto the surface of a material.
+The adsorption of species A onto the bare surface $#ce("*")_0$ yields a new site $#ce("*")_1$:
+$ ce("A") + ce("*")_0 eqArrow(k_1,opposite:k_(-1)) ce("*")_1. $
+Generalizing this process to multiple layers, we have
+$ ce("A") + ce("*")_(i-1) eqArrow(k_i,opposite:k_(-i)) ce("*")_i, $
+where $k_i$ refers to the rate constant for formation of layer $i$ (i.e. adsorption onto layer $i-1$), and $k_(-i)$ refers to desorption from layer $i$.
+With this numbering scheme, a perfect monolayer would mean that all adsorbates exist on layer $i=1$, for instance.
 
-// With these assumptions in place, we consider the adsorption of species A onto the surface of a material.
-// The adsorption of species A onto the bare surface $#ce("*")_0$ yields a new site $#ce("*")_1$:
-// $ ce("A") + ce("*")_0 eqArrow(k_1,opposite:k_(-1)) ce("*")_1. $
-// Generalizing this process to multiple layers, we have
-// $ ce("A") + ce("*")_(i-1) eqArrow(k_i,opposite:k_(-i)) ce("*")_i, $
-// where $k_i$ refers to the rate constant for formation of layer $i$ (i.e. adsorption onto layer $i-1$), and $k_(-i)$ refers to desorption from layer $i$.
-// With this numbering scheme, a perfect monolayer would mean that all adsorbates exist on layer $i=1$, for instance.
+We will refrain from providing a detailed derivation of the BET isotherm here, as it is mainly useful for determining the surface area of a material rather than kinetic data.
+Simply providing the big reveal, the BET isotherm for multi-layer physisorption can be shown to be
+$ theta = (c x)/((1-x) (1+ x(c-1))),quad"where" c equiv K_1/K_ell "and" x equiv P/P_0, $<eq:bet>
+where $K_ell$ is the equilibrium constant for adsorption and desorption off of a liquid surface of the molecular species, $P$ is the pressure of the adsorbate, and $P_0$ is its vapor pressure.
+Generally, $c$ is simply referred to as the BET $c$ constant.
+The BET isotherm is most accurate when $P\/P_0$ is between roughly 0.05 and 0.3.
+At low pressures, the heterogeneous nature of the surface sites can play a notable role.
+At high pressures, nanoscale and microscale irregularities in the surface itself can impact the results.
 
-// We will refrain from providing a detailed derivation of the BET isotherm here, as it is mainly useful for determining the surface area of a material rather than kinetic data.
-// Simply providing the big reveal, the BET isotherm for multi-layer physisorption can be shown to be
-// $ theta = (c x)/((1-x) (1+ x(c-1))),quad"where" c equiv K_1/K_ell"and" x equiv P/P_0, $<eq:bet>
-// where $K_ell$ is the equilibrium constant for adsorption and desorption off of a liquid surface of the molecular species, $P$ is the pressure of the adsorbate, and $P_0$ is its vapor pressure.
-// Generally, $c$ is simply referred to as the BET $c$ constant.
-// The BET isotherm is most accurate when $P\/P_0$ is between roughly 0.05 and 0.3.
-// At low pressures, the heterogeneous nature of the surface sites can play a notable role.
-// At high pressures, nanoscale and microscale irregularities in the surface itself can impact the results.
+It is always worth testing out limiting behavior.
+In the case of low pressures, it is unlikely for there to be multilayer adsorption, so we should expect the BET isotherm to be analogous to the Langmuir isotherm in this limit.
+Indeed, plugging $x<<1$ we get
+$ theta approx (c x)/(1 + c x), $
+which is the same functional form as the Langmuir isotherm of
+$ theta = (K_"ads" P)/(1+ K_"ads" P) $
+and is fully equivalent if $c = K_"ads" P_0$.
 
-// It is always worth testing out limiting behavior.
-// In the case of low pressures, it is unlikely for there to be multilayer adsorption, so we should expect the BET isotherm to be analogous to the Langmuir isotherm in this limit.
-// Indeed, plugging $x<<1$ we get
-// $ theta approx (c x)/(1 + c x), $
-// which is the same functional form as the Langmuir isotherm of
-// $ theta = (K_"ads" P)/(1+ K_"ads" P) $
-// and is fully equivalent if $c = K_"ads" P_0$.
+As previously alluded to, the BET isotherm is typically used for surface area measurements.
+This is done by noting that
+$ theta = v/v_"m", $
+where $v$ is the volume of the gas adsorbed to the surface and $v_"m"$ is the volume of gas that would be adsorbed if there were precisely a full monolayer of coverage.
+This allows us to rewrite #ref(<eq:bet>) slightly as
+$ v = (v_"m" c x)/((1-x) (1+ x(c-1))). $
+Generally, one will pick a sample to study and carry out an isotherm measurement with a given adsorbate molecule, which is most typically #ce("N2").
+The value for $x$ is the independent variable controlled by the experimentalist by changing the pressure of gas introduced to the system.
+In modifying $x$, the volume of adsorbed gas $v$ is measured, from which both $v_"m"$ and $c$ can be obtained as fitting parameters for the particular temperature and adsorbate--adsorbent system.
 
-// As previously alluded to, the BET isotherm is typically used for surface area measurements.
-// This is done by noting that
-// $ theta = v/v_"m", $
-// where $v$ is the volume of the gas adsorbed to the surface and $v_"m"$ is the volume of gas that would be adsorbed if there were precisely a full monolayer of coverage.
-// This allows us to rewrite #ref(<eq:bet>) slightly as
-// $ v = (v_"m" c x)/((1-x) (1+ x(c-1))). $
-// Generally, one will pick a sample to study and carry out an isotherm measurement with a given adsorbate molecule, which is most typically #ce("N2").
-// The value for $x$ is the independent variable controlled by the experimentalist by changing the pressure of gas introduced to the system.
-// In modifying $x$, the volume of adsorbed gas $v$ is measured, from which both $v_"m"$ and $c$ can be obtained as fitting parameters for the particular temperature and adsorbate--adsorbent system.
-
-// With the value for $v_"m"$ obtained from experiments, the specific surface area of the material (typically reported in $"m"^2\/"g"$), $S_"BET"$, can be computed as
-// $ S_"BET" = (v_"m" N_ce("A") alpha)/V  dot 1/m_"adsorbent" , $
-// where $N_ce("A")$ is Avogadro's number, $alpha$ is the adsorption cross section of the adsorbate (i.e. the area that a single adsorbate would cover when adsorbed), $V$ is the molar volume of gas at the same conditions as $v_"m"$ was obtained, and $m_"adsorbent"$ is the mass of the adsorbent.
-// Typically, $alpha$ and $V$ are tabulated quantities, and $m_"adsorbent"$ is readily measurable.
+With the value for $v_"m"$ obtained from experiments, the specific surface area of the material (typically reported in $"m"^2\/"g"$), $S_"BET"$, can be computed as
+$ S_"BET" = (v_"m" N_ce("A") alpha)/V  dot 1/m_"adsorbent" , $
+where $N_ce("A")$ is Avogadro's number, $alpha$ is the adsorption cross section of the adsorbate (i.e. the area that a single adsorbate would cover when adsorbed), $V$ is the molar volume of gas at the same conditions as $v_"m"$ was obtained, and $m_"adsorbent"$ is the mass of the adsorbent.
+Typically, $alpha$ and $V$ are tabulated quantities, and $m_"adsorbent"$ is readily measurable.
 
 == Surface Reaction Rate Laws <heterogeneous-catalysis-reaction-mechanisms>
 
