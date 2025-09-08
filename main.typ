@@ -1,4 +1,5 @@
 // Notes for next time
+// Assign Veritasium video after lecture 1
 // 2.4.6 could probably be moved around
 #import"@preview/xarrow:0.3.1": xarrow
 #import"@preview/gentle-clues:1.2.0": tip, clue
