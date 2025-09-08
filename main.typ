@@ -405,7 +405,6 @@ $ k_2 / k_1 = exp(-E_ce("a")/R (1/T_2 - 1/T_1)). $<eq:arrhenius_ratio>
 In general, if one has a plot of $ln(k)$ vs. $1\/T$ though, it is better to rely on regression and/or interpolation rather than using #ref(<eq:arrhenius_ratio>) since the former will more naturally account for statistical uncertainty in the underlying data.
 
 Since one is rarely studying a single, isolated, elementary reaction, there is no inherent guarantee that the Arrhenius plot will be linear when plotted as $ln(k)$ vs. $1\/T$.
-#footnote[Refer to W. Wang and C.J. Roberts, "Non-Arrhenius Protein Aggregation", _AAPS J._, 15, 840--851 (2013) for several examples in the biochemistry literature.]
 A common example in heterogeneous catalysis is shown in #ref(<fig:arrhenius_multiple>), where the increasing temperature can cause different kinetic processes to dominate, such as diffusion limitations, mass transfer limitations, or even the reaction proceeding homogeneously (e.g. in the gas phase).
 Different linear regimes in an Arrhenius plot can also indicate a change in the underlying mechanism with temperature.
 In fact, for a non-elementary reaction, there is no guarantee that the experimentally observed activation energy (i.e. the "apparent" activation energy) is positive.
