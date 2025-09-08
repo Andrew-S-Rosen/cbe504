@@ -633,7 +633,8 @@ Additionally, there is no guarantee that the rate law model parameters will be a
 ]
 
 This is where the concept of "apparent" kinetics comes in.
-Strictly speaking, $k$, $alpha$, and $beta$ that are determined from experiments will be "apparent" rate parameters, meaning that they are based on empirical observations that may or may not reflect the underlying (i.e. intrinsic) reactions.
+Strictly speaking, $k$, $alpha$, and $beta$ that are determined from experiments will be "apparent" rate parameters, meaning that they are based on empirical observations that may or may not be due to a combination of elementary steps.
+In contrast, we refer to the rate parameters of a true elementary step as the "intrinsic" rate parameters.
 
 === Apparent Activation Energy
 
@@ -645,7 +646,7 @@ $ (diff ln(k_"app"))/(diff T) &=  E_"app"/(R T^2) $
 $ E_"app" &equiv R T^2 (diff ln(k_"app"))/(diff T). $<eq:apparent_e_a>
 
 Here, the "app" subscript is referring to an apparent (i.e. observed) rate constant determined from experiments, meaning that it may describe a net, non-elementary reaction consisting of several elementary steps.
-Strictly speaking, we have also implicitly assumed that $A_"app"$ is not a function of temperature.
+Strictly speaking, we have also implicitly assumed that $A_"app"$ is not a function of temperature, which is a reasonable approximation over a relatively small temperature range.
 
 While #ref(<eq:apparent_e_a>) is the formal definition of the apparent activation energy,
 #footnote[Some references define the apparent activation energy as $E_"app" equiv R T^2 (diff ln(r))/(diff T)$. However, this is only strictly true if one is not varying the reactant concentrations. Similarly, one should exercise caution when interpreting rate law parameters from a plot of $ln(r)$ vs. $1\/T$ if the reactant concentrations may vary.]
@@ -714,7 +715,7 @@ We can simplify #ref(<eq:first_order_irreversible>) to
 $ conc("A") = conc("A")_0 e^(-k t). $<eq:first_order_irreversible2>
 From #ref(<eq:first_order_irreversible2>), a plot of $ln(conc("A"))$ vs. $t$ from the experimental data should be linear for a first-order, irreversible reaction.
 #footnote[If experimental data is collected and found to fit well to #ref(<eq:first_order_irreversible2>), it would be consistent with a first-order, irreversible reaction but that does not guarantee that it is truly first order nor does it imply that the reaction is necessarily elementary. For instance, a true rate law of $r = k conc("A") conc("B")$ might appear first order in #conc("A") if #conc("B") is in great excesss, such that only changes in $conc("A")$ appreciably alter the rate. This would be more precisely referred to as pseudo-first order in #conc("A").]
-As a sanity check, we can see that when $t->infinity$, $[A] -> 0$ as expected.
+As a sanity check, we can also see that when $t->infinity$, $[A] -> 0$ as expected.
 
 
 === Irreversible Reactions of Arbitrary Order <irreversible-reactions-of-arbitrary-order>
@@ -786,7 +787,7 @@ where we have assumed $conc("B")_0 = conc("C")_0 = 0$.
 In the previous subsection, we took a deterministic approach to describing the behavior of reaction events.
 In the limit of small numbers of molecules, however, this approach begins to break down.
 In this subsection, we will briefly take a stochastic, atomistic approach to understanding chemical reactions.
-A stochastic approach is particularly common in biochemical simulations, such as reactions taking place within cellular environments.
+A stochastic approach is particularly common in biochemical simulations, such as reactions taking place within cellular environments where the number of reacting molecules is small.
 
 For the sake of example, consider the serial reactions $ce("A->B->C")$, which can be written as two discrete steps:
 $ 
@@ -795,17 +796,16 @@ ce("B") &fwdArrow(k_2) ce("C").
 $
 Here, we are considering each reaction as a discrete event involving individual molecules and that these reactions are uncorrelated with one another.
 We define the propensity, $a_j$, of each reaction in an analogous way as we define the reaction rate:
-$ a_1 = k_1 x_ce("A"), quad a_2 = k_2 x_"B", $
+$ a_1 = k_1 x_ce("A"), quad a_2 = k_2 x_"B", $<eq:propensity>
 where each $x_j$ is the discrete number of $j$ molecules in the reactor (rather than the continuous value of concentration).
 We will also consider the time $t$ to be discretized, such that we are simulating reaction snapshots (or lack thereof) at each time step.
 
 To carry out this stochastic simulation, we follow the algorithm of Gillepsie.
 #footnote[For further details, refer to D.T. Gillepsie, "Stochastic Simulation of Chemical Kinetics", _Annu. Rev. Phys. Chem._, 58 (2007).]
-We will describe this algorithm by way of example, assuming here that $k_1=2$ and $k_2= 1$.
 With this, the procedure looks like the following:
 
 1. Initialize the time to $t=t_0$ ($t_0=0$ is the natural choice) and the number of molecules (also known as the state vector) to $bold(x) = bold(x)_0$. 
-2. Calculate each propensity $a_i$.
+2. Calculate each propensity $a_i$ via #ref(<eq:propensity>).
 3. Calculate the sum of the propensities, $a_"tot" equiv sum_i a_i$.
 4. Calculate the time step, $tau$, given by $tau equiv -ln(R_1)\/a_"tot"$, where $R_1$ is a (pseudo) random number between 0 and 1.
 5. Update the time based on the value of $tau$.
@@ -822,9 +822,9 @@ In the limit of large numbers of molecules, one gets the same solution as typica
 
 #plot[#align(center)[https://marimo.app/l/blubdx]]
 
-Let us consider a specific example where we start with 100 molecules of A, 0 molecules of B, and 0 molecules of C and let them react via $ce("A->B->C")$. We would have the following steps in the Gillepsie algorithm:
+Let us consider a specific example where we start with 100 molecules of A, 0 molecules of B, and 0 molecules of C and let them react via $ce("A->B->C")$. We will describe the Gillepsie algorithm by way of example, assuming here that $k_1=2$ and $k_2= 1$:
 1. Our state vector is given by $bold(x) = [100, 0, 0]$, and we invoke $t_0=0$.
-2. We calculate the propensities as $a_1 = 2 dot 100 = 200$ and $a_2 = 1 dot 0 = 0$.
+2. We calculate the propensities of each reaction as $a_1 = 2 dot 100 = 200$ and $a_2 = 1 dot 0 = 0$.
 3. We calculate the sum of the propensities as $a_"tot" = 200+0=200.$
 4. We pick a random number $R_1$ (let's say 0.73) and calculate the time step as $tau = -ln(0.73)\/100 approx 0.00157$.
 5. We update the time as $t_1=t_0 + tau = 0.00157$.
