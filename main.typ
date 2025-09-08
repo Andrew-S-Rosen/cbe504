@@ -664,7 +664,7 @@ Provided we are not simultaneously modifying $k_"app"$, we can determine $alpha$
 #footnote[This assumes that $beta$ does not change with #conc("A"), which is a fairly reasonable assumption unless changes in #conc("A") alter the mechanism.]
 Similarly, we can determine $beta$ by holding $conc("A")$ fixed and finding the slope in a plot of $ln(r)$ vs. $ln(conc("B"))$.
 In differential form, this can be expressed as follows:
-$ alpha_(j,"app") equiv  [A_j] ((diff ln(r))/(diff [A_j]))_([A_i], i!=j). $<eq:apparent_order>
+$ alpha_(j,"app") equiv  [A_j] ((diff ln(r))/(diff [A_j]))_([A_k], k!=j). $<eq:apparent_order>
 Given enough rate and concentration data, one can also carry out a multiple linear regression analysis to determine the apparent reaction orders if preferred.
 
 It is worth noting, as we will demonstrate throughout this course, that apparent reaction orders of non-elementary reactions may be non-integer or even negative.
@@ -687,7 +687,7 @@ A differential reactor has an extremely small amount of catalyst, such that the 
 The conversion of a species, $X_j$, is defined as
 $ X_j equiv ("moles of" A_j "reacted")/("moles of" A_j "fed"). $
 For a reaction taking place in a constant-volume reactor like a flask, 
-$ X_j = ([A_j]_0 - [A_j])/[A_j]_0 = 1- [A_j]/[A_j]_0. $
+$ X_j = ([A_j]_0 - [A_j])/[A_j]_0 = 1- [A_j]/[A_j]_0. $<eq:conversion>
 For a differential reactor where reagents are flowed through a bed of catalyst, it is oftentimes more natural to use molar flow rates in place of concentrations.
 The differential reactor is analogous to an initial rate experiment, as it  allows the practitioner to measure $r$ in a regime where the consumption of starting reagents is near-infinitesimal.
 
@@ -719,8 +719,8 @@ As a sanity check, we can see that when $t->infinity$, $[A] -> 0$ as expected.
 
 === Irreversible Reactions of Arbitrary Order <irreversible-reactions-of-arbitrary-order>
 
-For simplicity, we will start by considering an irreversible, elementary reaction given by the expression
-$ n ce("A") fwdArrow(k) m ce("B") $
+We will now generalize the above approach by considering an irreversible, elementary reaction given by the expression
+$ n ce("A") fwdArrow(k) m ce("B"), $
 where $n$ is an arbitrary stoichiometric number.
 The rate of change in $conc("A")$ can be given by
 $ r_ce("A") = (dif conc("A")) / (dif t) = -n k conc("A")^n. $<eq:nth_order>
@@ -731,7 +731,7 @@ $ integral_(conc("A")_0)^conc("A") 1 / conc("A")'^n dif conc("A")' = -n k integr
 $ conc("A")^(-n+1) / (-n+1) - conc("A")_0^(-n+1) / (-n+1) = -n k t quad (n != 1). $<eq:irreversible_n_order>
 We can simplify #ref(<eq:irreversible_n_order>) to
 $ conc("A")^(-n+1) = conc("A")_0^(-n+1) - n (-n+1) k t $
-$ conc("A")^(-n+1) = conc("A")_0^(-n+1) + n(n-1) k t $<eq:irreversible_n_order_final>
+$ conc("A")^(-n+1) = conc("A")_0^(-n+1) + n(n-1) k t. $<eq:irreversible_n_order_final>
 From #ref(<eq:irreversible_n_order_final>), a plot of $conc("A")^(-n+1)$ vs. $t$ from the experimental data should be linear for a given stoichiometric coefficient $n$.
 The same procedure can be done for bimolecular reactions; the only difference is that the algebra is slightly more complicated.
 
@@ -739,12 +739,12 @@ It is always a good practice to do some sanity checks.
 For this analysis, let us take $n=2$ just for demonstration purposes and see what happens when $t->infinity$.
 $ 1/conc("A") = 1/conc("A")_0 + 2 k dot infinity $
 $ conc("A") = 1/(1/conc("A")_0 + infinity) = 0. $
-This is just as we would expect.
+This is just as we would expect since at infinite time, all the reactant should be consumed.
 
 Now let us take $n=-2$ instead for demonstration purposes and see what happens when $t->infinity$.
 This time, we have
 $ conc("A")^3 = conc("A")_(0)^3 + 6 k dot infinity $
-$ conc("A") = (conc("A")_(0)^3 + 6 k dot infinity)^(1\/3) $
+$ conc("A") = (conc("A")_(0)^3 + 6 k dot infinity)^(1\/3)=infinity. $
 At first glance, this may seem unusual.
 We have #conc("A") increasing with $t$ without bound despite being the reactant.
 The reason for this seemingly odd behavior is that we specifically derived the integrated rate law for an _elementary_ reaction.
@@ -888,7 +888,7 @@ $<eq:delplot_toy_rxn>
 in the case where $k_3 != k_1+k_2$.
 
 The approach we will take here is as follows.
-For each product P, we will make a plot of $Y_ce("P")\/X_ce("A")$ vs. $X_ce("A")$ and extrapolate to $X_ce("A")->0$ (i.e. $t->0$), where $Y_ce("P")$ is the yield of product P and $X_ce("A")$ is the conversion of A.
+For each product P, we will make a plot of $Y_ce("P")\/X_ce("A")$ vs. $X_ce("A")$ and extrapolate to $X_ce("A")->0$ (i.e. $t->0$). Here, $X_ce("A")$ is the conversion of A as defined in #ref(<eq:conversion>), and $Y_ce("P")$ is the yield of product P from reactant A, which is given as $ Y_ce("P") = conc("P")/conc("A")_0. $
 We will show that this approach can distinguish whether the product is primary or not based on whether the $y$-axis intercept has a finite value or not.
 Written mathematically, we seek to carry out the following analysis
 $ lim_(X_ce("A")->0)(Y_ce("P") / X_ce("A")) = lim_(X_ce("A")->0)((conc("P") \/ conc("A")_0) / (1 - conc("A") \/ conc("A")_0)) = lim_(X_ce("A")->0)(conc("P") / (conc("A")_0 - conc("A"))), $<eq:delplot_first>
