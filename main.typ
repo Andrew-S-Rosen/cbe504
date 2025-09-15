@@ -1,5 +1,6 @@
 // Notes for next time
 // Assign Veritasium video after lecture 1
+// Remove non-arrhenius protein agg paper
 // 2.4.6 could probably be moved around
 #import"@preview/xarrow:0.3.1": xarrow
 #import"@preview/gentle-clues:1.2.0": tip, clue
@@ -782,6 +783,8 @@ where we have assumed $conc("B")_0 = conc("C")_0 = 0$.
 
 == Stochastic Reactions <stochastic-reactions>
 
+_Note:_ This topic was not covered in class and is solely for the interested reader.
+
 === The Gillepsie Algorithm
 
 In the previous subsection, we took a deterministic approach to describing the behavior of reaction events.
@@ -969,9 +972,9 @@ Note that in practice, plots of $S_ce("P")\/X_ce("A")^(m-1)$ (where $S_ce("P")$ 
 To demonstrate how #ref(<table:delplot>) can be used for higher-order reactions, second-rank and third-rank delplots are shown in #ref(<fig:second_delplot_order>) and #ref(<fig:third_delplot_order>), respectively, for the reaction scheme
 $ 
 ce("A->B->C")\
-ce("A->D")
+ce("A->D"),
 $
-with the #ce("B->C") reaction being second dorder and all other reactions being first order.
+with the #ce("B->C") reaction being second order and all other reactions being first order.
 Since B and D are primary products from a first-order reaction, a second-rank delplot diverges for these species since the species rank (one) is less than the rank of the delplot (two), as is evident from the first row and third column of #ref(<table:delplot>).
 Since C is a secondary product from a reaction order greater than one, a second-rank delplot has a zero $y$-intercept since the species rank (two) is equal to the rank of the delplot (two), as is evident from the second row and third column of #ref(<table:delplot>).
 If the reaction producing C were first order, then the intercept would instead be finite.
@@ -980,10 +983,9 @@ As for the third-rank delplot, we again refer to #ref(<table:delplot>) and find 
 If the reaction producing C were first order, we would expect the intercept to diverge for this species too.
 However, this is not what we observe.
 Since the reaction producing C is greater than first order, C happens to have a finite intercept instead.
-#figure(image("figures/second_delplot_order.svg",width:33%),caption:[Second-rank delplot for the reaction scheme #ce("A->B->C"), #ce("A->D") with #ce("B->C") being second order and all other reactions being first order. Note that the zero $y$-intercept values points to a secondary product for C since the reaction order >1, whereas a diverging $y$-intercept value points to a lower rank product for B and D since the reaction order is 1.])<fig:second_delplot_order>
+#figure(image("figures/second_delplot_order.svg",width:33%),caption:[Second-rank delplot for the reaction scheme #ce("A->B->C"), #ce("A->D") with #ce("B->C") being second order and all other reactions being first order. Note that the zero $y$-intercept value points to a secondary product for C since the reaction order producing it is >1, whereas a diverging $y$-intercept value points to a lower rank product for B and D since the reaction orders producing these species is 1.])<fig:second_delplot_order>
 
 #figure(image("figures/third_delplot_order.svg",width:33%),caption:[Third-rank delplot for the reaction scheme #ce("A->B->C"), #ce("A->D") with #ce("B->C") being second order and all other reactions being first order. Note that the finite $y$-intercept values points to a lower rank product for C since the reaction order is >1, whereas a diverging $y$-intercept value points to a lower rank product for B and D since the reaction order is 1.])<fig:third_delplot_order>
-
 
 = Analytical Rate Expressions for Reaction Mechanisms <analytical-rate-expressions>
 
@@ -1026,16 +1028,16 @@ $ conc("A") = conc("A")_0 e^(-k_1 t) $
 $ conc("B") = conc("A")_0 (k_1) / (k_2) e^(-k_1 t) = k_1/k_2 conc("A") $<eq:b_before_pssh>
 $ conc("C") = conc("A")_0 (1- e^(-k_1 t)). $
 
-Now what would the expressions look like if we specifically invoked the PSSH condition of $r_ce("B") approx 0$ from the very beginning?
+Now, what would the expressions look like if we specifically invoked the PSSH condition of $r_ce("B") approx 0$ from the very beginning?
 Given that we are dealing with elementary reactions, we can state
-$ r_ce("B") = k_1 conc("A") - k_2 conc("B") $
+$ r_ce("B") = k_1 conc("A") - k_2 conc("B"). $
 and, therefore, by setting $r_ce("B") approx 0$ we have
 $ conc("B") = k_1/k_2 conc("A"). $
 This is exactly the same expression as #ref(<eq:b_before_pssh>), justifying our use of the PSSH in this scenario.
-Also note that #conc("B") is not a constant, and---while certainly small---it changes linearly with #conc("A").
+Also note that #conc("B") is not a constant value nor is it zero. While certainly small, #conc("B") changes linearly with #conc("A").
 
 
-If we take the time derivatives of each expression, we can observe some other interesting behavior:
+If we take the time derivatives of each species concentration, we can observe some other interesting behavior:
 $ r_ce("A") = (dif conc("A"))/(dif t) = - conc("A")_0 k_1 e^(-k_1 t) $
 $ r_"B" = (dif conc("B"))/(dif t) = - conc("A")_0 (k_1^2) / (k_2) e^(-k_1 t) (approx 0) $
 $ r_"C" = (dif conc("C"))/(dif t) = conc("A")_0 k_1 e^(-k_1 t). $
@@ -1050,10 +1052,10 @@ Of course, this is merely an _approximation_, but it is a quite useful one.
 We will now demonstrate the utility of the PSSH in action.
 Consider the following reaction:#footnote[Note that #ce("NO") is a radical, and #ce("O2") is a diradical, but we will omit the radical symbols for brevity and to avoid confusion. Both are not short-lived like #ce("NO3^∙"), which is the main distinction.]
 $ ce("2NO + O2 -> 2NO2") $<eq:no2_rxn>
-One might propose based on the stoichiometry an elementary rate law of the form
+Based on the stoichiometry, one might propose an elementary rate law of the form
 $ r =^? k conc("NO")^2 conc("O2"). $<eq:no2_rate_law>
 It is known from experiments that the reaction does appear to be second order in #conc("NO") and first order in #conc("O2").
-However, termolecular reactions are extremely rare, so one might conclude that it would be unlikely for the reaction to proceed as written despite the observed rate law. 
+However, termolecular reactions in the gas-phase are extremely rare, so one might conclude that it would be unlikely for the reaction to proceed as written despite the observed rate law. 
 Unusually, $r$ has also been observed to _decrease_ with increasing temperature.
 These details allow us to definitively conclude that #ref(<eq:no2_rxn>) cannot actually be an elementary reaction. 
 We will rationalize this so-called "anti-Arrhenius" behavior below.
@@ -1061,8 +1063,8 @@ We will rationalize this so-called "anti-Arrhenius" behavior below.
 First, we must propose a mechanism.
 Since it is not expected that you know the intricacies of atmospheric chemistry, we will simply take the following as provided to us:
 $ ce("NO + O2") eqArrow(k_1, opposite: k_(-1)) ce("NO3^∙") $
-$ ce("NO3^∙ + NO") fwdArrow(k_2) ce("2 NO2") $<eq:no2_slow_step>
-Then we write out the elementary rate law for $r_ce("NO2")$ based on #ref(<eq:no2_slow_step>):
+$ ce("NO3^∙ + NO") fwdArrow(k_2) ce("2 NO2"). $<eq:no2_slow_step>
+Then, we write out the elementary rate law for $r_ce("NO2")$ based on #ref(<eq:no2_slow_step>):
 $ r_ce("NO2") = 2k_2 [ce("NO3^∙")] [ce("NO")]. $<eq:rate_no2>
 Note the factor of 2 in #ref(<eq:rate_no2>), which is needed because two #ce("NO2") molecules are produced for every reaction of #ce("NO3^∙") and #ce("NO"), as originally noted in #ref(<eq:stoichs>).
 
@@ -1077,7 +1079,7 @@ $ r_ce("NO2") = (2 k_1 k_2 conc("NO")^2 conc("O2")) / (k_(-1) + k_2 conc("NO")).
 From here, the rate of reaction, $r$, can be computed simply as $r_ce("NO2")\/2$ since $r = r_j\/nu_j$.
 
 In principle, we can stop with the above expression.
-However, it would not explain the observed rate law.
+However, it would not clearly explain the observed rate behavior.
 If we invoke that $k_(-1)>>k_2 conc("NO")$,
 #footnote[This would be the case if the reverse reaction rate for Step 1 is much faster than Step 2 since this would imply that $k_(-1) conc("NO3^∙")>>k_2 conc("NO3^∙") conc("NO")$ and, therefore, $k_(-1) >>k_2 conc("NO")$.]
 the rate expression would simplify to
@@ -1096,7 +1098,7 @@ where $A_"app"$ and $E_"a,app"$ are an apparent pre-factor and activation barrie
 #footnote[Note that applying the definition of the apparent activation energy (#ref(<eq:apparent_e_a>)) to $k_"app" equiv k_1 k_2 \/ k_(-1)$ would yield the same expression for $E_"a,app"$.]
 then
 $ r_ce("NO2") = 2 A_"app" exp(-E_"a,app" / (R T)) conc("NO")^2 conc("O2"). $
-Depending on the relative magnitudes of the intrinsic activation energies, it is possible for $E_"a,app" < 0$,
+Depending on the relative magnitudes of the intrinsic activation energies, it is possible for $E_"a,app" < 0$.
 Indeed, this reaction is known from experiments to have an empirically measured kinetic barrier of --3.3 kJ/mol (albeit via a slightly more complex mechanism than the elementary steps proposed here).
 
 === Radical Chain Reactions <radical-chain-propagation>
@@ -1113,14 +1115,13 @@ For pedagogical purposes, we will start by assuming that the following reaction 
 $ ce("Br2") &eqArrow(k_1,opposite:k_(-1)) ce("2 Br^∙") $<eq:rxn_br_1>
 $ ce("Br^∙ + H2") &eqArrow(k_2,opposite:k_(-2)) ce("HBr + H^∙") $<eq:rxn_br_2>
 $ ce("H^∙ + Br2") &fwdArrow(k_3) ce("HBr + Br^∙"). $<eq:rxn_br_3>
-The reaction scheme is depicted in 
 #figure(
 image("figures/br_chain_propagation.svg", width: 33%),
   caption: [Reaction cycle for the radical chain reaction involving #ce("Br2") and #ce("H2").]
 )<fig:br_chain_prop>
 
 
-
+The reaction scheme is depicted in #ref(<fig:br_chain_prop>).
 This mechanism is known as a radical chain propagation mechanism, as radicals are perpetually consumed and produced over the course of the reaction.
 In the forward direction, #ref(<eq:rxn_br_1>) is known as an initiation reaction since it generates radical species that will initiate the larger reaction cascade.
 In the reverse direction, #ref(<eq:rxn_br_1>) is known as a termination reaction since it decreases the active pool of radicals.
@@ -1130,7 +1131,7 @@ Note how each elementary step in the mechanism consists of clearly defined colli
 
 With a greater understanding of the proposed mechanism, we will start by writing the elementary rate law for the production of #ce("HBr"), the species produced in the net reaction:
 $ r_ce("HBr") = k_2 conc("Br^∙") conc("H2") - k_(-2) conc("HBr") conc("H^∙") + k_3 conc("H^∙") conc("Br2"). $<eq:rate_hbr>
-To simplify #ref(<eq:rate_hbr>), we will invoke the PSSH, approximating the rate of formation/consumption of both the #ce("Br^∙") and #ce("H^∙") radicals as zero given their transient nature:
+To simplify #ref(<eq:rate_hbr>), we will invoke the PSSH, approximating the rate of formation and consumption of both the #ce("Br^∙") and #ce("H^∙") radicals as zero given their transient nature:
 $
 r_ce("Br^∙") &approx 0 = 2 k_1 conc("Br2") - 2k_(-1) conc("Br^∙")^2 - k_2 conc("Br^∙") conc("H2") + k_(-2) conc("HBr") conc("H^∙") + k_3 conc("H^∙") conc("Br2")
 $<eq:rate_br_rad>
@@ -1148,9 +1149,7 @@ In invoking the pseudo-steady state hypothesis on $ce("Br^∙")$, we were able t
 Since initiation and termination reactions alter the concentration of radical species but propagation reactions collectively do not, we can state that the rate of initiation must equal the rate of termination for the free radical species.
 Applying this to $ce("Br^∙")$ results in
 $ 2 k_1 conc("Br2") = 2k_(-1) conc("Br^∙")^2, $
-which is the same as
-$ conc("Br^∙") = sqrt((k_1 conc("Br2"))/k_(-1)) $
-that was found with #ref(<eq:rate_br_dot>).
+which yields #ref(<eq:rate_br_dot>) when algebraically rearranged.
 ]
 
 With an expression for #conc("Br^∙"), we can plug #ref(<eq:rate_br_dot>) plug back into #ref(<eq:rate_h_rad>) to yield
@@ -1190,10 +1189,10 @@ The room-temperature bond dissociation enthalpies, $Delta H^std_"rxn"$, for seve
     [#ce("HBr")], [366],
     [#ce("Br2")], [194]
   ),
-  caption:"Bond dissociation enthalpies at 298 K."
+  caption:"Standard-state bond dissociation enthalpies at 298 K."
 )  <table:bdes>
 
-As is evident from looking at a potential energy diagram (#ref(<fig:pe_diagram>)), the definition of the transition state implies that it must be _at least_ as large as the bond-dissociation energy, so bond-dissociation energies can be thought of as a lower-bound on the possible value for $E_ce("a")$.
+As is evident from looking at a potential energy diagram (#ref(<fig:pe_diagram>)), the definition of the transition state implies that the activation energy must be _at least_ as large as the bond-dissociation energy, so bond-dissociation energies can be thought of as a lower-bound on the possible value for $E_ce("a")$.
 With this in mind, based on #ref(<table:bdes>) we can reasonably conclude that the rate constants for #ce("H2 -> 2H^∙") and #ce("HBr -> H^∙ + Br^∙") would likely be small relative to the rate constants of the other steps, such that their rates of reaction can be neglected under most reasonable reaction conditions.
 It is for this reason that these steps are excluded in the provided mechanism.
 
@@ -1204,7 +1203,7 @@ It is for this reason that these steps are excluded in the provided mechanism.
 )<fig:pe_diagram>
 
 
-Later in the course, we will describe a related rule-of-thumb known as the Bell--Evans--Polanyi (BEP) principle, which states that $E_ce("a") prop Delta H^std$ for a given reaction family.#footnote[It is a bit of a tautology in that a reaction family is one that follows the Bell--Evans--Polanyi principle.]
+Later in the course, we will describe a related rule-of-thumb known as the Brønsted–Evans–Polanyi (BEP) relationship,#footnote[Also referred to as the Bell–Evans–Polanyi relationship depending on if you prefer to take the credit.] which states that $E_ce("a") prop Delta H^std$ for a given reaction family.#footnote[It is a bit of a tautology in that a reaction family is one that follows the Brønsted--Evans--Polanyi relationship.]
 Namely, as we will later show,
 $ E_ce("a")  = E_0 + alpha Delta H^std, $
 where this relationship can be thought of as being largely empirical, and $0<= alpha <=1$.
@@ -1233,16 +1232,16 @@ In other words, the reaction is rapidly equilibrated.
 Understanding the depletion of ozone, #ce("O3"), in the atmosphere is of critical importance for climate modeling.
 The main ozone-depleting reactions are cycles of the following form:
 $
-ce("X + O3 &-> XO + O2") \
-ce("XO + O &-> X + O2"),
+ce("R + O3 &-> RO + O2") \
+ce("RO + O &-> R + O2"),
 $
-which yields the net reaction #ce("O3 + O -> 2 O2"), where X = NO, OH, or Cl radicals.
+which yields the net reaction #ce("O3 + O -> 2 O2"), where R = NO, OH, or Cl radicals.
 The NO and OH species are known decomposition products of the greenhouse gases #ce("N2O") and #ce("CH4"), respectively.
 While it is well-known that increased concentrations of greenhouse gases like #ce("N2O") and #ce("CH4") lead to global warming of the troposphere by absorbing infrared radiation, these same gases also cause a decrease in the temperature of the stratosphere because they are also effective emitters of infrared radiation.
 Somewhat counterintuitively, this cooling of the stratosphere is problematic in that it is known to accelerate the rates of ozone depletion.
 The reason for this is that the second reaction in the above sequence is known to proceed with a negative apparent activation energy, as we will justify below.
 
-Let us focus on the net reaction #ce("NO2 + O <--> NO + O2"). Again, we will take it from the atmospheric science experts that a reasonable mechanism to propose can be given as follows:
+Let us focus on the net reaction #ce("NO2 + O <--> NO + O2"). Again, we will take it from the atmospheric science experts that a reasonable mechanism to propose can be given as follows:#footnote[Even though #ce("NO") and #ce("O") are radical and diradical species, respectively, we will omit the radical symbol since it is not the focus of our discussion.]
 $ 
 ce("NO2 + O") eqArrow(k_1,opposite:k_(-1)) ce("NO3^∙") quad &("fast")\
 ce("NO3^∙") fwdArrow(k_2) ce("NO + O2") quad &("slow")
@@ -1277,7 +1276,7 @@ In fact, this reaction is known to proceed with a negative apparent activation e
 A schematic of the energetic landscape is depicted below:
 
 #figure(
-  image("figures/neg_act_plot.png", width: 75%),
+  image("figures/neg_act_plot.svg", width: 50%),
   caption: [Energetic landscape for the proposed reaction scheme.]
 )
 
@@ -1298,7 +1297,7 @@ Herein, we will explain this anomaly by invoking the Lindemann mechanism.
 The Lindemann mechanism states that a unimolecular reaction #ce("A -> B") can be described by the following steps:
 $ ce("A + M") eqArrow(k_1,opposite:k_(-1)) ce("A^* + M") $<eq:lindemann_rxn>
 $ ce("A^*") fwdArrow(k_2) ce("B"), $
-where #ce("A") is the reactant, #ce("A^*") is the"activated" form of #ce("A"), and #ce("M") is a gas molecule that imparts sufficient energy into #ce("A") to initiate the reaction.
+where #ce("A") is the reactant, #ce("A^*") is the "activated" form of #ce("A"), and #ce("M") is a gas molecule that imparts sufficient energy into #ce("A") to initiate the reaction.
 
 The rate of production of B based on the above mechanism can be given by
 $ r_ce("B") = k_2 conc("A^*"). $
@@ -1328,7 +1327,7 @@ Consider the following reaction:
 $ ce("NO2 + CO -> NO + CO2"). $
 
 From experiments, it is known that the rate appears to only be dependent on #conc("NO2"), for which it is second order in #conc("NO2").
-Since this does not match the stoichiometry, we cacn immediately conclude that there must be elementary steps not shown.
+Since this does not match the stoichiometry, we can immediately conclude that there must be elementary steps not shown.
 In fact, there are two:
 $
 ce("2 NO2") &fwdArrow(k_1) ce("NO + NO3^∙") quad ("slow")\
@@ -1340,7 +1339,7 @@ For the reaction to be second-order in #conc("NO2") and not depend on other spec
 Indeed, that is the case: the bimolecular reaction of two #ce("NO2") molecules is substantially slower than the reaction of #ce("NO3^∙") and #ce("CO").
 The rate law in this case can be approximated as
 $ r = k_1 conc("NO2")^2, $<eq:rate_no>
-which is based solely on the rate-determing step (i.e. the first reaction).
+which is based solely on the rate-determining step (i.e. the first reaction).
 It does not contain any transient intermediates in it, so we can leave it as-is without further manipulation.
 Clearly, #ref(<eq:rate_no>) agrees with the experimental observation that the rate appears to be dependent on $conc("NO2")^2$ but not on #conc("CO").
 
@@ -1735,6 +1734,8 @@ Both the Freundlich and Tóth isotherms were proposed as ways to deal with surfa
 The Temkin isotherm was proposed as a way to indirectly deal with adsorbate--adsorbate interactions.
 
 ==== BET Theory for Multilayer Adsorption
+
+_Note:_ This topic was not covered in class and is solely for the interested reader.
 
 The models we have discussed so far assume that there is only a monolayer of adsorbates along the surface.
 However, multiple layers of adsorbates that are stabilized by van der Waals interactions are oftentimes possible, particularly at low temperatures and high gas pressures.
@@ -3714,7 +3715,7 @@ $
 = Energy and Reactivity Trends <reaction-energy-diagrams>
 
 In this section, we will cover energy and reactivity trends.
-We have already introduced some of these trends, most notably the Bell--Evans--Polanyi (BEP) relationship.
+We have already introduced some of these trends, most notably the Brønsted--Evans--Polanyi (BEP) relationship.
 Now, we can provide more context for such equations.
 
 == Linear Free Energy Relationships
@@ -3806,9 +3807,9 @@ Returning back to the Brønsted relationship and similar linear free energy rela
 In general, trends in $Delta H^std$ tend to closely match trends in $Delta E$.
 Provided that the entropy of activation is similar across the reactions being considered, then $Delta G^std$ will match trends in $Delta E$ as well, such that it does not the scaling is largely independent of the choice of thermodynamic state function.
 
-=== Revisiting the Bell--Evans--Polanyi Relationship
+=== Revisiting the Brønsted--Evans--Polanyi Relationship
 
-We can see that #ref(<eq:evans>) looks very similar to the Bell--Evans--Polanyi (BEP) empirical relationship we have invoked throughout the course, given by $E_ce("a") = alpha Delta H^std + E_0$. In this case, the BEP relationship uses $Delta H^std$ trends in place of $Delta E$, as the former is experimentally measurable, and trends for $Delta H^std$ are largely the same as trends for $Delta E$.
+We can see that #ref(<eq:evans>) looks very similar to the Brønsted--Evans--Polanyi (BEP) empirical relationship we have invoked throughout the course, given by $E_ce("a") = alpha Delta H^std + E_0$. In this case, the BEP relationship uses $Delta H^std$ trends in place of $Delta E$, as the former is experimentally measurable, and trends for $Delta H^std$ are largely the same as trends for $Delta E$.
 Once again, if the product is stabilized relative to the reactant (i.e. $Delta H^std$ is made more exothermic), then $E_ce("a")$ tends to be reduced.
 
 To be clear, the BEP relationship is not identical to the Evans--Polanyi model, but it takes a similar functional form.
