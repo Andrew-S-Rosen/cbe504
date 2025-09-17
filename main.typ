@@ -1203,11 +1203,11 @@ It is for this reason that these steps are excluded in the provided mechanism.
 )<fig:pe_diagram>
 
 
-Later in the course, we will describe a related rule-of-thumb known as the Brønsted–Evans–Polanyi (BEP) relationship,#footnote[Also referred to as the Bell–Evans–Polanyi relationship depending on if you prefer to take the credit.] which states that $E_ce("a") prop Delta H^std$ for a given reaction family.#footnote[It is a bit of a tautology in that a reaction family is one that follows the Brønsted--Evans--Polanyi relationship.]
+Later in the course, we will describe a related rule-of-thumb known as the Brønsted–Evans–Polanyi (BEP) relationship,#footnote[Also referred to as the Bell–Evans–Polanyi relationship depending on who you prefer to take the credit.] which states that $E_ce("a") prop Delta H^std$ for a given reaction family.#footnote[It is a bit of a tautology in that a reaction family is one that follows the Brønsted--Evans--Polanyi relationship.]
 Namely, as we will later show,
 $ E_ce("a")  = E_0 + alpha Delta H^std, $
 where this relationship can be thought of as being largely empirical, and $0<= alpha <=1$.
-Nonetheless, it implies that---for a given reaction family---the more endothermic the reaction enthalpy is, the higher the activation barrier tends to be for that process.
+Nonetheless, it implies that---for a given reaction family---the more endothermic (or less exothermic) the reaction enthalpy is, the higher the activation barrier tends to be for that process.
 The $Delta H^std$ values can be obtained from experiments or tabulated thermochemical data,
 #footnote[Recall from thermodynamics that $Delta H^std$, which is the enthalpy change associated with the reaction, can be calculated from the tabulated standard state enthalpy of formation, $Delta_"f" H_(j)^std$, for each species via $Delta H^std = sum_j nu_j Delta_"f" H_(j)^std$.]
 such as the CRC Handbook of Chemistry and Physics.
@@ -1255,13 +1255,13 @@ By acknowledging the fact that the first step (both forward and reverse) is much
 This allows us to state that the forward and reverse rates for Step 1 are approximately the same:
 $ k_1 conc("NO2") conc("O") approx k_(-1) conc("NO3^∙") $
 or
-$ conc("NO3^∙") approx K_1 conc("NO2") conc("O"), $
-as expected from the definition of the equilibrium constant: $K_1 equiv k_1 \/k_(-1)$.
+$ conc("NO3^∙") approx K_1 conc("NO2") conc("O"), $<eq:rxn_eq_quasi>
+where $K_1 equiv k_1 \/k_(-1)$.#footnote[You could have arrived at #ref(<eq:rxn_eq_quasi>) by directly invoking the definition of the equilibrium constant as well.]
 Substituting in #conc("NO3^∙") into #ref(<eq:rate_pre_eq>) yields
 $ r_"P" = k_2  K_1 conc("NO2") conc("O"). $
 Naturally, we can combine constants together via $k_"app" equiv k_2 K_1$ if desired and arrive at
 $ r_"P" = k_"app" conc("NO2") conc("O"), $
-with the the rate law for the reaction, $r$, being identical.
+with the rate law for the reaction, $r$, being identical.
 Before continuing, it must be re-emphasized that the result would be quite different if we instead invoked PSSH where we would instead be saying that $r_ce("NO3^∙")=0$.
 
 The question now is how the above expression can be used to rationalize the anti-Arrhenius behavior that is experimentally observed.
@@ -1281,7 +1281,7 @@ A schematic of the energetic landscape is depicted below:
 )
 
 
-At this point, you may think that there is an inherent contradiction going on. If $E_"a,2"$ is less than $E_"a,-1"$, how is it possible for the second reaction to be slower than the forward and reverse directions of the first reaction? Certainly, if #ce("NO3^∙") is a short-lived radical, one might reasonably think that it should be consumed quickly. In reality, we must remember that the intrinsic rate constant for each reaction is a function of both the Arrhenius pre-factor and the activation energy. In other words, $k_(-1)>>k_2$ is possible if $A_(-1)>>A_2$, which is known to be the case here. This exercise demonstrates that the intrinsic activation energy is not the full picture. Here, enthalpic requirements are insufficient on their own to explain the anti-Arrhenius behavior, and there are entropic arguments that are just as critical.
+At this point, you may think that there is an inherent contradiction going on. If $E_"a,2"$ is less than $E_"a,-1"$, how is it possible for the second reaction to be slower than the forward and reverse directions of the first reaction? Certainly, if #ce("NO3^∙") is a short-lived radical, one might reasonably think that it should be consumed quickly. In reality, we must remember that the intrinsic rate constant for each reaction is a function of both the Arrhenius pre-factor and the activation energy. In other words, $k_(-1)>>k_2$ is possible if $A_(-1)>>A_2$, which is known to be the case here. This exercise demonstrates that the intrinsic activation energy is not always the full picture. Here, enthalpic requirements are insufficient on their own to explain the anti-Arrhenius behavior, and there are entropic arguments that are just as critical.
 #footnote[For additional details, refer to L.E. Revell and B.E. Williamson, "Why Are Some Reactions Slower at Higher Temperatures?", _J. Chem. Educ._, 90, 1024--1027 (2013).]
 
 === Pressure-Dependent Rate Constants <pressure-dependent-rate-coefficients>
