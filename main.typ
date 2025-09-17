@@ -1320,7 +1320,7 @@ From this analysis, we can conclude that at low pressures, the rate expression w
 
 === Rate-Determining Step <rate-determining-step>
 
-Here, we will take our assumptions to the logical extreme and consider what happens when one reaction step completely dominates the overall kinetics: a concept known as the rate-determining step.
+Here, we will take our assumptions to the logical extreme and consider what happens when one reaction step completely dominates the kinetics: a concept known as the rate-determining step.
 
 Consider the following reaction:
 
@@ -1333,7 +1333,7 @@ $
 ce("2 NO2") &fwdArrow(k_1) ce("NO + NO3^∙") quad ("slow")\
 ce("NO3^∙ + CO") &eqArrow(k_2,opposite:k_(-2)) ce("NO2 + CO2") quad ("fast"),
 $
-where we are stating $r_1 << r_(-2),r_2$.
+where we are now specifically stating that $r_1 << r_(-2),r_2$.
 
 For the reaction to be second-order in #conc("NO2") and not depend on other species, it is evident that the first step must be substantially slower than the second step such that it dominates the kinetic expression.
 Indeed, that is the case: the bimolecular reaction of two #ce("NO2") molecules is substantially slower than the reaction of #ce("NO3^∙") and #ce("CO").
@@ -1407,7 +1407,7 @@ $ conc("ES")  = ((k_1 conc("E")_0 conc("S")) / (k_(-1) + k_2))/(1 + (k_1 conc("S
 $ conc("ES") = (conc("E")_0 conc("S")) / ((k_(-1) + k_2) / k_1 + conc("S")). $<eq:michaelis_menten_es2>
 Substituting #ref(<eq:michaelis_menten_es2>) into #ref(<eq:rate_michaelis_menten_p>) yields
 $ r_"P" = (k_2 conc("E")_0 conc("S")) / ( (k_(-1) + k_2) / k_1 + conc("S")). $<eq:michaelis_menten_p2>
-We have now arrived at a closed-form, analytical solution for the rate of generation of the product that is solely dependent on experimental observables and constants.
+We have now arrived at an analytical solution for the rate of generation of the product that is solely dependent on experimental observables and constants.
 In practice, #ref(<eq:michaelis_menten_p2>) is typically rewritten as
 $ r_"P" = (V_"max" conc("S")) / (K_"M" + conc("S")), $<eq:michaelis_menten>
 where
@@ -1432,7 +1432,7 @@ This can be achieved quite readily be rearranging the Michaelis--Menten equation
 $ 1/r_"P" = K_"M"/V_"max" 1/conc("S") + 1/V_"max". $
 
 Here, the inverse of the reaction rate is plotted against the inverse concentration of the substrate, which in turn can be used to obtain $K_"M"$ and  $V_"max"$ from the slope and $y$-intercept.
-Such a plot is known as a Linweaver--Burk plot.
+Such a plot is known as a Lineweaver--Burk plot.
 
 #plot[#align(center)[https://marimo.app/l/pbceww]]
 
