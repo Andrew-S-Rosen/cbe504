@@ -1,5 +1,4 @@
 // Notes for next time
-// Assign Veritasium video after lecture 1
 // Remove non-arrhenius protein agg paper
 // 2.4.6 could probably be moved around
 #import"@preview/xarrow:0.3.1": xarrow
@@ -90,7 +89,7 @@ One of the most notable examples of this is the inclusion of activity coefficien
 The lack of attention dedicated to the proper accounting of standard-state properties further complicates matters as well.
 
 This course seeks to present reaction kinetics with as theoretically sound of a basis as possible, emphasizing rigor and precision at each step of the journey.
-Additionally, nearly every derivation is carried out in full with no steps left as "an exercise for the reader," as this is often where errors are most likely to arise.
+Additionally, most derivations are carried out in full without steps left as "an exercise for the reader," as this is often where errors are most likely to arise.
 Interactive plots are presented throughout the text to allow the reader to engage more directly with the underlying equations when doing so would yield unique insights.
 
 Of course, given the nature of limited time, there must always be tradeoffs.
@@ -1101,6 +1100,40 @@ $ r_ce("NO2") = 2 A_"app" exp(-E_"a,app" / (R T)) conc("NO")^2 conc("O2"). $
 Depending on the relative magnitudes of the intrinsic activation energies, it is possible for $E_"a,app" < 0$.
 Indeed, this reaction is known from experiments to have an empirically measured kinetic barrier of --3.3 kJ/mol (albeit via a slightly more complex mechanism than the elementary steps proposed here).
 
+=== Pressure-Dependent Rate Constants <pressure-dependent-rate-coefficients>
+
+While pressure is not a component in the definition of the intrinsic rate constant, it turns out that some reactions do exhibit pressure-dependent apparent rate constants, which we will demonstrate below.
+
+Consider the following isomerization reaction:
+$ ce("CH3NC -> CH3CN"). $
+If this reaction were elementary, first-order kinetics would be observed. However, experiments have shown that this is only true at high pressures.
+Herein, we will explain this anomaly by invoking the Lindemann mechanism.
+#footnote[The Lindemann mechanism is useful from a pedagogical standpoint, but, in reality, it is not quantitatively accurate. For a more accurate treatment, refer to the Rice--Ramsperger--Kassel--Marcus (RRKM) theory.]
+
+The Lindemann mechanism states that a unimolecular reaction #ce("A -> B") can be described by the following steps:
+$ ce("A + M") eqArrow(k_1,opposite:k_(-1)) ce("A^* + M") $<eq:lindemann_rxn>
+$ ce("A^*") fwdArrow(k_2) ce("B"), $
+where #ce("A") is the reactant, #ce("A^*") is the "activated" form of #ce("A"), and #ce("M") is a gas molecule that imparts sufficient energy into #ce("A") to initiate the reaction.
+
+The rate of production of B based on the above mechanism can be given by
+$ r_ce("B") = k_2 conc("A^*"). $
+Since #ce("A^*") is a high-energy species that can spontaneously decompose, we can safely invoke the PSSH like we have previously done for radical species.
+This allows us to state
+$ r_ce("A^*") approx 0 = k_1 conc("A") conc("M") - k_(-1) conc("A^*") conc("M") - k_2 conc("A^*"). $
+Solving for #conc("A^*") yields
+$ conc("A^*") = (k_1 conc("A") conc("M") ) / (k_(-1) conc("M") + k_2). $<eq:lindemann_a_rad>
+Combining #ref(<eq:lindemann_rxn>) and #ref(<eq:lindemann_a_rad>) results in the following rate expression without any transient intermediates in it:
+$ r_ce("B") = (k_1 k_2 conc("M") conc("A")) / (k_(-1) conc("M") + k_2). $
+
+Let's now consider the behavior in different pressure regimes.
+In the low pressure limit, $conc("M")$ is small since there are few other particles for #ce("A") to collide with.
+In such scenarios, it is reasonable to propose that we have $k_(-1) conc("M") << k_2$, such that
+$ r_("B") approx k_1 conc("A") conc("M") quad ("low" P). $
+In the high pressure limit, $conc("M") >> 0$ since there are many opportunities for collisions, resulting in $k_(-1) conc("M") >> k_2$, such that
+$ r_("B") approx (k_1 k_2) / (k_(-1)) conc("A") quad ("high" P). $
+From this analysis, we can conclude that at low pressures, the rate expression would appear as second-order overall, whereas at high pressures, the rate expression would appear first-order overall.
+
+
 === Radical Chain Reactions <radical-chain-propagation>
 
 Consider the following gas-phase, photochemical reaction:
@@ -1284,39 +1317,6 @@ A schematic of the energetic landscape is depicted below:
 At this point, you may think that there is an inherent contradiction going on. If $E_"a,2"$ is less than $E_"a,-1"$, how is it possible for the second reaction to be slower than the forward and reverse directions of the first reaction? Certainly, if #ce("NO3^∙") is a short-lived radical, one might reasonably think that it should be consumed quickly. In reality, we must remember that the intrinsic rate constant for each reaction is a function of both the Arrhenius pre-factor and the activation energy. In other words, $k_(-1)>>k_2$ is possible if $A_(-1)>>A_2$, which is known to be the case here. This exercise demonstrates that the intrinsic activation energy is not always the full picture. Here, enthalpic requirements are insufficient on their own to explain the anti-Arrhenius behavior, and there are entropic arguments that are just as critical.
 #footnote[For additional details, refer to L.E. Revell and B.E. Williamson, "Why Are Some Reactions Slower at Higher Temperatures?", _J. Chem. Educ._, 90, 1024--1027 (2013).]
 
-=== Pressure-Dependent Rate Constants <pressure-dependent-rate-coefficients>
-
-While pressure is not a component in the definition of the intrinsic rate constant, it turns out that some reactions do exhibit pressure-dependent apparent rate constants, which we will demonstrate below.
-
-Consider the following isomerization reaction:
-$ ce("CH3NC -> CH3CN"). $
-If this reaction were elementary, first-order kinetics would be observed. However, experiments have shown that this is only true at high pressures.
-Herein, we will explain this anomaly by invoking the Lindemann mechanism.
-#footnote[The Lindemann mechanism is useful from a pedagogical standpoint, but, in reality, it is not quantitatively accurate. For a more accurate treatment, refer to the Rice--Ramsperger--Kassel--Marcus (RRKM) theory.]
-
-The Lindemann mechanism states that a unimolecular reaction #ce("A -> B") can be described by the following steps:
-$ ce("A + M") eqArrow(k_1,opposite:k_(-1)) ce("A^* + M") $<eq:lindemann_rxn>
-$ ce("A^*") fwdArrow(k_2) ce("B"), $
-where #ce("A") is the reactant, #ce("A^*") is the "activated" form of #ce("A"), and #ce("M") is a gas molecule that imparts sufficient energy into #ce("A") to initiate the reaction.
-
-The rate of production of B based on the above mechanism can be given by
-$ r_ce("B") = k_2 conc("A^*"). $
-Since #ce("A^*") is a high-energy species that can spontaneously decompose, we can safely invoke the PSSH like we have previously done for radical species.
-This allows us to state
-$ r_ce("A^*") approx 0 = k_1 conc("A") conc("M") - k_(-1) conc("A^*") conc("M") - k_2 conc("A^*"). $
-Solving for #conc("A^*") yields
-$ conc("A^*") = (k_1 conc("A") conc("M") ) / (k_(-1) conc("M") + k_2). $<eq:lindemann_a_rad>
-Combining #ref(<eq:lindemann_rxn>) and #ref(<eq:lindemann_a_rad>) results in the following rate expression without any transient intermediates in it:
-$ r_ce("B") = (k_1 k_2 conc("M") conc("A")) / (k_(-1) conc("M") + k_2). $
-
-Let's now consider the behavior in different pressure regimes.
-In the low pressure limit, $conc("M")$ is small since there are few other particles for #ce("A") to collide with.
-In such scenarios, it is reasonable to propose that we have $k_(-1) conc("M") << k_2$, such that
-$ r_("B") approx k_1 conc("A") conc("M") quad ("low" P). $
-In the high pressure limit, $conc("M") >> 0$ since there are many opportunities for collisions, resulting in $k_(-1) conc("M") >> k_2$, such that
-$ r_("B") approx (k_1 k_2) / (k_(-1)) conc("A") quad ("high" P). $
-From this analysis, we can conclude that at low pressures, the rate expression would appear as second-order overall, whereas at high pressures, the rate expression would appear first-order overall.
-
 
 === Rate-Determining Step <rate-determining-step>
 
@@ -1446,8 +1446,8 @@ In modern times, it is generally recommended to do nonlinear regression on the M
 
 = Rate Expressions for Heterogeneous Reactions <rate-expressions-for-heterogeneous-reactions>
 
-In #ref(<analytical-rate-expressions>), we were implicitly focused on homogeneous reactions.
-That said, many reactions are carried out in the presence of a heterogeneous catalyst that accelerates the overall rate of reaction.
+In #ref(<analytical-rate-expressions>), we were mainly focused on homogeneous reactions, with the brief exception of Michaelis--Menten kinetics.
+In practice, many reactions are carried out in the presence of a heterogeneous catalyst that accelerates the overall rate of reaction.
 In this section, we will shift our focus to surface catalysis, wherein a reactant in a continuum diffuses into a catalyst particle, adsorbs to the surface, reacts to form a new species, desorbs, diffuses out of the catalyst particle, and re-enters the continuum.
 We will focus on developing a basic kinetic model from elementary steps including adsorption, desorption, and surface reaction.
 
@@ -1461,7 +1461,7 @@ Adsorption is the process by which a gas or solution phase molecule or atom bind
 The adsorbate is the molecule or atom binding to the surface, and the adsorbent is the surface itself.
 Note that absorption is different than adsorption; absorption is the bulk uptake of a fluid without a corresponding phase change.
 
-Molecule A can adsorb to a surface site \* via one of two main mechanisms: chemisorption or physisorption.
+Molecule A can adsorb to a surface site #ce("*") via one of two main mechanisms: chemisorption or physisorption.
 Chemisorption involves the formation of a bond between the adsorbate and the surface and involves a change in the electronic structure of the adsorbate.
 In contrast, physisorption is largely due to electrostatic and van der Waals interactions without a significant change in the electronic structure of the adsorbate.
 Chemisorption is typically a much stronger interaction than physisorption but both are incredibly important.
@@ -1477,7 +1477,7 @@ Porous materials are particularly unique choices for adsorbents, as they can hav
 
 === Molecular Adsorption <molecular-adsorption>
 
-Since adsorption is a pre -requisite for heterogeneous reactions, we will focus on developing a kinetic description of the adsorption process.
+Since adsorption is a pre-requisite for heterogeneous reactions, we will focus on developing a kinetic description of the adsorption process.
 We will start with the simple case of one adsorbate that adsorbs in a non-dissociative (i.e. molecular) fashion to a surface site:
 $ ce("A + *") eqArrow(k_"ads",opposite:k_"des") ce("A^*"). $<eq:molecular_ads>
 For example, this could be #ce("CO + * <=> CO^*").
@@ -1489,13 +1489,14 @@ $<eq:rate_ads_des>
 From here, we are going to investigate equilibrium adsorption behavior to better understand this phenomena.
 In other words, we will consider the situation where the rates of the adsorption and desorption processes are equal (i.e. $r_"ads" = r_"des"$), such that
 $
-K_"ads" equiv k_"ads" / k_"des" &= conc("A^*") / (p_ce("A") conc("*")).
+K_"ads" = k_"ads" / k_"des" &= conc("A^*") / (p_ce("A") conc("*")).
 $<eq:molecular_ads_eq_constant>
 We can see that the above expression is the same as the thermodynamic definition of the equilibrium constant we described in #ref(<equilibrium-constants>).
 
 It is difficult to directly interpret #ref(<eq:molecular_ads_eq_constant>) given the fact that #conc("*") remains in the expression.
 Instead, we would prefer to rely on $conc("*")_0$, which is the number density of all adsorption sites (both vacant and occupied) rather than just the vacant sites.
-We prefer $conc("*")_0$ because it is, at least in principle, a constant value for a given material, whereas $conc("*")$ will fluctuate over the course of the reaction and is not easily measurable.
+We prefer $conc("*")_0$ because $conc("*")$ will fluctuate over the course of the reaction and is not easily measurable.
+
 We can write a site balance that states the number of sites does not change:
 $ conc("*")_0 equiv conc("*") + sum_j [A_j^"*"], $
 where the summation accounts for all possible adsorbate species at the surface sites.
@@ -1531,12 +1532,12 @@ Furthermore, it assumes that all the adsorption sites are energetically uniform,
 #footnote[Metal ions or clusters hosted on an amorphous support like silica is a clear example of a material where the active sites are energetically diverse.]
 It also assumes that there are no adsorbate--adsorbate interactions, which in reality can depend on the adsorbate and the interatomic distance between adsorption sites.
 All of these are fairly substantial approximations that can break down in real catalytic systems.
-Nonetheless, the Langmuir adsorption isotherm remains a useful qualitative tool for understanding the kinetics of adsorption.
+Nonetheless, the Langmuir adsorption isotherm remains a valuable tool for understanding adsorption behavior.
 
 It is useful to think about how $theta_ce("A")$ might change with temperature and how it is related to thermodynamics.
 For this analysis, we note that $K_"ads"$ is a function of temperature and that we can write
 $ theta_ce("A") = (exp(- (Delta H^std - T Delta S^std) / (R T)) p_ce("A")) / (1 + exp(- (Delta H^std - T Delta S^std) / (R T)) p_ce("A")). $
-From this expression, it can be readily shown that increasing $T$ will decrease $theta_ce("A")$.
+From this expression, it can be shown that increasing $T$ will decrease $theta_ce("A")$.#footnote[This  inherently assumes that $Delta S^std<0$, which is typically the case for adsorption since the translational degrees of freedom are lost.]
 This is easily explained in physical terms by the fact that the adsorbate has more kinetic energy and, therefore, is more likely to be liberated from the surface.
 It can also be shown that decreasing $Delta H^std$ (i.e. making it more negative since adsorption is generally exothermic) will increase $theta_ce("A")$.
 Again, this can be easily explained by the fact that a more exothermic adsorption energy implies a stronger bond to the surface, making the species less likely to desorb.
@@ -1556,7 +1557,7 @@ It is natural to think about how one might modify the Langmuir equation for a sc
 The procedure is no different than before if we make a leap of faith and assume that the adsorption at each binding site is independent from one another, such that we can treat the adsorption as a sum of individual Langmuir models.
 In other words, we can write
 $ theta_ce("A") = sum_s M_s (K_("ads",s) p_("A")) / (1 + K_("ads",s) p_("A")), $
-where $K_("ads",s)$ is now an"equilibrium constant" for the adsorption of species A at site $s$, and $M_s$ is the maximum capacity of site $s$.
+where $K_("ads",s)$ is now an "equilibrium constant" for the adsorption of species A at site $s$, and $M_s$ is the maximum capacity of site $s$.
 Here, $M_s$ and $K_("ads",s)$ are both fitting parameters determined from an experimentally measured adsorption isotherm. 
 Generally, it is impossible to enumerate all possible surface sites, and even if one could, the number of fitting parameters would be huge.
 Instead, this model is typically used when it is clear there are (for instance) two major yet distinct adsorption sites that adsorbates can bind to.
@@ -1567,8 +1568,8 @@ Instead, this model is typically used when it is clear there are (for instance) 
 Continuing our journey with the Langmuir adsorption model, we will now consider the scenario where we have multiple species competing for surface sites, such as
 
 $
-ce("A + * <=> A^*")\
-ce("B + * <=> B^*")
+ce("A + * &<=> A^*")\
+ce("B + * &<=> B^*").
 $
 
 For the sake of simplicity, we will invoke the same assumptions for the Langmuir adsorption isotherm as in #ref(<molecular-adsorption>) with the additional caveat that each site must only hold one molecule of A or B but not both simultaneously.
@@ -1633,7 +1634,7 @@ To make sure we do not make a logical error here, we will temporarily rewrite ou
 $ ce("A2 + **") eqArrow(k_"ads",opposite:k_"des") ce("A**A"), $
 where #ce("**") indicates a pair of adjacent, accessible surface sites, and #ce("A**A") is a pair of adjacent, occupied surface sites.
 
-We now need an expression for #conc("**") and #conc("A**A").
+To write the elementary rate law for the forward and reverse reactions, we now need an expression for #conc("**") and #conc("A**A").
 We will start by introducing the answer and then justifying why it is the case.
 Namely, lattice statistics allows us to state:
 $ conc("**") = z/2 conc("*")^2/conc("*")_0 $
@@ -1653,7 +1654,7 @@ We want to find the number density of adjacent pairs of vacant sites.
 The probability of randomly picking a vacant site on the lattice is $conc("*")\/conc("*")_0$, and we can start by considering all possible sites on the surface: $conc("*")_0 dot.op (conc("*")\/conc("*")_0)$.
 Once we have picked a vacant site, we want to see if we can pick another one that is adjacent to our choice.
 For this, the probability of finding a vacant site is again $conc("*")\/conc("*")_0$, but this time we are not considering all possible sites ($conc("*")_0$); rather, we are considering only the sites adjacent to the first pick (i.e. the number of coordinating sites), such that we have $z dot.op (conc("*")\/conc("*")_0)$.
-For the likelihood of both events to occurring, we multiply the two independent event likelihoods together to arrive at
+For the likelihood of both events to occur, we multiply the two independent event likelihoods together to arrive at
 $conc("**") =z dot.op (conc("*")^2\/conc("*")_0)$.
 The final factor of $1\/2$ comes in to prevent double-counting when dealing with indistinguishable pairs of sites or species on the surface.
 
@@ -1665,7 +1666,7 @@ In other words, there is an additional factor of $z\/2 conc("*")_0$ that needs t
 Setting both expressions equal to one another to invoke equilibrium conditions yields
 $ K_"ads" = conc("A^*")^2 / (p_ce("A2") conc("*")^2). $<eq:dissociative_K_a>
 Reassuringly, our expression for $K_"ads"$ is the same expression we would expect based on the thermodynamic definition of the equilibrium constant.
-#footnote[For dissociative adsorption of the form #ce("AB + 2* <--> A^* + B^*"), it may appear that the kinetic-based definition of $K$ given by $r^+ = r^-$ would not be equal to the thermodynamic definition of $K = conc("A^*") conc("B^*")\/ p_ce("AB") conc("*")^2$ because the elementary reaction in the forward direction involves two seemingly indistinguishable surface sites ($z\/2$), whereas the reverse has two distinguishable adsorbates ($z$), resulting in a stray factor of 2 in the numerator. While beyond the scope of this course, the forward rate expression should actually have a factor of $z$ instead of $z\/2$ for reasons outlined in the Supporting Information of N.K. Razdan, A. Bhan, "Kinetic description of site ensembles on catalytic surfaces", _Proc. Natl. Acad. Sci. U.S.A._, 118, e2019055118 (2021).]
+#footnote[For dissociative adsorption of the form #ce("AB + 2* <--> A^* + B^*"), it may appear that the kinetic-based definition of $K$ given by $r^+ = r^-$ would not be equal to the thermodynamic definition of $K = conc("A^*") conc("B^*")\/ p_ce("AB") conc("*")^2$ because the elementary reaction in the forward direction involves two seemingly indistinguishable surface sites ($z\/2$), whereas the reverse has two distinguishable adsorbates ($z$), resulting in a stray factor of 2 in the numerator. While beyond the scope of this course, the forward rate expression should actually have a factor of $z$ instead of $z\/2$ for reasons outlined in the Supporting Information of N.K. Razdan, A. Bhan, "Kinetic Description of Site Ensembles on Catalytic Surfaces", _Proc. Natl. Acad. Sci. U.S.A._, 118, e2019055118 (2021).]
 From here onward, we will simply invoke the thermodynamic definition of the equilibrium constant when the quasi-equilibrium approximation is invoked.
 
 #caution[If we had not accounted for the statistical siting, we would instead have $r_"ads"=k_"ads" p_ce("A2") conc("*")^2$ and $r_"des"=k_"des" conc("A^*")^2$, which will overestimate the rates of adsorption and desorption and change the units on our rate constant. That said, there would be no change in our expression for $K_"ads"$ regardless of whether we accounted for site-pair statistics or not.]
@@ -1700,7 +1701,7 @@ If the adsorption and desorption processes are equilibrated, we can use #ref(<eq
 
 The simplest adsorption model is given by Henry's isotherm.
 Henry's isotherm states, in analogy with Henry's law, that
-$ theta_ce("A") = K_"H" p_ce("A") $
+$ theta_ce("A") = K_"H" p_ce("A"), $
 where $K_"H"$ is Henry's adsorption constant and is generally a fitting parameter.
 Henry's isotherm states that there is a direct, linear relationship between coverage and partial pressure.
 This is clearly false for many adsorption processes but is valid when the partial pressure of the adsorbate is low, such that there are negligible interactions between adsorbed molecules and the adsorption sites are plentiful.
@@ -1717,12 +1718,8 @@ Perhaps the most notable is the assumption that the adsorption enthalpy of each 
 There are many models that attempt to directly or indirectly capture this behavior, some of which are outlined below:
 #footnote[For some cautionary comments about the Temkin isotherm, refer to K. Chu, "Revisiting the Temkin Isotherm: Dimensional Inconsistency and Approximate Forms", _Ind. Eng. Chem. Res._, 60, 13140--13147 (2021).]
 $
-theta_ce("A") &= alpha p_ce("A")^(1\/beta) quad ("Freundlich isotherm")
-$
-$
-theta_ce("A") &= (K_"ads" p_ce("A")) / (1 + (K_"ads" p_ce("A"))^beta)^(1\/beta) quad ("Tóth isotherm")
-$
-$
+theta_ce("A") &= alpha p_ce("A")^(1\/beta) quad ("Freundlich isotherm")\
+theta_ce("A") &= (K_"ads" p_ce("A")) / (1 + (K_"ads" p_ce("A"))^beta)^(1\/beta) quad ("Tóth isotherm")\
 theta_ce("A") &= (R T)/alpha ln(beta p_ce("A")) quad ("Temkin isotherm").
 $
 There are many other functional forms that have been proposed and that can potentially be dreamed up.
