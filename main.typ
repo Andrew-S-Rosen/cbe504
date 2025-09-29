@@ -1,6 +1,5 @@
 // Notes for next time
-// Remove non-arrhenius protein agg paper
-// 2.4.6 could probably be moved around
+// Improve section on empirical isotherm models
 #import"@preview/xarrow:0.3.1": xarrow
 #import"@preview/gentle-clues:1.2.0": tip, clue
 #import"@preview/whalogen:0.3.0": ce
@@ -1657,6 +1656,7 @@ For this, the probability of finding a vacant site is again $conc("*")\/conc("*"
 For the likelihood of both events to occur, we multiply the two independent event likelihoods together to arrive at
 $conc("**") =z dot.op (conc("*")^2\/conc("*")_0)$.
 The final factor of $1\/2$ comes in to prevent double-counting when dealing with indistinguishable pairs of sites or species on the surface.
+An analogous process can be carried out for #conc("A**A").
 
 The equations for the rate of adsorption and desorption can now be written as $
 r_"ads" &= k_"ads" p_ce("A2") conc("**") = (z k_"ads" p_ce("A2") conc("*")^2)/(2 conc("*")_0)\
@@ -1683,9 +1683,9 @@ $
 theta_ce("A") &= 1 / (1 / sqrt(K_"ads" p_ce("A2")) + 1)
 $
 $
-theta_ce("A") &= sqrt(K_"ads" p_("A")) / (1 + sqrt(K_"ads" p_("A"))).
+theta_ce("A") &= sqrt(K_"ads" p_ce("A2")) / (1 + sqrt(K_"ads" p_ce("A2"))).
 $<eq:competitive_theta>
-We can see that when $sqrt(K_"ads" p_ce("A")) <<1$ (i.e. in the limit of low partial pressures of #ce("A2")), $theta_ce("A")->sqrt(K_"ads" p_ce("A"))$, which is significantly different than the linear behavior observed for the non-dissociative Langmuir adsorption isotherm.
+We can see that when $sqrt(K_"ads" p_ce("A2")) <<1$ (i.e. in the limit of low partial pressures of #ce("A2")), $theta_ce("A")->sqrt(K_"ads" p_ce("A2"))$, which is significantly different than the linear behavior observed for the non-dissociative Langmuir adsorption isotherm.
 
 We can also revisit our rate expressions to write them in terms of surface coverages of observable species:
 $
@@ -1822,7 +1822,7 @@ r_"SR" =^? k_2 conc("A^*") conc("B^*") - k_(-2) conc("C^*") conc("D^*").
 $<eq:fake_dual_sr>
 However, this is not the case.
 Species $"A"^*$ cannot react with species $"B"^*$ unless they are nearest neighbors.
-Therefore, we need to account for this in our rate expression, similar how we needed to account for the probability of adjacent sites in our dissociative adsorption example from #ref(<dissociative-adsorption>).
+Therefore, we need to account for this in our rate expression, similar to how we needed to account for the probability of adjacent sites in our dissociative adsorption example from #ref(<dissociative-adsorption>).
 
 With this knowledge and in analogy with the statistical corrections introduced in #ref(<dissociative-adsorption>),
 the rate expression can be given by
@@ -1952,12 +1952,12 @@ $ A_"app" = A_2 exp((Delta S_("ads")^std)/(R)), quad quad E_("a,app") = E_("a,2"
 The same result can be found from the formal definition of the apparent activation energy like was done in #ref(<strong-adsorption>).
 These apparent kinetic parameters are particularly useful for interpreting kinetic data obtained from experiments, where the net reaction is the main observable phenomena.
 
-You may also notice something unusual with #ref(<eq:app_het>). Since $Delta H_("ads")^std$ is generally exothermic, depending on the value of $E_("a,2")$, it is possible for $E_("a,app")$ to be negative. This is not merely a theoretical novelty---it has practical implications and has been observed experimentally, such as in the adsorption and cracking of _n_-alkanes in zeolites.
+You may also notice something unusual with #ref(<eq:app_het>). Since $Delta H_("ads")^std$ is generally exothermic, depending on the value of $E_("a,2")$, it is possible for $E_("a,app")$ to be negative. A negative apparent activation energy has been observed in several catalytic reactions, including the adsorption and cracking of _n_-alkanes in zeolites.
 #footnote[Refer to J. Wei, "Adsorption and Cracking of _n_-Alkanes over ZSM-5: Negative Activation Energy of Reaction", _Chem. Eng. Sci._, 51, 2995--2999 (1996). Dr. James Wei, a chemical engineer, was the Dean of Engineering at Princeton University from 1991--2002.]
 
 === Reaction Stoichiometric Numbers
 
-Before continuing on to more complex catalytic mechanisms, it is worth introducing a piece of terminology.
+Before continuing on to more complex catalytic mechanisms, it is worth introducing a new bit of terminology.
 Typically, we propose a mechanism composed of many elementary steps that represent the atomistic details of the catalytic reaction as best as we can imagine.
 In this context, the concept of the reaction stoichiometric coefficient $sigma_i$ becomes important.
 Simply put, $sigma_i$ is the number of times that the $i$-th reaction needs to occur to yield the net reaction stoichiometry. 
@@ -2017,7 +2017,7 @@ Based on our prior discussion of bimolecular surface reactions (refer to #ref(<r
 $ r_ce("CO2") = (k'_3 conc("CO^*") conc("O^*"))/conc("*")_0, $<eq:co_rate>
 where we have defined $k'_3 equiv k_3 z$ as a matter of simplicity.
 
-Since #conc("CO^*") and #conc("O^*") cannot be measured directly, we seek to replace these variables in #ref(<eq:co_rate>).
+Since #conc("CO^*") and #conc("O^*") cannot be easily measured, we seek to replace these variables in #ref(<eq:co_rate>).
 Invoking the quasi-equilibrium condition yields
 $
 K_1 &= (conc("CO^*"))/(p_ce("CO") conc("*"))\
@@ -2080,7 +2080,7 @@ From the written expressions, it is clear that the third reaction is not element
 As we will show below, this is perfectly okay if we can invoke the MARI approximation.
 
 We start by writing the rate of reaction based on the rate-limiting step:
-$ r = r_1 = (k'_1 p_ce("N2") conc("*")^2)/conc("*")_0, $
+$ r = r_1 = (k'_1 p_ce("N2") conc("*")^2)/conc("*")_0. $
 We wish to get rid of #conc("*") as usual, so we will write a site balance.
 Here, however, our site balance can be greatly simplified by invoking the MARI approximation:
 $ conc("*")_0 = conc("H^*") + conc("*"). $
@@ -2095,7 +2095,7 @@ $ conc("*") = conc("*")_0/(1+sqrt(K_2 p_ce("H2"))). $
 Plugging the above expression into our rate expression results in 
 $ r = (k'_1 p_ce("N2")conc("*")_0) /(1+sqrt(K_2 p_ce("H2")))^2. $
 We can see that the rate expression can be written without any transient intermediates and without knowing any particular details about the non-elementary (i.e. third) step in the proposed mechanism since $K_3$ never appears in our rate.
-In essence, the MARI approximation allows us to greatly reduce the size of our mechanism.
+In essence, the MARI approximation allows us to greatly reduce the complexity of our mechanism.
 
 ==== Example 2
 
@@ -2113,9 +2113,9 @@ The rate of reaction can be expressed based on the rate-determining step as
 $ r = r_1 = (k'_1 p_ce("N2") conc("*")^2)/conc("*")_0. $
 
 As usual, we want to get rid of #conc("*") from our rate expression.
-We will invoke quasi-equilibrium on the second step since it is fast with respect to the rate-determining step.
+We will invoke quasi-equilibrium on the second step since it is, by definition, fast with respect to the rate-determining step.
 Even though we cannot write step 2 using an elementary rate expression, we can still express its equilibrium constant via
-$ K_2 = (p_ce("NH3") conc("*"))/(conc("N^*") p_ce("H2")^(3\/2)) $<eq:K2_mari>
+$ K_2 = (p_ce("NH3") conc("*"))/(conc("N^*") p_ce("H2")^(3\/2)), $<eq:K2_mari>
 as demonstrated in #ref(<k_state_function>).
 
 We also have our site balance, which can be written in simplified form due to the MARI approximation:
@@ -2123,7 +2123,7 @@ $ conc("*")_0 = conc("*") + conc("N^*"). $<eq:mari_site_balance>
 Note that we have excluded any other surface species even though there must be some amount of #ce("H^*") on the surface in order to make #ce("NH3").
 
 Solving for #conc("N^*") in #ref(<eq:K2_mari>) yields
-$ conc("N^*") = (p_ce("NH3") conc("*"))/(K_2 p_ce("H2")^(3\/2) ). $
+$ conc("N^*") = (p_ce("NH3") conc("*"))/(K_2 p_ce("H2")^(3\/2) ), $
 and plugging #conc("N^*") into the site balance results in
 $ conc("*")_0 = conc("*") + (p_ce("NH3") conc("*"))/(K_2 p_ce("H2")^(3\/2) ) $
 $ conc("*") = conc("*")_0/(1 + (p_ce("NH3") )/(K_2 p_ce("H2")^(3\/2))). $
@@ -2140,17 +2140,17 @@ When invoking the MARI, we were able to write the rate expression using an equil
 
 Consider the proposed mechanism
 $
-ce("H2") + ce("2 *") &eqArrow(k_1,opposite:k_(-1)) ce("2 H^*")\
-ce("2 H^*") + ce("C2H2") &fwdArrow(k_"H") ce("C2H4") + ce("2 *")
+ce("H2") + ce("2 *") &eqArrow(k_1,opposite:k_(-1)) ce("2 H^*"), quad &sigma_1=1\
+ce("2 H^*") + ce("C2H2") &fwdArrow(k_"H") ce("C2H4") + ce("2 *"), quad &sigma_2=1
 $
 with the net reaction #ce("C2H2 + H2 -> C2H4").
 #footnote[The second step is an example of a termolecular reaction that is actually quite likely to occur. Since the adsorbates are anchored onto the surface, it is natural for #ce("C2H2") to be hydrogenated in this way if it is well-aligned with the two hydrogen adsorbates.]
 We will assume that the hydrogenation reaction is rate-limiting, such that the #ce("H2") adsorption is quasi-equilibrated.
 
-Here, we have a reaction between an adsorbed species and gas-phase species (i.e. an Eley--Rideal mechanism), which is very slightly different than the typical LHHW kinetics since the reaction is not taking place solely on the surface.
+Here, we have a reaction between an adsorbed species and gas-phase species (i.e. an Eley--Rideal mechanism, as previously discussed in #ref(<reaction-with-unbound-species>)), which is slightly different than the typical LHHW kinetics since the reaction is not taking place solely on the surface.
 #footnote[For a critical discussion on the viability of Eley--Rideal mechanisms, refer to D. Kiani, I.E. Wachs, "Practical Considerations for Understanding Surface Reaction Mechanisms Involved in Heterogeneous Catalysis" _ACS Catal._, 14, 16770--16784 (2024).]
-The rate of product formation, which is identical to the rate of reaction, is given by
-$ r = (k'_"H" conc("H^*")^2 p_ce("C2H2"))/(conc("*")_0), $
+The rate of product formation, which is identical to the rate of reaction here since $sigma_2=1$, is given by
+$ r = (k'_"H" conc("H^*")^2 p_ce("C2H2"))/(conc("*")_0). $
 To get rid of the intermediate in our rate expression, we can invoke the quasi-equilibrium assumption on the first step to arrive at
 $
 K_1 = conc("H^*")^2/(p_ce("H2") conc("*")^2)\
@@ -2170,9 +2170,9 @@ This is essentially a simplified form of the analogous LHHW model.
 
 ==== Mars--van Krevelen Mechanism
 
-In some cases, the catalytic adsorption sites can be part of the catalytic cycle itself, such as the formation of a high-energy defect site or vacancy in the lattice that reversible is formed and consumed during the course of the reaction.
+In some cases, the catalytic adsorption sites can be part of the catalytic cycle itself, such as the formation of a high-energy defect site or vacancy in the lattice that is reversibly formed and consumed during the course of the reaction.
 This is known as a Mars--van Krevlen cycle.
-There are several authoritative references that can be read to learn more about the derivation of the rate in a Mars--van Krevlen mechanism.
+There are several references that can be read to learn more about the derivation of the rate in a Mars--van Krevlen mechanism.
 We refrain from doing so here simply as a matter of brevity and, in part, because it has been shown that the original derivation has numerous logical inconsistencies that are difficult to justify.
 #footnote[M.A. Vannice, "An analysis of the Mars–van Krevelen rate expression", _Catal. Today_, 123, 18--22 (2007).]
 
@@ -2183,12 +2183,12 @@ LHHW kinetic models inherit all the assumptions associated with the Langmuir mod
 If this approximation breaks down, additional complexity must be introduced.
 Additionally, through the Hinshelwood assumption, the adsorbates are assumed to be randomly distributed on the surface.
 
-A clear demonstration of a failure mode with the LHHW model is related to a phenomenon described as"jamming."
+A clear demonstration of a failure mode with the LHHW model is related to a phenomenon described as "jamming."
 Consider the dissociative chemisorption reaction
 $ ce("H2 + 2 *") fwdArrow(k) ce("2 H^*"). $
 We know that the turnover frequency for this process can be given by
 $ r' = k' p_ce("H2") theta_ce("*")^2. $<eq:jam_rate>
-If we treat adsorption as occurring on a 2D lattice, it is possible to have a"jammed lattice" at sufficiently high values of $theta_"H"$ like that shown in #ref(<fig:jammed>).
+If we treat adsorption as occurring on a 2D lattice, it is possible to have a "jammed lattice" at sufficiently high values of $theta_"H"$ like that shown in #ref(<fig:jammed>).
 Here, there are still vacant sites available (i.e. $theta_*>0$).
 However, none of these vacant sites can lead to a further reaction because there is no space for two H atoms to adsorb at adjacent sites.
 In other words, $r'$ should be zero in the jammed state, but this is inconsistent with #ref(<eq:jam_rate>) for $theta_* > 0$.
