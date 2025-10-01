@@ -2182,8 +2182,13 @@ This exercise has demonstrated how a rate law can be determined for a surface-ca
 
 As a final note, we will make a brief comment about the apparent activation energy in the limit of $K_1 p_ce("CO")>>1$, which might be the case for a catalyst where #ce("CO") binds to the surface very strongly and/or when the system is flooded with CO.
 The apparent rate constant from which the apparent activation energy can be derived would be given by
-$ k_"app" = k_2/K_1 = (A_2 exp(-E_"a,2"/(R T)))/(exp(-(Delta G_1^std)/( R T))) = (A_2 exp(-(E_"a,2" - )/(R T)))/(exp(-(Delta H_1^std)/( R T))+(exp(-(Delta S_1^std)/( R )) $
-Since the activation energy for an adsorption process is almost always zero,#footnote[For an exception, refer to K. Carsch et al., "Multi-Gas Adsorption with Single-Site Cooperativity in a Metal--Organic Framework", _Science_ (in press).]
+$ k_"app" &equiv k_2/K_1 = (A_2 exp(-E_"a,2"/(R T)))/(exp(-(Delta G_1^std)/( R T))) = A_2 exp(-(E_"a,2"-Delta G_1^std)/(R T))\
+k_"app" &= A_2 exp((Delta S_1^std)/R) exp(-(E_"a,2"-Delta H_1^std)/(R T)),
+$
+such that
+$ A_"app" =A_2 exp((Delta S_1^std)/R), quad quad E_"app" = E_("a,2") - Delta H_1^std.  $
+Since the activation energy for an adsorption process is almost always zero,#footnote[For an exception, refer to K. Carsch et al., "Multi-Gas Adsorption with Single-Site Cooperativity in a Metal--Organic Framework", _Science_ (in press).] this implies that $E_"app" approx -Delta H_1^std$. In other words, the apparent activation energy for this reaction is approximately the negative value of the heat of adsorption of CO on the surface (when $K_1 p_ce("CO")>>1$).
+#footnote[For example, refer to M. Boudart, "Heterogeneous Molecular Catalysis: Oxymoron or Reality?", _J. Mol. Catal. A: Chem._, 120, 271 (1997).]
 
 === Non-LHHW Kinetics
 
