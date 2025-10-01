@@ -1,5 +1,7 @@
 // Notes for next time
 // Improve section on empirical isotherm models
+// Replace 4.3.2 Stoichiometric Numbers with 5.3 from Davis and Davis instead
+// Actually invoke the stoichiometric number equation---PSSH
 #import"@preview/xarrow:0.3.1": xarrow
 #import"@preview/gentle-clues:1.2.0": tip, clue
 #import"@preview/whalogen:0.3.0": ce
@@ -1878,10 +1880,10 @@ The rate of product production is given by
 $ r_"P" = k_2 conc("A^*"). $<eq:lhhw_sample_rate>
 
 We ultimately want to write our rate without transient intermediates.
-If we assume that the adsorption of A is quasi-equilibrated, then we have
+If we are able to assume that the adsorption of A is quasi-equilibrated, then we have
 $ K_"ads"  = conc("A^*") /(p_ce("A") conc("*")) $
 $ conc("A^*") = K_"ads" p_ce("A") conc("*"). $<eq:conc_a_star_lhhw>
-The quasi-equilibrium approximation is fairly reasonable to invoke here because the surface reaction is expected to be substantially slower than the adsorption or desorption steps.
+The quasi-equilibrium approximation is fairly reasonable to invoke here because surface reactions are typically much slower than the adsorption or desorption steps, although there are certainly exceptions.
 
 Additionally, we have the site balance of 
 $ conc("*")_0 = conc("*") + conc("A^*"), $
@@ -1898,8 +1900,8 @@ Note that if we chose to write the above expression in terms of a turnover frequ
 
 ==== Alternate Approach
 
-What if we were not convinced we could invoke the quasi-equilibrium approximation on the reversible adsorption step?
-Here, we will show that the pseudo-steady state approach yields a very similar result.
+What if we were not convinced that we could invoke the quasi-equilibrium approximation on the reversible adsorption step?
+Here, we will show that the pseudo-steady state approach yields a very similar---and, in fact, more general---result.
 
 We once again start with our rate of production:
 $ r_ce("P") = k_2 conc("A^*"). $
@@ -1913,6 +1915,7 @@ such that
 $ r_ce("P") = (k_2 K_"ads" p_ce("A") conc("*")_0)/(1 + K_"ads" p_ce("A") + k_2/k_"des"). $
 We can see that the pseudo-steady state solution is identical to the quasi-equilibrium solution when $k_2\/k_"des" << 1 + K_"ads" p_ce("A")$.
 This is expected to be the case for the quasi-equilibrium approach since $k_"des"$ must be very high compared to $k_2$ for quasi-equilibrium to be invoked in the first place.
+The quasi-equilibrium approximation can be thought of as a more strict approximation than the pseudo-steady state hypothesis, as demonstrated by this example.
 
 ==== Limiting Cases
 
@@ -1962,7 +1965,8 @@ Typically, we propose a mechanism composed of many elementary steps that represe
 In this context, the concept of the reaction stoichiometric coefficient $sigma_i$ becomes important.
 Simply put, $sigma_i$ is the number of times that the $i$-th reaction needs to occur to yield the net reaction stoichiometry. 
 
-Consider the following proposed reaction scheme for the hydrogenation of ethylene:
+Consider the hydrogenation of ethylene given by the net reaction #ce("H2 + C2H4 <--> C2H6").
+The following reaction mechanism is one that has been proposed in the literature:#footnote[In reality, it is likely that #ce("C2H6^*") would be formed, and the desorption would be a separate step altogether. However, we have combined the steps here simply for the sake of simplicity.]
 $
 ce("H2 + 2* &<--> 2 H^*"), quad &sigma_1 = 1\
 ce("C2H4 + * &<--> C2H4^*"), quad &sigma_2 = 1\
@@ -1971,7 +1975,6 @@ ce("C2H5^* + H^* &<--> C2H6 + 2*"), quad &sigma_4 = 1\
 ce("C2H4^* + * &<--> CHCH2^* + H^*"), quad &sigma_5 = 0\
 ce("CHCH2^*  &<--> CCH3^*"), quad &sigma_6 = 0
 $
-for the net reaction #ce("H2 + C2H4 <--> C2H6").
 The reaction stoichiometric numbers, $sigma_i$, describe the number of times that reaction step contributes to arrive at the net reaction.
 Some steps can have $sigma_i=0$ but still be important for the overall catalytic mechanism.
 For instance, even though reaction step 5 does not factor into the net reaction equation, it can still influence the kinetics by decreasing the population of #ce("C2H4^*") species and is potentially worth accounting for in a kinetic model.
@@ -1991,41 +1994,46 @@ $
 r_1=r_2=r_3=r_4, quad r_5=0, quad  r_6 = 0.
 $
 This leads us to the following relationship:
-$ r_i = sigma_i r, $<eq:rate_stoichs>
+$ r_i = sigma_i r, $
 where $r$ is the net rate of the overall reaction.
-Put another way, just like $r_j\/nu_j$ is a constant for each species and can be used to define the rate of reaction $r$ (provided $nu_j != 0$), for catalytic cycles in pseudo-steady state we can say that $r_i\/sigma_i$ is a constant that defines the rate of reaction (provided $sigma_i != 0$).
-#caution[Note the assumptions that came with #ref(<eq:rate_stoichs>).
-This relationship is applicable for a reaction cycle (e.g. a catalytic reaction or radical-chain reaction) where the pseudo-steady state approximation is applied on the intermediates.
+Put another way, in analogy with the definition of the rate of reaction based on the species-based stoichiometric numbers (#ref(<eq:stoichs>)), we can state that for a catalytic cycle in pseudo-steady state that 
+$ r = r_i/sigma_i quad (sigma_i !=0), $<eq:rate_stoichs>
+where $r$ is the net rate of the overall reaction cycle.
+#caution[
+  #ref(<eq:rate_stoichs>) generally holds when describing a catalytic reaction when the system is considered to be at steady state (i.e. after some time period where further accumulation or depletion of adsorbates on the surface is negligible). This is often a fairly reasonable assumption to invoke. Note, however, that it only applies when the reaction proceeds through a single catalytic cycle. If there are multiple catalytic cycles, #ref(<eq:rate_stoichs>) may not be valid.
 ]
 
-=== LHHW Kinetics: Carbon Monoxide Oxidation
+
+=== LHHW Kinetics: Carbon Monoxide Oxidation<lhhw_co>
 
 ==== Rate Law Derivation
 
-We will consider the following reaction of #ce("CO") and #ce("O2") to produce #ce("CO2"), which takes place on Pd:
+We will consider the reaction of #ce("CO") and #ce("O2") to produce #ce("CO2"), which takes place on a palladium surface via the net reaction $ce("CO + 1/2 O2 -> CO2")$.
+Let us consider the following proposed reaction mechanism:
 $
-ce("CO + *") &eqArrow(k_1, opposite:k_(-1)) ce("CO^*"), quad &sigma_1 = 2\
-ce("O2 + 2 *") &eqArrow(k_2, opposite:k_(-2)) ce("2 O^*"), quad &sigma_2 = 1\
-ce("CO^* + O^*") &fwdArrow(k_3) ce("CO2 + 2 *"), quad &sigma_3 = 2
-$
-with the net reaction $ce("2 CO + O2 -> 2 CO2")$.
-We will also assume that the bimolecular surface reaction of #ce("CO^*") and #ce("O^*") is rate-limiting, which in turn implies that the reversible adsorption steps are quasi-equilibrated.
+ce("CO + *") &eqArrow(k_1, opposite:k_(-1)) ce("CO^*"), quad &sigma_1 = 1\
+ce("O2 + 2 *") &eqArrow(k_2, opposite:k_(-2)) ce("2 O^*"), quad &sigma_2 = 1/2\
+ce("CO^* + O^*") &fwdArrow(k_3) ce("CO2 + 2 *"), quad &sigma_3 = 1
+$<eq:co_ox>
+We will assume that it is given that the bimolecular surface reaction of #ce("CO^*") and #ce("O^*") is rate-limiting.
+Our goal is to find a rate law for this reaction mechanism, which we might compare against experimental data to determine if the proposed mechanism is plausible or not.
 
-We know that the rate of reaction can be given by $r = r_ce("CO2")$.
-From here, we will focus on the rate of #ce("CO2") production.
-Based on our prior discussion of bimolecular surface reactions (refer to #ref(<reactions-between-two-surface-species>)), we can write the rate of #ce("CO2") production as
-$ r_ce("CO2") = (k'_3 conc("CO^*") conc("O^*"))/conc("*")_0, $<eq:co_rate>
+Since the third reaction is said to be rate-limiting, we can state that $r = r_3$.#footnote[If we had written the net reaction as #ce("2 CO + O2 -> 2 CO2"), then we would instead have $r = r_3\/2$ since $sigma_3=2$ in such a scenario. This is simply a matter of perspective based on the precise definition of the "reaction" that is being considered for the reaction rate law.]
+Based on our prior discussion of bimolecular surface reactions and the consideration of lattice statistics (refer to #ref(<reactions-between-two-surface-species>)), we can write the rate of reaction as
+$ r = (k'_3 conc("CO^*") conc("O^*"))/conc("*")_0, $<eq:co_rate>
 where we have defined $k'_3 equiv k_3 z$ as a matter of simplicity.
+#footnote[If you prefer to think about the rate of change of the product, note that $r = r_3 = r_ce("CO2")$ since #ce("CO2") is only produced in the third reaction. In other words, the rate of reaction is identical to the rate of #ce("CO2") production here.
+]
 
 Since #conc("CO^*") and #conc("O^*") cannot be easily measured, we seek to replace these variables in #ref(<eq:co_rate>).
+By stating that the third reaction is rate-limiting, this implies that the other reversible adsorption steps are all quasi-equilibrated. 
 Invoking the quasi-equilibrium condition yields
 $
-K_1 &= (conc("CO^*"))/(p_ce("CO") conc("*"))\
-K_2 &= (conc("O^*")^2)/(p_ce("O2") conc("*")^2).
+K_1 &= (conc("CO^*"))/(p_ce("CO") conc("*")), quad quad K_2 &= (conc("O^*")^2)/(p_ce("O2") conc("*")^2).
 $
 Solving for the adsorbed species concentrations yields
 $
-conc("CO^*") = K_1 p_("CO") conc("*")\
+conc("CO^*") = K_1 p_("CO") conc("*"), quad quad 
 conc("O^*") = conc("*") sqrt(K_2 p_ce("O2")). $<eq:co_ads_species>
 Now we write out the site balance:
 $ conc("*")_0= conc("*") + conc("CO^*") + conc("O^*"). $<eq:co_site_balance>
@@ -2036,13 +2044,13 @@ conc("*") &= conc("*")_0 / (1+ K_1 p_("CO") + sqrt(K_2 p_ce("O2"))).
 $<eq:co_star>
 Plugging #ref(<eq:co_star>) into #ref(<eq:co_ads_species>) results in
 $
-conc("CO^*") &= (K_1 p_("CO") conc("*")_0) / (1+K_1 p_("CO") + sqrt(K_2 p_ce("O2")))\
+conc("CO^*") &= (K_1 p_("CO") conc("*")_0) / (1+K_1 p_("CO") + sqrt(K_2 p_ce("O2"))),quad quad 
 conc("O^*") &= (conc("*")_0 sqrt(K_2 p_ce("O2"))) / (1+K_1 p_("CO") + sqrt(K_2 p_ce("O2"))).
 $<eq:co_final>
 Finally, substituting #ref(<eq:co_final>) into #ref(<eq:co_rate>) results in the desired rate expression based on experimental observables:
-$ r_ce("CO2") = (k'_3 K_1 p_("CO") conc("*")_0 sqrt(K_2 p_ce("O2"))) / (1+K_1 p_("CO") + sqrt(K_2 p_ce("O2")))^2. $
+$ r = (k'_3 K_1 p_("CO") conc("*")_0 sqrt(K_2 p_ce("O2"))) / (1+K_1 p_("CO") + sqrt(K_2 p_ce("O2")))^2. $
 Note that if we did not include the $z\/conc("*")_0$ correction in #ref(<eq:co_rate>), the resulting rate expression at the end of the derivation would have a $conc("*")_(0)^2$ term instead of $conc("*")_0$ in the numerator. In general, the presence of higher-order $conc("*")_0$ terms is a sign that lattice statistics have been neglected.
-#footnote[For an alternate opinion about the $conc("*")_0$ term in catalytic rate expressions, refer to D. Kiani, I.E. Wachs, "The Conundrum of Pair Sites in Langmuir–Hinshelwood Reaction Kinetics in Heterogeneous Catalysis", _ACS Catal._, 14, 10260--10270 (2024).]
+#footnote[For an alternate opinion about the $conc("*")_0$ term in catalytic rate expressions, refer to D. Kiani, I.E. Wachs, "The Conundrum of Pair Sites in Langmuir–Hinshelwood Reaction Kinetics in Heterogeneous Catalysis", _ACS Catal._, 14, 10260--10270 (2024). Note that the aforementioned paper is at odds with N.K. Razdan, A. Bhan, "Kinetic description of site ensembles on catalytic surfaces", _Proc. Natl. Acad. Sci. U.S.A._, 118, e2019055118 (2021).]
 
 ==== Limiting Cases
 
@@ -2050,41 +2058,44 @@ As a sanity check, we can see that if $p_ce("CO")->infinity$ or $p_ce("O2")->inf
 
 We can also consider what happens in other limiting cases.
 For instance, if #ce("CO") binds very strongly such that $K_1$ is sufficiently large, we may arrive at the simplified equation
-$ r_ce("CO2") = (k'_3 conc("*")_0 sqrt(K_2 p_ce("O2"))) / (K_1 p_("CO")) quad (K_1 p_ce("CO") >> 1 + sqrt(K_2 p_ce("O2"))), $<eq:rxn_CO>
+$ r = (k'_3 conc("*")_0 sqrt(K_2 p_ce("O2"))) / (K_1 p_("CO")) quad (K_1 p_ce("CO") >> 1 + sqrt(K_2 p_ce("O2"))), $<eq:rxn_CO>
 where the apparent order of CO is -1, and the apparent order of #ce("O2") is +1/2.
 The apparent order of -1 in CO makes sense because the surface is nearly covered by CO adsorbates, so increasing CO further will only reduce the overall rate.
 
 Conversely, if #ce("O2") binds very strongly such that $K_2$ is sufficiently large, we may arrive at the simplified equation
-$ r_ce("CO2") approx (k'_3 K_1 p_("CO") conc("*")_0) / sqrt(K_2 p_ce("O2")) quad (sqrt(K_2 p_ce("O2")) >> 1+K_1 p_ce("CO")), $
+$ r approx (k'_3 K_1 p_("CO") conc("*")_0) / sqrt(K_2 p_ce("O2")) quad (sqrt(K_2 p_ce("O2")) >> 1+K_1 p_ce("CO")), $
 which has CO with an apparent order of +1 but $ce("O2")$ with an apparent order of -1/2, indicating that #ce("O2") is now inhibiting the overall rate, as would be expected.
 In each of these limiting cases, it is important to remember that these are not the rate laws themselves but rather what may be observed experimentally for a given set of conditions.
 
 
 === Most Abundant Reaction Intermediate
 
-==== Example 1
-
 We will introduce one common approximation in analyzing the kinetics of catalytic mechanisms.
 When one adsorbate on the surface is present in great excess, it is referred to as the most abundant reaction intermediate (MARI).
 Invoking the MARI approximation can greatly simplify mechanistic analyses.
 
-Consider the following proposed mechanism in the Haber--Bosch process:
+
+==== Ammonia Synthesis<ammonia>
+
+Consider ammonia synthesis via the Haber--Bosch process, which occurs with the net reaction #ce("N2 + 3 H2 ->2  NH3"). We will consider the following proposed mechanism:
 $ 
 ce("N2 + 2*") &fwdArrow(k_1) ce("2 N^*"), quad &sigma_1 = 1\
 ce("H2 + 2*") &eqArrow(K_2) ce("2H^*"), quad &sigma_2 = 3\
 ce("N^* + 3H^*") &eqArrow(K_3) ce("NH3 + 4^*"), quad &sigma_3 = 2
 $
-for the net reaction #ce("N2 + 3 H2 -> 2NH3") where the dissociative adsorption of #ce("N2") is the rate-limiting step, causing the other reactions to be in quasi-equilibrium.
-We will also assume that #ce("H^*") is the MARI on the basis of experiments.
-From the written expressions, it is clear that the third reaction is not elementary and is instead a sum of many individual surface reactions.
+As part of the problem setup, we will assume that it is known that the dissociative adsorption of #ce("N2") is the rate-limiting step. This is a fairly reasonable approximation given the extremely strong triple bond of #ce("N2"), which is difficult to cleave.
+We will also take it as given that #ce("H^*") is the MARI on the basis of experiments.
+Note that from the written expressions, it should be clear that the third reaction is not elementary given how many surface species are involved in the reaction.
 As we will show below, this is perfectly okay if we can invoke the MARI approximation.
 
-We start by writing the rate of reaction based on the rate-limiting step:
-$ r = r_1 = (k'_1 p_ce("N2") conc("*")^2)/conc("*")_0. $
+The rate of reaction is based on the rate-limiting step (i.e. #ce("N2") dissociation), such that $r = r_1$.#footnote[The net rate of ammonia production would be given by $r = r_1 =  r_3\/2$ by invoking #ref(<eq:rate_stoichs>). That said, there is not much you can do to find $r_3$ directly based on the information in the problem statement, especially since the reaction is non-elementary.]
+Therefore, we can write out the rate law as follows:
+$ r = (k'_1 p_ce("N2") conc("*")^2)/conc("*")_0. $
 We wish to get rid of #conc("*") as usual, so we will write a site balance.
 Here, however, our site balance can be greatly simplified by invoking the MARI approximation:
 $ conc("*")_0 = conc("H^*") + conc("*"). $
 We have two species here that we wish to get rid of: $conc("H^*")$ and $conc("*")$.
+Since the first reaction is rate-limiting, this causes the other reactions to be in quasi-equilibrium.
 We proceed by invoking quasi-equilibrium on step 2 to arrive at
 $ K_2 = (conc("H^*")^2)/(p_ce("H2") conc("*")^2). $
 Solving for $conc("H^*")$ yields
@@ -2097,20 +2108,20 @@ $ r = (k'_1 p_ce("N2")conc("*")_0) /(1+sqrt(K_2 p_ce("H2")))^2. $
 We can see that the rate expression can be written without any transient intermediates and without knowing any particular details about the non-elementary (i.e. third) step in the proposed mechanism since $K_3$ never appears in our rate.
 In essence, the MARI approximation allows us to greatly reduce the complexity of our mechanism.
 
-==== Example 2
+==== Ammonia Synthesis Revisited<ammonia_revisit>
 
-Here, we will again consider the Haber--Bosch process with a slightly modified set of reaction equations:
+We will again consider the Haber--Bosch process with the net reaction #ce("N2 + 3 H2 -> 2 NH3"). Here, however, we will consider a slightly modified set of reaction equations:
 $ 
 ce("N2 + 2*") &fwdArrow(k_1) ce("2 N^*"),quad &sigma_1 = 1\
 ce("N^* + 3/2 H2") &eqArrow(K_2) ce("NH3 + *"),quad &sigma_2 = 2
 $
-where the dissociative adsorption of #ce("N2") is rate-limiting.
-We will also consider the case where #ce("N^*") is the MARI, perhaps due to the use of a different catalyst than in the previous example.
+We will still invoke that the dissociative adsorption of #ce("N2") is rate-limiting.
+However, now we will consider the case where #ce("N^*") is the MARI, perhaps due to the use of a different catalyst than in the previous example.
 This example is notably different in that the rate-determining step is also the one involving the MARI.
 Clearly, the second equation cannot possibly be an elementary step, but as we will once again demonstrate, this is perfectly acceptable if we are able to invoke the MARI approximation.
 
-The rate of reaction can be expressed based on the rate-determining step as
-$ r = r_1 = (k'_1 p_ce("N2") conc("*")^2)/conc("*")_0. $
+The rate of reaction can be expressed based on the rate-determining step as $r = r_1$, such that
+$ r = (k'_1 p_ce("N2") conc("*")^2)/conc("*")_0. $
 
 As usual, we want to get rid of #conc("*") from our rate expression.
 We will invoke quasi-equilibrium on the second step since it is, by definition, fast with respect to the rate-determining step.
@@ -2134,22 +2145,60 @@ $ r = (k'_1 p_ce("N2")conc("*")_0) /(1 + (p_ce("NH3") )/(K_2 p_ce("H2")^(3\/2)))
 The main conclusion from this exercise is that we do not need any information about intermediate steps in the mechanism or the underlying details of the steps associated with $K_2$.
 When invoking the MARI, we were able to write the rate expression using an equilibrium expression and an elementary rate law.
 
+==== CO Oxidation Revisited
+
+In #ref(<lhhw_co>), we went over a representative LHHW kinetic model derivation for CO oxidation. We will now revisit the CO oxidation process given by $ce("CO + 1/2 O2 -> CO2")$ via a slightly different proposed mechanism involving the irreversible adsorption of #ce("O2") to a single surface site, after which it dissociates:
+$
+ce("CO + *") &eqArrow(k_1, opposite:k_(-1)) ce("CO^*"), quad &sigma_1 = 1\
+ce("O2 +  *") &fwdArrow(k_2) ce("O2^*"), quad &sigma_2 = 1/2\
+ce("O2^* + *") &fwdArrow(k_3) ce("2 O^*"), quad &sigma_3 = 1/2\
+ce("CO^* + O^*") &fwdArrow(k_4) ce("CO2 + 2 *"), quad &sigma_4 = 1
+$
+As part of the problem setup, we will assume that #ce("CO^*") is the MARI on the basis of experiments in contrast with how we approached the mechanism in #ref(<lhhw_co>). Furthermore, as part of the problem setup, the reversible adsorption of #ce("CO") on the surface is assumed to be quasi-equilibrated. Note, however, that this does not tell us anything specifically about a single rate-determining step.
+
+If we wish to derive the rate law, it may not be immediately clear how to proceed given the information in the problem setup.
+Nonetheless, by invoking #ref(<eq:rate_stoichs>), life gets a bit easier.
+Given the reaction stoichiometric coefficients, we can state that
+$ r = r_1 = 2r_2 =2r_3 = r_4, $
+where $r_1=r_(1)^+-r_(1)^-$, and the other individual reaction rates are describing the rate of the corresponding irreversible reaction.
+This allows us to find any of the individual reaction rates in order to find the rate law since they are all interrelated.
+
+While there are several ways to approach this problem, we will focus on the second reaction:
+$ r = 2 r_2 = 2 k_2 p_ce("O2") conc("*").  $<eq:co_ox_v2>
+We need to get rid of the #conc("*") term, and this will involve the use of a site balance, which is simplified in our case due to the MARI approximation in the problem setup:
+$ conc("*")_0 = conc("*") + conc("CO^*"). $<eq:co_ox_v2_site>
+
+If we were to plug #ref(<eq:co_ox_v2_site>) into #ref(<eq:co_ox_v2>), we would still have a #conc("CO^*") term to get rid of.
+This implies that we will need some information about the adsorption of #ce("CO").
+By invoking the quasi-equilibrium approximation as stated in the problem setup, we have
+$ K_1 = conc("CO^*")/(p_ce("CO") conc("*")). $
+Solving or #ce("CO^*") in the above expression and plugging it into the site balance yields
+$ conc("*")_0 = conc("*") + K_1 p_ce("CO") conc("*"), $
+which can be rewritten as 
+$ conc("*") = conc("*")_0/(1+K_1 p_ce("CO")). $<eq:site_co_ox_v2>
+Plugging #ref(<eq:site_co_ox_v2>) into #ref(<eq:co_ox_v2>) yields our rate expression:
+$ r = (2 k_2 p_ce("O2") conc("*")_0)/(1+K_1 p_ce("CO")). $
+This exercise has demonstrated how a rate law can be determined for a surface-catalyzed reaction without needing to invoke the rate-determining step concept.
+
+As a final note, we will make a brief comment about the apparent activation energy in the limit of $K_1 p_ce("CO")>>1$, which might be the case for a catalyst where #ce("CO") binds to the surface very strongly and/or when the system is flooded with CO.
+The apparent rate constant from which the apparent activation energy can be derived would be given by
+$ k_"app" = k_2/K_1 = (A_2 exp(-E_"a,2"/(R T)))/(exp(-(Delta G_1^std)/( R T))) = (A_2 exp(-(E_"a,2" - )/(R T)))/(exp(-(Delta H_1^std)/( R T))+(exp(-(Delta S_1^std)/( R )) $
+Since the activation energy for an adsorption process is almost always zero,#footnote[For an exception, refer to K. Carsch et al., "Multi-Gas Adsorption with Single-Site Cooperativity in a Metal--Organic Framework", _Science_ (in press).]
+
 === Non-LHHW Kinetics
 
 ==== Eley--Rideal Mechanism
 
-Consider the proposed mechanism
+Consider the net reaction #ce("C2H2 + H2 -> C2H4") with the following proposed mechanism:#footnote[The second step is an example of a termolecular reaction that is actually quite likely to occur. Since the adsorbates are anchored onto the surface, it is natural for #ce("C2H2") to be hydrogenated in this way if it is well-aligned with the two hydrogen adsorbates.]
 $
 ce("H2") + ce("2 *") &eqArrow(k_1,opposite:k_(-1)) ce("2 H^*"), quad &sigma_1=1\
 ce("2 H^*") + ce("C2H2") &fwdArrow(k_"H") ce("C2H4") + ce("2 *"), quad &sigma_2=1
 $
-with the net reaction #ce("C2H2 + H2 -> C2H4").
-#footnote[The second step is an example of a termolecular reaction that is actually quite likely to occur. Since the adsorbates are anchored onto the surface, it is natural for #ce("C2H2") to be hydrogenated in this way if it is well-aligned with the two hydrogen adsorbates.]
 We will assume that the hydrogenation reaction is rate-limiting, such that the #ce("H2") adsorption is quasi-equilibrated.
 
 Here, we have a reaction between an adsorbed species and gas-phase species (i.e. an Eley--Rideal mechanism, as previously discussed in #ref(<reaction-with-unbound-species>)), which is slightly different than the typical LHHW kinetics since the reaction is not taking place solely on the surface.
 #footnote[For a critical discussion on the viability of Eley--Rideal mechanisms, refer to D. Kiani, I.E. Wachs, "Practical Considerations for Understanding Surface Reaction Mechanisms Involved in Heterogeneous Catalysis" _ACS Catal._, 14, 16770--16784 (2024).]
-The rate of product formation, which is identical to the rate of reaction here since $sigma_2=1$, is given by
+The rate of product formation, which is identical to the rate of reaction here, is given by
 $ r = (k'_"H" conc("H^*")^2 p_ce("C2H2"))/(conc("*")_0). $
 To get rid of the intermediate in our rate expression, we can invoke the quasi-equilibrium assumption on the first step to arrive at
 $
