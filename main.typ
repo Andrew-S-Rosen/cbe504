@@ -606,18 +606,20 @@ If we differentiate #ref(<eq:vant_hoff_single>) with respect to $T$ and make the
 $ (dif ln(K_ce("a")))/(dif T) = (Delta H^std)/(R T^2), $<eq:vant_hoff>
 which is the formal definition of the van~'t Hoff equation.
 
-If we consider an elementary reaction of the form #ce("A->B") with $K_"a" = K_"C" = k^+\/k^-$, then we can rewrite #ref(<eq:vant_hoff>) using as 
+If we consider a reversible elementary reaction of the form #ce("A<-->B") with $K_"a" = K_"C" = k^+\/k^-$, then we can rewrite #ref(<eq:vant_hoff>) using as 
 $ (dif ln(k^(+) \/ k^(-))) / (dif T) = (Delta H^std) / (R T^2) $
 and thereby
 $ (dif ln(k^(+))) / (dif T) - (dif ln(k^(-))) / (dif T) = (Delta H^std) / (R T^2). $
-By invoking $Delta H^std = E_"a,f" - E_"a,r"$,
-where $E_"a,f"$ and $E_"a,r"$ are activation energies for the forward and reverse reactions of a reversible elementary step, respectively, Arrhenius concluded that, largely by analogy, the following is likely to be true:
+By invoking $Delta H^std approx E_"a,f" - E_"a,r"$,
+where $E_"a,f"$ and $E_"a,r"$ are the activation energies for the forward and reverse reactions, one can state that
+$ (dif ln(k^(+))) / (dif T) - (dif ln(k^(-))) / (dif T) = (E_"a,f") / (R T^2) - (E_"a,r") / (R T^2). $
+Largely by a matter of inspection, Arrhenius concluded that the following is likely to be true:
 $
 (dif ln(k^(+))) / (dif T) = E_"a,f" / (R T^2),quad
-(dif ln(k^(-))) / (dif T) = E_"a,r" / (R T^2)
+(dif ln(k^(-))) / (dif T) = E_"a,r" / (R T^2),
 $
-which is equivalent to #ref(<eq:arrhenius>) following integration.
-Clearly, this "derivation" lacks rigor, and we will later show that $Delta H^std$ is not generally synonymous with the difference in activation energy.
+which, when integrated, is equivalent to the Arrhenius equation given by #ref(<eq:arrhenius>).
+Clearly, this "derivation" lacks rigor, and we will later show that $Delta H^std$ is not generally synonymous with the difference in activation energies.
 For now, we will accept the applicability of the Arrhenius equation largely based on empirical evidence until we cover transition state theory.
 
 == Differential Kinetic Analysis
@@ -2185,11 +2187,11 @@ As a final note, we will make a brief comment about the apparent activation ener
 In doing so, we have
 $ r = (2 k_2 p_ce("O2") conc("*")_0)/(K_1 p_ce("CO")) quad (K_1 p_ce("CO")>>1). $
 The apparent rate constant, from which the apparent activation energy can be derived, would be given by
-$ k_"app" &equiv (2 k_2)/K_1 = (2 A_2 exp(-E_"a,2"/(R T)))/(exp(-(Delta G_1^std)/( R T))) = 2 A_2 exp(-(E_"a,2"-Delta G_1^std)/(R T))\
-k_"app" &= 2 A_2 exp((Delta S_1^std)/R) exp(-(E_"a,2"-Delta H_1^std)/(R T)),
+$ k_"app" &equiv ( k_2)/K_1 = ( A_2 exp(-E_"a,2"/(R T)))/(exp(-(Delta G_1^std)/( R T))) = A_2 exp(-(E_"a,2"-Delta G_1^std)/(R T))\
+k_"app" &=  A_2 exp((Delta S_1^std)/R) exp(-(E_"a,2"-Delta H_1^std)/(R T)),
 $
 such that
-$ A_"app" =2 A_2 exp((Delta S_1^std)/R), quad quad E_"app" = E_("a,2") - Delta H_1^std.  $
+$ A_"app" = A_2 exp((Delta S_1^std)/R), quad quad E_"app" = E_("a,2") - Delta H_1^std.  $
 Since the activation energy for an adsorption process is almost always zero,#footnote[For an exception, refer to K. Carsch et al., "Multi-Gas Adsorption with Single-Site Cooperativity in a Metal--Organic Framework", _Science_ (in press).] this implies that $E_"app" approx -Delta H_1^std$. In other words, the apparent activation energy for this reaction is approximately the negative value of the heat of adsorption of CO on the surface (when $K_1 p_ce("CO")>>1$).
 #footnote[For example, refer to M. Boudart, "Heterogeneous Molecular Catalysis: Oxymoron or Reality?", _J. Mol. Catal. A: Chem._, 120, 271 (1997). Boudart was a faculty member in the Department of Chemical Engineering at Princeton University from 1954--1961.]
 
@@ -3610,7 +3612,7 @@ E_ce("a") &= Delta H^std^ddagger + m R T quad ("ideal gas").
 $<eq:e_app_tst>
 
 In both cases, the derivation has implicitly assumed that $Delta H^std^ddagger$ and $Delta S^std^ddagger$ are independent of temperature, which is only true if we are considering relatively small temperature differences.
-Clearly, #ref(<eq:e_app_tst>) indicates there are several possible meanings for a"kinetic barrier."
+Clearly, #ref(<eq:e_app_tst>) indicates there are several possible meanings for a "kinetic barrier."
 Therefore, one should take care in clarifying which property is being reported.
 #footnote[For a discussion on the relationship between the apparent activation energy and enthalpy in multi-step reactions with multiple transition states, refer to Z. Mao, C.T. Campbell, "Apparent Activation Energies in Complex Reaction Mechanisms: A Simple Relationship via Degrees of Rate Control", _ACS Catal._, 9, 9465--9473 (2019).]
 
