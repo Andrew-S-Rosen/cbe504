@@ -1,7 +1,7 @@
 // Notes for next time
 // Improve section on empirical isotherm models
 // Replace 4.3.2 Stoichiometric Numbers with 5.3 from Davis and Davis instead
-// Actually invoke the stoichiometric number equation---PSSH
+// In-class exams
 #import"@preview/xarrow:0.3.1": xarrow
 #import"@preview/gentle-clues:1.2.0": tip, clue
 #import"@preview/whalogen:0.3.0": ce
@@ -448,8 +448,7 @@ k^(+) / k^(-) =
 /
 (conc("A")_("eq")^alpha conc("B")_("eq")^beta).
 $<eq:reversible_eq_rearrange>
-It is worth emphasizing that the #ref(<eq:reversible_eq_rearrange>) is only strictly true when the reversible reaction is elementary.
-The expression given by the right-hand side of #ref(<eq:reversible_eq_rearrange>)#footnote[It is only true that $K_"C"=k^+\/k^-$ for an elementary reaction and so we will not use that as a formal definition.] leads to the definition of the concentration-based equilibrium constant, $K_"c"$, which can be expressed compactly as
+The expression given by the right-hand side of #ref(<eq:reversible_eq_rearrange>)#footnote[It is only true that $K_"C"=k^+\/k^-$ for an elementary reaction and so we will not use that as a formal definition.] leads to the definition of the concentration-based equilibrium constant, $K_"C"$, which can be expressed compactly as
 $ K_"C" equiv product_(j) [A_j]^(nu_j) $<eq:kc>
 and describes the ratio of the forward to reverse rate constants of a reversible reaction at equilibrium.
 #footnote[Going forward, we will omit the "eq" subscript since it is implicit when dealing with an equilibrium constant. However, be careful to only using equilibrium values in this expression and not, for instance, initial values.]
@@ -607,8 +606,7 @@ If we differentiate #ref(<eq:vant_hoff_single>) with respect to $T$ and make the
 $ (dif ln(K_ce("a")))/(dif T) = (Delta H^std)/(R T^2), $<eq:vant_hoff>
 which is the formal definition of the van~'t Hoff equation.
 
-If we rewrite #ref(<eq:vant_hoff>) using $K_ce("a") = k^+\/k^-$ under the assumption of an elementary reaction,
-we can state
+If we consider an elementary reaction of the form #ce("A->B") with $K_"a" = K_"C" = k^+\/k^-$, then we can rewrite #ref(<eq:vant_hoff>) using as 
 $ (dif ln(k^(+) \/ k^(-))) / (dif T) = (Delta H^std) / (R T^2) $
 and thereby
 $ (dif ln(k^(+))) / (dif T) - (dif ln(k^(-))) / (dif T) = (Delta H^std) / (R T^2). $
@@ -891,7 +889,7 @@ $<eq:delplot_toy_rxn>
 in the case where $k_3 != k_1+k_2$.
 
 The approach we will take here is as follows.
-For each product P, we will make a plot of $Y_ce("P")\/X_ce("A")$ vs. $X_ce("A")$ and extrapolate to $X_ce("A")->0$ (i.e. $t->0$). Here, $X_ce("A")$ is the conversion of A as defined in #ref(<eq:conversion>), and $Y_ce("P")$ is the yield of product P from reactant A, which is given as $ Y_ce("P") = conc("P")/conc("A")_0. $
+For each product P, we will make a plot of $Y_ce("P")\/X_ce("A")$ vs. $X_ce("A")$ and extrapolate to $X_ce("A")->0$ (i.e. $t->0$). Here, $X_ce("A")$ is the conversion of A as defined in #ref(<eq:conversion>), and $Y_ce("P")$ is the yield of product P from reactant A, which is given as $ Y_ce("P") = (conc("P")-conc("P")_0)/conc("A")_0. $
 We will show that this approach can distinguish whether the product is primary or not based on whether the $y$-axis intercept has a finite value or not.
 Written mathematically, we seek to carry out the following analysis
 $ lim_(X_ce("A")->0)(Y_ce("P") / X_ce("A")) = lim_(X_ce("A")->0)((conc("P") \/ conc("A")_0) / (1 - conc("A") \/ conc("A")_0)) = lim_(X_ce("A")->0)(conc("P") / (conc("A")_0 - conc("A"))), $<eq:delplot_first>
@@ -1846,9 +1844,10 @@ If we had not accounted for the $z\/conc("*")_0$ factor, then this analogy would
 === Reaction with Unbound Species <reaction-with-unbound-species>
 
 A reaction can also occur between an adsorbed molecule and a molecule in the continuum.
-When the adsorbed molecule reacts with a molecule in the gas phase, this is typically referred to as an Eley--Rideal reaction.
+When the adsorbed molecule reacts with a molecule in the gas phase, this is typically referred to as a Langmuir--Rideal mechanism.
+When the adsorbed molecule reacts with a molecule that is loosely physisorbed nearby, it is instead referred to as an Eley--Rideal reaction.
 
-The general equation is
+The general equation for such a process is
 
 $ ce("A^* + B") eqArrow(k_2,opposite:k_(-2)) ce("C^*"). $
 
@@ -2009,6 +2008,8 @@ where $r$ is the net rate of the overall reaction cycle.
 ==== Rate Law Derivation
 
 We will consider the reaction of #ce("CO") and #ce("O2") to produce #ce("CO2"), which takes place on a palladium surface via the net reaction $ce("CO + 1/2 O2 -> CO2")$.
+This reaction is one of several that occur inside a catalytic converter.
+#footnote[For an interesting video on catalytic converters, check out the following from Technology Connections: https://youtu.be/Aytf6ARcs8s.]
 Let us consider the following proposed reaction mechanism:
 $
 ce("CO + *") &eqArrow(k_1, opposite:k_(-1)) ce("CO^*"), quad &sigma_1 = 1\
@@ -2018,7 +2019,7 @@ $<eq:co_ox>
 We will assume that it is given that the bimolecular surface reaction of #ce("CO^*") and #ce("O^*") is rate-limiting.
 Our goal is to find a rate law for this reaction mechanism, which we might compare against experimental data to determine if the proposed mechanism is plausible or not.
 
-Since the third reaction is said to be rate-limiting, we can state that $r = r_3$.#footnote[If we had written the net reaction as #ce("2 CO + O2 -> 2 CO2"), then we would instead have $r = r_3\/2$ since $sigma_3=2$ in such a scenario. This is simply a matter of perspective based on the precise definition of the "reaction" that is being considered for the reaction rate law.]
+Since the third reaction is said to be rate-limiting, we can state that $r = r_3$.#footnote[If we had written the net reaction as #ce("2 CO + O2 -> 2 CO2"), then we would instead have $r = r_3\/2$ since $sigma_3=2$ in such a scenario. This is simply a matter of bookkeeping based on the precise definition of the "reaction" that is being considered for the reaction rate law.]
 Based on our prior discussion of bimolecular surface reactions and the consideration of lattice statistics (refer to #ref(<reactions-between-two-surface-species>)), we can write the rate of reaction as
 $ r = (k'_3 conc("CO^*") conc("O^*"))/conc("*")_0, $<eq:co_rate>
 where we have defined $k'_3 equiv k_3 z$ as a matter of simplicity.
@@ -2181,14 +2182,16 @@ $ r = (2 k_2 p_ce("O2") conc("*")_0)/(1+K_1 p_ce("CO")). $
 This exercise has demonstrated how a rate law can be determined for a surface-catalyzed reaction without needing to invoke the rate-determining step concept.
 
 As a final note, we will make a brief comment about the apparent activation energy in the limit of $K_1 p_ce("CO")>>1$, which might be the case for a catalyst where #ce("CO") binds to the surface very strongly and/or when the system is flooded with CO.
-The apparent rate constant from which the apparent activation energy can be derived would be given by
-$ k_"app" &equiv k_2/K_1 = (A_2 exp(-E_"a,2"/(R T)))/(exp(-(Delta G_1^std)/( R T))) = A_2 exp(-(E_"a,2"-Delta G_1^std)/(R T))\
-k_"app" &= A_2 exp((Delta S_1^std)/R) exp(-(E_"a,2"-Delta H_1^std)/(R T)),
+In doing so, we have
+$ r = (2 k_2 p_ce("O2") conc("*")_0)/(K_1 p_ce("CO")) quad (K_1 p_ce("CO")>>1). $
+The apparent rate constant, from which the apparent activation energy can be derived, would be given by
+$ k_"app" &equiv (2 k_2)/K_1 = (2 A_2 exp(-E_"a,2"/(R T)))/(exp(-(Delta G_1^std)/( R T))) = 2 A_2 exp(-(E_"a,2"-Delta G_1^std)/(R T))\
+k_"app" &= 2 A_2 exp((Delta S_1^std)/R) exp(-(E_"a,2"-Delta H_1^std)/(R T)),
 $
 such that
-$ A_"app" =A_2 exp((Delta S_1^std)/R), quad quad E_"app" = E_("a,2") - Delta H_1^std.  $
+$ A_"app" =2 A_2 exp((Delta S_1^std)/R), quad quad E_"app" = E_("a,2") - Delta H_1^std.  $
 Since the activation energy for an adsorption process is almost always zero,#footnote[For an exception, refer to K. Carsch et al., "Multi-Gas Adsorption with Single-Site Cooperativity in a Metal--Organic Framework", _Science_ (in press).] this implies that $E_"app" approx -Delta H_1^std$. In other words, the apparent activation energy for this reaction is approximately the negative value of the heat of adsorption of CO on the surface (when $K_1 p_ce("CO")>>1$).
-#footnote[For example, refer to M. Boudart, "Heterogeneous Molecular Catalysis: Oxymoron or Reality?", _J. Mol. Catal. A: Chem._, 120, 271 (1997).]
+#footnote[For example, refer to M. Boudart, "Heterogeneous Molecular Catalysis: Oxymoron or Reality?", _J. Mol. Catal. A: Chem._, 120, 271 (1997). Boudart was a faculty member in the Department of Chemical Engineering at Princeton University from 1954--1961.]
 
 === Non-LHHW Kinetics
 
@@ -2201,8 +2204,8 @@ ce("2 H^*") + ce("C2H2") &fwdArrow(k_"H") ce("C2H4") + ce("2 *"), quad &sigma_2=
 $
 We will assume that the hydrogenation reaction is rate-limiting, such that the #ce("H2") adsorption is quasi-equilibrated.
 
-Here, we have a reaction between an adsorbed species and gas-phase species (i.e. an Eley--Rideal mechanism, as previously discussed in #ref(<reaction-with-unbound-species>)), which is slightly different than the typical LHHW kinetics since the reaction is not taking place solely on the surface.
-#footnote[For a critical discussion on the viability of Eley--Rideal mechanisms, refer to D. Kiani, I.E. Wachs, "Practical Considerations for Understanding Surface Reaction Mechanisms Involved in Heterogeneous Catalysis" _ACS Catal._, 14, 16770--16784 (2024).]
+Here, we have a reaction between an adsorbed species and a loosely physisorbed species (i.e. an Eley--Rideal mechanism, as previously discussed in #ref(<reaction-with-unbound-species>)), which is slightly different than the typical LHHW kinetics since the reaction is not taking place solely on the surface.
+#footnote[For a critical discussion on the viability of Eley--Rideal mechanisms compared to Langmuir--Rideal mechanisms, refer to D. Kiani, I.E. Wachs, "Practical Considerations for Understanding Surface Reaction Mechanisms Involved in Heterogeneous Catalysis" _ACS Catal._, 14, 16770--16784 (2024).]
 The rate of product formation, which is identical to the rate of reaction here, is given by
 $ r = (k'_"H" conc("H^*")^2 p_ce("C2H2"))/(conc("*")_0). $
 To get rid of the intermediate in our rate expression, we can invoke the quasi-equilibrium assumption on the first step to arrive at
@@ -2240,7 +2243,7 @@ Additionally, through the Hinshelwood assumption, the adsorbates are assumed to 
 A clear demonstration of a failure mode with the LHHW model is related to a phenomenon described as "jamming."
 Consider the dissociative chemisorption reaction
 $ ce("H2 + 2 *") fwdArrow(k) ce("2 H^*"). $
-We know that the turnover frequency for this process can be given by
+We know that the site-normalized rate for this process can be given by
 $ r' = k' p_ce("H2") theta_ce("*")^2. $<eq:jam_rate>
 If we treat adsorption as occurring on a 2D lattice, it is possible to have a "jammed lattice" at sufficiently high values of $theta_"H"$ like that shown in #ref(<fig:jammed>).
 Here, there are still vacant sites available (i.e. $theta_*>0$).
@@ -2256,7 +2259,7 @@ Clearly, the Langmuir--Hinshelwood formalism cannot reproduce the jammed state w
 Of course, this does not necessarily mean a LHHW model cannot yield a sufficiently good fit to experimentally obtained kinetic data.
 Rather, it means that the interpretability may be limited.
 We refer the interested reader to external sources for further discussions about potential improvements to the LHHW formalism, particularly as it relates to dealing with site ensembles.
-#footnote[N.K. Razdan, A. Bhan, "Kinetic description of site ensembles on catalytic surfaces", _Proc. Natl. Acad. Sci. U.S.A._, 118, e2019055118 (2021). Also refer to N.K. Razdan, A. Bhan, "Catalytic site ensembles: A context to reexamine the Langmuir--Hinshelwood kinetic description", _J. Catal._, 404, 726--744 (2021). ]
+#footnote[N.K. Razdan, A. Bhan, "Kinetic description of site ensembles on catalytic surfaces", _Proc. Natl. Acad. Sci. U.S.A._, 118, e2019055118 (2021). Also refer to N.K. Razdan, A. Bhan, "Catalytic site ensembles: A context to reexamine the Langmuir--Hinshelwood kinetic description", _J. Catal._, 404, 726--744 (2021).]
 
 = Chemical Reactor Archetypes
 
