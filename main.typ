@@ -505,7 +505,7 @@ where $delta$ is the change in stoichiometric numbers given simply as $delta equ
 If ideal conditions can be assumed, then $gamma_j=1$ and $K_ce("a") = K_"C"\/(C^std)^delta$.
 In this form, we can see that the units are appropriately addressed even though concentrations are used directly.
 The same procedure can, of course, be done for partial pressures as well:
-$ K_ce("a") =  product_j (f_j/p^std)^(nu_j) = product_j (phi_j y_j p/p^std)^(nu_j) = K_"p"/(p^std)^delta product_j (phi_j y_j )^(nu_j), $<eq:k_a_k_p_relationship>
+$ K_ce("a") =  product_j (f_j/p^std)^(nu_j) = product_j (phi_j y_j p/p^std)^(nu_j) = K_"p"/(p^std)^delta product_j phi_j^(nu_j), $<eq:k_a_k_p_relationship>
 
 
 In most practical cases, the deviations from non-ideality can be assumed to be small, and we will oftentimes use concentrations or partial pressures in place of activities.
@@ -606,7 +606,7 @@ If we differentiate #ref(<eq:vant_hoff_single>) with respect to $T$ and make the
 $ (dif ln(K_ce("a")))/(dif T) = (Delta H^std)/(R T^2), $<eq:vant_hoff>
 which is the formal definition of the van~'t Hoff equation.
 
-If we consider a reversible elementary reaction of the form #ce("A<-->B") with $K_"a" = K_"C" = k^+\/k^-$, then we can rewrite #ref(<eq:vant_hoff>) using as 
+If we consider a reversible elementary reaction of the form #ce("A<-->B") with no thermodynamic non-idealities such that $K_"a" = K_"C" = k^+\/k^-$, then we can rewrite #ref(<eq:vant_hoff>) using as 
 $ (dif ln(k^(+) \/ k^(-))) / (dif T) = (Delta H^std) / (R T^2) $
 and thereby
 $ (dif ln(k^(+))) / (dif T) - (dif ln(k^(-))) / (dif T) = (Delta H^std) / (R T^2). $
@@ -677,9 +677,9 @@ Reaction orders will appear as zero if the concentration of a particular species
 
 A few questions may naturally arise when thinking about how one would measure the rate parameters in practice.
 Perhaps the most notable to ask is: how can one monitor the change in rate as a function of only _one_ reactant's concentration?
-Arguably the most natural solution is to carry out the reaction such that all reactants except one are present in large excess, such that the reaction appears 0#super[th] order in every species except the one for which the reation order is desired.
+Arguably the most natural solution is to carry out the reaction such that all reactants except one are present in large excess, such that the reaction appears 0#super[th] order in every species except the one for which the reaction order is desired.
 
-Beyond relying on reagents being in exccess, one can carry out an _initial rate_ experiment, where you measure $r$ at extremely small values of $t$.
+Beyond relying on reagents being in excess, one can carry out an _initial rate_ experiment, where you measure $r$ at extremely small values of $t$.
 Consider $conc("A")_0$ and $conc("B")_0$ as the initial concentration of reactants.
 For $t approx 0$, the concentrations of the reactants remain largely unchanged from their initial values: $conc("A") approx conc("A")_0$ and $conc("B") approx conc("B")_0$.
 This allows you to measure changes in $r$ with respect to isolated changes in either $conc("A")$ or $conc("B")$ by modifying the initial concentration of either species.
@@ -715,7 +715,7 @@ $ ln(conc("A") / conc("A")_0)  = -k t. $<eq:first_order_irreversible>
 We can simplify #ref(<eq:first_order_irreversible>) to
 $ conc("A") = conc("A")_0 e^(-k t). $<eq:first_order_irreversible2>
 From #ref(<eq:first_order_irreversible2>), a plot of $ln(conc("A"))$ vs. $t$ from the experimental data should be linear for a first-order, irreversible reaction.
-#footnote[If experimental data is collected and found to fit well to #ref(<eq:first_order_irreversible2>), it would be consistent with a first-order, irreversible reaction but that does not guarantee that it is truly first order nor does it imply that the reaction is necessarily elementary. For instance, a true rate law of $r = k conc("A") conc("B")$ might appear first order in #conc("A") if #conc("B") is in great excesss, such that only changes in $conc("A")$ appreciably alter the rate. This would be more precisely referred to as pseudo-first order in #conc("A").]
+#footnote[If experimental data is collected and found to fit well to #ref(<eq:first_order_irreversible2>), it would be consistent with a first-order, irreversible reaction but that does not guarantee that it is truly first order nor does it imply that the reaction is necessarily elementary. For instance, a true rate law of $r = k conc("A") conc("B")$ might appear first order in #conc("A") if #conc("B") is in great excess, such that only changes in $conc("A")$ appreciably alter the rate. This would be more precisely referred to as pseudo-first order in #conc("A").]
 As a sanity check, we can also see that when $t->infinity$, $[A] -> 0$ as expected.
 
 
@@ -922,8 +922,8 @@ It turns out that this method of determining primary from non-primary products c
 This analysis is referred to as the first-rank delplot.
 If the $y$-axis intercept of the first-rank delplot is finite, the product is primary.
 If the $y$-axis intercept is zero, the product is not primary.
-In practice, one may not know the ranks in advance, such that creating a plot of $Y_ce("P")\/X_ce("A")$ vs. $X_ce("A")$ would be insightful for determing product ranks.
-A sketch of the first-rank deplots for the aforementioned reaction networks is shown in #ref(<fig:first_delplot>).
+In practice, one may not know the ranks in advance, such that creating a plot of $Y_ce("P")\/X_ce("A")$ vs. $X_ce("A")$ would be insightful for determining product ranks.
+A sketch of the first-rank delplots for the aforementioned reaction networks is shown in #ref(<fig:first_delplot>).
 
 #figure(image("figures/first_delplot.svg",width:33%),caption:[First-rank delplot for the reaction scheme #ce("A->B->C"), #ce("A->D"). Note that the finite $y$-intercept values points to a primary product, whereas a zero $y$-intercept value points to a higher rank product.])<fig:first_delplot>
 
@@ -979,7 +979,7 @@ Since B and D are primary products from a first-order reaction, a second-rank de
 Since C is a secondary product from a reaction order greater than one, a second-rank delplot has a zero $y$-intercept since the species rank (two) is equal to the rank of the delplot (two), as is evident from the second row and third column of #ref(<table:delplot>).
 If the reaction producing C were first order, then the intercept would instead be finite.
 
-As for the third-rank delplot, we again refer to #ref(<table:delplot>) and find that B and D diverge since their rank (two) is less than the rank of the deplot (three).
+As for the third-rank delplot, we again refer to #ref(<table:delplot>) and find that B and D diverge since their rank (two) is less than the rank of the delplot (three).
 If the reaction producing C were first order, we would expect the intercept to diverge for this species too.
 However, this is not what we observe.
 Since the reaction producing C is greater than first order, C happens to have a finite intercept instead.
@@ -1243,8 +1243,9 @@ $ E_ce("a")  = E_0 + alpha Delta H^std, $
 where this relationship can be thought of as being largely empirical, and $0<= alpha <=1$.
 Nonetheless, it implies that---for a given reaction family---the more endothermic (or less exothermic) the reaction enthalpy is, the higher the activation barrier tends to be for that process.
 The $Delta H^std$ values can be obtained from experiments or tabulated thermochemical data,
-#footnote[Recall from thermodynamics that $Delta H^std$, which is the enthalpy change associated with the reaction, can be calculated from the tabulated standard state enthalpy of formation, $Delta_"f" H_(j)^std$, for each species via $Delta H^std = sum_j nu_j Delta_"f" H_(j)^std$.]
+#footnote[Recall from thermodynamics that $Delta H^std$, which is the enthalpy change associated with the reaction, can be calculated from the tabulated standard-state enthalpy of formation, $Delta_"f" H_(j)^std$, for each species via $Delta H^std = sum_j nu_j Delta_"f" H_(j)^std$. Since $Delta H^std$ is a state function, if formation enthalpy data is not directly available, bond-dissociation enthalpies can also be used to compute $Delta H^std$ by constructing a net equation matching the reaction of interest.]
 such as the CRC Handbook of Chemistry and Physics.
+
 
 === Quasi-Equilibrium Approximation
 
@@ -1374,7 +1375,7 @@ This exercise is simply to demonstrate that a rate-determining step cannot neces
 
 == Enzyme Kinetics <enzyme-kinetics>
 
-=== Michaelis--Mentin Kinetics <michaelis-menten-kinetics>
+=== Michaelis--Menten Kinetics <michaelis-menten-kinetics>
 
 The reactions described in this chapter are entirely general.
 In fact, the same governing principles can be used to understand biological reactions like those occurring in the presence of enzymes.
@@ -1426,7 +1427,7 @@ In practice, one can typically assume that the concentration of substrate is muc
 This is known as the free ligand approximation.
 We have also assumed in this derivation that the production of P is irreversible. One can re-derive $r_"P"$ with reversible product binding in precisely the same way; the math simply gets slightly messier.
 
-=== Linearizing the Michelis--Menten Equation <linearizing-the-michaelis-menten-equation>
+=== Linearizing the Michaelis--Menten Equation <linearizing-the-michaelis-menten-equation>
 
 When analyzing experimental data, it is oftentimes useful to fit to a linear equation.
 This can be achieved quite readily be rearranging the Michaelis--Menten equation to
@@ -2230,8 +2231,8 @@ This is essentially a simplified form of the analogous LHHW model.
 ==== Mars--van Krevelen Mechanism
 
 In some cases, the catalytic adsorption sites can be part of the catalytic cycle itself, such as the formation of a high-energy defect site or vacancy in the lattice that is reversibly formed and consumed during the course of the reaction.
-This is known as a Mars--van Krevlen cycle.
-There are several references that can be read to learn more about the derivation of the rate in a Mars--van Krevlen mechanism.
+This is known as a Mars--van Krevelen cycle.
+There are several references that can be read to learn more about the derivation of the rate in a Mars--van Krevelen mechanism.
 We refrain from doing so here simply as a matter of brevity and, in part, because it has been shown that the original derivation has numerous logical inconsistencies that are difficult to justify.
 #footnote[M.A. Vannice, "An analysis of the Mars–van Krevelen rate expression", _Catal. Today_, 123, 18--22 (2007).]
 
@@ -2872,7 +2873,7 @@ $ (dif H)/(dif t) - V (dif P)/(dif t) = accent(m,dot)_0 accent(H,hat)_0 - accent
 ==== Summary
 
 Once again, many simplifications can be made.
-The energy balance under steady-state conditoins, constant $hat(C)_"P"$, constant $P$, and $dot(v)_0=dot(v)_1$ is shown below:
+The energy balance under steady-state conditions, constant $hat(C)_"P"$, constant $P$, and $dot(v)_0=dot(v)_1$ is shown below:
 
 $ 0 = - sum_i Delta H_("rxn",i) r_i + (rho hat(C)_("P") (T_0 - T))/tau + accent(Q,dot)/V quad ("steady-state") $<eq:cstr_steady_energy>
 
@@ -3089,7 +3090,7 @@ In these equations, $sigma$ represents the rotational symmetry number and is det
 For instance, $sigma$ is a value of 2 for linear molecules with a center of symmetry (e.g. a homonuclear diatomic molecule) and 1 for linear molecules without a center of symmetry (e.g. a heteronuclear diatomic molecule).
 #footnote[
 The NIST Chemistry WebBook has a variety of physical properties, including rotational symmetry numbers of common molecules.
-The rotational properties (e.g. moments of inertia, rotational symmetry number) of common molecules can be found on the NIST Chemsitry WebBook as well NIST's Computational Chemistry Comparison and Benchmark DataBase, among other resources.
+The rotational properties (e.g. moments of inertia, rotational symmetry number) of common molecules can be found on the NIST Chemistry WebBook as well NIST's Computational Chemistry Comparison and Benchmark DataBase, among other resources.
 ]
 
 The quantity $I$ is the moment of inertia, and for the nonlinear case they are the three principal moments.
@@ -3114,7 +3115,7 @@ As such, we will factor out the $E_"ZPVE"$ term.
 The corresponding vibrational partition function is now
 $ z_"vib" = product_(i=1)^N 1/(1 - exp(- (h nu_i)/(k_"B" T))) = product_(i=1)^N 1/(1 - exp(- (Theta_(i,"vib"))/T)), quad Theta_(i,"vib") equiv (h nu_i)/k_"B" $<eq:vib_part>
 where $Theta_(i,"vib")$ is known as the characteristic vibrational temperature.
-The vibrational frequencies of common molecules can be found on the NIST Chemsitry WebBook as well NIST's Computational Chemistry Comparison and Benchmark DataBase, among other resources.
+The vibrational frequencies of common molecules can be found on the NIST Chemistry WebBook as well NIST's Computational Chemistry Comparison and Benchmark DataBase, among other resources.
 
 The number of vibrational modes for a molecule can be determined as follows:
 $
