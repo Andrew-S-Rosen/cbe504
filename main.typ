@@ -1,4 +1,5 @@
 // Notes for next time
+// Stop doing non-isothermal reactors. Then move material balances to the beginning.
 // Improve section on empirical isotherm models
 // Replace 4.3.2 Stoichiometric Numbers with 5.3 from Davis and Davis instead
 // In-class exams
@@ -58,7 +59,7 @@
   paper-size:"us-letter",
   preface: [#align(center + horizon)[Copyright #sym.copyright 2025 Andrew S. Rosen.
 
-Licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License (the"License"). You may not use this file except in compliance with the License. You may obtain a copy of the License at https://creativecommons.org/licenses/by-nc-sa/4.0.
+Licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License (the "License"). You may not use this file except in compliance with the License. You may obtain a copy of the License at https://creativecommons.org/licenses/by-nc-sa/4.0.
 
 A.S.R acknowledges Prof. Aditya Bhan, Prof. Linda Broadbelt, Prof. Justin Notestein, and Prof. Neil Razdan for inspiration on various topics covered within this course.
 Most importantly, A.S.R. is grateful for the thoughtful questions, comments, and corrections provided by his students who have helped shaped this text during their journey.
@@ -642,15 +643,15 @@ In contrast, we refer to the rate parameters of a true elementary step as the "i
 The intrinsic activation energy differs from the apparent activation energy in that the latter may represent the kinetics of many constituent reactions.
 The linearized form of the Arrhenius equation is so widely used that the definition of the apparent activation energy is generally derived from this functional form by taking the partial derivative with respect to temperature:
 $ ln(k_"app") &= - E_"app"/R (1/T) + ln(A_"app") $
-$ (diff ln(k_"app"))/(diff T) &= -E_"app"/R (diff (1/T))/(diff T) $<eq:apparent_e_a_pre>
-$ (diff ln(k_"app"))/(diff T) &=  E_"app"/(R T^2) $
-$ E_"app" &equiv R T^2 (diff ln(k_"app"))/(diff T). $<eq:apparent_e_a>
+$ (partial ln(k_"app"))/(partial T) &= -E_"app"/R (partial (1/T))/(partial T) $<eq:apparent_e_a_pre>
+$ (partial ln(k_"app"))/(partial T) &=  E_"app"/(R T^2) $
+$ E_"app" &equiv R T^2 (partial ln(k_"app"))/(partial T). $<eq:apparent_e_a>
 
 Here, the "app" subscript is referring to an apparent (i.e. observed) rate constant determined from experiments, meaning that it may describe a net, non-elementary reaction consisting of several elementary steps.
 Strictly speaking, we have also implicitly assumed that $A_"app"$ is not a function of temperature, which is a reasonable approximation over a relatively small temperature range.
 
 While #ref(<eq:apparent_e_a>) is the formal definition of the apparent activation energy,
-#footnote[Some references define the apparent activation energy as $E_"app" equiv R T^2 (diff ln(r))/(diff T)$. However, this is only strictly true if one is not varying the reactant concentrations. Similarly, one should exercise caution when interpreting rate law parameters from a plot of $ln(r)$ vs. $1\/T$ if the reactant concentrations may vary.]
+#footnote[Some references define the apparent activation energy as $E_"app" equiv R T^2 (partial ln(r))/(partial T)$. However, this is only strictly true if one is not varying the reactant concentrations. Similarly, one should exercise caution when interpreting rate law parameters from a plot of $ln(r)$ vs. $1\/T$ if the reactant concentrations may vary.]
 we should not lose sight of the fact that we can still use a plot of $ln(k_"app")$ vs. $1\/T$ to back out $E_"app"$ over a particular range of temperatures.
 In fact, that is precisely what #ref(<eq:apparent_e_a_pre>) is stating: take the instantaneous slope at a particular value of $T$ in a plot of $ln(k_"app")$ vs. $1\/T$, and you will get a value of $-E_"app"\/R$.
 
@@ -666,7 +667,7 @@ Provided we are not simultaneously modifying $k_"app"$, we can determine $alpha$
 #footnote[This assumes that $beta$ does not change with #conc("A"), which is a fairly reasonable assumption unless changes in #conc("A") alter the mechanism.]
 Similarly, we can determine $beta$ by holding $conc("A")$ fixed and finding the slope in a plot of $ln(r)$ vs. $ln(conc("B"))$.
 In differential form, this can be expressed as follows:
-$ alpha_(j,"app") equiv  [A_j] ((diff ln(r))/(diff [A_j]))_([A_k], k!=j). $<eq:apparent_order>
+$ alpha_(j,"app") equiv  [A_j] ((partial ln(r))/(partial [A_j]))_([A_k], k!=j). $<eq:apparent_order>
 Given enough rate and concentration data, one can also carry out a multiple linear regression analysis to determine the apparent reaction orders if preferred.
 
 It is worth noting, as we will demonstrate throughout this course, that apparent reaction orders of non-elementary reactions may be non-integer or even negative.
@@ -1930,15 +1931,15 @@ $ r_"P" approx k_2 conc("*")_0 quad (K_"ads" p_ce("A")>>1). $
 In this scenario, the apparent reaction order of A is 0 because virtually all the sites are covered in A, such that slight variations in A do not have an appreciable influence on the overall rate.
 We know the apparent reaction order is 0 in A from the fact that there is no $p_ce("A")$ term in the simplified rate law.
 We can also see this from the formal definition given in #ref(<eq:apparent_order>):
-$ alpha_("A,app") = p_ce("A") ((diff ln(r))/(diff p_ce("A")))_(p_i,i!=j) = p_ce("A") (diff ln(k_2 conc("*")_0))/(diff p_ce("A")) = 0. $
+$ alpha_("A,app") = p_ce("A") ((partial ln(r))/(partial p_ce("A")))_(p_i,i!=j) = p_ce("A") (partial ln(k_2 conc("*")_0))/(partial p_ce("A")) = 0. $
 
 In this scenario, the apparent rate constant would simply be
 #footnote[Since $conc("*")_0$ is typically constant, you could in principle lump this term into $k_"app"$. However, since we typically treat $k$ as being independent of concentrations, it is left out here.]
 $ k_"app" = k_2. $
 By extension, the apparent activation energy is the activation energy associated with $k_2$, which we will denote $E_("a,2")$.
 This too can be derived from the formal definition given in #ref(<eq:apparent_e_a>):
-$ E_"app" = R T^2 (diff ln(k_"app"))/(diff T) $
-$ E_"app" = R T^2 (diff ln(A_2 e^(- E_("a,2")/(R T))))/(diff T) = R T^2 (diff (A_2 - E_("a,2")/(R T)))/(diff T) = R T^2 (E_("a,2")/(R T^2)) = E_("a,2"). $
+$ E_"app" = R T^2 (partial ln(k_"app"))/(partial T) $
+$ E_"app" = R T^2 (partial ln(A_2 e^(- E_("a,2")/(R T))))/(partial T) = R T^2 (partial (A_2 - E_("a,2")/(R T)))/(partial T) = R T^2 (E_("a,2")/(R T^2)) = E_("a,2"). $
 
 ===== Weak Adsorption
 
@@ -2270,7 +2271,7 @@ Previously, we have discussed the kinetics of chemical reactions without discuss
 Here, we provide a brief overview of different reactor technologies operating isothermally.
 Later in the course, we will revisit the reactor design equations to account for non-isothermal effects. 
 
-== The Mass Balance <conservation-of-mass>
+== The Material Balance <conservation-of-mass>
 
 In order to understand the behavior of chemical reactors, we must start with the key governing principle behind it all: the conservation of mass.
 Consider a chemical reaction taking place inside a reactor, and focus on a unit volume within the reactor itself.
@@ -2285,7 +2286,7 @@ This is depicted in #ref(<fig:reactor_volume>).
 
 
 Written out, this can be described as follows:
-$ ("rate of accumulation of" A_j) = ("rate of flow of" A_j"in") - ("rate of flow of" A_j"out")\ + ("rate of generation of" A_j) $
+$ ("rate of accumulation of" A_j) = ("rate of flow of" A_j "in") - ("rate of flow of" A_j "out")\ + ("rate of generation of" A_j) $
 or mathematically as
 $ (dif n_j) / (dif t) = dot(n)_(j,0) - dot(n)_(j,1) + G_j, $
 where $dif n_j \/ dif t$ is the rate of change of species $A_j$ in the control volume (i.e. its rate of accumulation), $dot(n)_(j,0)$ is the molar flow rate of species $A_j$ into the volume, $dot(n)_(j,1)$ is the molar flow rate of species $A_j$ out of the volume at time $t$, and $G_j$ is the rate of generation of species $A_j$ from chemical reactions.
@@ -2347,7 +2348,7 @@ The analytical solution of this form is typically known as a design equation sin
 
 == Plug-Flow Reactors <plug-flow-reactors>
 
-A plug-flow reactor (PFR) is a tubular reactor that that has a continuous, flowing stream containing the reaction mixture, as shown in #ref(<fig:pfr>).
+A plug-flow reactor (PFR) is a tubular reactor that has a continuous, flowing stream containing the reaction mixture, as shown in #ref(<fig:pfr>).
 The PFR is particularly common when measuring the kinetics of gas-phase reactions.
 Generally, solid-catalyzed vapor-phase reactions---as are common in the field of heterogeneous catalysis---are carried out with what is known as a packed-bed reactor (PBR), which in an idealized case can be modeled as a PFR.
 
@@ -2378,10 +2379,10 @@ For instance, if we revisit the derivation of the concentration profile for an i
   caption:[Schematic of a packed-bed reactor. To ensure a consistent concentration profile in the axial dimension, the cylindrical tube needs to be filled with catalyst pellets.]
 )<fig:pbr>
 
-If the reaction is carried out with a heterogeneous catalyst (as is the case with a packed-bed reactor like that shown in #ref(<fig:pbr>)), then the catalyst mass $W$ may be used in place of $V$ to normalize the rate, such that #ref(<eq:pfr>) becomes
+If the reaction is carried out with a heterogeneous catalyst (as is the case with a PBR like that shown in #ref(<fig:pbr>)), then the catalyst mass $W$ may be used in place of $V$ to normalize the rate, such that #ref(<eq:pfr>) becomes
 $ r_j = (dif dot(n)_j) / (dif W), $<eq:pbr>
 where $r_j$ now has units of mol/(kg-catalyst #sym.dot s).
-Similarly, $tau$ will be more naturally described by $tau equiv W\/dot(m)$, where $dot(m)$ is the mass flow rate.#footnote[Note, however, that $tau$ in this case technically has units of kg-catalyst/(kg-fluid #sym.dot s). In order to make the units of #ref(<eq:pfr_mass_balance>) work out, $[A_j]$ should have units of mol/kg-fluid, which can be related to the typical units of mol/volume through a factor of $1\/rho$.]
+Similarly, $tau$ will be more naturally described by $tau equiv W\/dot(m)$, where $dot(m)$ is the mass flow rate.#footnote[Note, however, that $tau$ in this case technically has units of (kg-catalyst #sym.dot s)/(kg-fluid). In order to make the units of #ref(<eq:pfr_mass_balance>) work out, $[A_j]$ should have units of mol/kg-fluid, which can be related to the typical units of mol/volume through a factor of $rho$.]
 
 
 == Continuous-Stirred Tank Reactors <continuous-stirred-tank-reactors>
@@ -2418,7 +2419,7 @@ Unlike the batch reactor and PFR, the CSTR design equation contains no derivativ
 
 === Example
 
-Consider the first-order, elementary reaction given by
+Consider the first-order, elementary reaction in a CSTR given by
 $ ce("A->B"). $
 The fractional conversion of A is given by
 $ X_ce("A") = 1- conc("A")/conc("A")_0 $
@@ -2510,7 +2511,7 @@ $ accent(W,dot)_"f" = dot(v)_0 P_0 -dot(v)_1 P_1, $
 where $dot(v)$ is the volumetric flow rate and $P$ is the pressure of the stream.
 We can define $accent(W,dot)_"b"$ in differential form as
 $ accent(W,dot)_"b" = -P (dif V)/(dif t), $
-where $P$ here is the pressure within the reactor.
+where $P$ here is the pressure within the reactor.#footnote[Even though the volume may be changing, the pressure is assumed to be constant. To rationalize this, think about it as the volume of the system is changing in order to maintain the pressure at a constant value.]
 
 With this, we will rewrite $accent(W,dot)$ as 
 $ accent(W,dot) = dot(v)_0 P_0 -dot(v)_1 P_1 + accent(W,dot)_"s" -P (dif V)/(dif t), $
@@ -2522,13 +2523,13 @@ $ (dif E)/(dif t) = accent(m,dot)_0 accent(E,hat)_0 - accent(m,dot)_1 accent(E,h
 === Energy Terms
 
 The total energy of the system is the sum of all internal, potential, and kinetic energies:
-$ E = U +"KE" +"PE". $
+$ E equiv U +"KE" +"PE". $
 We can rewrite our energy balance derivative as
 $ (dif (U +"KE" +"PE"))/(dif t) = accent(m,dot)_0 (accent(U,hat)_0 + accent("KE",hat)_0 + accent("PE",hat)_0) - accent(m,dot)_1 (accent(U,hat)_1 + accent("KE",hat)_1 + accent("PE",hat)_1) \ + accent(Q,dot) + dot(v)_0 P_0 -dot(v)_1 P_1 + accent(W,dot)_"s" - P (dif V)/(dif t). $
 
 We will now take advantage of the definition of enthalpy, $H equiv U + P V$, to say that
 $
-accent(H,hat) =  accent(U,hat) + (P dot(V))/dot(m).
+accent(H,hat) =  accent(U,hat) + (P dot(v))/dot(m).
 $
 Now we can state
 $
@@ -2570,22 +2571,22 @@ $
 (dif H)/(dif t) - V (dif P)/(dif t) &= accent(Q,dot).
 $<eq:dH_batch>
 For single-phase systems, we can write the total differential of the enthalpy as 
-$ dif H = ((diff H)/(diff T))_(P,n_j) dif T + ((diff H)/(diff P))_(T,n_j) dif P + sum_j ((diff H)/(diff n_j))_(T,p,n_(k!=j)) dif n_j. $
+$ dif H = ((partial H)/(partial T))_(P,n_j) dif T + ((partial H)/(partial P))_(T,n_j) dif P + sum_j ((partial H)/(partial n_j))_(T,p,n_(k!=j)) dif n_j. $
 The left-most derivative is the definition of the constant-pressure heat capacity:
-$ C_"P" equiv ((diff H)/(diff T))_(P,n_j). $
+$ C_"P" equiv ((partial H)/(partial T))_(P,n_j). $
 
 Now for the second term.
 We will take advantage of a few thermodynamic relationships here without re-deriving them from scratch.
 Namely,
-$ ((diff H)/(diff P))_(T,n_j)  = V - T ((diff V)/(diff T))_(P,n_j) = V -  T alpha V = V(1-alpha T), $
+$ ((partial H)/(partial P))_(T,n_j)  = V - T ((partial V)/(partial T))_(P,n_j) = V -  T alpha V = V(1-alpha T), $
 where $alpha$ is the coefficient of thermal expansion defined as
-$ alpha equiv 1/V ((diff V)/(diff T))_(P,n_j). $
+$ alpha equiv 1/V ((partial V)/(partial T))_(P,n_j). $
 
 Finally, the last term to deal with is quite simple.
 It is simply a restatement of the sum of partial molar enthalpies,
 #footnote[Note that a partial molar property is not the same as a molar property. The partial molar enthalpy describes the enthalpy change as a function of the moles of a specific species, whereas the molar enthalpy is an averaged change over all species in the system. This also implies that $sum_j n_j macron(H)_j = H$.]
 $accent(H,macron)_j$, where
-$ accent(H,macron)_j equiv ((diff H)/(diff n_j))_(T,p,n_(k!=j)). $
+$ accent(H,macron)_j equiv ((partial H)/(partial n_j))_(T,p,n_(k!=j)). $
 
 Now to put it all together:
 $ dif H =  m hat(C)_"P" dif T +  V (1-alpha T) dif P+ sum_j accent(H,macron)_j dif n_j. $<eq:dif_h>
@@ -2602,7 +2603,7 @@ It may seem like this is still a mess (and to some degree, it is), but we have m
 Every algebraic term in this expression is something that can be experimentally measured or computed, although the trickiest term here is probably the summation term.
 We will take care of that now.
 
-We know from the mass balance on the batch reactor (#ref(<eq:batch_rate>)) that
+We know from the material balance on the batch reactor (#ref(<eq:batch_rate>)) that
 $ (dif n_j)/(dif t) = r_j V. $<eq:batch_r_j>
 For reasons that will become clearer shortly, we can use #ref(<eq:sum_stoichs_rate>) to restate the above expression as
 $ (dif n_j)/(dif t) = V sum_i nu_(i,j) r_i, $ <eq:dn_j_batch>
@@ -2619,7 +2620,7 @@ $ m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) &= - V sum_i Delta H_
 Should we wish to consider a net reaction rather than individual elementary reactions, the above expression can also be rewritten without the summation as
 $ m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) &= - Delta H_("rxn") r V + accent(Q,dot). $<eq:batch_nonisothermal>
 
-There we have it---a compact expression for the energy balance in a single-phase batch reactor, which can be coupled with the mass balance to better understand reaction progress.
+There we have it---a compact expression for the energy balance in a single-phase batch reactor, which can be coupled with the material balance to better understand reaction progress.
 
 === Simplifying Cases
 
@@ -2628,12 +2629,12 @@ There we have it---a compact expression for the energy balance in a single-phase
 
 From here, there are many simplifications that can be made depending on the system under investigation:
 
-$ m hat(C)_"P" (dif T)/(dif t) = - V sum_i Delta H_("rxn",i) r_i + accent(Q,dot) quad ("constant" P"or incompressible")
+$ m hat(C)_"P" (dif T)/(dif t) = - V sum_i Delta H_("rxn",i) r_i + accent(Q,dot) quad ("constant" P "or incompressible")
 $<eq:batch_energy_incompressible>
 $ m hat(C)_"V" (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) + alpha/kappa T  Delta V_("rxn",i))  r_i   + accent(Q,dot) quad ("constant" V) $
 $ m hat(C)_"V" (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) + R T sum_j nu_(i,j))  r_i   + accent(Q,dot) quad ("constant" V,"ideal gas") $<eq:batch_energy_balance_ideal>
 
-We will not discuss these derivations at length in class for the sake of time and because the mathematical gymnastics is essentially the same, but the full details are reproduced below for clarity.
+The full details on how to derive the above expressions are provided below for clarity.
 
 ==== Constant Pressure or Incompressible Fluid
 
@@ -2653,28 +2654,28 @@ Here, we will derive an expression for a constant volume reactor that may be a b
 To start, we will return to our energy balance in #ref(<eq:energy_balance_batch_general>) from before we made any assumptions about constant pressure:
 $ m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) = - V sum_i Delta H_("rxn",i) r_i + accent(Q,dot). $
 Then we will write out the total derivative for pressure in terms of $T$, $V$, and $n_j$ as
-$ dif P = ((diff P)/(diff T))_(V,n_j) dif T + ((diff P)/(diff V))_(T,n_j) dif V + sum_j ((diff P)/(diff n_j))_(T,V,n_(k!=j)) dif n_j. $
+$ dif P = ((partial P)/(partial T))_(V,n_j) dif T + ((partial P)/(partial V))_(T,n_j) dif V + sum_j ((partial P)/(partial n_j))_(T,V,n_(k!=j)) dif n_j. $
 For constant pressure, we have $dif V =0$, such that
-$ dif P = ((diff P)/(diff T))_(V,n_j) dif T + sum_j ((diff P)/(diff n_j))_(T,V,n_(k!=j)) dif n_j. $
+$ dif P = ((partial P)/(partial T))_(V,n_j) dif T + sum_j ((partial P)/(partial n_j))_(T,V,n_(k!=j)) dif n_j. $
 Plugging this into our energy balance yields
 $
-m hat(C)_"P" (dif T)/(dif t) - alpha T V (((diff P)/(diff T))_(V,n_j) dif T + sum_j ((diff P)/(diff n_j))_(T,V,n_(k!=j)) dif n_j)/(dif t) &= -  V sum_i Delta H_("rxn",i) r_i + accent(Q,dot)\
-(dif T)/(dif t) (m hat(C)_"P"  - alpha T V ((diff P)/(diff T))_(V,n_j) ) - alpha T V sum_j  ((diff P)/(diff n_j))_(T,V,n_(k!=j)) (dif n_j)/(dif t)   &= -  V sum_i Delta H_("rxn",i) r_i + accent(Q,dot).
+m hat(C)_"P" (dif T)/(dif t) - alpha T V (((partial P)/(partial T))_(V,n_j) dif T + sum_j ((partial P)/(partial n_j))_(T,V,n_(k!=j)) dif n_j)/(dif t) &= -  V sum_i Delta H_("rxn",i) r_i + accent(Q,dot)\
+(dif T)/(dif t) (m hat(C)_"P"  - alpha T V ((partial P)/(partial T))_(V,n_j) ) - alpha T V sum_j  ((partial P)/(partial n_j))_(T,V,n_(k!=j)) (dif n_j)/(dif t)   &= -  V sum_i Delta H_("rxn",i) r_i + accent(Q,dot).
 $
 From here, we will take advantage of a known thermodynamic relationship:
-$ m hat(C)_"P" = m hat(C)_"V" + alpha T V ((diff P)/(diff T))_(V,n_j). $
+$ m hat(C)_"P" = m hat(C)_"V" + alpha T V ((partial P)/(partial T))_(V,n_j). $
 Plugging this into our expression, we have
-$ m hat(C)_"V" (dif T)/(dif t) - alpha T V sum_j  ((diff P)/(diff n_j))_(T,V,n_(k!=j)) (dif n_j)/(dif t)   &= - V sum_i Delta H_("rxn",i) Delta r_i + accent(Q,dot). $
+$ m hat(C)_"V" (dif T)/(dif t) - alpha T V sum_j  ((partial P)/(partial n_j))_(T,V,n_(k!=j)) (dif n_j)/(dif t)   &= - V sum_i Delta H_("rxn",i) Delta r_i + accent(Q,dot). $
 
 This is much simpler, but there is still more to be done here.
 We will take advantage of another thermodynamic relationship
-$ ((diff P)/(diff n_j))_(T,V,n_(k != j)) = accent(V,macron)_j / (V kappa), $
+$ ((partial P)/(partial n_j))_(T,V,n_(k != j)) = accent(V,macron)_j / (V kappa), $
 where $accent(V,macron)_j$ is the partial molar volume of species $j$ and $kappa$ is the isothermal compressibility defined as
-$ kappa equiv -1/V ((diff V)/(diff P))_(T,n_j). $
+$ kappa equiv -1/V ((partial V)/(partial P))_(T,n_j). $
 Plugging this in, we get
 $ m hat(C)_"V" (dif T)/(dif t) - alpha/kappa T  sum_j accent(V,macron)_j  (dif n_j)/(dif t)   &= - V sum_i Delta H_("rxn",i) Delta r_i + accent(Q,dot). $
 
-Plugging in our expression for $dif n_j\/dif t$ from the mass balance in #ref(<eq:batch_r_j>) further simplifies things to
+Plugging in our expression for $dif n_j\/dif t$ from the material balance in #ref(<eq:batch_r_j>) further simplifies things to
 $ m hat(C)_"V" (dif T)/(dif t) - alpha/kappa T V sum_j accent(V,macron)_j sum_i nu_(i,j) r_i  = -  V sum_i Delta H_("rxn",i) Delta r_i + accent(Q,dot), $
 which we again re-group as
 $ m hat(C)_"V" (dif T)/(dif t) - alpha/kappa T V sum_i (sum_j accent(V,macron)_j  nu_(i,j)) r_i  = -  V sum_i Delta H_("rxn",i) Delta r_i + accent(Q,dot). $
@@ -2692,8 +2693,8 @@ $ m hat(C)_"V" (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) + alpha/kappa T  
 _This derivation is not covered in class but is included here for the interested reader._
 
 If our reacting mixture is an ideal gas mixture, we can make some further simplifications by noting that
-$ kappa equiv - 1/V ((diff V)/(diff P))_(T,n_j) = -1/V (diff((n R T)/P)/(diff P))_(T,n_j) = 1/V (n R T)/P^2 = 1/V (P V)/P^2 =1/P  $
-$ alpha equiv (1/V) ((diff V)/(diff T))_(P,n_j) = 1/V (diff((n R T)/P)/(diff T))_(P,n_j) = 1/V (n R)/P = 1/V (P V)/(P T) = 1/T. $
+$ kappa equiv - 1/V ((partial V)/(partial P))_(T,n_j) = -1/V (diff((n R T)/P)/(partial P))_(T,n_j) = 1/V (n R T)/P^2 = 1/V (P V)/P^2 =1/P  $
+$ alpha equiv (1/V) ((partial V)/(partial T))_(P,n_j) = 1/V (diff((n R T)/P)/(partial T))_(P,n_j) = 1/V (n R)/P = 1/V (P V)/(P T) = 1/T. $
 Plugging these expressions into #ref(<eq:constant_volume_energy>) yields
 $ m hat(C)_"V" (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) +  P  Delta V_("rxn",i))  r_i   + accent(Q,dot). $
 Finally, we can note that 
@@ -2790,7 +2791,7 @@ We know that $r = - dif conc("A")\/dif t$, such that
 $ m hat(C)_"P" (dif T)/(dif t) = Delta H_("rxn") (dif conc("A"))/(dif t) V.
 $
 Now we can integrate to find an expression for the temperature change
-$ integral_(T_1)^(T_2)  dif T = integral_(conc("A")_0)^(conc("A")) (Delta H_("rxn")V)/(m hat(C)_"P") dif conc("A")',
+$ integral_(T_1)^(T_2)  dif T' = integral_(conc("A")_0)^(conc("A")) (Delta H_("rxn")V)/(m hat(C)_"P") dif conc("A")',
 $
 which simplifies to
 $ Delta T = (Delta H_("rxn")V (conc("A")-conc("A")_0))/(m hat(C)_"P").
@@ -2819,7 +2820,7 @@ Additionally, the more exothermic the reaction is and the more A that gets consu
 
 === Energy Balance
 
-For the sake of brevity, we will forego a detailed derivation of the PFR energy, especially since it is very similar to that of the batch reactor (as was observed for the mass balance).
+For the sake of brevity, we will forego a detailed derivation of the PFR energy, especially since it is very similar to that of the batch reactor (as was observed for the material balance).
 #footnote[For a thorough derivation of reactor energy balances, refer to Chapter 6 of _Chemical Reactor Analysis and Design Fundamentals_ by J.B. Rawlings and J.G. Ekerdt.]
 Instead, in analogy with the single-phase batch reactor energy balance given by #ref(<eq:batch_nonisothermal>), we will simply state that single-phase PFR energy balance is
 $ rho hat(C)_"P" (dif T)/(dif tau) + (1-alpha T) (dif P)/(dif tau) = - sum_i Delta H_("rxn",i) r_i + dot(Q)/V. $
@@ -2836,14 +2837,14 @@ $ rho u hat(C)_"P" (dif T)/(dif z) + u (dif P)/(dif z) = - sum_i Delta H_("rxn",
 
 We will now revisit the example carried out with the batch reactor in #ref(<example-batch-energy>) with a few modifications.
 Consider again the gas-phase, elementary reaction of 
-$ ce("A") fwdArrow(k) ce("2B") $
+$ ce("A") fwdArrow(k) ce("2B"), $
 where A and B behave ideally.
 We now decide to consider a PFR with constant cross-sectional area (rather than a batch reactor with constant volume).
 Once again, we will not make any assumptions about isothermal operation.
 As was shown in the batch reactor example, the temperature will continually rise if $Delta H_"rxn"<0$ and $dot(Q) = 0$, so we will make one other modification: we will surround the PFR with a heat transfer fluid that allows for the possibility of heat transfer between the reacting fluid and its surroundings (i.e. $dot(Q) != 0$).
 As a reminder, the goal will be to write a coupled set of mass and energy balances for the PFR.
 
-Qualitatively similar to the batch reactor example, from the PFR mass balance given by #ref(<eq:pfr_mass_balance>) and the simplified ideal gas energy balance given by #ref(<eq:pfr_nonisothermal_ideal>), we can state
+Qualitatively similar to the batch reactor example, from the PFR material balance given by #ref(<eq:pfr_mass_balance>) and the simplified ideal gas energy balance given by #ref(<eq:pfr_nonisothermal_ideal>), we can state
 $ (dif conc("A"))/(dif tau) = -k conc("A"), quad rho hat(C)_"P" (dif T)/(dif tau) = -Delta H_"rxn" k conc("A") + dot(Q)/V. $
 The $dot(Q)$ term is what can prevent a continual increase in temperature over the reactor length for an exothermic reaction, provided $dot(Q)<0$.
 The highest temperature position along the reactor length is termed the hot spot.
@@ -2862,7 +2863,7 @@ This not a niche point---such considerations are just as relevant for even the s
 
 To derive the expression for the CSTR energy balance, we start again from the general energy balance given by #ref(<eq:general_energy_balance>), neglecting the kinetic and potential energy terms as well as the shaft work:
 $ (dif U)/(dif t) = accent(m,dot)_0 accent(H,hat)_0 - accent(m,dot) accent(H,hat) + accent(Q,dot) - P (dif V)/(dif t). $
-Here, we are omitting the"1" subscript because, for a well-mixed reactor, the outlet stream properties are assumed to be the same as the reactor contents.
+Here, we are omitting the "1" subscript because, for a well-mixed reactor, the outlet stream properties are assumed to be the same as the reactor contents.
 Using the definition of enthalpy from #ref(<eq:enthalpy_definition>), we can restate the above expression as
 $ (dif H)/(dif t) - V (dif P)/(dif t) - P (dif V)/(dif t) = accent(m,dot)_0 accent(H,hat)_0 - accent(m,dot) accent(H,hat) + accent(Q,dot) - P (dif V)/(dif t), $
 which simplifies to
@@ -2889,11 +2890,11 @@ $ (m hat(C)_"P" dif T + V(1- alpha T) dif P + sum_j accent(H,macron)_j dif n_j)/
 which simplifies to
 $ m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) + sum_j accent(H,macron)_j (dif n_j)/(dif t) = accent(m,dot)_0 accent(H,hat)_0 - accent(m,dot) accent(H,hat) + accent(Q,dot). $ <eq:cstr_energy_unsteady>
 
-We know from the mass balance on the CSTR (#ref(<eq:cstr_unsteady>)) that 
+We know from the material balance on the CSTR (#ref(<eq:cstr_unsteady>)) that 
 $ (dif n_j)/(dif t) = dot(n)_(j,0) - dot(n)_(j) + r_j V, $
 or equivalently by invoking #ref(<eq:sum_stoichs_rate>):
 $ (dif n_j)/(dif t) = dot(n)_(j,0) - dot(n)_(j) + V sum_i nu_(i,j) r_i. $
-Plugging the CSTR mass balance into #ref(<eq:cstr_energy_unsteady>) and following the same approach taken in the batch reactor derivation from #ref(<batch-general>) results in 
+Plugging the CSTR material balance into #ref(<eq:cstr_energy_unsteady>) and following the same approach taken in the batch reactor derivation from #ref(<batch-general>) results in 
 $ m hat(C)_"P" (dif T)/(dif t) - alpha T V (dif P)/(dif t) = - V sum_i Delta H_("rxn",i) r_i + sum_j dot(n)_(j,0) (accent(H,macron)_(j,0) - accent(H,macron)_(j)) + accent(Q,dot). $
 
 From here, we can start applying our typical approximations.
@@ -2924,7 +2925,7 @@ $ ce("A") fwdArrow(k) ce("B"). $
 
 The energy balance can be concisely written using #ref(<eq:cstr_steady_energy>) to state
 $  0 = - Delta H_("rxn") r  + (rho hat(C)_("P") (T_0 - T))/tau. $
-Similarly, we know from #ref(<eq:cstr_mass_balance>) that the mass balance for the CSTR can be written as
+Similarly, we know from #ref(<eq:cstr_mass_balance>) that the material balance for the CSTR can be written as
 $ r_ce("A") = (conc("A") - conc("A")_0)/tau $
 for a constant volumetric flow rate.
 Substituting in our elementary rate law of $r = - r_ce("A") =  k conc("A")$, we arrive at the following system of equations:
@@ -2949,7 +2950,7 @@ Before discussing transition state theory, it is worthwhile to briefly introduce
 
 Perhaps the simplest model one can consider is collision theory.
 Consider the reaction of two species, such as #ce("A + B -> C").
-Here, we will treat each species as a hard sphere, wherein a reaction only occurs if the two spheres becomes closer than some distance $sigma_ce("AB")$.
+Here, we will treat each species as a hard sphere, wherein a reaction only occurs if the center of the two spheres become closer than some distance $sigma_ce("AB")$.
 The natural definition for $sigma_ce("AB")$ is
 $ sigma_ce("AB") = 1/2 (sigma_ce("A") + sigma_ce("B")), $
 where $sigma_ce("A")$ is the diameter of #ce("A"), and $sigma_ce("B")$ is the diameter of B.
@@ -2962,16 +2963,16 @@ Namely, the attractive region is completely ignored.
 )<fig:hard_sphere>
 
 
-Assuming that #ce("A") and #ce("B") follow a Maxwell--Boltzmann distribution of speeds at a given temperature $T$, the frequency of collisions that occur at a given temperature can be shown to be#footnote[For additional details refer to"Chapter 2: The Mechanisms of Chemical Reactions in Homogeneous Phases" in J.B. Butt, _Reaction Kinetics and Reactor Design_ (2#super[nd] ed.).]
-$ macron(Z) = N_ce("A") n_ce("B") sigma_ce("AB")^2 ((8 pi k_"B" T)/(mu_ce("AB")))^(1/2), $<eq:z_collision>
-where $N_ce("A")$ and $n_ce("B")$ are the number density of A and B (i.e. units of $"particle/m"^(3)$), and $mu_ce("AB")$ is the so-called reduced mass of the #ce("AB") system given as
+Assuming that #ce("A") and #ce("B") follow a Maxwell--Boltzmann distribution of speeds at a given temperature $T$, the frequency of collisions that occur at a given temperature can be shown to be#footnote[For additional details refer to "Chapter 2: The Mechanisms of Chemical Reactions in Homogeneous Phases" in J.B. Butt, _Reaction Kinetics and Reactor Design_ (2#super[nd] ed.).]
+$ macron(Z) = n_ce("A") n_ce("B") sigma_ce("AB")^2 ((8 pi k_"B" T)/(mu_ce("AB")))^(1/2), $<eq:z_collision>
+where $n_ce("A")$ and $n_ce("B")$ are the number density of A and B (i.e. units of $"particle/m"^(3)$), and $mu_ce("AB")$ is the so-called reduced mass of the #ce("AB") system given as
 $ mu_ce("AB") equiv (m_ce("A") m_ce("B"))/(m_ce("A") + m_ce("B")), $
 where $m_ce("A")$ and $m_ce("B")$ represent the mass of species A and B, respectively.
 
 The typical units of $macron(Z)$ are $"collisions"\/"cm"^(3)"-s"$ (i.e. the number of collisions to occur in a given volume over a given time period).
 When scaled up from number of collisions to a mole of collisions via Avogadro's constant, $macron(Z)$ can be naively thought of as a rate of reaction, as is clear from dimensional analysis alone.
 In doing so, one might say that
-$ macron(Z) = r = k N_ce("A") n_ce("B") $
+$ macron(Z) = r = k n_ce("A") n_ce("B") $
 for an elementary, bimolecular reaction of A and B.
 By inspection of #ref(<eq:z_collision>), this would imply that
 $ k = sigma_ce("AB")^2 ((8 pi k_"B" T)/(mu_ce("AB")))^(1/2). $
@@ -2981,10 +2982,9 @@ The missing link is that molecules only react if they collide with sufficient en
 This allows us to refine our expression for $k$ to instead be given as
 $ k = sigma_ce("AB")^2 ((8 pi k_"B" T)/(mu_ce("AB")))^(1/2) exp(-eta^"*"/(k_"B" T)). $<eq:collision_refined>
 Typically, a multiplicative factor of $p$ is also included, which is known as the steric factor and is essentially a catch-all term for all additional factors that influence the collision--reaction probability beyond those associated with the energy.
-In general, $p<=1$.
 
 With #ref(<eq:collision_refined>), we have an exponential energy dependence, but we also see that there is a $sqrt(T)$ term as well.
-The $sqrt(T)$ dependence in what is effectively the pre-exponential factor provides some justification for #ref(<eq:arrhenius_mod>) where we wrote the modified form of the Arrhenius equation with a factor $A' T^n$ (here, $n=0.5$).
+The $sqrt(T)$ dependence in what is---effectively---the pre-exponential factor provides some justification for #ref(<eq:arrhenius_mod>) where we wrote the modified form of the Arrhenius equation with a factor $A' T^n$ (here, $n=0.5$).
 In general, while collision theory clearly has major limitations, it can be fairly reasonable in describing reactions with very low values of $eta^"*"$ like radical reactions.
 
 == Setting the Stage for Transition State Theory <setting-the-stage>
@@ -3003,15 +3003,16 @@ $
 ce("A + B") eqArrow(K_"C"^ddagger) ce("AB")^ddagger --> ce("P").
 $<eq:tst_rxn>
 The net rate of reaction can be represented as
-$ r = nu^ddagger conc("AB")^ddagger, $<eq:nu_dagger>
-where $nu^ddagger$ is the frequency (in units of $"time"^(-1)$) associated with the vibrational mode along the reaction coordinate that connects the transition state to the product and $conc("AB")^ddagger$ is the concentration of the transition state species.
+$ r = k^ddagger conc("AB")^ddagger, $
+where $k^ddagger$ is the rate constant for producing #ce("P") from the activated complex and $conc("AB")^ddagger$ is the concentration of the transition state species. In practice, we will denote $k^ddagger$ as $nu^ddagger$ because it is a frequency (in units of $"time"^(-1)$) that arises from the vibrational mode along the reaction coordinate that connects the transition state to the product, such that
+$ r = nu^ddagger conc("AB")^ddagger. $<eq:nu_dagger>
 
 The concentration of the transition state species, however, is not an observable quantity since the transition state itself is fleeting.
 To take care of this challenge, we assume that the transition state is in quasi-equilibrium with the reactants, such that we can return to the definition of the equilibrium constant: 
 $ K_"C"^ddagger = conc("AB")^ddagger / (conc("A") conc("B")). $<eq:tst_kc>
 Solving for $conc("AB")^ddagger$, we can arrive at
 $ r = nu^ddagger K_"C"^ddagger conc("A") conc("B"). $<eq:tst_rate_kc>
-This should look like strikingly familiar in an abstract kind of way.
+This should look strikingly familiar in an abstract kind of way.
 If we compare this to our typical rate expression for a elementary reaction, $r = k conc("A") conc("B")$, it becomes self-evident that
 $ k = nu^ddagger K_"C"^ddagger. $<eq:k_nu>
 The question now is where to go from here.
@@ -3033,10 +3034,10 @@ $
 K_("a")^ddagger equiv (a^ddagger)/(a_ce("A") a_ce("B")) = (Z^ddagger) / (Z_ce("A") Z_ce("B")) exp(- (Delta E_0^ddagger)/(R T)),
 $<eq:k_a_partition_functions>
 as we will justify shortly.
-Here, $E_0^ddagger$ is the energy difference between the transition state and reactants at 0 K (i.e. the sum of electronic energy and zero-point energy contributions).
+Here, $Delta E_0^ddagger$ is the energy difference between the transition state and reactants at 0 K (i.e. the sum of electronic energy and zero-point energy contributions).
 We will adopt this convention for the partition functions going forward.
 
-Before proceeding, recall that we have been dealing with concentrations and $K_"C"^ddagger$.
+Before proceeding, recall that we were dealing with concentrations and $K_"C"^ddagger$ in #ref(<eq:k_nu>).
 As such, we will instead use
 $ K_"C"^ddagger = 1/(N_ce("A")^(1-m)) (Z'^ddagger) / (Z'_ce("A") Z'_ce("B")) exp(- (Delta E_0^ddagger)/(R T)), $<eq:k_c_partition_functions>
 where $Z'_j$ is the molecular partition function per unit volume for the $j$-th species.
@@ -3060,10 +3061,10 @@ These individual contributions can also be used to define the translational, rot
 
 We now must define each of the partition functions.
 The translational partition function derived from the particle-in-a-box model in quantum chemistry is typically approximated as
-$ z_"trans" = V ((2 pi m k_"B" T)/h^2)^(3/2) = V / Lambda^3, quad Lambda equiv h / sqrt(2 pi m k_"B" T) $<eq:trans_function>
+$ z_"trans" = V ((2 pi m k_"B" T)/h^2)^(3/2) = V / Lambda^3, quad Lambda equiv h / sqrt(2 pi m k_"B" T), $<eq:trans_function>
 where $V$ is a reference volume containing the molecule,
 #footnote[
-  The presence of $V$ is what ultimately dictates the need for choosing a"standard-state" for the sake of internal consistency.
+  The presence of $V$ is what ultimately dictates the need for choosing a "standard-state" for the sake of internal consistency.
   If one is considering a gas, it is typically more natural to replace $V$ with pressure $P$, such as by invoking the ideal gas law of the form $V = k_"B" T\/P$ and taking the pressure to be a standard-state value of 1 bar.
 ]
 $m$ is the mass of the molecule, $h$ is Planck's constant (units of J-s), and $Lambda$ is the thermal de Broglie wavelength.
@@ -3095,11 +3096,11 @@ The rotational properties (e.g. moments of inertia, rotational symmetry number) 
 
 The quantity $I$ is the moment of inertia, and for the nonlinear case they are the three principal moments.
 The moment of inertia is defined as
-$ I equiv sum_i m_i r_(i)^2 $
+$ I equiv sum_i m_i r_(i)^2, $
 where $M_i$ is the mass of atom (not species) $i$ and $r_i$ is the distance of atom $i$ to the axis of rotation.
 #footnote[For a linear, symmetric molecule like #ce("CO2") (i.e. #ce("O=C=O")), the moment of inertia is $I= M_ce("O") d_ce("CO")^2 + M_ce("O") d_ce("CO")^2= 2 M_ce("O") d_ce("CO")^2$, where $M_ce("O")$ is the mass of the oxygen atom and $d_ce("CO")$ is the C--O bond length. This is because the central atom is the location of the axis of rotation.]
 For a diatomic molecule, the moment of inertia can be conveniently expressed as
-$ I = (M_1 M_2)/(M_1 + M_2) d^2 = mu d^2, quad mu equiv (M_1 M_2)/(M_1 + M_2) $
+$ I = (M_1 M_2)/(M_1 + M_2) d^2 = mu d^2, quad mu equiv (M_1 M_2)/(M_1 + M_2), $
 where $mu$ is called the reduced mass and $d$ is the distance between the two atoms.
 
 === Vibrational Partition Function
@@ -3113,9 +3114,13 @@ Here, $N$ is the number of vibrational modes, $nu_i$ is the $i$-th vibrational f
 However, as mentioned earlier, the convention is such that the molecular partition functions will be defined based on their lowest-energy states as the point of reference.
 As such, we will factor out the $E_"ZPVE"$ term.
 The corresponding vibrational partition function is now
-$ z_"vib" = product_(i=1)^N 1/(1 - exp(- (h nu_i)/(k_"B" T))) = product_(i=1)^N 1/(1 - exp(- (Theta_(i,"vib"))/T)), quad Theta_(i,"vib") equiv (h nu_i)/k_"B" $<eq:vib_part>
+$ z_"vib" = product_(i=1)^N 1/(1 - exp(- (h nu_i)/(k_"B" T))) = product_(i=1)^N 1/(1 - exp(- (Theta_(i,"vib"))/T)), quad Theta_(i,"vib") equiv (h nu_i)/k_"B", $<eq:vib_part>
 where $Theta_(i,"vib")$ is known as the characteristic vibrational temperature.
 The vibrational frequencies of common molecules can be found on the NIST Chemistry WebBook as well NIST's Computational Chemistry Comparison and Benchmark DataBase, among other resources.
+
+#tip[
+  The $exp(-E_"ZPVE"\/R T)$ term that we have factored out from $z_"vib"$ does not disappear entirely. Instead, it ends up being included as part of the $exp(- Delta E_0^ddagger\/R T)$ term in our expression for $K_"C"^ddagger$ given by #ref(<eq:k_c_partition_functions>). Since $E_0 equiv E_"el" + E_"ZPVE"$, the latter term comes from the modified vibrational partition function.
+]
 
 The number of vibrational modes for a molecule can be determined as follows:
 $
@@ -3128,22 +3133,18 @@ For transition states, one of the $N$ vibrational modes is imaginary. As we will
 Additionally, for a molecule adsorbed on a surface, the number of vibrational modes will be given by $N = 3N_0$ instead.
 #footnote[For an isolated molecule with $N_0$ atoms, there are three degrees of freedom per atom (one for each dimension) for a total of $3N_0$ degrees of freedom. However, three of these $3N_0$ degrees of freedom are associated with translational motion in $x$, $y$, and $z$. Two (linear) or three (non-linear) of these degrees of freedom are due to rotation. This is the cause of the $3N_0-5$ or $3N_0-6$ vibrational modes for a free molecule. If the molecule is strongly adsorbed, the translational and rotational degrees of freedom are not present, and all $3N_0$ degrees of freedom are associated with vibrations.]
 
-Finally, it should be noted that vibrational spectra are normally reported in units of wavenumbers ($"cm"^(-1)$), $accent(nu,tilde)$.
+Finally, it should be noted that vibrational spectra are normally reported in units of wavenumbers ($"cm"^(-1)$), denoted $accent(nu,tilde)$.
 To convert a wavenumber to a frequency, the following relationship can be used: $nu_i = c accent(nu,tilde)_i$, where $c$ is the speed of light.
-
-#tip[
-  The $exp(-E_"ZPVE"\/R T)$ term that we have factored out from $z_"vib"$ does not disappear entirely. Instead, it ends up being included as part of the $exp(- Delta E_0^ddagger\/R T)$ term in our expression for $K_"C"^ddagger$ given by #ref(<eq:k_c_partition_functions>). Since $E_0 equiv E_"el" + E_"ZPVE"$, the latter term comes from the modified vibrational partition function.
-]
 
 === Electronic Partition Function
 
 Finally, the electronic partition function is given by
-$ z_"el" = sum_i g_i exp(- epsilon_i / (k_"B" T) ) $
+$ z_"el" = sum_i g_i exp(- epsilon_i / (k_"B" T) ), $
 where $g_i$ is the degeneracy of electronic state $i$ and $epsilon_i$ is the electronic energy for electronic state $i$.
 As with the vibrational partition function, we will adopt the ground-state (i.e. $i=0$) as the zero-energy reference point, such that all values of $epsilon_i$ are taken with respect to $epsilon_0$.
 For the sake of simplicity, excited states (i.e. $i>=1$) are often assumed to have a negligible contribution to $z_"el"$ due to their high energies with respect to the ground state.
 
-By ignoring the contribution from excited states and setting $epsilon_0=0"eV"$ by convention, we can simply state
+By ignoring the contribution from excited states and setting $epsilon_0=0$ eV by convention, we can simply state
 $ z_"el" = g_0. $
 
 The ground-state degeneracy, $g_0$, is analogous to the spin multiplicity, defined as the number of unpaired electrons plus one.
@@ -3153,7 +3154,7 @@ However, this is not universally true.
 For instance, the ground-state magnetic configuration of #ce("O2") has two unpaired electrons, such that $g_0=3$ (i.e. the ground-state is a triplet).
 
 #tip[
-  The $exp(-epsilon_0\/R T)$ term that we have factored out from $z_"el"$ does not disappear entirely. Instead, it ends up being included as part of the $exp(- Delta E_0^ddagger\/R T)$ term in our expression for $K_"C"^ddagger$ given by #ref(<eq:k_c_partition_functions>). Since $E_0 equiv E_"el" + E_"ZPVE"$, the former term comes from the modified electronic partition function (where $E_"el" = epsilon_0$).
+  The $exp(-epsilon_0\/R T)$ term that we have factored out from $z_"el"$ by setting $epsilon_0 = 0$ eV does not disappear entirely. Instead, it ends up being included as part of the $exp(- Delta E_0^ddagger\/R T)$ term in our expression for $K_"C"^ddagger$ given by #ref(<eq:k_c_partition_functions>). Since $E_0 equiv E_"el" + E_"ZPVE"$, the former term comes from the modified electronic partition function (where $E_"el" = epsilon_0$).
 ]
 
 == Rates of Reaction from Partition Functions <rates-of-reaction>
@@ -3175,11 +3176,11 @@ We are still left to figure out what do we do about $nu^ddagger$.
 The motion along the minimum energy pathway through the transition state is along a vibrational mode representing the bond-breaking or bond-making event.
 As alluded to previously, $nu^ddagger$ can be thought of as a vibrational frequency describing this event.
 We know from the definition of the vibrational partition function (#ref(<eq:vib_part>)) that a single vibrational mode can be expressed as
-$ z_"vib, TS mode" = (1 - exp(- (h nu^ddagger) / (k_"B" T)))^(-1) approx (k_"B"T) / (h nu^ddagger). $
+$ z_"vib, TS mode" = (1 - exp(- (h nu^ddagger) / (k_"B" T)))^(-1) approx (k_"B"T) / (h nu^ddagger), $
 where the latter approximation is made because $h nu^ddagger << k_"B" T$ in most cases since $nu^ddagger$ is usually not particularly large.
 #footnote[We have implicitly taken advantage of the Taylor expansion $exp(x) = 1 + x + x^2\/2! + x^3\/3! + ...$ and dropped the second-order and higher terms.]
 With some rearrangement, we have
-$ nu^ddagger = (k_"B" T) / h 1/ z_"vib, TS mode" $
+$ nu^ddagger = (k_"B" T) / h 1/ z_"vib, TS mode". $
 This expression implies that we can state $nu^ddagger = k_"B" T \/ h$, provided that we remove this one vibrational mode associated with the transition state in the expression for $z_"vib"^ddagger$.
 As for which mode to remove, it is the one and only imaginary mode associated with the transition state.
 
@@ -3224,7 +3225,7 @@ We recall that the translational partition function (per unit volume) is given b
 $ z'_"trans" = ((2 pi m k_"B" T)/h^2)^(3/2). $
 We have everything we need to compute the translational partition functions, so we will do just that:
 $ (z'_"trans")^ddagger/((z'_"trans")_ce("F^∙") (z'_"trans")_ce("H2")) = ((2 pi m_ce("TS") k_"B" T)/h^2)^(3/2)/(((2 pi m_ce("F") k_"B" T)/h^2)^(3/2) ((2 pi m_ce("H2") k_"B" T)/h^2)^(3/2)) \
-= (9.407 times 10^28 1/"L")/((8.086 times 10^28 1/"L")(2.795 times 10^27 1/"L")) = 4.162 times 10^(-28)"L", $
+= (9.407 times 10^28 1/"L")/((8.086 times 10^28 1/"L")(2.795 times 10^27 1/"L")) = 4.162 times 10^(-28) "L", $
 where $m_ce("TS") = m_ce("F") + m_ce("H2")$, which can be readily obtained from the periodic table.
 Note that the magnitudes of the translational partition functions are quite large.
 This is expected.
@@ -3238,17 +3239,17 @@ To summarize, the only non-tabulated information needed when calculating the tra
 
 Now we shall move onto the rotational partition function.
 We recall that
-$ z_"rot" &= 1 quad ("monatomic")\
-z_"rot" &= (8 pi^2 I k_"B" T) / (sigma h^2) quad ("linear"). $
+$ z_"rot" &= 1 quad &("monatomic")\
+z_"rot" &= (8 pi^2 I k_"B" T) / (sigma h^2) quad &("linear"). $
 
-F is monatomic, so $(z_"rot")_ce("F^∙")=1$. That is easy enough.
+The F atom is monatomic, so $(z_"rot")_ce("F^∙")=1$. That is easy enough.
 
-By definition, #ce("H2") like any diatomic species is linear.
+By definition, #ce("H2")---like any diatomic species---is linear.
 The moment of inertia can then be given as 
 $ I_ce("H2") = (M_ce("H") M_ce("H"))/(M_ce("H")+ M_ce("H")) d_ce("H--H")^2 = 4.583 times 10^(-48)" kg m"^2, $
 where $M_ce("H")$ is the mass of the hydrogen atom, and $d_ce("H--H")$ is the H---H bond distance in #ce("H2"), which is known to be 0.74 Å.
 We also know or can readily look up that $ sigma_ce("H2") = 2. $
-The reason for this value is that #ce("H2") has two indistinguishable orientations through symmetrical rotations: rotation by 0#sym.degree (i.e. no rotation), and rotation by 180#sym.degree.
+The reason for this value is that #ce("H2") has two indistinguishable orientations through symmetrical rotations: rotation by 0#sym.degree (i.e. no rotation) and rotation by 180#sym.degree.
 This gives us all the information we need to calculate $(z_"rot")_ce("H2")$.
 
 For the transition state, we first need to know if it is linear or non-linear.
@@ -3335,8 +3336,8 @@ Now we need the $Delta E_0^ddagger$ term.
 Strictly speaking, $Delta E_0^ddagger$ can only be computed from quantum-mechanical calculations.
 Here, we will assume it is $Delta E_0^ddagger$ = 6 kJ/mol.
 This gets us
-$ k_"TST" = 1.05 times 10^(10)"L/mol-s". $
-For comparison, the NIST Kinetics Database indicates that $k = 1.4 times 10^(10)"L/mol-s"$ for this reaction (at 298 K, which is close enough to our 300 K scenario).
+$ k_"TST" = 1.05 times 10^(10) "L/mol-s". $
+For comparison, the NIST Kinetics Database indicates that $k = 1.4 times 10^(10)$ L/mol-s for this reaction (at 298 K, which is close enough to our 300 K scenario).
 Usually, transition state theory will over-estimate the actual value of $k$, although in this case it does not.
 The reason for $k_"TST"$ being less than $k$ here is likely just due to underlying errors in the quantum-chemical calculations.
 
@@ -3563,7 +3564,7 @@ A equiv (k_"B" T)/h C^std^(1-m) exp((Delta S^std^ddagger)/R) (gamma_ce("A") gamm
 $
 With this, we can write our usual rate equation of the form $r = k conc("A") conc("B")$ in terms of enthalpies and entropies of activation.
 
-An Arrhenius-type plot can also be made of $ln(k/T)$ vs. $1\/T$ to back out $Delta H^std^ddagger$ from the slope and $Delta S^std^ddagger$ from the $y$-intercept, at least in the ideal case where the activity coefficients can be neglected:
+An Arrhenius-type plot can also be made of $ln(k\/T)$ vs. $1\/T$ to back out $Delta H^std^ddagger$ from the slope and $Delta S^std^ddagger$ from the $y$-intercept, at least in the ideal case where the activity coefficients can be neglected:
 $ ln(k/T) = -(Delta H^std^ddagger)/R dot.op 1/T + [ln(k_"B"/h C^std^(1-m)) + (Delta S^std^ddagger)/R]. $
 The linearized expression is only useful if one can assume that $Delta H^std^ddagger$ and $Delta S^std^ddagger$ are reasonably independent of temperature.
 
@@ -3583,17 +3584,17 @@ Unless otherwise stated, we will assume that $kappa = 1$.
 We can also ask how the apparent activation energy commonly reported in experiments from an Arrhenius plot is related to $Delta H^std^ddagger$.
 First, we recall the definition of the apparent activation energy from #ref(<eq:apparent_e_a>):
 $
-E_ce("a") = R T^2 (diff ln(k))/(diff T).
+E_ce("a") = R T^2 (partial ln(k))/(partial T).
 $
 Plugging in $k$ from the Eyring equation into the above expression yields
 $
-E_ce("a") &= R T^2 (diff ln((k_"B"T )/h C^std^(1-m) exp(( Delta S^std^ddagger) / R) exp(-(Delta H^std^ddagger) / (R T)))) / (diff T)
+E_ce("a") &= R T^2 (partial ln((k_"B"T )/h C^std^(1-m) exp(( Delta S^std^ddagger) / R) exp(-(Delta H^std^ddagger) / (R T)))) / (partial T)
 $
-$ E_ce("a") &= R T^2 ((diff ln((k_"B")/h))/(diff T) + (diff ln(T))/(diff T) + (diff ln(C^std^(1-m)))/(diff T) + (diff ((Delta S^std^ddagger)/R))/(diff T) - (diff ((Delta H^std^ddagger)/(R T)))/(diff T)) $
+$ E_ce("a") &= R T^2 ((partial ln((k_"B")/h))/(partial T) + (partial ln(T))/(partial T) + (partial ln(C^std^(1-m)))/(partial T) + (partial ((Delta S^std^ddagger)/R))/(partial T) - (partial ((Delta H^std^ddagger)/(R T)))/(partial T)) $
 $
-E_ce("a") &= R T^2 (0 + 1/T + (diff ln(C^std^(1-m)))/(diff T) + 0 + (Delta H^std^ddagger) / (R T^2)) $
+E_ce("a") &= R T^2 (0 + 1/T + (partial ln(C^std^(1-m)))/(partial T) + 0 + (Delta H^std^ddagger) / (R T^2)) $
 $
-E_ce("a") &= Delta H^std^ddagger + R T + R T^2((diff ln(C^std^(1-m)))/(diff T)).
+E_ce("a") &= Delta H^std^ddagger + R T + R T^2((partial ln(C^std^(1-m)))/(partial T)).
 $
 At this point, we pause.
 What we do from here depends on what system we are studying.
@@ -3603,7 +3604,7 @@ $ E_ce("a") = Delta H^std^ddagger + R T quad ("solids, liquids"). $
 However, if we are studying a gas, it is more natural to use a standard-state pressure $P^std$.
 Assuming the ideal gas law holds, we instead have
 $
-E_ce("a") &= Delta H^std^ddagger + R T + R T^2 ((diff ln((P^std / (R T))^(1-m)))/(diff T))
+E_ce("a") &= Delta H^std^ddagger + R T + R T^2 ((partial ln((P^std / (R T))^(1-m)))/(partial T))
 $
 $
 E_ce("a") &= Delta H^std^ddagger + R T + R T^2 ((m-1)/T)
