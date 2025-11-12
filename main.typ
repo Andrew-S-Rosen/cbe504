@@ -493,20 +493,20 @@ As such, state thermodynamic properties taken from a database may need to be adj
 
 #ref(<eq:activity1>) and #ref(<eq:activity2>) allow us to rationalize the unit conundrum of #ref(<eq:kc>) and #ref(<eq:kp>): there is a "missing" standard state reference that will ensure the equilibrium constant is unitless, even in the case of an ideal mixture.
 To tie it all together, we can state
-$ K_ce("a") equiv product_(j) a_(j)^(nu_j). $<eq:activity_eq>
+$ K_"acid" equiv product_(j) a_(j)^(nu_j). $<eq:activity_eq>
 As such, we have
-$ Delta G^std = -R T ln(K_ce("a")), $
+$ Delta G^std = -R T ln(K_"acid"), $
 where the equilibrium constant must formally be based on activities.
-Note that $K_ce("a")$ is specifically for the temperature that corresponds to $Delta G^std$, which may differ from the temperature of the reaction under investigation.
-We will address the temperature-dependence of $K_ce("a")$ when we introduce the van~'t Hoff equation shortly.
+Note that $K_"acid"$ is specifically for the temperature that corresponds to $Delta G^std$, which may differ from the temperature of the reaction under investigation.
+We will address the temperature-dependence of $K_"acid"$ when we introduce the van~'t Hoff equation shortly.
 
-For the sake of convenience later on, we can also now interrelate $K_"C"$ and $K_ce("a")$ by plugging in #ref(<eq:activity1>) into #ref(<eq:activity_eq>) and then invoking the definition of $K_"C"$:
-$ K_ce("a") =  product_j (gamma_j [A_j]/C^std)^(nu_j) = K_"C"/(C^std)^delta product_j gamma_(j)^(nu_j), $<eq:k_a_k_c_relationship>
+For the sake of convenience later on, we can also now interrelate $K_"C"$ and $K_"acid"$ by plugging in #ref(<eq:activity1>) into #ref(<eq:activity_eq>) and then invoking the definition of $K_"C"$:
+$ K_"acid" =  product_j (gamma_j [A_j]/C^std)^(nu_j) = K_"C"/(C^std)^delta product_j gamma_(j)^(nu_j), $<eq:k_a_k_c_relationship>
 where $delta$ is the change in stoichiometric numbers given simply as $delta equiv sum_(j) nu_j$.
-If ideal conditions can be assumed, then $gamma_j=1$ and $K_ce("a") = K_"C"\/(C^std)^delta$.
+If ideal conditions can be assumed, then $gamma_j=1$ and $K_"acid" = K_"C"\/(C^std)^delta$.
 In this form, we can see that the units are appropriately addressed even though concentrations are used directly.
 The same procedure can, of course, be done for partial pressures as well:
-$ K_ce("a") =  product_j (f_j/p^std)^(nu_j) = product_j (phi_j y_j p/p^std)^(nu_j) = K_"p"/(p^std)^delta product_j phi_j^(nu_j), $<eq:k_a_k_p_relationship>
+$ K_"acid" =  product_j (f_j/p^std)^(nu_j) = product_j (phi_j y_j p/p^std)^(nu_j) = K_"p"/(p^std)^delta product_j phi_j^(nu_j), $<eq:k_a_k_p_relationship>
 
 
 In most practical cases, the deviations from non-ideality can be assumed to be small, and we will oftentimes use concentrations or partial pressures in place of activities.
@@ -2963,7 +2963,7 @@ Namely, the attractive region is completely ignored.
 )<fig:hard_sphere>
 
 
-Assuming that #ce("A") and #ce("B") follow a Maxwell--Boltzmann distribution of speeds at a given temperature $T$, the frequency of collisions that occur at a given temperature can be shown to be#footnote[For additional details refer to "Chapter 2: The Mechanisms of Chemical Reactions in Homogeneous Phases" in J.B. Butt, _Reaction Kinetics and Reactor Design_ (2#super[nd] ed.).]
+Assuming that #ce("A") and #ce("B") follow a Maxwell--Boltzmann distribution of speeds at a given temperature $T$,#footnote[For additional details refer to "Chapter 2: The Mechanisms of Chemical Reactions in Homogeneous Phases" in J.B. Butt, _Reaction Kinetics and Reactor Design_ (2#super[nd] ed.).] the frequency of collisions that occur at a given temperature can be shown to be#footnote[For the collision of identical species, $macron(Z)$ should include a 1/2 factor to prevent double counting.]
 $ macron(Z) = n_ce("A") n_ce("B") sigma_ce("AB")^2 ((8 pi k_"B" T)/(mu_ce("AB")))^(1/2), $<eq:z_collision>
 where $n_ce("A")$ and $n_ce("B")$ are the number density of A and B (i.e. units of $"particle/m"^(3)$), and $mu_ce("AB")$ is the so-called reduced mass of the #ce("AB") system given as
 $ mu_ce("AB") equiv (m_ce("A") m_ce("B"))/(m_ce("A") + m_ce("B")), $
@@ -3148,7 +3148,7 @@ By ignoring the contribution from excited states and setting $epsilon_0=0$ eV by
 $ z_"el" = g_0. $
 
 The ground-state degeneracy, $g_0$, is analogous to the spin multiplicity, defined as the number of unpaired electrons plus one.
-For instance, #ce("CH4^∙") has one unpaired electron and therefore has $g_0=2$ (i.e. the ground-state has a degeneracy of 2).
+For instance, #ce("CH3^∙") has one unpaired electron and therefore has $g_0=2$ (i.e. the ground-state has a degeneracy of 2).
 Similarly, most non-radical species have $q_"el" approx 1$.
 However, this is not universally true.
 For instance, the ground-state magnetic configuration of #ce("O2") has two unpaired electrons, such that $g_0=3$ (i.e. the ground-state is a triplet).
@@ -3328,13 +3328,13 @@ To summarize, the (non-tabulated) information needed is:
 
 Now we will put all the pieces together:
 
-$ k_"TST" = (k_"B" T)/h N_ce("A") (4.162 times 10^(-28)"L") (53.851) (1.378) (1) exp(-(Delta E_0^ddagger)/(R T)). $
+$ k_"TST" = (k_"B" T)/h N_ce("A") (4.162 times 10^(-28) "L") (53.851) (1.378) (1) exp(-(Delta E_0^ddagger)/(R T)). $
 This simplifies to
-$ k_"TST" = (1.163 times 10^11"L/mol-s") exp(-(Delta E_0^ddagger)/(R T)). $
+$ k_"TST" = (1.163 times 10^11 "L/mol-s") exp(-(Delta E_0^ddagger)/(R T)). $
 We have the pre-exponential factor.
 Now we need the $Delta E_0^ddagger$ term.
 Strictly speaking, $Delta E_0^ddagger$ can only be computed from quantum-mechanical calculations.
-Here, we will assume it is $Delta E_0^ddagger$ = 6 kJ/mol.
+Here, we will take it as provided to us that $Delta E_0^ddagger$ = 6 kJ/mol.
 This gets us
 $ k_"TST" = 1.05 times 10^(10) "L/mol-s". $
 For comparison, the NIST Kinetics Database indicates that $k = 1.4 times 10^(10)$ L/mol-s for this reaction (at 298 K, which is close enough to our 300 K scenario).
@@ -3477,7 +3477,7 @@ The reason for $k_"TST"$ being less than $k$ here is likely just due to underlyi
 In the derivations of the transition state theory rate constant thus far, we have implicitly neglected any thermodynamic non-idealities.
 Now it is time for us to revisit our expressions with a fresh mindset.
 Recall that we started off our transition state theory derivation with 
-$ r = (k_"B" T)/h conc("AB")^ddagger, $
+$ r = nu^ddagger conc("AB")^ddagger= (k_"B" T)/h conc("AB")^ddagger, $
 as originally shown in #ref(<eq:nu_dagger>).
 Instead of substituting in for $K_"c"^ddagger$ to get rid of the $conc("AB")^ddagger$ intermediate, we will instead take advantage of the definition of $K_ce("a")^ddagger$ given by #ref(<eq:k_a_k_c_relationship>):
 $ K_ce("a")^ddagger = (1/C^std)^(1-m) (gamma^ddagger conc("AB")^ddagger)/(gamma_ce("A") conc("A") gamma_"B" conc("B")). $
@@ -3486,7 +3486,7 @@ $ conc("AB")^ddagger = (C^std)^(1-m) K_ce("a")^ddagger (gamma_ce("A") gamma_"B")
 Plugging this into our rate expression now yields
 $
 r &= (k_"B" T)/h (C^std)^(1-m) K_ce("a")^ddagger (gamma_ce("A") gamma_"B")/gamma^ddagger conc("A") conc("B")\
-r &= (k_"B" T)/h (C^std)^(1-m) Z^ddagger/(Z_ce("a") Z_"B") exp(- (Delta E_0^ddagger)/(R T)) (gamma_ce("A") gamma_"B")/gamma^ddagger conc("A") conc("B").
+r &= (k_"B" T)/h (C^std)^(1-m) Z^ddagger/(Z_ce("A") Z_"B") exp(- (Delta E_0^ddagger)/(R T)) (gamma_ce("A") gamma_"B")/gamma^ddagger conc("A") conc("B").
 $<eq:tst_activities>
 
 Here, the definition of $K_ce("a")^ddagger$ was substituted in from #ref(<eq:k_a_partition_functions>).
@@ -3508,7 +3508,7 @@ we see that the difference in the rate when accounting for thermodynamic non-ide
 $ k_"nonideal" = k_"ideal" (gamma_ce("A") gamma_ce("B"))/(gamma^ddagger). $<eq:k_relationship>
 
 A natural question to ask at this point is what value this analysis can provide if it relies on $gamma^ddagger$, which cannot be readily determined from experiments.
-Naturally, one answer is that it is possible---like with other aspects of the transition state theory representation of $k$---to determine $gamma^ddagger$ from theory.
+One answer is that it is possible---like with other aspects of the transition state theory representation of $k$---to determine $gamma^ddagger$ from theory.
 Perhaps more importantly, however, is that #ref(<eq:k_relationship>) can be used in a qualitative way to rationalize the effects of non-idealities.
 
 For instance, in the liquid-phase, if a solvent selectively stabilizes a given species, the activity coefficient for that species will likely be greater than 1.
@@ -3550,21 +3550,21 @@ $ K_ce("a")^ddagger = exp(-(Delta G^std^ddagger)/ (R T)). $
 Plugging $K_ce("a")^ddagger$ into our expression for $k_"nonideal"$ in #ref(<eq:k_nonideal>) (which we will simply refer to as $k$ here) yields
 $ k = (k_"B" T)/h (C^std)^(1-m) exp(-(Delta G^std^ddagger)/ (R T)) (gamma_ce("A") gamma_"B")/gamma^ddagger. $<eq:k_dg>
 In the thermodynamically ideal case (i.e. $gamma_ce("A")=gamma_"B"=gamma^ddagger = 1$), this expression is known as the Eyring equation.
-#footnote[There is sometimes a linear correlation between $Delta H^std^ddagger$ and $Delta S^std^ddagger$ but not necessarily for the reasons one might anticipate. Refer to G.C. McBane, "Chemistry from Telephone Numbers: The False Isokinetic Relationship", _J. Chem. Educ._, 75, 919--922 (1998).]
 By convention, $C^std$ is typically taken as $P\/R T$ at 1 bar for gases or as 1 M for liquids. 
 
 Naturally, when taking advantage of the thermodynamic relationship
-$ Delta G^std = Delta H^std - T Delta S^std $
+$ Delta G^std = Delta H^std - T Delta S^std, $
 we can rewrite the above expression as
-$ k = (k_"B"T )/h C^std^(1-m) exp(( Delta S^std^ddagger) / R) exp(-(Delta H^std^ddagger) / (R T)) (gamma_ce("A") gamma_"B")/gamma^ddagger. $ <eq:eyring-final>
+$ k = (k_"B"T )/h C^std^(1-m) exp(( Delta S^std^ddagger) / R) exp(-(Delta H^std^ddagger) / (R T)) (gamma_ce("A") gamma_"B")/gamma^ddagger $ <eq:eyring-final>
 or in Arrhenius form as
 $
 k equiv A exp(- (Delta H^std^ddagger) / (R T)),quad
 A equiv (k_"B" T)/h C^std^(1-m) exp((Delta S^std^ddagger)/R) (gamma_ce("A") gamma_"B")/gamma^ddagger.
 $
 With this, we can write our usual rate equation of the form $r = k conc("A") conc("B")$ in terms of enthalpies and entropies of activation.
+#footnote[There is sometimes a linear correlation between $Delta H^std^ddagger$ and $Delta S^std^ddagger$ but not necessarily for the reasons one might anticipate. Refer to G.C. McBane, "Chemistry from Telephone Numbers: The False Isokinetic Relationship", _J. Chem. Educ._, 75, 919--922 (1998).]
 
-An Arrhenius-type plot can also be made of $ln(k\/T)$ vs. $1\/T$ to back out $Delta H^std^ddagger$ from the slope and $Delta S^std^ddagger$ from the $y$-intercept, at least in the ideal case where the activity coefficients can be neglected:
+An Arrhenius-type plot can also be made of $ln(k\/T)$ vs. $1\/T$ to back out $Delta H^std^ddagger$ from the slope and $Delta S^std^ddagger$ from the $y$-intercept. In the ideal case where the activity coefficients can be neglected, we have
 $ ln(k/T) = -(Delta H^std^ddagger)/R dot.op 1/T + [ln(k_"B"/h C^std^(1-m)) + (Delta S^std^ddagger)/R]. $
 The linearized expression is only useful if one can assume that $Delta H^std^ddagger$ and $Delta S^std^ddagger$ are reasonably independent of temperature.
 
@@ -3576,7 +3576,7 @@ $ k = kappa (k_"B" T)/h C^std^(1-m) exp(- (Delta G^std^ddagger) / (R T)) $
 in the thermodynamically ideal case.
 The value for $kappa$ is between 0 and 1, in which case it represents the probability that the vibrational motion given by $nu^ddagger$ pushes the transition state forward towards the products as opposed to backwards towards the reactants.
 #footnote[In contrast with J.F. Perez-Benito, "Some Considerations on the Fundamentals of Chemical Kinetics: Steady State, Quasi-Equilibrium, and Transition State Theory", _J. Chem. Educ._, 94, 1238--1246 (2017), $k$ cannot be proportional to $kappa(1-kappa)$ otherwise $r->0$ as $kappa->1$ and there becomes an unphysical maximum in the rate at $kappa=1\/2$.]
-In other words, the rate constant (and rate) from transition state theory is generally an upper-estimate, even if all variables in the uncorrected rate expression were computed with perfect accuracy.
+In other words, the rate constant (and rate) from transition state theory is generally an upper-estimate if all variables in the uncorrected rate expression were computed with perfect accuracy.
 Unless otherwise stated, we will assume that $kappa = 1$.
 
 === Relationship Between Activation Enthalpy and Activation Energy <relationship-with-activation-energy>
@@ -3639,11 +3639,11 @@ which will lead to a new concept known as the reaction affinity.
 We will start by finding an expression for the rate constants, after which we will revisit the concentration terms.
 
 From the (non-idealized) Eyring equation, we know that
-$ k_(i)^+ &= (k_"B" T)/h (C^std)^(-1) exp(-(G^std^ddagger - G_ce("a")^std - G_"B"^std)/ (R T)) (gamma_ce("A") gamma_"B")/gamma^ddagger\
+$ k_(i)^+ &= (k_"B" T)/h (C^std)^(-1) exp(-(G^std^ddagger - G_ce("A")^std - G_"B"^std)/ (R T)) (gamma_ce("A") gamma_"B")/gamma^ddagger\
 k_(i)^- &= (k_"B" T)/h exp(-(G^std^ddagger - G_"P"^std)/ (R T)) (gamma_"P")/gamma^ddagger. $
 
 Therefore,
-$ k_(i)^- / (k_(i)^+) &= C^std exp((G_"P"^std - G_ce("a")^std - G_"B"^std) / (R T)) gamma_"P"/(gamma_ce("A") gamma_"B")\
+$ k_(i)^- / (k_(i)^+) &= C^std exp((G_"P"^std - G_ce("A")^std - G_"B"^std) / (R T)) gamma_"P"/(gamma_ce("A") gamma_"B")\
 k_(i)^- / (k_(i)^+) &= C^std exp((Delta G_i^std) / (R T)) gamma_"P"/(gamma_ce("A") gamma_"B").
 $<eq:de_donder_deriv1>
 
@@ -3651,7 +3651,7 @@ That takes care of part of our expression for the reversibility given by #ref(<e
 For the ratio of concentrations, we know that this looks like an equilibrium constant.
 Technically, we have made no assumptions about being at equilibrium here.
 As such, we will invoke the concept of the reaction quotient:
-$ Q_ce("a") equiv product_j  a_j^(nu_j) quad ("out-of-equilibrium") $
+$ Q_ce("a") equiv product_j  a_j^(nu_j) quad ("out-of-equilibrium"). $
 The relationship between the reaction quotient and Gibbs free energy is given by
 $ Delta G_i = R T ln(Q_ce("a")/K_ce("a")) $
 $
@@ -3730,14 +3730,12 @@ for the following overall reaction:
 $ ce("3H2 + O2 <--> 2H2O + 2H^∙"). $
 For now, we will consider the reaction taking place at standard state conditions such that $cal(A)_i = cal(A)^std_i$.
 
+When looking at the individual steps, we see that the first step has $cal(A)_i<0$, and de Donder's inequality must hold for every individual step in the proposed mechanism. This is true even if there is "thermodynamic coupling," wherein we combine thermodynamically favorable and unfavorable steps to have an overall positive affinity.
+
 The overall reaction affinity for any reaction can be given by
 $ cal(A) equiv sum_i sigma_i cal(A)_i, $
-such that for the reaction of interest here we have $cal(A)= 54$ kJ/mol.
-The natural question to ask here is as follows: can "thermodynamic coupling," wherein we combine thermodynamically unfavorable and unfavorable steps, result in a viable mechanism provided that the overall affinity is positive?
-
-As it turns out, having $cal(A)>0$ is a necessary but not sufficient condition.
-When looking at the individual steps, we see that the first step has $cal(A)_i<0$, and de Donder's inequality must hold for every individual step in the proposed mechanism.
-Thermodynamic coupling is not a viable route to ensure a reaction proceeds in a specific direction.
+such that for the reaction of interest here we have $cal(A)= 54$ kJ/mol since $sigma_1=sigma_2=1$.
+However, as previously stated, having $cal(A)>0$ is a necessary but not sufficient condition.
 
 ==== Kinetic Coupling
 
@@ -3780,26 +3778,26 @@ Now, we can provide more context for such equations.
 
 === Brønsted Relationship
 
-One of the earliest forms of linear energy relationships (LFERs) has to do with acid--base chemistry.
+One of the earliest forms of linear free energy relationships (LFERs) has to do with acid--base chemistry.
 Consider the following acid-catalyzed reaction:
-$ ce("AH") &eqArrow(K_ce("a")) ce("H+ + A-")\
+$ ce("AH") &eqArrow(K_"acid") ce("H+ + A-")\
 ce("R") &fwdArrow(k) ce("P"),
 $
 where the acid #ce("AH") is acting as a catalyst to enable the conversion of #ce("R") to #ce("P").
 In other words, #ce("R->P") is the net reaction but is not elementary since it involves a more complex mechanism with the acid.
-Here, $K_ce("a")$ is an acid dissociation equilibrium constant given by
-$ K_ce("a") = (conc("H+") conc("A-"))/conc("AH"). $
-It has been shown that there exists an empirical relationship wherein the stronger the acid is (i.e. the larger $K_ce("a")$ is), the faster the conversion of R to P is (i.e. the larger $k$ is).
+Here, $K_"acid"$ is an acid dissociation equilibrium constant given by
+$ K_"acid" = (conc("H+") conc("A-"))/conc("AH"). $
+It has been shown that there exists an empirical relationship wherein the stronger the acid is (i.e. the larger $K_"acid"$ is), the faster the conversion of R to P is (i.e. the larger $k$ is).
 This relationship is typically expressed as
-$ log(k) = alpha log(K_ce("a")) + c, $
+$ log(k) = alpha log(K_"acid") + c, $
 where $alpha>0$ and $c$ is a constant.
-The reason for invoking the $log$ transformations here is that $"pK"_ce("a") = -log(K_ce("a"))$, and $"pK"_ce("a")$ values are widely tabulated for acids.
+The reason for invoking the $log$ transformations here is that $"p"K_"acid" = -log(K_"acid")$, and $"p"K_"acid"$ values are widely tabulated for acids.
 A similar relationship is found for base-catalyzed reactions, except that the slope (i.e. $alpha$) has the opposite sign.
 
 #ref(<eq:bronsted_relationship>) is known as the Brønsted relationship and was one of the first reported linear free energy relationships.
 If a new acid is investigated and it yields significant deviations from the Brønsted relationship for a given acid-catalyzed reaction, then it is likely that the reaction proceeds via a different mechanism.
 
-Since $log(k) prop E_ce("a")$ and $log(K_ce("a")) prop Delta G^std$, in invoking the above relationship, one is implying that there exists a linear relationship between the activation energy for the reaction and the free energy of acid dissociation:
+Since $log(k) prop E_ce("a")$ and $log(K_"acid") prop Delta G^std$, in invoking the above relationship, one is implying that there exists a linear relationship between the activation energy for the reaction and the free energy of acid dissociation:
 $ E_ce("a") = a Delta G_"acid"^std + b, $<eq:bronsted_relationship>
 where $E_ce("a")$ is the (apparent) barrier associated with #ce("R->P"), and $Delta G^std_"acid"$ is the standard-state Gibbs free energy associated with #ce("HA <--> H+ + A-").
 Here, $a$ and $b$ are empirical constants, and $a>0$.
@@ -3807,7 +3805,7 @@ The more exergonic the acid dissociation process is, the lower the activation en
 
 === The Evans--Polanyi Model
 
-We will now seek to explain one explanation for why such linear (free) energy relationships can exist by invoking what is known as the Evans--Polanyi model.
+We will now seek to provide one explanation for why such linear (free) energy relationships can exist by invoking what is known as the Evans--Polanyi model.
 Consider the reaction
 $ ce("AB +C -> A + BC"). $
 
