@@ -2692,8 +2692,8 @@ $ m hat(C)_"V" (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) + alpha/kappa T  
 _This derivation is not covered in class but is included here for the interested reader._
 
 If our reacting mixture is an ideal gas mixture, we can make some further simplifications by noting that
-$ kappa equiv - 1/V ((partial V)/(partial P))_(T,n_j) = -1/V (diff((n R T)/P)/(partial P))_(T,n_j) = 1/V (n R T)/P^2 = 1/V (P V)/P^2 =1/P  $
-$ alpha equiv (1/V) ((partial V)/(partial T))_(P,n_j) = 1/V (diff((n R T)/P)/(partial T))_(P,n_j) = 1/V (n R)/P = 1/V (P V)/(P T) = 1/T. $
+$ kappa equiv - 1/V ((partial V)/(partial P))_(T,n_j) = -1/V (partial((n R T)/P)/(partial P))_(T,n_j) = 1/V (n R T)/P^2 = 1/V (P V)/P^2 =1/P  $
+$ alpha equiv (1/V) ((partial V)/(partial T))_(P,n_j) = 1/V (partial((n R T)/P)/(partial T))_(P,n_j) = 1/V (n R)/P = 1/V (P V)/(P T) = 1/T. $
 Plugging these expressions into #ref(<eq:constant_volume_energy>) yields
 $ m hat(C)_"V" (dif T)/(dif t)  &= V sum_i (-Delta H_("rxn",i) +  P  Delta V_("rxn",i))  r_i   + accent(Q,dot). $
 Finally, we can note that 
