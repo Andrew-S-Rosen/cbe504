@@ -1,8 +1,7 @@
 // Notes for next time
-// Improve section on empirical isotherm models
 // Replace 4.3.2 Stoichiometric Numbers with 5.3 from Davis and Davis instead
 // Skip de Donder relations
-// In-class exams
+// Clarify section on empirical isotherm models or skip entirely
 #import"@preview/xarrow:0.3.1": xarrow
 #import"@preview/gentle-clues:1.2.0": tip, clue
 #import"@preview/whalogen:0.3.0": ce
