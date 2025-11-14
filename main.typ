@@ -1,7 +1,7 @@
 // Notes for next time
-// Stop doing non-isothermal reactors. Then move material balances to the beginning.
 // Improve section on empirical isotherm models
 // Replace 4.3.2 Stoichiometric Numbers with 5.3 from Davis and Davis instead
+// Skip de Donder relations
 // In-class exams
 #import"@preview/xarrow:0.3.1": xarrow
 #import"@preview/gentle-clues:1.2.0": tip, clue
@@ -3532,6 +3532,38 @@ Therefore, while it is perfectly reasonable to use activities in a rate expressi
 one must take care in doing so.
 Namely, the additional component that needs to be accounted for is the factor of $1\/gamma^ddagger$ (in addition to ensuring the units work out via the appropriate factors of $C^std$).
 
+== Degrees of Freedom in Transition State Theory
+
+As was shown previously, the rate constant for a given elementary step is related to the ratio of partition functions for the transition state and the reactant(s):
+$ k prop Z'^ddagger/(Z'_ce("A") Z'_ce("B")). $
+If one considers a free molecule (e.g. in the gas phase), it has three translational degrees of freedom, three rotational degrees of freedom (if nonlinear) or two rotational degrees of freedom (if linear), and several vibrational degrees of freedom depending on the number of atoms, $N_0$.
+We will represent this as follows, where the exponents in quotes are simply how many degrees of freedom there are.#footnote[We have tacitly assumed that the excited states are energetically negligible, such that $z_"el" = g_0$ and therefore $z_"el"$ has only one degree of freedom.]
+$ Z' = z'_"trans"^((3)) z_"rot"^((m)) z_"vib"^((N)) z_"el", $
+where
+$
+m=0, quad N &=0 quad ("monatomic")\
+m=2, quad N &= 3N_0-5 quad ("linear")\
+m=3, quad N &=3N_0-6 quad ("non-linear").
+$
+For a transition state, one vibrational degree of freedom is lost, such that
+$ Z'^ddagger = z'_"trans"^(ddagger(3)) z_"rot"^(ddagger(m)) z_"vib"^(ddagger(N-1)) z_"el"^(ddagger). $
+With this in mind, we can often make order-of-magnitude arguments and simplifications to approximate a rate constant. 
+
+When a molecule adsorbs onto a surface, some of these degrees of freedom are lost.
+If the adsorbate is strongly chemisorbed onto the surface (#ref(<fig:chemisorbed>)), then there are likely no translational or rotational degrees of freedom left, depending on how strongly the molecule is adsorbed.
+The vibrational degrees of freedom are still present, although the vibrational modes are likely to differ substantially from the gas phase, and there are now $3N_0$ vibrational modes instead of $3N_0-5$ or $3N_0-6$ (unless $N_0=1$, in which case there are no vibrational modes).
+Collectively, this set of approximations is often known as the harmonic limit.
+
+#figure(image("figures/chemisorbed_partition_functions.svg",width:33%),caption:[Schematic of a chemisorbed molecule on a surface. If the adsorbate is strongly bound, it will have no translational or rotational degrees of freedom.])<fig:chemisorbed>
+
+If the adsorbate is somewhat weakly bound, then the remaining degrees of freedom are likely to be somewhere between that used for a free gas and that of a chemisorbed species.
+More complicated expressions are available to model these intermediate behaviors, such as the hindered translator--hindered rotor model.
+#footnote[L.H. Sprowl, C.T. Campbell, L. Árnadóttir, "Hindered Translator and Hindered Rotor Models for Adsorbates: Partition Functions and Entropies," _J. Phys. Chem. C_, 120, 9719--9731 (2016).]
+Additional consideration can be found in the literature related to molecules that adsorb within porous materials, where spatial confinement may restrict some degrees of freedom.
+#footnote[
+  P.J. Dauenhauer, O.A. Abdelrahman, "A Universal Descriptor for the Entropy of Adsorbed Molecules in Confined Spaces", _ACS Catal._, 4, 1235--1243 (2018).
+]
+
 == A Thermodynamic Perspective
 
 Previously, we derived an expression for $k$ based on a statistical mechanics approach (i.e. using partition functions).
@@ -3618,6 +3650,7 @@ Clearly, #ref(<eq:e_app_tst>) indicates there are several possible meanings for 
 Therefore, one should take care in clarifying which property is being reported.
 #footnote[For a discussion on the relationship between the apparent activation energy and enthalpy in multi-step reactions with multiple transition states, refer to Z. Mao, C.T. Campbell, "Apparent Activation Energies in Complex Reaction Mechanisms: A Simple Relationship via Degrees of Rate Control", _ACS Catal._, 9, 9465--9473 (2019).]
 
+
 == de Donder Relations
 
 === Reaction Affinity and Reversibility
@@ -3680,19 +3713,20 @@ $ z_i = r_(i)^- / r_(i)^+ = exp(-(cal(A)_i)/(R T)). $<eq:de_donder>
 The same result will hold regardless of the molecularity of the elementary reaction or if we neglected thermodynamic non-idealities.
 #ref(<eq:de_donder>) is known as the de Donder relation, which is a thermodynamic relationship between the forward and reverse rates of reaction.
 
-We can see that $z_i<1$ (i.e. the reaction proceeds in the forward direction) only if $cal(A)_i>0$ and vice versa.
-Another way to frame this is by stating
-$ cal(A)_i r_i >=0 $
-for a reaction to proceed as-written, which is known as de Donder's inequality.
-Here, $r_i$ is the net reaction rate of step $i$.
-For full clarity, there is no direct relationship between $cal(A)_i^std$ and the viability of the net reaction proceeding in a given direction---it only depends on $cal(A)_i$ at the reaction conditions.
-
 #caution[
   There is a clear parallel between the de Donder relation and the equilibrium constant:
 $ z_i = r_(i)^- / r_(i)^+ = exp(-(cal(A)_i)/(R T)), quad K_ce("a") = k_(i)^+ / k_(i)^- = exp(- (Delta G^std)/(R T)). $
 That said, it must be stressed once more that the de Donder relation is computed using the reaction conditions and does not involve a standard state.
 The de Donder relationship also describes a ratio of rates, not rate constants.
 ]
+
+We can see that $z_i<1$ (i.e. the reaction proceeds in the forward direction) only if $cal(A)_i>0$ and vice versa.
+Another way to frame this is by stating
+$ cal(A)_i r_i >=0 $
+for a reaction to proceed as-written, which is known as de Donder's inequality.
+Here, $r_i$ is the net reaction rate of step $i$.
+Another way to describe de Donder's inequality is that for an elementary reaction to proceed in the forward direction, both $r_i$ and $cal(A)_i$ must be positive; similarly, if the elementary reaction is to proceed in the reverse direction, both $r_i$ and $cal(A)_i$ must be negative.
+For full clarity, there is no direct relationship between $cal(A)_i^std$ and the viability of the net reaction proceeding in a given direction---it only depends on $cal(A)_i$ at the reaction conditions.
 
 The de Donder relationship can also be used to describe the net rate of reaction:
 $ r_i equiv r_(i)^+ - r_(i)^-=r^+ - r^+ exp(- cal(A)_i/(R T)) = r^+ (1-exp(- cal(A)_i/(R T))). $
@@ -3759,13 +3793,7 @@ When the extent of reaction is non-negligible (e.g. at steady state), however, t
 
 Ultimately, this brings us to the idea of kinetic coupling wherein a thermodynamically unfavorable (i.e. $cal(A)^std_i<0$) step can be overcome by having the concentration of a reactant kept high or a product concentration kept low with respect to its standard state, equilibrium value via coupling with another step in the mechanism.
 
-For #ce("H2 <--> 2H^∙") to proceed in the forward direction at steady state, there would need to be a separate, favorable reaction that it could kinetically couple to---namely one that would rapidly and continually consume #ce("H^∙").
-As an example, the following three-step mechanism is one that is known to be thermodynamically viable and support kinetic coupling:
-$
-ce("OH^∙ + H2 &<--> H2O + H^∙") quad &(sigma_1 = 2)\
-ce("H^∙ + O2 &<--> OH^∙ + O^∙∙") quad &(sigma_2 = 1)\
-ce("O^∙∙ + H2 &<--> OH^∙ + H^∙") quad &(sigma_3 = 1)
-$
+For #ce("H2 <--> 2H^∙") to proceed in the forward direction at steady state, there would need to be a separate, favorable reaction that it could kinetically couple to---namely one that would rapidly and continually consume #ce("H^∙"), such as some radical scavenger.
 
 
 = Energy and Reactivity Trends <reaction-energy-diagrams>
