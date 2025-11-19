@@ -3649,7 +3649,7 @@ Now, we will revisit the mechanism in #ref(<thermo-coupling>) but relax the assu
 In this scenario, $cal(A)_i != cal(A)^std_i$, and even though $cal(A)^std_1<0$, this does not necessarily mean the step is impossible since the de Donder relations apply to $cal(A)_i$ and not $A^std_i$.
 We will show that a concept known as kinetic coupling can enable the reaction to proceed as-written.
 
-We know from the definition of Gibbs free energy, and therby reaction affinity, that
+We know from the definition of Gibbs free energy, and thereby reaction affinity, that
 $ cal(A)_i = cal(A)^std_i - R T ln(product_j a_(j)^(nu_(i,j))), quad cal(A)^std_i = R T ln(K_ce("a")),  $
 such that
 $ cal(A)_i = R T ln(K_ce("a")/(product_j a_(j)^(nu_(i,j)))) = R T ln(((product_j a_(j)^(nu_(i,j)))_"eq")/(product_j a_(j)^(nu_(i,j)))). $ <eq:affinity>
