@@ -1,6 +1,6 @@
 // Notes for next time
 // Replace 4.3.2 Stoichiometric Numbers with 5.3 from Davis and Davis
-// Clarify section on empirical isotherm models or skip entirely
+// Add more content on empirical isotherm models or skip entirely
 // Add another applied lecture at end of course in place of de Donder
 #import"@preview/xarrow:0.3.1": xarrow
 #import"@preview/gentle-clues:1.2.0": tip, clue
