@@ -3695,8 +3695,10 @@ In this case, step $i$ is said to be a rate-inhibiting step.
 Since the degree of rate control is most often applied to understand how perturbations on a free energy diagram influence reactivity, it is natural to replace $k_i$ in #ref(<eq:drc>) with free energy.
 From the Eyring equation, we know that
 $
-k_i &= C^std^(1-m) (k_"B"T )/h exp(-(Delta G_(i)^std^ddagger) / (R T))\
-ln(k_i) &= ln(C^std^(1-m) (k_"B"T )/h) - (Delta G_(i)^std^ddagger) / (R T).
+k_i = C^std^(1-m) (k_"B"T )/h exp(-(Delta G_(i)^std^ddagger) / (R T))
+$
+$
+ln(k_i) = ln(C^std^(1-m) (k_"B"T )/h) - (Delta G_(i)^std^ddagger) / (R T).
 $
 Taking the derivative of both sides under the assumption that we are considering a given value of $T$ yields
 $ partial ln(k_i) = - partial((Delta G_(i)^std^ddagger) / (R T)) $
@@ -3752,11 +3754,22 @@ $ r = k_3 K_2/K_1 p_"B "/p_"A ". $
 
 We can write the rate law in terms of standard-state Gibbs free energies using the Eyring equation for $k_3$ and the definition of the equilibrium constant for $K_1$ and $K_2$:
 $
-r &= [(k_"B " T)/h 1/C^std exp(-(Delta G_(3)^std^ddagger)/(R T))] [(C^std exp(-(Delta G_(2)^std)/ (R T)))/(C^std exp(-(Delta G_(1)^std)/ (R T)))] p_"B "/p_"A "\
-r &= (k_"B " T)/h p_"B "/p_"A " 1/C^std exp((-Delta G_(3)^std^ddagger - Delta G_(2)^std + Delta G_(1)^std)/(R T)) \
-r &= (k_"B " T)/h p_"B "/p_"A " 1/C^std exp((-[G_(3)^std^ddagger - G_ce("A^*")^std - G_ce("B^*")^std] - [G_ce("B^*")^std - G_ce("B")^std - G_ce("*")^std] + [G_ce("A^*")^std - G_ce("A")^std - G_ce("*")^std])/(R T)) \
-r &= (k_"B " T)/h p_"B "/p_"A " 1/C^std exp((-G_(3)^std^ddagger + 2 G_ce("A^*")^std + G_ce("B")^std - G_ce("A")^std)/(R T))\
-r &= (k_"B " T)/h p_"B "/p_"A " 1/C^std exp((-G_(3)^std^ddagger + 2 G_ce("A^*")^std)/(R T)),
+r = [(k_"B" T)/h 1/C^std exp(-(Delta G_(3)^std^ddagger)/(R T))] [(C^std exp(-(Delta G_(2)^std)/ (R T)))/(C^std exp(-(Delta G_(1)^std)/ (R T)))] p_"B "/p_"A "
+$
+$
+r = (k_"B" T)/h p_"B "/p_"A " 1/C^std exp((-Delta G_(3)^std^ddagger - Delta G_(2)^std + Delta G_(1)^std)/(R T)). 
+$
+Note that the numerator inside the exponential is equivalent to
+
+$
+ -Delta G_(3)^std^ddagger - Delta G_(2)^std + Delta G_(1)^std=\ -(G_(3)^std^ddagger - G_ce("A^*")^std - G_ce("B^*")^std) - (G_ce("B^*")^std - G_ce("B")^std - G_ce("*")^std) + (G_ce("A^*")^std - G_ce("A")^std - G_ce("*")^std),
+$
+such that
+$
+r = (k_"B" T)/h p_"B "/p_"A " 1/C^std exp((-G_(3)^std^ddagger + 2 G_ce("A^*")^std + G_ce("B")^std - G_ce("A")^std)/(R T))
+$
+$
+r &= (k_"B" T)/h p_"B "/p_"A " 1/C^std exp((-G_(3)^std^ddagger + 2 G_ce("A^*")^std)/(R T)),
 $
 where the reactants (A and B) are taken as the zero-energy reference and can therefore be removed.
 Now we can calculate the generalized degree of rate control using #ref(<eq:drc_general>) to arrive at
