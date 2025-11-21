@@ -3436,7 +3436,7 @@ Additional consideration can be found in the literature related to molecules tha
   P.J. Dauenhauer, O.A. Abdelrahman, "A Universal Descriptor for the Entropy of Adsorbed Molecules in Confined Spaces", _ACS Catal._, 4, 1235--1243 (2018).
 ]
 
-== A Thermodynamic Perspective
+== A Thermodynamic Perspective to Transition State Theory
 
 Previously, we derived an expression for $k$ based on a statistical mechanics approach (i.e. using partition functions).
 We will show in this subsection that an analogous expression can be derived from simple thermodynamic arguments, albeit without the atomistic details.
@@ -3543,7 +3543,7 @@ $ z_i = exp((Delta G_i) /(R T)), $
 which will lead to a new concept known as the reaction affinity.
 We will start by finding an expression for the rate constants, after which we will revisit the concentration terms.
 
-From the (non-idealized) Eyring equation, we know that
+From the Eyring equation, we know that
 $ k_(i)^+ &= (k_"B" T)/h (C^std)^(-1) exp(-(G^std^ddagger - G_ce("A")^std - G_"B"^std)/ (R T)) (gamma_ce("A") gamma_"B")/gamma^ddagger\
 k_(i)^- &= (k_"B" T)/h exp(-(G^std^ddagger - G_"P"^std)/ (R T)) (gamma_"P")/gamma^ddagger. $
 
@@ -3666,6 +3666,108 @@ When the extent of reaction is non-negligible (e.g. at steady state), however, t
 Ultimately, this brings us to the idea of kinetic coupling wherein a thermodynamically unfavorable (i.e. $cal(A)^std_i<0$) step can be overcome by having the concentration of a reactant kept high or a product concentration kept low with respect to its standard state, equilibrium value via coupling with another step in the mechanism.
 
 For #ce("H2 <--> 2H^∙") to proceed in the forward direction at steady state, there would need to be a separate, favorable reaction that it could kinetically couple to---namely one that would rapidly and continually consume #ce("H^∙"), such as some radical scavenger.
+
+== Degree of Rate Control <degree-of-rate-control>
+
+_Note:_ This topic was not covered in class and is solely for the interested reader.
+
+
+=== The Degree of Rate Control of an Elementary Step
+
+In #ref(<rate-determining-step>), we introduced the concept of a rate-determining step that can greatly simplify a proposed mechanism.
+The rate-determining step also indicates, albeit indirectly, where improvements can be made to tune the overall rate of reaction most effectively.
+While a valuable principle, in most cases, it is not possible to identify a single rate-determining step.
+In these scenarios, we can rely on a concept known as the degree of rate control to guide our reaction engineering efforts.
+#footnote[For further details, refer to C.T. Campbell, The Degree of Rate Control: A Powerful Tool for Catalysis Research, _ACS Catalysis_, 4, 2770--2779 (2017). https://doi.org/10.1021/acscatal.7b00115.]
+
+The degree of rate control, $X_("RC",i)$ for elementary step $i$ is defined as
+$ X_("RC",i) equiv k_i / r ((partial r) / (partial k_i))_(k_(j != i), K_i) = 1/r ((partial r) / (partial ln(k_i)))_(k_(j != i), K_i). $ <eq:drc>
+Here, the partial derivative is taken such that the forward and reverse rate constants, $k_j$, for all steps other than $i$ are constant.
+Additionally, the equilibrium constant, $K_i$, for step $i$ is held fixed.
+While not explicitly written, it is also tacitly assumed that the reaction conditions themselves are constant (e.g. $T$, species concentrations) since we are focusing on the impact that an infinitesimal change on only the rate constant has on the rate.
+The reason that there is a factor of $k_i\/r$ proceeding the partial derivative in #ref(<eq:drc>) is to ensure that the expression is normalized such that it describes the relative change in the net rate scaled by the given $k_i$.
+
+By definition, if $X_("RC",i)$ is positive, then it implies that increasing the rate constant $k_i$ will increase the reaction rate and _vice versa_.
+In this case, step $i$ is said to be a rate-limiting (rather than determining) step.
+Similarly, if $X_("RC",i)$ is negative, it implies that increasing the rate constant $k_i$ will decrease the reaction rate and _vice versa_.
+In this case, step $i$ is said to be a rate-inhibiting step.
+
+Since the degree of rate control is most often applied to understand how perturbations on a free energy diagram influence reactivity, it is natural to replace $k_i$ in #ref(<eq:drc>) with free energy.
+From the Eyring equation, we know that
+$
+k_i &= C^std^(1-m) (k_"B"T )/h exp(-(Delta G_(i)^std^ddagger) / (R T))\
+ln(k_i) &= ln(C^std^(1-m) (k_"B"T )/h) - (Delta G_(i)^std^ddagger) / (R T).
+$
+Taking the derivative of both sides under the assumption that we are considering a given value of $T$ yields
+$ partial ln(k_i) = - partial((Delta G_(i)^std^ddagger) / (R T)) $
+since the derivative of a constant is always zero.
+Therefore, we can write that the degree of rate control is also equal to
+$
+X_("RC",i) = 1/r ((partial r) / (partial (-(Delta G_(i)^std^ddagger) / (R T))))_(k_(j != i),K_i)
+= 1/r ((partial r) / (partial (-(G_("TS",i)^std) / (R T))))_(G_(j!=i)^std^dagger,G_(m)^std),
+$
+where the partial derivative in the latter expression is taken such that the Gibbs free energy of the transition states for all steps other than $i$ are constant and the Gibbs free energy of all intermediates $m$ are constant.
+
+=== The Thermodynamic Degree of Rate Control for an Intermediate
+
+Admittedly, thinking about modifying the free energy of a transition state is a bit awkward.
+It is far more intuitive to think about how one might change the free energy of an intermediate along the reaction pathway.
+Thankfully, it is straightforward to extend the degree of rate control concept to intermediates as well, in which case it is often referred to as the thermodynamic degree of rate control.
+The thermodynamic degree of rate control for intermediate $n$ is given as
+$ X_("TRC",n) equiv 1/r ((partial r)/ (partial (-G_(n)^std / (R T))))_(G_(m != n)^std, G_(i)^std^ddagger). $
+Here, we are taking the derivative with the Gibbs free energy of all reactants, products, and intermediates other than $n$ as constant as well as the free energy of all transition states as fixed.
+The difference between $X_("RC",i)$ and $X_("TRC",n)$ is graphically depicted in #ref(<fig:drc>).
+#figure(
+  image("figures/campbell_acs_catal_2017_fig1.gif", width: 50%),
+  caption: [ "Schematic standard-state free-energy surface for the reaction AC(g) + B(g) → AB(g) + C(g), showing the degree of rate control based on a transition state free energy change and intermediate free energy change. Source: C. Campbell, _ACS Catal._, 4, 2770--2779 (2017). ]
+)<fig:drc>
+
+=== The Generalized Degree of Rate Control
+
+Given the similarity between $X_("RC",i)$ and $X_("TRC",n)$, a generalized degree of rate control for species $i$ can be written as
+$ "DRC"_i = 1/r ((partial r) / (partial (-G_(i)^std / (R T))))_(G_(j != i)^std) = - ((partial ln(r)) / (partial ((G_i^std) / (R T))))_G_(j!=i)^std, $<eq:drc_general>
+where the partial derivative is now taken such that the free energy of all species other than $i$ (including reactants, products, intermediates, transition states) is held fixed.
+In general,
+$ sum_"steps" X_("RC",i) = sum_("TSs") "DRC"_i = 1. $
+This implies that for a catalytic mechanism with a single rate-determining step $i$, the value of $X_("RC",i)$ is equal to 1, whereas it is 0 for the remaining steps since they do not contribute to the overall rate to a first approximation. 
+
+Ultimately, this brings us back to the concept of a rate-determining step.
+Some argue that there is no such thing as a rate-determining step.
+#footnote[S. Kozuch, J.M.L. Martin, The Rate-Determining Step is Dead. Long Live the Rate-Determining State! _ChemPhysChem_, 12, 1413--1418 (2011). https://doi.org/10.1002/cphc.201100137. ]
+Instead, what we have are rate-determining states, which are the states (including both minima and transition states) along the reaction coordinate that exhibit the largest degree of rate control.
+
+=== Applying the Degree of Rate Control to a Model Reaction
+
+While the value of the degree of rate control is in being able to analyze complex reaction networks, we will demonstrate its use on a toy reaction scheme simply for demonstration purposes.
+Consider the following reaction:
+$ 
+ce("A + *") &eqArrow(k_1,opposite:k_(-1)) ce("A^*")\
+ce("B + *") &eqArrow(k_2,opposite:k_(-2)) ce("B^*")\
+ce("A^* + B^*") &fwdArrow(k_3) ce("AB^* + *") quad ("RDS")\
+ce("AB^*") &eqArrow(k_4,opposite:k_(-4)) ce("AB + *")
+$
+for the surface-catalyzed reaction #ce("A + B -> AB") where the third reaction is the rate-determining step, thereby making the other steps in quasi-equilibrium.
+For the sake of demonstration, assume that the rate law can be approximated by 
+$ r = k_3 K_2/K_1 p_"B "/p_"A ". $
+
+We can write the rate law in terms of standard-state Gibbs free energies using the Eyring equation for $k_3$ and the definition of the equilibrium constant for $K_1$ and $K_2$:
+$
+r &= [(k_"B " T)/h 1/C^std exp(-(Delta G_(3)^std^ddagger)/(R T))] [(C^std exp(-(Delta G_(2)^std)/ (R T)))/(C^std exp(-(Delta G_(1)^std)/ (R T)))] p_"B "/p_"A "\
+r &= (k_"B " T)/h p_"B "/p_"A " 1/C^std exp((-Delta G_(3)^std^ddagger - Delta G_(2)^std + Delta G_(1)^std)/(R T)) \
+r &= (k_"B " T)/h p_"B "/p_"A " 1/C^std exp((-[G_(3)^std^ddagger - G_ce("A^*")^std - G_ce("B^*")^std] - [G_ce("B^*")^std - G_ce("B")^std - G_ce("*")^std] + [G_ce("A^*")^std - G_ce("A")^std - G_ce("*")^std])/(R T)) \
+r &= (k_"B " T)/h p_"B "/p_"A " 1/C^std exp((-G_(3)^std^ddagger + 2 G_ce("A^*")^std + G_ce("B")^std - G_ce("A")^std)/(R T))\
+r &= (k_"B " T)/h p_"B "/p_"A " 1/C^std exp((-G_(3)^std^ddagger + 2 G_ce("A^*")^std)/(R T)),
+$
+where the reactants (A and B) are taken as the zero-energy reference and can therefore be removed.
+Now we can calculate the generalized degree of rate control using #ref(<eq:drc_general>) to arrive at
+$ "DRC"_"TS"_3 = 1 $
+$ "DRC"_ce("A^*") = -2 $
+and $ "DRC"_j = 0$ for all other species.
+The degree of rate control for the rate-determining state (i.e. the transition state associated with the rate-determining step) is 1, which is a general feature of rate-determining steps.
+
+From this analysis, we can gain insights into how to improve the reaction via catalyst design.
+In general, we wish to stabilize transition states with large, positive degrees of rate control since it is these species that have the most outsized impact on the rate.
+However, we need to do so without significantly stabilizing intermediates with large, negative degrees of rate control since this would counteract the improvements to the rate. 
 
 
 = Energy and Reactivity Trends <reaction-energy-diagrams>
