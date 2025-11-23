@@ -3681,7 +3681,7 @@ In these scenarios, we can rely on a concept known as the degree of rate control
 #footnote[For further details, refer to C.T. Campbell, The Degree of Rate Control: A Powerful Tool for Catalysis Research, _ACS Catalysis_, 4, 2770--2779 (2017). https://doi.org/10.1021/acscatal.7b00115.]
 
 The degree of rate control, $X_("RC",i)$ for elementary step $i$ is defined as
-$ X_("RC",i) equiv k_i / r ((partial r) / (partial k_i))_(k_(j != i), K_i) = 1/r ((partial r) / (partial ln(k_i)))_(k_(j != i), K_i). $ <eq:drc>
+$ X_("RC",i) equiv k_i / r ((partial r) / (partial k_i))_(k_(j != i), K_i) = ((partial ln(r)) / (partial ln(k_i)))_(k_(j != i), K_i). $ <eq:drc>
 Here, the partial derivative is taken such that the forward and reverse rate constants, $k_j$, for all steps other than $i$ are constant.
 Additionally, the equilibrium constant, $K_i$, for step $i$ is held fixed.
 While not explicitly written, it is also tacitly assumed that the reaction conditions themselves are constant (e.g. $T$, species concentrations) since we are focusing on the impact that an infinitesimal change on only the rate constant has on the rate.
@@ -3705,8 +3705,8 @@ $ partial ln(k_i) = - partial((Delta G_(i)^std^ddagger) / (R T)) $
 since the derivative of a constant is always zero.
 Therefore, we can write that the degree of rate control is also equal to
 $
-X_("RC",i) = 1/r ((partial r) / (partial (-(Delta G_(i)^std^ddagger) / (R T))))_(k_(j != i),K_i)
-= 1/r ((partial r) / (partial (-(G_("TS",i)^std) / (R T))))_(G_(j!=i)^std^dagger,G_(m)^std),
+X_("RC",i) = ((partial ln(r)) / (partial (-(Delta G_(i)^std^ddagger) / (R T))))_(k_(j != i),K_i)
+= ((partial ln(r)) / (partial (-(G_("TS",i)^std) / (R T))))_(G_(j!=i)^std^ddagger,G_(m)^std),
 $
 where the partial derivative in the latter expression is taken such that the Gibbs free energy of the transition states for all steps other than $i$ are constant and the Gibbs free energy of all intermediates $m$ are constant.
 
@@ -3716,7 +3716,7 @@ Admittedly, thinking about modifying the free energy of a transition state is a 
 It is far more intuitive to think about how one might change the free energy of an intermediate along the reaction pathway.
 Thankfully, it is straightforward to extend the degree of rate control concept to intermediates as well, in which case it is often referred to as the thermodynamic degree of rate control.
 The thermodynamic degree of rate control for intermediate $n$ is given as
-$ X_("TRC",n) equiv 1/r ((partial r)/ (partial (-G_(n)^std / (R T))))_(G_(m != n)^std, G_(i)^std^ddagger). $
+$ X_("TRC",n) equiv 1/r ((partial r)/ (partial (-G_(n)^std / (R T))))_(G_(m != n)^std, G_(i)^std^ddagger)= ((partial ln(r))/ (partial (-G_(n)^std / (R T))))_(G_(m != n)^std, G_(i)^std^ddagger). $
 Here, we are taking the derivative with the Gibbs free energy of all reactants, products, and intermediates other than $n$ as constant as well as the free energy of all transition states as fixed.
 The difference between $X_("RC",i)$ and $X_("TRC",n)$ is graphically depicted in #ref(<fig:drc>).
 #figure(
@@ -3771,11 +3771,9 @@ $
 $
 r &= (k_"B" T)/h p_"B "/p_"A " 1/C^std exp((-G_(3)^std^ddagger + 2 G_ce("A^*")^std)/(R T)),
 $
-where the reactants (A and B) are taken as the zero-energy reference and can therefore be removed.
+where the reactants (A and B) are taken as the zero-energy references and can therefore be removed.
 Now we can calculate the generalized degree of rate control using #ref(<eq:drc_general>) to arrive at
-$ "DRC"_"TS"_3 = 1 $
-$ "DRC"_ce("A^*") = -2 $
-and $ "DRC"_j = 0$ for all other species.
+$ "DRC"_"TS"_3 = 1 , quad "DRC"_ce("A^*") = -2. $
 The degree of rate control for the rate-determining state (i.e. the transition state associated with the rate-determining step) is 1, which is a general feature of rate-determining steps.
 
 From this analysis, we can gain insights into how to improve the reaction via catalyst design.
