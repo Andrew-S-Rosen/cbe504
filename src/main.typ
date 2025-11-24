@@ -3641,7 +3641,7 @@ When looking at the individual steps, we see that the first step has $cal(A)_i<0
 The overall reaction affinity for any reaction can be given by
 $ cal(A) equiv sum_i sigma_i cal(A)_i, $
 such that for the reaction of interest here we have $cal(A)= 54$ kJ/mol since $sigma_1=sigma_2=1$.
-However, as previously stated, having $cal(A)>0$ is a necessary but not sufficient condition.
+However, as previously stated, having $cal(A)>0$ is a necessary but not sufficient condition since we also need all $cal(A)_i$ values to be positive as well.
 
 ==== Kinetic Coupling
 
