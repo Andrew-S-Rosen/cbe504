@@ -3669,8 +3669,6 @@ For #ce("H2 <--> 2H^∙") to proceed in the forward direction at steady state, t
 
 == Degree of Rate Control <degree-of-rate-control>
 
-_Note:_ This topic was not covered in class and is solely for the interested reader.
-
 
 === The Degree of Rate Control of an Elementary Step
 
