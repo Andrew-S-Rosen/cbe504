@@ -3937,7 +3937,7 @@ $ log(k_ce("R")/k_ce("H")) = rho sigma_ce("R"), quad sigma_ce("R") equiv log(K_(
 The above expression is the typical form of the Hammett relationship.
 
 Here, $sigma_ce("R")$ is known as the Hammett parameter.
-Hammett parameters are widely tabulated for different functional groups (typically for both the meta- and para- positions, where applicable) and are based on the acid-dissociation equilibrium constants of the substituted and unsubstituted forms of a molecule, which can be readily measured.
+Hammett parameters are widely tabulated for different functional groups (typically for both the _meta_ and _para_ positions, where applicable) and are based on the acid-dissociation equilibrium constants of the substituted and unsubstituted forms of a molecule, which can be readily measured.
 The Hammett parameters are dependent solely on the different functional group and not the reaction conditions.
 In contrast, $rho$ depends on the reaction environment and conditions.
 #footnote[For a table of commonly used Hammett parameters, refer to C. Hansch, A. Leo, A. Taft, "A Survey of Hammett Substituent Constants and Resonance and Field Parameters", _Chem. Rev._, 91, 165--195 (1991). Note that $sigma_"m"$ and $sigma_"p"$ refer to _meta_ and _para_ substituents, respectively.]
