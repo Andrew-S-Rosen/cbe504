@@ -3441,8 +3441,9 @@ Various expressions are available to describe these intermediate behaviors, such
 ]
 
 If we have an adsorption process of $ce("A + * -> A^*")$, we can describe this process using transition state theory. Notably, $m=2$ by definition and $Delta E_0^ddagger approx 0$ unless there are structural rearrangements or spin state changes of the catalyst upon adsorption.#footnote[For an exception, refer to K. Carsch et al., "Multi-Gas Adsorption with Single-Site Cooperativity in a Metal--Organic Framework", _Science_ et al., 390, 808--812 (2025).] If we invoke both of these conditions, then we have the following for the rate constant of adsorption:
-$ k =(k_"B"T)/h N_"A" (Z'^ddagger) / (Z'_ce("A") Z'_ce("B")).  $
-From here, approximations can generally be made to the various contributions to the partition functions as outlined above.#footnote[You may see this written as $k = (k_"B" T\/h) Z'_ce("A")^ddagger\/Z'_ce("A")$, such that the numerator solely describes the adsorbate at the transition state, and the surface partition functions are ignored. Note that this changes the dimensions of $k$ to that of a first-order process. It also assumes that the partition functions for the surface remain unchanged upon adsorption, which depends on the degree of coupling between the surface and adsorbate at the transition state.]
+$ k =(k_"B"T)/h N_"A" (Z'^ddagger) / (Z'_ce("A") Z'_ce("*")).  $
+From here, approximations can generally be made to the various contributions to the partition functions as outlined above.
+Since the surface is immobile, only the adsorbate's translational and rotational degrees of freedom (if applicable) contribute to $Z'^ddagger$.#footnote[You may see $k$ written as $k = (k_"B" T\/h) Z'_ce("A")^ddagger\/Z'_ce("A")$, such that the numerator solely describes the adsorbate at the transition state, and $Z'_ce("*")$ is entirely neglected. This assumes that the vibrational modes (and magnetic character) of the surface remains unchanged upon adsorption, which is not always the case. The dimensions of $k$ are also that of a first-order process.]
 
 == A Thermodynamic Perspective to Transition State Theory
 
