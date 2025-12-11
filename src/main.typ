@@ -58,7 +58,7 @@
 
 Licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License (the "License"). You may not use this file except in compliance with the License. You may obtain a copy of the License at https://creativecommons.org/licenses/by-nc-sa/4.0.
 
-A.S.R acknowledges Prof. Aditya Bhan, Prof. Linda Broadbelt, Prof. Justin Notestein, and Prof. Neil Razdan for inspiration on various topics covered within this course.
+A.S.R acknowledges Prof. Aditya Bhan, Prof. Justin Notestein, and Prof. Neil Razdan for inspiration on various topics covered within this course.
 Most importantly, A.S.R. is grateful for the thoughtful questions, comments, and corrections provided by his students who have helped shaped this text during their journey.
 
 This document was typeset using Typst (https://typst.app).]
@@ -2191,7 +2191,7 @@ k_"app" &=  A_2 exp((Delta S_1^std)/R) exp(-(E_"a,2"-Delta H_1^std)/(R T)),
 $
 such that
 $ A_"app" = A_2 exp((Delta S_1^std)/R), quad quad E_"app" = E_("a,2") - Delta H_1^std.  $
-Since the activation energy for an adsorption process is almost always zero,#footnote[For an exception, refer to K. Carsch et al., "Multi-Gas Adsorption with Single-Site Cooperativity in a Metal--Organic Framework", _Science_ (in press).] this implies that $E_"app" approx -Delta H_1^std$. In other words, the apparent activation energy for this reaction is approximately the negative value of the heat of adsorption of CO on the surface (when $K_1 p_ce("CO")>>1$).
+Since the activation energy for an adsorption process is almost always zero,#footnote[For an exception, refer to K. Carsch et al., "Multi-Gas Adsorption with Single-Site Cooperativity in a Metal--Organic Framework", _Science_ et al., 390, 808--812 (2025).] this implies that $E_"app" approx -Delta H_1^std$. In other words, the apparent activation energy for this reaction is approximately the negative value of the heat of adsorption of CO on the surface (when $K_1 p_ce("CO")>>1$).
 #footnote[For example, refer to M. Boudart, "Heterogeneous Molecular Catalysis: Oxymoron or Reality?", _J. Mol. Catal. A: Chem._, 120, 271 (1997). Boudart was a faculty member in the Department of Chemical Engineering at Princeton University from 1954--1961.]
 
 === Non-LHHW Kinetics
@@ -2824,6 +2824,8 @@ $ rho hat(C)_"P" (dif T)/(dif tau) + (1-alpha T) (dif P)/(dif tau) = - sum_i Del
 Assuming the cross-sectional area, $A_"c"$, of the PFR is constant, then we can equivalently write the derivatives in terms of $z$ instead of $tau$ via a simple change of variables (i.e. using the relationship of $tau = z \/u $ from #ref(<eq:residence_time>)):
 $ rho u hat(C)_"P" (dif T)/(dif z) +  u (1-alpha T) (dif P)/(dif z) = - sum_i Delta H_("rxn",i) r_i + dot(Q)/V, $
 where $u$ is the linear velocity of the fluid.
+The two expressions are largely interchangeable.
+Depending on the problem setup, it may be easier to deal in terms of $tau$ or $z$, but we will continue with the derivatives in terms of $z$ here for the sake of demonstration. 
 
 If the pressure drop along the reactor is negligible or the fluid is an ideal gas mixture (i.e. $alpha T =1$), then $dif P\/dif tau = dif P\/dif z = 0$, simplifying the energy balance further:
 $ rho u hat(C)_"P" (dif T)/(dif z) = - sum_i Delta H_("rxn",i) r_i + dot(Q)/V quad ("negligible pressure drop or ideal gas"). $<eq:pfr_nonisothermal_ideal>
@@ -3404,6 +3406,8 @@ Namely, the additional component that needs to be accounted for is the factor of
 
 == Degrees of Freedom in Transition State Theory
 
+=== Counting the Degrees of Freedom
+
 As was shown previously, the rate constant for a given elementary step is related to the ratio of partition functions for the transition state and the reactant(s):
 $ k prop Z'^ddagger/(Z'_ce("A") Z'_ce("B")). $
 If one considers a free molecule (e.g. in the gas phase), it has three translational degrees of freedom, three rotational degrees of freedom (if nonlinear) or two rotational degrees of freedom (if linear), and several vibrational degrees of freedom depending on the number of atoms, $N_0$.
@@ -3419,22 +3423,26 @@ For a transition state, one vibrational degree of freedom is lost and becomes an
 $ Z'^ddagger = z'_"trans"^(ddagger(3)) z_"rot"^(ddagger(m)) z_"vib"^(ddagger(N-1)) z_"el"^(ddagger). $
 With this in mind, we can often make order-of-magnitude arguments and simplifications to approximate a rate constant. 
 
+=== Adsorption Considerations
 #figure(image("figures/chemisorbed_partition_functions.svg",width:33%),caption:[Schematic of a chemisorbed molecule on a surface. If the adsorbate is strongly bound, it will have no translational or rotational degrees of freedom.])<fig:chemisorbed>
 
-When a molecule adsorbs onto a surface, some degrees of freedom are lost.
-If the adsorbate is chemisorbed onto the surface (#ref(<fig:chemisorbed>)), then the adsorbate molecule will likely have no translational or rotational degrees of freedom remaining, depending on how strongly it is adsorbed.
-The vibrational degrees of freedom are still present, although the vibrational modes are likely to differ substantially from the gas phase, and there are now $3N_0$ vibrational modes instead of $3N_0-5$ or $3N_0-6$.
+When a molecule adsorbs onto a surface, some degrees of freedom are often lost.
+If the adsorbate is strongly chemisorbed onto the surface (#ref(<fig:chemisorbed>)), then the adsorbate molecule will likely have no translational or rotational degrees of freedom remaining.
+The vibrational degrees of freedom of the molecule are still present, although they are likely to differ substantially from the gas phase, and there are now a total of $3N_0$ vibrational modes instead of $3N_0-5$ or $3N_0-6$.
 As for the surface itself, it is immobile, so it does not have any translational or rotational degrees of freedom.
-While the surface does have vibrational degrees of freedom, if there is relatively little coupling between the vibrational modes of the adsorbate and surface, then the vibrational modes of the surface atoms may remain unchanged such that they can be neglected.#footnote[The accuracy of this approximation is quite variable but is generally reasonable when there is a large mass difference between the adsorbate and surface atoms and relatively weak adsorption.] 
 
 
-If the adsorbate is somewhat weakly bound, then the remaining degrees of freedom are likely to be somewhere between that used for a free gas and that of a chemisorbed species.
-More complicated expressions are available to model these intermediate behaviors, such as the hindered translator--hindered rotor model.
-#footnote[L.H. Sprowl, C.T. Campbell, L. Árnadóttir, "Hindered Translator and Hindered Rotor Models for Adsorbates: Partition Functions and Entropies," _J. Phys. Chem. C_, 120, 9719--9731 (2016).]
-Additional consideration can be found in the literature related to molecules that adsorb within porous materials, where spatial confinement may restrict some degrees of freedom.
+
+If the adsorbate is weakly physisorbed, then there is likely to be only partial loss of the translational and/or rotational degrees of freedom compared to the gas phase.
+Various expressions are available to describe these intermediate behaviors, such as the hindered translator--hindered rotor model.
+#footnote[L.H. Sprowl, C.T. Campbell, L. Árnadóttir, "Hindered Translator and Hindered Rotor Models for Adsorbates: Partition Functions and Entropies," _J. Phys. Chem. C_, 120, 9719--9731 (2016).] Given the relatively weak nature of physisorption, the vibrational modes and electronic states of the adsorbate and surface do not usually exhibit substantial changes. Additional consideration can be found in the literature related to molecules that adsorb within porous materials, where spatial confinement may further restrict some degrees of freedom.
 #footnote[
   P.J. Dauenhauer, O.A. Abdelrahman, "A Universal Descriptor for the Entropy of Adsorbed Molecules in Confined Spaces", _ACS Catal._, 4, 1235--1243 (2018).
 ]
+
+If we have an adsorption process of $ce("A + * -> A^*")$, we can describe this process using transition state theory. Notably, $m=2$ by definition and $Delta E_0^ddagger approx 0$ unless there are structural rearrangements or spin state changes of the catalyst upon adsorption.#footnote[For an exception, refer to K. Carsch et al., "Multi-Gas Adsorption with Single-Site Cooperativity in a Metal--Organic Framework", _Science_ et al., 390, 808--812 (2025).] If we invoke both of these conditions, then we have the following for the rate constant of adsorption:
+$ k =(k_"B"T)/h N_"A" (Z'^ddagger) / (Z'_ce("A") Z'_ce("B")).  $
+From here, approximations can generally be made to the various contributions to the partition functions as outlined above.#footnote[You may see this written as $k = (k_"B" T\/h) Z'_ce("A")^ddagger\/Z'_ce("A")$, such that the numerator solely describes the adsorbate at the transition state, and the surface partition functions are ignored. Note that this changes the dimensions of $k$ to that of a first-order process. It also assumes that the partition functions for the surface remain unchanged upon adsorption, which depends on the degree of coupling between the surface and adsorbate at the transition state.]
 
 == A Thermodynamic Perspective to Transition State Theory
 
