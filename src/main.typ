@@ -3074,7 +3074,7 @@ It is also worth noting that $z_"trans"$ can be generalized to an arbitrary set 
 To do so, it is as simple as stating
 $ z_"trans" = (L / Lambda)^d, $<eq:trans_d>
 where $L$ is now a reference length associated with the degree of translational motion.
-#footnote[If invoking reduced translational degrees of freedom, #ref(<eq:trans_function>) will need to be normalized by the appropriate dimensionality (e.g. a reference area $A$ if $d=2$ rather than $V$ as with $d=3$).]
+We do not modify the $V$ term in #ref(<eq:total_partition_function>) since this is needed to obtain the correct units for $K_"C"^ddagger$.
 
 === Rotational Partition Function
 
@@ -3443,7 +3443,6 @@ Various expressions are available to describe these intermediate behaviors, such
 If we have an adsorption process of $ce("A + * -> A^*")$, we can describe this process using transition state theory. Notably, $m=2$ by definition and $Delta E_0^ddagger approx 0 "kJ/mol"$ unless there are structural rearrangements or spin state changes of the catalyst upon adsorption.#footnote[For an exception, refer to K. Carsch et al., "Multi-Gas Adsorption with Single-Site Cooperativity in a Metal--Organic Framework", _Science_ et al., 390, 808--812 (2025).] If we invoke both of these conditions, then we have the following for the rate constant of adsorption:
 $ k =(k_"B"T)/h N_"A" (Z'^ddagger) / (Z'_ce("A") Z'_ce("*")).  $
 From here, approximations can generally be made to the various contributions to the partition functions as outlined above.
-Since the surface is immobile, only the adsorbate's translational and rotational degrees of freedom (if applicable) contribute to $Z'^ddagger$.#footnote[You may see $k$ written as $k = (k_"B" T\/h) Z'_ce("A")^ddagger\/Z'_ce("A")$, such that the numerator solely describes the adsorbate at the transition state, and $Z'_ce("*")$ is entirely neglected. This assumes that the vibrational modes (and magnetic character) of the surface remains unchanged upon adsorption, which is not always the case. The dimensions of $k$ are also that of a first-order process.]
 
 == A Thermodynamic Perspective to Transition State Theory
 
