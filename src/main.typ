@@ -3383,10 +3383,10 @@ A natural question to ask at this point is what value this analysis can provide 
 One answer is that it is possible---like with other aspects of the transition state theory representation of $k$---to determine $gamma^ddagger$ from theory.
 Perhaps more importantly, however, is that #ref(<eq:k_relationship>) can be used in a qualitative way to rationalize the effects of non-idealities.
 
-For instance, in the liquid-phase, if a solvent selectively stabilizes a given species, the activity coefficient for that species will likely be greater than 1.
-#footnote[From a qualitative standpoint, this is because the effective concentration (i.e. activity) of the solute will necessarily be higher since it will be less accessible given that it is highly solvated.]
-Therefore, we can say that if we stabilize the reactants via solvation, then $k_"nonideal"$ would increase.
-In contrast, if our reaction media selectively stabilizes the transition state, then $k_"nonideal"$ will decrease.
+For instance, in the liquid-phase, if a solvent selectively stabilizes a given species, the activity coefficient for that species will likely be less than 1.
+#footnote[From a qualitative standpoint, this is because the effective concentration (i.e. activity) of the solute will necessarily be lower since it will be less accessible given that it is highly solvated.]
+Therefore, we can say that if we stabilize the reactants via solvation, then $k_"nonideal"$ would decrease.
+In contrast, if our reaction media selectively stabilizes the transition state, then $k_"nonideal"$ would increase.
 Similar arguments can be made about gas-phase reactions by considering the fugacity coefficient $phi_j$ in place of the activity coefficient $gamma_j$.
 
 === Replacing Concentrations with Activities
