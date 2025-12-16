@@ -3033,7 +3033,7 @@ $
 K_("a")^ddagger equiv (a^ddagger)/(a_ce("A") a_ce("B")) = (Z^ddagger) / (Z_ce("A") Z_ce("B")) exp(- (Delta E_0^ddagger)/(R T)),
 $<eq:k_a_partition_functions>
 as we will justify shortly.
-Here, $Delta E_0^ddagger$ is the energy difference between the transition state and reactants at 0 K (i.e. the sum of electronic energy and zero-point energy contributions).
+Here, $Delta E_0^ddagger$ is the energy difference between the transition state and reactants at 0 K (i.e. the sum of electronic energy and zero-point energy contributions).#footnote[Another way of thinking about $Delta E_0^ddagger$ is that it is the activation enthalpy in the 0 K limit.]
 We will adopt this convention for the partition functions going forward.
 
 Before proceeding, recall that we were dealing with concentrations and $K_"C"^ddagger$ in #ref(<eq:k_nu>).
