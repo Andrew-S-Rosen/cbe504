@@ -3074,7 +3074,7 @@ It is also worth noting that $z_"trans"$ can be generalized to an arbitrary set 
 To do so, it is as simple as stating
 $ z_"trans" = (L / Lambda)^d, $<eq:trans_d>
 where $L$ is now a reference length associated with the degree of translational motion.
-We do not modify the $V$ term in #ref(<eq:total_partition_function>) since this is needed to obtain the correct units for $K_"C"^ddagger$.
+In this scenario, we need to normalize $z_"trans"$ not by $V$ but rather by $L^d$ in #ref(<eq:trans_function>).
 
 === Rotational Partition Function
 
@@ -3428,21 +3428,21 @@ With this in mind, we can often make order-of-magnitude arguments and simplifica
 
 When a molecule adsorbs onto a surface, some degrees of freedom are often lost.
 If the adsorbate is strongly chemisorbed onto the surface (#ref(<fig:chemisorbed>)), then the adsorbate molecule will likely have no translational or rotational degrees of freedom remaining.
-The vibrational degrees of freedom of the molecule are still present, although they are likely to differ substantially from the gas phase, and there are now a total of $3N_0$ vibrational modes instead of $3N_0-5$ or $3N_0-6$.
-As for the surface itself, it is immobile, so it does not have any translational or rotational degrees of freedom.
+The vibrational degrees of freedom of the molecule are still present, although they are likely to differ substantially from the gas phase. In the limit of strong adsorption, there may will also be $3N_0$ vibrational modes instead of $3N_0-5$ or $3N_0-6$ since the rotational degrees of freedom are lost.
+As for the surface itself, it is immobile, so it does not have any translational or rotational degrees of freedom  to consider.
 
 
 
 If the adsorbate is weakly physisorbed, then there is likely to be only partial loss of the translational and/or rotational degrees of freedom compared to the gas phase.
 Various expressions are available to describe these intermediate behaviors, such as the hindered translator--hindered rotor model.
-#footnote[L.H. Sprowl, C.T. Campbell, L. Árnadóttir, "Hindered Translator and Hindered Rotor Models for Adsorbates: Partition Functions and Entropies," _J. Phys. Chem. C_, 120, 9719--9731 (2016).] Given the relatively weak nature of physisorption, the vibrational modes and electronic states of the adsorbate and surface do not usually exhibit substantial changes. Additional consideration can be found in the literature related to molecules that adsorb within porous materials, where spatial confinement may further restrict some degrees of freedom.
+#footnote[L.H. Sprowl, C.T. Campbell, L. Árnadóttir, "Hindered Translator and Hindered Rotor Models for Adsorbates: Partition Functions and Entropies," _J. Phys. Chem. C_, 120, 9719--9731 (2016).] Additional consideration can be found in the literature related to molecules that adsorb within porous materials, where spatial confinement may further restrict some degrees of freedom.
 #footnote[
   P.J. Dauenhauer, O.A. Abdelrahman, "A Universal Descriptor for the Entropy of Adsorbed Molecules in Confined Spaces", _ACS Catal._, 4, 1235--1243 (2018).
 ]
 
-If we have an adsorption process of $ce("A + * -> A^*")$, we can describe this process using transition state theory. Notably, $m=2$ by definition and $Delta E_0^ddagger approx 0 "kJ/mol"$ unless there are structural rearrangements or spin state changes of the catalyst upon adsorption.#footnote[For an exception, refer to K. Carsch et al., "Multi-Gas Adsorption with Single-Site Cooperativity in a Metal--Organic Framework", _Science_ et al., 390, 808--812 (2025).] If we invoke both of these conditions, then we have the following for the rate constant of adsorption:
-$ k =(k_"B"T)/h N_"A" (Z'^ddagger) / (Z'_ce("A") Z'_ce("*")).  $
-From here, approximations can generally be made to the various contributions to the partition functions as outlined above.
+If we have an adsorption process of $ce("A + * -> A^*")$, we can typically describe this process using transition state theory. If the surface is immobile like that of a solid-state material, then significant simplification may be invoked. Namely, we can typically assume that the partition function of the surface itself remains relatively unchanged upon adsorption of a single molecule, such that
+$ k =(k_"B"T)/h N_"A" (Z'^ddagger)  / (Z'_ce("A") ) exp(- (Delta E_0^ddagger )/ (R T)),  $
+where $Z'^ddagger$ is now referring to the transition state of the adsorbate molecule and excludes any direct information about the surface. Typically for adsorption, $Delta E_0^ddagger approx 0 $ kJ/mol.#footnote[For an exception, refer to K. Carsch et al., "Multi-Gas Adsorption with Single-Site Cooperativity in a Metal--Organic Framework", _Science_ et al., 390, 808--812 (2025).] 
 
 == A Thermodynamic Perspective to Transition State Theory
 
