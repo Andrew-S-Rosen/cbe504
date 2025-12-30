@@ -35,6 +35,12 @@
   icon: icon,
   ..args
 )
+#let ppt(title:"PowerPoint", icon: emoji.filebox, ..args) = clue(
+  accent-color: gray,
+  title: title,
+  icon: icon,
+  ..args
+)
 #let std = sym.circle.small
 #let conc(val) = $[ce(val)]$
 #let rad = sym.circle.filled.small
@@ -66,6 +72,8 @@ This document was typeset using Typst (https://typst.app).]
 )
 
 = Setting the Stage <setting-the-stage>
+
+#ppt[Refer to `course_overview.pptx` for additional content about the course structure.]
 
 == Course Perspective
 
@@ -1562,6 +1570,7 @@ Here, $M_s$ and $K_("ads",s)$ are both fitting parameters determined from an exp
 Generally, it is impossible to enumerate all possible surface sites, and even if one could, the number of fitting parameters would be huge.
 Instead, this model is typically used when it is clear there are (for instance) two major yet distinct adsorption sites that adsorbates can bind to.
 
+#ppt[Refer to `adsorption_isotherms.pptx` for a research example.]
 
 === Competitive Adsorption <competitive-adsorption>
 
@@ -2195,6 +2204,8 @@ Since the activation energy for an adsorption process is almost always zero,#foo
 #footnote[For example, refer to M. Boudart, "Heterogeneous Molecular Catalysis: Oxymoron or Reality?", _J. Mol. Catal. A: Chem._, 120, 271 (1997). Boudart was a faculty member in the Department of Chemical Engineering at Princeton University from 1954--1961.]
 
 === Non-LHHW Kinetics
+
+#ppt[Refer to `lhhw_literature.pptx` for history and research discussions about LHHW kinetics.]
 
 ==== Eley--Rideal Mechanism
 
@@ -3480,6 +3491,8 @@ An Arrhenius-type plot can also be made of $ln(k\/T)$ vs. $1\/T$ to back out $De
 $ ln(k/T) = -(Delta H^std^ddagger)/R dot.op 1/T + [ln(k_"B"/h C^std^(1-m)) + (Delta S^std^ddagger)/R]. $
 The linearized expression is only useful if one can assume that $Delta H^std^ddagger$ and $Delta S^std^ddagger$ are reasonably independent of temperature.
 
+#ppt[Refer to `isokinetic_linearization.pptx` for a discussion about the isokineic relationship.]
+
 === The Transmission Coefficient
 
 In practice, a multiplicative correction factor $kappa$, known as the transmission coefficient, is often included in the expression for $k$.
@@ -3677,6 +3690,11 @@ For #ce("H2 <--> 2H^∙") to proceed in the forward direction at steady state, t
 
 == Degree of Rate Control <degree-of-rate-control>
 
+#ppt[Refer to `data_driven_methods.pptx` for additional information on the following topics:
+- Degree of rate control
+- Data-driven reaction engineering
+- Reaction mechanism generation
+]
 
 === The Degree of Rate Control of an Elementary Step
 
@@ -3977,7 +3995,7 @@ Unlike the Hammett relationship, the Taft relationship has $k_ce("R")$ normalize
 
 == Scaling Relationships in Catalysis
 
-_Refer to PowerPoint slides for the following topics:_
+#ppt[Refer to `scaling_relations.pptx` for content about the following topics:
 - Physisorption trends
 - Chemisorption scaling relationships
 - Transition state scaling relationships
@@ -3985,6 +4003,8 @@ _Refer to PowerPoint slides for the following topics:_
 - Sabatier principle
 - Volcano plots
 - Breaking linear scaling relationships
+- $d$-band theory
+]
 
 
 = Concluding Comment <outlook>
