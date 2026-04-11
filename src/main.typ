@@ -1,9 +1,9 @@
 // Notes for next time
 // Replace 4.3.2 Stoichiometric Numbers with 5.3 from Davis and Davis
 #import"@preview/xarrow:0.3.1": xarrow
-#import"@preview/gentle-clues:1.2.0": tip, clue
+#import"@preview/gentle-clues:1.3.1": tip, clue
 #import"@preview/whalogen:0.3.0": ce
-#import"@preview/ilm:1.4.1": ilm
+#import"@preview/ilm:2.0.0": ilm
 
 #let caution(title:"Caution", icon: emoji.warning, ..args) = clue(
   accent-color: orange,
@@ -73,7 +73,6 @@ This document was typeset using Typst (https://typst.app).]
 
 = Setting the Stage <setting-the-stage>
 
-#ppt[Refer to `course_overview.pptx` for additional content about the course structure.]
 
 == Course Perspective
 
