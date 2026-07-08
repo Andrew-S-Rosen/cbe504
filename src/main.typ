@@ -1,6 +1,6 @@
 // Notes for next time
 // Replace 4.3.2 Stoichiometric Numbers with 5.3 from Davis and Davis
-#import"@preview/xarrow:0.4.0": xarrow
+#import"@preview/xarrow:0.3.1": xarrow
 #import"@preview/gentle-clues:1.3.1": tip, clue
 #import"@preview/whalogen:0.3.0": ce
 #import"@preview/ilm:2.1.1": ilm
@@ -57,7 +57,7 @@
 
 #show: ilm.with(
   title: [Chemical Kinetics and Reaction Engineering],
-  author:"Andrew S. Rosen",
+  authors: "Andrew S. Rosen",
   abstract: [Lectures notes for a graduate-level course.\ Compiled on #datetime.today().display().],
   paper-size:"us-letter",
   preface: [#align(center + horizon)[Copyright #sym.copyright 2025 Andrew S. Rosen.
